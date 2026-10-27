@@ -8,7 +8,7 @@
   const DATA = window.ONEPASS_DATA;
   let currentCurrency = localStorage.getItem('opv_currency') || 'USD';
 
-  const SVG_ARROW = `<svg class="icon-arrow" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 10h12M11 5l5 5-5 5" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
+  const SVG_ARROW = `<svg width="16" height="16" class="icon-arrow" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 10h12M11 5l5 5-5 5" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
   const SVG_CHECK = `<svg width="15" height="15" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M16.5 5.5l-8 8-4-4" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
 
   /* --------------------------------------------------------------------------
