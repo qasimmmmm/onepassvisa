@@ -299,6 +299,19 @@ ul, ol {
   flex-shrink: 0;
 }
 
+.brand-logo-img {
+  height: 42px;
+  width: auto;
+  display: block;
+  object-fit: contain;
+}
+
+@media (max-width: 767px) {
+  .brand-logo-img {
+    height: 35px;
+  }
+}
+
 .brand-mark-svg {
   width: 26px;
   height: 36px;
@@ -746,8 +759,10 @@ textarea.field-control {
   position: relative;
   border-radius: var(--radius-xl);
   overflow: hidden;
-  height: 350px;
+  height: 340px;
   background: var(--bg-secondary);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-sm);
 }
 
 .hero-main-photo-card img {
@@ -761,15 +776,21 @@ textarea.field-control {
   transform: scale(1.035);
 }
 
-.hero-main-overlay {
+.hero-photo-pill {
   position: absolute;
-  inset: 0;
-  background: linear-gradient(to top, rgba(0, 0, 0, 0.68) 0%, rgba(0, 0, 0, 0.15) 55%, transparent 100%);
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  padding: 1.5rem;
-  color: var(--white);
+  bottom: 14px;
+  left: 14px;
+  z-index: 3;
+  background: rgba(255, 255, 255, 0.95);
+  color: var(--foreground);
+  padding: 0.5rem 0.95rem;
+  border-radius: var(--radius-full);
+  font-size: 0.84rem;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  box-shadow: var(--shadow-sm);
 }
 
 .hero-sub-collage {
@@ -780,10 +801,12 @@ textarea.field-control {
 
 .hero-sub-photo-card {
   position: relative;
-  min-height: 156px;
+  min-height: 162px;
   border-radius: var(--radius-md);
   overflow: hidden;
   background: var(--bg-secondary);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-sm);
 }
 
 .hero-sub-photo-card img {
