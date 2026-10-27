@@ -9,15 +9,18 @@
 </head>
 <body>
 
-  <!-- Top Bar -->
-  <div class="top-bar">
-    <div class="container top-bar-inner">
-      <div class="top-bar-left">
-        <span class="top-bar-item"><span class="status-dot"></span> <span>256-Bit Encrypted Visa &amp; Travel Document Portal</span></span>
+  <!-- Above-the-Fold Google Ads Compliance Disclosure Bar -->
+  <div class="compliance-bar">
+    <div class="container compliance-bar-inner">
+      <div class="compliance-notice">
+        <span class="compliance-tag">Independent Service</span>
+        <span>
+          OnePassVisa.com is a private visa and travel document assistance agency and is not affiliated with any government. Service fees apply in addition to government fees, or you can apply directly via <a href="faq.html#gov-directory" style="color:var(--white);text-decoration:underline;">official government portals</a>.
+        </span>
       </div>
       <div class="top-bar-right">
-        <span class="top-bar-item">Promo Code: <strong>ONEPASS10</strong> (10% Off Processing Fee)</span>
-        <label class="top-bar-item">
+        <span style="color:var(--white);">Promo Code: <strong>ONEPASS10</strong></span>
+        <label style="display:inline-flex;align-items:center;gap:0.35rem;">
           <span>Currency:</span>
           <select class="currency-select js-currency-select" aria-label="Select Currency">
             <option value="USD">USD ($)</option>
@@ -78,9 +81,9 @@
     <div class="container">
       <div style="margin-bottom:1.5rem;">
         <span class="section-eyebrow">Online Application</span>
-        <h1 style="font-size:1.75rem;font-weight:800;color:var(--navy-900);">Visa &amp; Travel Document Application</h1>
+        <h1 style="font-size:1.75rem;font-weight:800;color:var(--navy-900);">Apply for Your Visa or Travel Document</h1>
         <p style="color:var(--gray-600);font-size:0.92rem;">
-          Complete the 4 simple steps below. Every application is verified by our specialist team prior to government submission.
+          Complete the 4 simple steps below. Every application is checked by our specialist team before submission.
         </p>
       </div>
 
@@ -113,11 +116,11 @@
 
             <!-- STEP 1: Trip & Speed -->
             <div class="wizard-pane active" data-step="1">
-              <h2 style="font-size:1.25rem;font-weight:700;color:var(--navy-900);margin-bottom:0.35rem;">
-                Step 1: Destination, Travel Dates &amp; Speed
+              <h2 style="font-size:1.22rem;font-weight:700;color:var(--navy-900);margin-bottom:0.35rem;">
+                Step 1: Select Destination, Dates &amp; Speed
               </h2>
-              <p style="font-size:0.88rem;color:var(--gray-500);margin-bottom:1.4rem;">
-                Select your nationality, destination country, and preferred processing speed.
+              <p style="font-size:0.88rem;color:var(--gray-500);margin-bottom:1.35rem;">
+                Choose your passport nationality, destination country, and preferred processing speed.
               </p>
 
               <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1.25rem;">
@@ -149,16 +152,16 @@
                 </div>
 
                 <div class="tier-option" data-tier="express">
-                  <span class="badge badge-emerald" style="margin-bottom:0.4rem;">Priority</span>
+                  <span class="badge badge-emerald" style="margin-bottom:0.4rem;">Express</span>
                   <h4 style="font-size:0.95rem;font-weight:700;color:var(--navy-900);">Express Processing</h4>
                   <p style="font-size:0.78rem;color:var(--gray-500);margin:0.25rem 0 0.65rem;">24–48 hour priority specialist queue</p>
                   <div style="font-weight:700;font-size:0.88rem;color:var(--blue-600);">+<span data-usd="29">$29</span> / applicant</div>
                 </div>
 
                 <div class="tier-option" data-tier="rush">
-                  <span class="badge badge-amber" style="margin-bottom:0.4rem;">Fastest</span>
-                  <h4 style="font-size:0.95rem;font-weight:700;color:var(--navy-900);">Super Rush</h4>
-                  <p style="font-size:0.78rem;color:var(--gray-500);margin:0.25rem 0 0.65rem;">Immediate review &amp; urgent dispatch</p>
+                  <span class="badge badge-amber" style="margin-bottom:0.4rem;">Priority</span>
+                  <h4 style="font-size:0.95rem;font-weight:700;color:var(--navy-900);">Priority Rush</h4>
+                  <p style="font-size:0.78rem;color:var(--gray-500);margin:0.25rem 0 0.65rem;">Immediate review &amp; priority filing</p>
                   <div style="font-weight:700;font-size:0.88rem;color:var(--navy-900);">+<span data-usd="59">$59</span> / applicant</div>
                 </div>
               </div>
@@ -173,17 +176,17 @@
 
             <!-- STEP 2: Applicant & Passport Details -->
             <div class="wizard-pane" data-step="2">
-              <h2 style="font-size:1.25rem;font-weight:700;color:var(--navy-900);margin-bottom:0.35rem;">
+              <h2 style="font-size:1.22rem;font-weight:700;color:var(--navy-900);margin-bottom:0.35rem;">
                 Step 2: Applicant &amp; Passport Information
               </h2>
               <p style="font-size:0.88rem;color:var(--gray-500);margin-bottom:1.25rem;">
-                Enter the details exactly as they appear on the applicant's passport bio page, or use our Passport MRZ Auto-Fill tool.
+                Enter the details as shown on the applicant's passport bio page, or click Auto-Fill to test with sample passport data.
               </p>
 
               <div class="ocr-box">
                 <div>
-                  <h3 style="font-size:0.95rem;font-weight:700;color:var(--navy-900);">Passport MRZ Auto-Fill</h3>
-                  <p style="font-size:0.82rem;color:var(--gray-600);">Automatically populate passport fields from a sample scan.</p>
+                  <h3 style="font-size:0.92rem;font-weight:700;color:var(--navy-900);">Quick Sample Auto-Fill</h3>
+                  <p style="font-size:0.8rem;color:var(--gray-600);">Test the form by auto-filling sample passport information.</p>
                   <div id="ocrScanStatus" style="display:none;margin-top:0.35rem;font-size:0.8rem;"></div>
                 </div>
                 <button type="button" id="simulateOcrBtn" class="btn btn-outline btn-sm">
@@ -240,11 +243,11 @@
 
             <!-- STEP 3: Document & Photo Upload -->
             <div class="wizard-pane" data-step="3">
-              <h2 style="font-size:1.25rem;font-weight:700;color:var(--navy-900);margin-bottom:0.35rem;">
-                Step 3: Upload Passport Scan &amp; Photograph
+              <h2 style="font-size:1.22rem;font-weight:700;color:var(--navy-900);margin-bottom:0.35rem;">
+                Step 3: Upload Passport Scan &amp; Photo
               </h2>
-              <p style="font-size:0.88rem;color:var(--gray-500);margin-bottom:1.4rem;">
-                Upload your passport bio page and a recent facial photograph. Our team automatically formats dimensions and background compliance.
+              <p style="font-size:0.88rem;color:var(--gray-500);margin-bottom:1.35rem;">
+                Upload your passport bio page and a recent facial photo. Our team formats dimensions and background compliance before submission.
               </p>
 
               <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.25rem;margin-bottom:1.5rem;">
@@ -258,8 +261,8 @@
                 </div>
 
                 <div style="border:1px dashed var(--gray-300);border-radius:var(--radius-md);padding:1.5rem;text-align:center;background:var(--gray-50);">
-                  <h4 style="font-weight:700;color:var(--navy-900);margin-bottom:0.25rem;">Applicant Digital Photograph</h4>
-                  <p style="font-size:0.8rem;color:var(--gray-500);margin-bottom:1rem;">Automatically cropped &amp; formatted</p>
+                  <h4 style="font-weight:700;color:var(--navy-900);margin-bottom:0.25rem;">Applicant Digital Photo</h4>
+                  <p style="font-size:0.8rem;color:var(--gray-500);margin-bottom:1rem;">Cropped &amp; formatted by our team</p>
                   <label class="btn btn-outline btn-sm" style="cursor:pointer;">
                     Select Photo
                     <input type="file" style="display:none;" accept="image/*" />
@@ -267,13 +270,13 @@
                 </div>
               </div>
 
-              <label style="display:flex;align-items:flex-start;justify-content:space-between;gap:1rem;padding:1.15rem;border:1px solid var(--gray-200);background:var(--gray-50);border-radius:var(--radius-sm);cursor:pointer;margin-bottom:1.5rem;">
+              <label style="display:flex;align-items:flex-start;justify-content:space-between;gap:1rem;padding:1.1rem;border:1px solid var(--gray-200);background:var(--gray-50);border-radius:var(--radius-sm);cursor:pointer;margin-bottom:1.5rem;">
                 <div style="display:flex;gap:0.75rem;">
                   <input type="checkbox" id="addonRejection" checked style="width:18px;height:18px;margin-top:2px;accent-color:var(--blue-600);" />
                   <div>
-                    <div style="font-weight:700;font-size:0.9rem;color:var(--navy-900);">100% Rejection Fee Refund Protection</div>
+                    <div style="font-weight:700;font-size:0.9rem;color:var(--navy-900);">Optional Fee Refund Protection</div>
                     <p style="font-size:0.82rem;color:var(--gray-600);margin-top:0.15rem;">
-                      Receive a full refund of both government and processing fees in the event of an immigration refusal.
+                      Receive a 100% refund of both government and service fees if your application is denied by the immigration authority.
                     </p>
                   </div>
                 </div>
@@ -291,11 +294,11 @@
 
             <!-- STEP 4: Payment & Submit -->
             <div class="wizard-pane" data-step="4">
-              <h2 style="font-size:1.25rem;font-weight:700;color:var(--navy-900);margin-bottom:0.35rem;">
-                Step 4: Secure Checkout
+              <h2 style="font-size:1.22rem;font-weight:700;color:var(--navy-900);margin-bottom:0.35rem;">
+                Step 4: Review &amp; Secure Payment
               </h2>
-              <p style="font-size:0.88rem;color:var(--gray-500);margin-bottom:1.4rem;">
-                All payments are protected by 256-bit SSL encryption. Your application enters document review immediately upon submission.
+              <p style="font-size:0.88rem;color:var(--gray-500);margin-bottom:1.35rem;">
+                All payments are encrypted over 256-bit SSL. Your application enters specialist document review immediately after checkout.
               </p>
 
               <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1.25rem;">
@@ -320,7 +323,7 @@
               <label style="display:flex;align-items:flex-start;gap:0.65rem;font-size:0.82rem;color:var(--gray-600);margin-bottom:1.5rem;cursor:pointer;">
                 <input type="checkbox" checked style="width:16px;height:16px;margin-top:2px;accent-color:var(--blue-600);" />
                 <span>
-                  I confirm that my passport details are accurate and agree to the OnePassVisa.com <a href="policies.html#terms" style="color:var(--blue-600);font-weight:600;">Terms of Service</a>, <a href="policies.html#privacy" style="color:var(--blue-600);font-weight:600;">Privacy Policy</a>, and <a href="policies.html#refund" style="color:var(--blue-600);font-weight:600;">Refund Policy</a>.
+                  I confirm that my passport details are accurate, understand that OnePassVisa.com is a private assistance agency charging a service fee in addition to the government fee, and agree to the <a href="policies.html#terms" style="color:var(--blue-600);font-weight:600;">Terms of Service</a>, <a href="policies.html#privacy" style="color:var(--blue-600);font-weight:600;">Privacy Policy</a>, and <a href="policies.html#refund" style="color:var(--blue-600);font-weight:600;">Refund Policy</a>.
                 </span>
               </label>
 
@@ -338,7 +341,7 @@
           <!-- Right: Order Summary Sidebar -->
           <aside class="order-summary-card">
             <div style="font-size:0.72rem;text-transform:uppercase;letter-spacing:0.05em;color:var(--gray-500);font-weight:700;margin-bottom:0.4rem;">
-              Application Summary
+              Transparent Fee Summary
             </div>
             <h3 id="sumCountryTitle" style="font-size:1.2rem;font-weight:800;color:var(--navy-900);margin-bottom:0.15rem;">
               United Arab Emirates
@@ -360,15 +363,15 @@
               <strong id="sumGovFee">$85</strong>
             </div>
             <div class="summary-line">
-              <span style="color:var(--gray-500);">Processing &amp; Review</span>
+              <span style="color:var(--gray-500);">OnePass Service Fee</span>
               <strong id="sumServiceFee">$39</strong>
             </div>
             <div class="summary-line">
-              <span style="color:var(--gray-500);">Priority Upgrade</span>
+              <span style="color:var(--gray-500);">Priority Speed Upgrade</span>
               <strong id="sumTierFee">Included</strong>
             </div>
             <div class="summary-line">
-              <span style="color:var(--gray-500);">Fee Protection</span>
+              <span style="color:var(--gray-500);">Refund Protection</span>
               <strong id="sumAddonsFee">$19</strong>
             </div>
             <div class="summary-line">
@@ -397,13 +400,17 @@
   <!-- Global Footer -->
   <footer class="site-footer">
     <div class="container">
+      <div class="gov-disclaimer-box">
+        <strong>Important Google Ads &amp; Consumer Disclosure:</strong> OnePassVisa.com is a private, third-party visa and travel document processing agency and is NOT affiliated with any government or embassy. You may apply directly on official government websites for the government fee alone by visiting our <a href="faq.html#gov-directory" style="color:var(--white);text-decoration:underline;">Official Government Portals Directory</a>.
+      </div>
       <div class="footer-bottom" style="border-top:none;padding-top:0;">
-        <div>© 2026 OnePassVisa.com Inc. All rights reserved.</div>
+        <div>© 2026 OnePassVisa.com Inc. • 540 Madison Ave, Suite 2100, New York, NY 10022 • All rights reserved.</div>
         <div style="display:flex;gap:1.25rem;">
           <a href="policies.html#terms">Terms</a>
           <a href="policies.html#privacy">Privacy</a>
           <a href="policies.html#refund">Refunds</a>
           <a href="policies.html#disclaimer">Disclaimer</a>
+          <a href="policies.html#credits">Image Credits</a>
         </div>
       </div>
     </div>

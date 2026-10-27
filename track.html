@@ -4,20 +4,23 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Track Your Visa & Travel Document Status — OnePassVisa.com</title>
-  <meta name="description" content="Track your online visa or travel document application status in real time and download your approved PDF at OnePassVisa.com." />
+  <meta name="description" content="Track your online visa or travel document application status and download your approved PDF at OnePassVisa.com." />
   <link rel="stylesheet" href="assets/css/styles.css" />
 </head>
 <body>
 
-  <!-- Top Bar -->
-  <div class="top-bar">
-    <div class="container top-bar-inner">
-      <div class="top-bar-left">
-        <span class="top-bar-item"><span class="status-dot"></span> <span>Live Application Status Tracker</span></span>
+  <!-- Above-the-Fold Google Ads Compliance Disclosure Bar -->
+  <div class="compliance-bar">
+    <div class="container compliance-bar-inner">
+      <div class="compliance-notice">
+        <span class="compliance-tag">Independent Service</span>
+        <span>
+          OnePassVisa.com is a private visa and travel document assistance agency and is not affiliated with any government. Service fees apply in addition to government fees, or you can apply directly via <a href="faq.html#gov-directory" style="color:var(--white);text-decoration:underline;">official government portals</a>.
+        </span>
       </div>
       <div class="top-bar-right">
-        <a href="apply.html" class="top-bar-item" style="color:var(--white);font-weight:600;">Start New Application</a>
-        <label class="top-bar-item">
+        <a href="apply.html" style="color:var(--white);font-weight:600;">Start New Application</a>
+        <label style="display:inline-flex;align-items:center;gap:0.35rem;">
           <span>Currency:</span>
           <select class="currency-select js-currency-select" aria-label="Select Currency">
             <option value="USD">USD ($)</option>
@@ -80,16 +83,16 @@
   <section class="hero hero-narrow">
     <div class="container">
       <div class="hero-center" style="margin-bottom:2rem;">
-        <span class="section-eyebrow">Application Tracker</span>
+        <span class="section-eyebrow">Order Status Tracker</span>
         <h1 class="hero-title" style="font-size:clamp(1.85rem,3.3vw,2.65rem);">
           Track Your <span>Visa or Travel Document</span>
         </h1>
-        <p class="hero-description">
-          Enter your OnePass Reference ID below to view real-time processing updates and download your approved travel document.
+        <p class="hero-description" style="margin-bottom:0;">
+          Enter your OnePass Reference ID below to check your application progress and download your travel document.
         </p>
       </div>
 
-      <div class="checker-card" style="max-width:820px;">
+      <div class="checker-card" style="max-width:820px;margin:0 auto;">
         <form id="trackOrderForm" style="display:grid;grid-template-columns:1fr auto;gap:1rem;align-items:end;">
           <div class="field-group">
             <label class="field-label" for="trackOrderIdInput">Tracking Reference Number</label>
@@ -110,7 +113,7 @@
             OPV-2026-51304 (Japan Immigration Review)
           </button>
           <button type="button" class="region-pill js-demo-track-btn" data-id="OPV-2026-39102" style="height:30px;padding:0 0.75rem;font-size:0.76rem;">
-            OPV-2026-39102 (UK ETA Audit)
+            OPV-2026-39102 (UK ETA Review)
           </button>
         </div>
       </div>
@@ -124,34 +127,34 @@
     </div>
   </section>
 
-  <!-- Official Specimen eVisa PDF Preview Modal -->
+  <!-- Sample Travel Document Preview Modal -->
   <div class="modal-backdrop" id="evisaPreviewModal" role="dialog" aria-modal="true" aria-labelledby="evisaModalTitle">
-    <div class="modal-dialog" style="max-width:720px;">
+    <div class="modal-dialog" style="max-width:700px;">
       <div class="modal-header">
-        <h3 id="evisaModalTitle" style="font-size:1.05rem;font-weight:700;">Electronic Visa &amp; Travel Authorization Record</h3>
+        <h3 id="evisaModalTitle" style="font-size:1.05rem;font-weight:700;">Sample Electronic Visa Summary</h3>
         <button type="button" class="btn btn-outline btn-sm" onclick="window.opvCloseSampleEvisaModal()">Close</button>
       </div>
       <div class="modal-body">
-        <div style="border:1px solid var(--gray-300);border-radius:var(--radius-md);padding:1.75rem;background:var(--gray-50);">
-          <div style="display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--gray-300);padding-bottom:1rem;margin-bottom:1.25rem;">
+        <div style="border:1px solid var(--gray-300);border-radius:var(--radius-md);padding:1.5rem;background:var(--gray-50);">
+          <div style="display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--gray-300);padding-bottom:0.9rem;margin-bottom:1.15rem;">
             <div>
               <div style="font-size:0.7rem;font-weight:700;letter-spacing:0.06em;color:var(--blue-600);text-transform:uppercase;">
-                ELECTRONIC VISA &amp; TRAVEL DOCUMENT
+                SAMPLE TRAVEL DOCUMENT SUMMARY
               </div>
-              <h4 style="font-size:1.25rem;font-weight:800;color:var(--navy-900);">
-                OnePassVisa.com Verified Issuance Record
+              <h4 style="font-size:1.2rem;font-weight:800;color:var(--navy-900);">
+                OnePassVisa.com Application Record
               </h4>
             </div>
-            <span class="badge badge-emerald">VALID FOR TRAVEL</span>
+            <span class="badge badge-emerald">APPROVED</span>
           </div>
 
-          <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-bottom:1.25rem;font-size:0.85rem;">
+          <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-bottom:1.15rem;font-size:0.85rem;">
             <div>
-              <div class="dest-spec-label">Document Number</div>
-              <div class="dest-spec-val mono">UAE-ICP-2026-9948102</div>
+              <div class="dest-spec-label">Reference Number</div>
+              <div class="dest-spec-val mono">UAE-2026-9948102</div>
             </div>
             <div>
-              <div class="dest-spec-label">Traveler Full Name</div>
+              <div class="dest-spec-label">Traveler Name</div>
               <div class="dest-spec-val">VANCE, ALEXANDER JAMES</div>
             </div>
             <div>
@@ -159,7 +162,7 @@
               <div class="dest-spec-val mono">N84920148 (USA)</div>
             </div>
             <div>
-              <div class="dest-spec-label">Permit Category</div>
+              <div class="dest-spec-label">Document Type</div>
               <div class="dest-spec-val">30-Day Tourist eVisa</div>
             </div>
             <div>
@@ -172,9 +175,9 @@
             </div>
           </div>
 
-          <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;padding-top:1rem;border-top:1px solid var(--gray-200);">
-            <span style="font-size:0.78rem;color:var(--gray-500);">
-              Verified &amp; Issued via OnePassVisa.com
+          <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;padding-top:0.9rem;border-top:1px solid var(--gray-200);">
+            <span style="font-size:0.76rem;color:var(--gray-500);">
+              Specimen preview generated by OnePassVisa.com
             </span>
             <button type="button" class="btn btn-navy btn-sm" onclick="window.print()">Print / Save PDF</button>
           </div>
@@ -186,13 +189,17 @@
   <!-- Global Footer -->
   <footer class="site-footer">
     <div class="container">
+      <div class="gov-disclaimer-box">
+        <strong>Important Google Ads &amp; Consumer Disclosure:</strong> OnePassVisa.com is a private, third-party visa and travel document processing agency and is NOT affiliated with any government or embassy. You may apply directly on official government websites for the government fee alone by visiting our <a href="faq.html#gov-directory" style="color:var(--white);text-decoration:underline;">Official Government Portals Directory</a>.
+      </div>
       <div class="footer-bottom" style="border-top:none;padding-top:0;">
-        <div>© 2026 OnePassVisa.com Inc. All rights reserved.</div>
+        <div>© 2026 OnePassVisa.com Inc. • 540 Madison Ave, Suite 2100, New York, NY 10022 • All rights reserved.</div>
         <div style="display:flex;gap:1.25rem;">
           <a href="policies.html#terms">Terms</a>
           <a href="policies.html#privacy">Privacy</a>
           <a href="policies.html#refund">Refunds</a>
           <a href="policies.html#disclaimer">Disclaimer</a>
+          <a href="policies.html#credits">Image Credits</a>
         </div>
       </div>
     </div>

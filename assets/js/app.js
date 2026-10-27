@@ -1,5 +1,5 @@
 /* ==========================================================================
-   OnePassVisa.com — Shared Interactive Application Engine (Clean UI)
+   OnePassVisa.com — Interactive Engine (With Photo Credits & Ads Compliance)
    ========================================================================== */
 
 (function () {
@@ -51,14 +51,26 @@
   }
 
   /* --------------------------------------------------------------------------
-     2. Mobile Navigation
+     2. Mobile Navigation & Cookie Consent Bar (Google Ads Compliant)
      -------------------------------------------------------------------------- */
-  function initNavigation() {
+  function initNavigationAndCookies() {
     const menuBtn = document.getElementById('mobileMenuBtn');
     const navLinks = document.getElementById('mainNavLinks');
     if (menuBtn && navLinks) {
       menuBtn.addEventListener('click', () => {
         navLinks.classList.toggle('mobile-open');
+      });
+    }
+
+    const cookieBanner = document.getElementById('cookieConsentBanner');
+    if (cookieBanner && !localStorage.getItem('opv_cookie_accepted')) {
+      cookieBanner.classList.add('show');
+    }
+    const acceptBtn = document.getElementById('acceptCookiesBtn');
+    if (acceptBtn && cookieBanner) {
+      acceptBtn.addEventListener('click', () => {
+        localStorage.setItem('opv_cookie_accepted', '1');
+        cookieBanner.classList.remove('show');
       });
     }
   }
@@ -105,17 +117,20 @@
       drawer.innerHTML = `
         <div class="result-banner">
           <div>
-            <div style="display:flex;align-items:center;gap:0.5rem;flex-wrap:wrap;margin-bottom:0.5rem;">
-              <span class="badge badge-emerald">Eligible for Online Application</span>
+            <div style="display:flex;align-items:center;gap:0.5rem;flex-wrap:wrap;margin-bottom:0.45rem;">
+              <span class="badge badge-emerald">Online Application Available</span>
               <span class="badge badge-blue">${dest.categoryBadge} • ${purpose}</span>
-              <span class="badge badge-neutral">${dest.approvalRate} Approval Rate</span>
             </div>
-            <h3 style="font-size:1.18rem;font-weight:700;color:var(--navy-900);margin-bottom:0.3rem;">
-              ${nat.name} Citizen traveling to ${dest.name}: <span style="color:var(--blue-600);">${dest.visaType}</span>
+            <h3 style="font-size:1.15rem;font-weight:700;color:var(--navy-900);margin-bottom:0.25rem;">
+              ${nat.name} Passport → ${dest.name}: <span style="color:var(--blue-600);">${dest.visaType}</span>
             </h3>
-            <p style="font-size:0.88rem;color:var(--gray-600);">
+            <p style="font-size:0.88rem;color:var(--gray-600);margin-bottom:0.35rem;">
               ${dest.overview}
             </p>
+            <div style="font-size:0.76rem;color:var(--gray-500);">
+              Government Fee: <strong>${formatMoney(dest.govFeeUSD)}</strong> + OnePass Service Fee: <strong>${formatMoney(dest.serviceFeeUSD)}</strong>
+              (Or apply directly at <a href="${dest.govPortal}" target="_blank" rel="noopener noreferrer" style="color:var(--blue-600);text-decoration:underline;">${dest.govPortal}</a>)
+            </div>
           </div>
           <div class="result-metrics">
             <div>
@@ -131,15 +146,15 @@
             <div>
               <div class="dest-spec-label">Total Fee</div>
               <div class="dest-spec-val" style="color:var(--blue-600);font-size:1.05rem;font-weight:800;" data-usd="${totalUSD}">${formatMoney(totalUSD)}</div>
-              <div style="font-size:0.7rem;color:var(--gray-500);margin-top:2px;">Gov + Service incl.</div>
+              <div style="font-size:0.7rem;color:var(--gray-500);margin-top:2px;">All-inclusive</div>
             </div>
           </div>
           <div style="display:flex;flex-direction:column;gap:0.5rem;">
             <a href="apply.html?country=${dest.id}&nationality=${nat.code}&purpose=${encodeURIComponent(purpose)}" class="btn btn-primary">
-              <span>Apply Now</span> ${SVG_ARROW}
+              <span>Start Application</span> ${SVG_ARROW}
             </a>
             <button type="button" class="btn btn-outline btn-sm" onclick="window.opvOpenCountryModal('${dest.id}')">
-              View Requirements (${dest.documents.length})
+              View Checklist (${dest.documents.length})
             </button>
           </div>
         </div>
@@ -151,7 +166,7 @@
   }
 
   /* --------------------------------------------------------------------------
-     5. Destination Cards Grid, Filter & Search
+     5. Destination Cards Grid (With Visible Photo Credits)
      -------------------------------------------------------------------------- */
   function initDestinationsGrid() {
     const grid = document.getElementById('destinationsGrid');
@@ -179,10 +194,9 @@
 
       if (list.length === 0) {
         grid.innerHTML = `
-          <div style="grid-column:1/-1;text-align:center;padding:3rem;background:var(--white);border-radius:var(--radius-md);border:1px solid var(--gray-200);">
-            <h3 style="font-size:1.15rem;color:var(--navy-900);margin-bottom:0.4rem;">No matching destinations found</h3>
-            <p style="color:var(--gray-500);font-size:0.9rem;margin-bottom:1.25rem;">Try searching for another country or start a custom visa &amp; travel document request.</p>
-            <a href="apply.html" class="btn btn-primary btn-sm">Start Visa Application</a>
+          <div style="grid-column:1/-1;text-align:center;padding:2.5rem;background:var(--white);border-radius:var(--radius-md);border:1px solid var(--gray-200);">
+            <h3 style="font-size:1.1rem;color:var(--navy-900);margin-bottom:0.35rem;">No matching destinations found</h3>
+            <p style="color:var(--gray-500);font-size:0.88rem;margin-bottom:1rem;">Try searching for another country or select "All Regions".</p>
           </div>
         `;
         return;
@@ -193,17 +207,18 @@
           const totalUSD = d.govFeeUSD + d.serviceFeeUSD;
           return `
             <article class="dest-card">
-              <div class="dest-card-visual" style="background-image:url('${d.image}')">
+              <div class="dest-card-visual" style="background-image:url('${d.image}')" role="img" aria-label="${d.name} landmark photo by ${d.photoCredit}">
                 <div class="dest-visual-top">
                   <span class="badge badge-dark">${d.categoryBadge}</span>
-                  <span class="badge badge-dark">${d.expressTime}</span>
+                  <span class="badge badge-dark">${d.region}</span>
                 </div>
                 <div class="dest-visual-bottom">
                   <h3 class="dest-country-title">${d.name}</h3>
-                  <span style="font-size:0.72rem;font-weight:600;color:var(--white);background:rgba(15,23,42,0.75);padding:0.2rem 0.55rem;border-radius:99px;">
-                    ${d.approvalRate} Approved
-                  </span>
                 </div>
+              </div>
+              <div class="dest-credit-bar">
+                <span>Photo: <a href="${d.photoCreditUrl}" target="_blank" rel="noopener noreferrer" style="text-decoration:underline;">${d.photoCredit}</a></span>
+                <span>${d.expressTime}</span>
               </div>
               <div class="dest-card-body">
                 <div>
@@ -218,23 +233,23 @@
                       <div class="dest-spec-val">${d.maxStay}</div>
                     </div>
                     <div>
-                      <div class="dest-spec-label">Entry Type</div>
-                      <div class="dest-spec-val">${d.entryType}</div>
+                      <div class="dest-spec-label">Government Fee</div>
+                      <div class="dest-spec-val">${formatMoney(d.govFeeUSD)}</div>
                     </div>
                     <div>
-                      <div class="dest-spec-label">Gov + Service Fee</div>
-                      <div class="dest-spec-val">${formatMoney(d.govFeeUSD)} + ${formatMoney(d.serviceFeeUSD)}</div>
+                      <div class="dest-spec-label">Service Fee</div>
+                      <div class="dest-spec-val">${formatMoney(d.serviceFeeUSD)}</div>
                     </div>
                   </div>
                 </div>
                 <div class="dest-card-footer">
                   <div>
-                    <div class="dest-price-label">Total Fee</div>
-                    <div class="dest-price-val">${formatMoney(totalUSD)} <span>/ person</span></div>
+                    <div class="dest-price-label">Total Per Person</div>
+                    <div class="dest-price-val">${formatMoney(totalUSD)} <span>incl. fees</span></div>
                   </div>
                   <div style="display:flex;gap:0.45rem;">
                     <button type="button" class="btn btn-outline btn-sm" onclick="window.opvOpenCountryModal('${d.id}')">
-                      Requirements
+                      Details
                     </button>
                     <a href="apply.html?country=${d.id}" class="btn btn-primary btn-sm">
                       <span>Apply</span> ${SVG_ARROW}
@@ -277,7 +292,7 @@
   }
 
   /* --------------------------------------------------------------------------
-     6. Country Visa Requirement Detail Modal
+     6. Country Visa Requirement Modal (With Photo & Credit + Gov Link)
      -------------------------------------------------------------------------- */
   window.opvOpenCountryModal = function (destId) {
     const modal = document.getElementById('countryDetailModal');
@@ -288,24 +303,28 @@
     const d = DATA.destinations.find((item) => item.id === destId) || DATA.destinations[0];
     const totalUSD = d.govFeeUSD + d.serviceFeeUSD;
 
-    title.textContent = `${d.name} — Visa & Travel Document Requirements`;
+    title.textContent = `${d.name} — Visa & Travel Document Details`;
     body.innerHTML = `
-      <div style="display:grid;grid-template-columns:1.25fr 0.75fr;gap:1.5rem;margin-bottom:1.5rem;">
+      <div style="position:relative;height:180px;border-radius:var(--radius-md);overflow:hidden;margin-bottom:1.25rem;border:1px solid var(--gray-200);">
+        <img src="${d.image}" alt="${d.name}" style="width:100%;height:100%;object-fit:cover;" />
+        <span class="photo-credit">Photo: <a href="${d.photoCreditUrl}" target="_blank" rel="noopener noreferrer">${d.photoCredit}</a></span>
+      </div>
+
+      <div style="display:grid;grid-template-columns:1.25fr 0.75fr;gap:1.35rem;margin-bottom:1.35rem;">
         <div>
-          <div style="display:flex;gap:0.45rem;flex-wrap:wrap;margin-bottom:0.65rem;">
+          <div style="display:flex;gap:0.45rem;flex-wrap:wrap;margin-bottom:0.5rem;">
             <span class="badge badge-blue">${d.categoryBadge}</span>
-            <span class="badge badge-emerald">Approval Rate: ${d.approvalRate}</span>
             <span class="badge badge-neutral">${d.entryType}</span>
           </div>
-          <h3 style="font-size:1.25rem;color:var(--navy-900);margin-bottom:0.45rem;">${d.visaType}</h3>
-          <p style="color:var(--gray-600);font-size:0.9rem;margin-bottom:1rem;">${d.overview}</p>
-          <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:0.75rem;background:var(--gray-50);padding:0.95rem;border-radius:var(--radius-sm);border:1px solid var(--gray-200);">
+          <h3 style="font-size:1.2rem;color:var(--navy-900);margin-bottom:0.4rem;">${d.visaType}</h3>
+          <p style="color:var(--gray-600);font-size:0.9rem;margin-bottom:0.9rem;">${d.overview}</p>
+          <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:0.65rem;background:var(--gray-50);padding:0.9rem;border-radius:var(--radius-sm);border:1px solid var(--gray-200);">
             <div>
               <div class="dest-spec-label">Standard Processing</div>
               <div class="dest-spec-val">${d.processingTime}</div>
             </div>
             <div>
-              <div class="dest-spec-label">Priority Option</div>
+              <div class="dest-spec-label">Priority Processing</div>
               <div class="dest-spec-val" style="color:var(--blue-600);">${d.expressTime}</div>
             </div>
             <div>
@@ -318,23 +337,23 @@
             </div>
           </div>
         </div>
-        <div style="background:var(--gray-50);border:1px solid var(--gray-200);padding:1.25rem;border-radius:var(--radius-md);display:flex;flex-direction:column;justify-content:space-between;">
+        <div style="background:var(--gray-50);border:1px solid var(--gray-200);padding:1.15rem;border-radius:var(--radius-md);display:flex;flex-direction:column;justify-content:space-between;">
           <div>
-            <div style="font-size:0.72rem;text-transform:uppercase;letter-spacing:0.05em;color:var(--gray-500);font-weight:700;margin-bottom:0.5rem;">Fee Breakdown</div>
-            <div style="display:flex;justify-content:space-between;padding:0.45rem 0;border-bottom:1px solid var(--gray-200);font-size:0.86rem;">
+            <div style="font-size:0.72rem;text-transform:uppercase;letter-spacing:0.05em;color:var(--gray-500);font-weight:700;margin-bottom:0.45rem;">Transparent Fee Breakdown</div>
+            <div style="display:flex;justify-content:space-between;padding:0.4rem 0;border-bottom:1px solid var(--gray-200);font-size:0.86rem;">
               <span style="color:var(--gray-600);">Government Fee</span>
               <strong>${formatMoney(d.govFeeUSD)}</strong>
             </div>
-            <div style="display:flex;justify-content:space-between;padding:0.45rem 0;border-bottom:1px solid var(--gray-200);font-size:0.86rem;">
-              <span style="color:var(--gray-600);">Processing &amp; Review</span>
+            <div style="display:flex;justify-content:space-between;padding:0.4rem 0;border-bottom:1px solid var(--gray-200);font-size:0.86rem;">
+              <span style="color:var(--gray-600);">OnePass Service Fee</span>
               <strong>${formatMoney(d.serviceFeeUSD)}</strong>
             </div>
-            <div style="display:flex;justify-content:space-between;padding:0.65rem 0 0;font-size:1.1rem;font-weight:800;color:var(--navy-900);">
+            <div style="display:flex;justify-content:space-between;padding:0.6rem 0 0;font-size:1.05rem;font-weight:800;color:var(--navy-900);">
               <span>Total Per Person</span>
               <span style="color:var(--blue-600);">${formatMoney(totalUSD)}</span>
             </div>
           </div>
-          <div style="margin-top:1.15rem;">
+          <div style="margin-top:1rem;">
             <a href="apply.html?country=${d.id}" class="btn btn-primary btn-block">
               <span>Start Application</span> ${SVG_ARROW}
             </a>
@@ -342,14 +361,14 @@
         </div>
       </div>
 
-      <h4 style="font-size:0.95rem;color:var(--navy-900);margin-bottom:0.65rem;font-weight:700;">
+      <h4 style="font-size:0.92rem;color:var(--navy-900);margin-bottom:0.55rem;font-weight:700;">
         Required Documents (${d.documents.length})
       </h4>
-      <ul style="display:grid;gap:0.5rem;margin-bottom:1.5rem;">
+      <ul style="display:grid;gap:0.45rem;margin-bottom:1.25rem;">
         ${d.documents
           .map(
             (doc) => `
-          <li style="display:flex;align-items:center;gap:0.6rem;background:var(--gray-50);border:1px solid var(--gray-200);padding:0.65rem 0.9rem;border-radius:var(--radius-xs);font-size:0.88rem;font-weight:500;color:var(--navy-900);">
+          <li style="display:flex;align-items:center;gap:0.55rem;background:var(--gray-50);border:1px solid var(--gray-200);padding:0.6rem 0.85rem;border-radius:var(--radius-xs);font-size:0.86rem;color:var(--navy-900);">
             <span style="color:var(--emerald-600);display:flex;">${SVG_CHECK}</span> ${doc}
           </li>
         `
@@ -357,10 +376,11 @@
           .join('')}
       </ul>
 
-      <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;padding-top:1rem;border-top:1px solid var(--gray-200);font-size:0.8rem;color:var(--gray-500);">
+      <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:0.75rem;padding-top:0.9rem;border-top:1px solid var(--gray-200);font-size:0.78rem;color:var(--gray-500);">
         <div>
-          Official Government Portal:
+          <strong>Government Portal Disclosure:</strong> You may also apply directly via the official government website at
           <a href="${d.govPortal}" target="_blank" rel="noopener noreferrer" style="color:var(--blue-600);text-decoration:underline;">${d.govPortal}</a>
+          for the ${formatMoney(d.govFeeUSD)} statutory fee alone.
         </div>
         <button type="button" class="btn btn-outline btn-sm" onclick="window.print()">Print Checklist</button>
       </div>
@@ -495,7 +515,7 @@
       scanBtn.addEventListener('click', () => {
         const statusEl = document.getElementById('ocrScanStatus');
         scanBtn.disabled = true;
-        scanBtn.textContent = 'Scanning Passport MRZ...';
+        scanBtn.textContent = 'Reading Passport Details...';
 
         setTimeout(() => {
           document.getElementById('wizFirstName').value = 'ALEXANDER JAMES';
@@ -507,12 +527,12 @@
           document.getElementById('wizPhone').value = '+1 (415) 890-4421';
 
           scanBtn.disabled = false;
-          scanBtn.textContent = 'Passport Details Auto-Filled';
+          scanBtn.textContent = 'Sample Passport Filled';
           if (statusEl) {
             statusEl.style.display = 'block';
-            statusEl.innerHTML = `<span style="color:var(--emerald-700);font-weight:600;">Passport MRZ verified and fields populated automatically.</span>`;
+            statusEl.innerHTML = `<span style="color:var(--emerald-700);font-weight:600;">Sample passport details filled automatically.</span>`;
           }
-        }, 500);
+        }, 400);
       });
     }
 
@@ -525,13 +545,13 @@
           promoDiscountRate = 0.1;
           if (msg) {
             msg.style.color = 'var(--emerald-700)';
-            msg.textContent = 'Promo code applied: 10% discount on processing fees.';
+            msg.textContent = 'Promo code applied: 10% off service fee.';
           }
         } else {
           promoDiscountRate = 0;
           if (msg) {
             msg.style.color = 'var(--red-600)';
-            msg.textContent = 'Enter ONEPASS10 for a 10% discount.';
+            msg.textContent = 'Use code ONEPASS10 for 10% off.';
           }
         }
         updateSummary();
@@ -550,7 +570,7 @@
         tierName = 'Express (24–48 hrs)';
       } else if (selectedTier === 'rush') {
         tierAddUSD = 59;
-        tierName = 'Super Rush (' + dest.expressTime + ')';
+        tierName = 'Priority (' + dest.expressTime + ')';
       }
 
       const addonRejection = document.getElementById('addonRejection')?.checked ? 19 : 0;
@@ -608,16 +628,16 @@
           tier: selectedTier.toUpperCase(),
           statusBadge: 'DOCUMENT REVIEW IN PROGRESS',
           statusType: 'blue',
-          specialist: 'Sarah Al-Mansoor (Senior Visa Auditor)',
-          evisaNumber: 'Assigned upon Government Submission',
+          specialist: 'Sarah Al-Mansoor (Senior Visa Reviewer)',
+          evisaNumber: 'Assigned upon Submission',
           validUntil: dest.validity,
           steps: [
             { title: 'Application & Payment Received', time: 'Completed', state: 'done', note: `Order ${orderId} confirmed.` },
             { title: 'Specialist Passport & Document Verification', time: 'In Progress', state: 'current', note: 'Assigned specialist is reviewing your passport details and photo.' },
-            { title: 'Biometric Photograph Formatting', time: 'Queued', state: 'pending', note: 'Automated compliance calibration.' },
-            { title: `Submitted to ${dest.name} Immigration Portal`, time: 'Upcoming', state: 'pending', note: 'Direct electronic submission.' },
-            { title: 'Immigration Security Clearance', time: 'Upcoming', state: 'pending', note: 'Status updates sent by email.' },
-            { title: 'Official Visa / Travel Document Issued', time: 'Upcoming', state: 'pending', note: 'Delivered via email and downloadable in Tracker.' }
+            { title: 'Photograph & File Formatting', time: 'Queued', state: 'pending', note: 'Formatting to destination specifications.' },
+            { title: `Submitted to ${dest.name} Immigration Portal`, time: 'Upcoming', state: 'pending', note: 'Electronic filing.' },
+            { title: 'Immigration Review', time: 'Upcoming', state: 'pending', note: 'Updates sent by email.' },
+            { title: 'Travel Document Delivery', time: 'Upcoming', state: 'pending', note: 'Delivered via email and downloadable in Tracker.' }
           ]
         };
 
@@ -633,26 +653,26 @@
           wizardMain.style.display = 'none';
           confirmBox.style.display = 'block';
           confirmBox.innerHTML = `
-            <div class="wizard-card" style="max-width:720px;margin:0 auto;text-align:center;padding:2.75rem 2rem;">
-              <span class="badge badge-emerald" style="margin-bottom:0.75rem;">Application Confirmed</span>
-              <h2 style="font-size:1.75rem;color:var(--navy-900);font-weight:800;margin-bottom:0.5rem;">
-                Your Application Has Been Submitted
+            <div class="wizard-card" style="max-width:700px;margin:0 auto;text-align:center;padding:2.5rem 2rem;">
+              <span class="badge badge-emerald" style="margin-bottom:0.65rem;">Application Received</span>
+              <h2 style="font-size:1.65rem;color:var(--navy-900);font-weight:800;margin-bottom:0.45rem;">
+                Thank You — Your Application Is Under Review
               </h2>
-              <p style="color:var(--gray-600);max-width:520px;margin:0 auto 1.75rem;font-size:0.95rem;">
-                Your ${dest.name} application for <strong>${firstName} ${lastName}</strong> is now being reviewed by our visa specialist team.
+              <p style="color:var(--gray-600);max-width:500px;margin:0 auto 1.5rem;font-size:0.92rem;">
+                Your ${dest.name} application for <strong>${firstName} ${lastName}</strong> has been received and assigned to our document review team.
               </p>
 
-              <div style="background:var(--gray-50);border:1px solid var(--gray-200);padding:1.5rem;border-radius:var(--radius-md);text-align:left;margin-bottom:1.75rem;">
-                <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;padding-bottom:1rem;border-bottom:1px solid var(--gray-200);">
+              <div style="background:var(--gray-50);border:1px solid var(--gray-200);padding:1.35rem;border-radius:var(--radius-md);text-align:left;margin-bottom:1.5rem;">
+                <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;padding-bottom:0.9rem;border-bottom:1px solid var(--gray-200);">
                   <div>
                     <div class="dest-spec-label">Tracking Reference Number</div>
-                    <div class="mono" style="font-size:1.35rem;font-weight:800;color:var(--blue-600);">${orderId}</div>
+                    <div class="mono" style="font-size:1.3rem;font-weight:800;color:var(--blue-600);">${orderId}</div>
                   </div>
                   <a href="track.html?id=${orderId}" class="btn btn-primary btn-sm">
                     <span>Track Status</span> ${SVG_ARROW}
                   </a>
                 </div>
-                <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;padding-top:1rem;font-size:0.85rem;">
+                <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;padding-top:0.9rem;font-size:0.84rem;">
                   <div>
                     <div class="dest-spec-label">Applicant</div>
                     <strong style="color:var(--navy-900);">${firstName} ${lastName}</strong>
@@ -701,26 +721,26 @@
       const order = customOrders[code] || DATA.sampleOrders[code] || DATA.sampleOrders['OPV-2026-84920'];
 
       out.innerHTML = `
-        <div class="wizard-card" style="margin-top:1.75rem;">
-          <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;padding-bottom:1.25rem;border-bottom:1px solid var(--gray-200);">
+        <div class="wizard-card" style="margin-top:1.5rem;">
+          <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;padding-bottom:1.15rem;border-bottom:1px solid var(--gray-200);">
             <div>
-              <div style="display:flex;align-items:center;gap:0.6rem;margin-bottom:0.35rem;">
-                <span class="mono" style="font-size:1.25rem;font-weight:800;color:var(--navy-900);">${order.id}</span>
+              <div style="display:flex;align-items:center;gap:0.6rem;margin-bottom:0.3rem;">
+                <span class="mono" style="font-size:1.2rem;font-weight:800;color:var(--navy-900);">${order.id}</span>
                 <span class="badge badge-${order.statusType}">${order.statusBadge}</span>
               </div>
-              <p style="font-size:0.86rem;color:var(--gray-500);">
-                Submitted ${order.submittedAt} • Assigned Specialist: <strong style="color:var(--navy-900);">${order.specialist}</strong>
+              <p style="font-size:0.84rem;color:var(--gray-500);">
+                Submitted ${order.submittedAt} • Reviewer: <strong style="color:var(--navy-900);">${order.specialist}</strong>
               </p>
             </div>
-            <div style="display:flex;gap:0.6rem;flex-wrap:wrap;">
-              <button type="button" class="btn btn-outline btn-sm" onclick="window.print()">Print Status</button>
+            <div style="display:flex;gap:0.55rem;flex-wrap:wrap;">
+              <button type="button" class="btn btn-outline btn-sm" onclick="window.print()">Print Summary</button>
               <button type="button" class="btn btn-primary btn-sm" onclick="window.opvShowSampleEvisaModal('${order.id}')">
-                Download Official eVisa PDF
+                Preview Travel Document PDF
               </button>
             </div>
           </div>
 
-          <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;padding:1.15rem 0;border-bottom:1px solid var(--gray-200);font-size:0.86rem;">
+          <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;padding:1.1rem 0;border-bottom:1px solid var(--gray-200);font-size:0.85rem;">
             <div>
               <div class="dest-spec-label">Applicant Name</div>
               <div class="dest-spec-val">${order.applicant}</div>
@@ -739,8 +759,8 @@
             </div>
           </div>
 
-          <h3 style="font-size:1.05rem;color:var(--navy-900);margin-top:1.35rem;font-weight:700;">
-            Application Processing Timeline
+          <h3 style="font-size:1rem;color:var(--navy-900);margin-top:1.25rem;font-weight:700;">
+            Application Progress
           </h3>
           <div class="timeline-list">
             ${order.steps
@@ -749,10 +769,10 @@
               <div class="timeline-item ${s.state}">
                 <div class="timeline-dot"></div>
                 <div style="display:flex;align-items:baseline;justify-content:space-between;flex-wrap:wrap;gap:0.5rem;">
-                  <h4 style="font-size:0.94rem;font-weight:700;color:var(--navy-900);">${s.title}</h4>
-                  <span class="mono" style="font-size:0.75rem;color:var(--gray-500);">${s.time}</span>
+                  <h4 style="font-size:0.92rem;font-weight:700;color:var(--navy-900);">${s.title}</h4>
+                  <span class="mono" style="font-size:0.74rem;color:var(--gray-500);">${s.time}</span>
                 </div>
-                <p style="font-size:0.86rem;color:var(--gray-600);margin-top:0.15rem;">${s.note}</p>
+                <p style="font-size:0.84rem;color:var(--gray-600);margin-top:0.15rem;">${s.note}</p>
               </div>
             `
               )
@@ -852,7 +872,7 @@
         const notice = document.getElementById('contactFormSuccess');
         if (notice) {
           notice.style.display = 'block';
-          notice.textContent = 'Your inquiry has been received. A visa specialist will respond by email within 15 minutes.';
+          notice.textContent = 'Thank you. Your inquiry has been received and a specialist will reply by email shortly.';
         }
         contactForm.reset();
       });
@@ -862,7 +882,7 @@
   document.addEventListener('DOMContentLoaded', () => {
     populateSelects();
     initCurrencySelectors();
-    initNavigation();
+    initNavigationAndCookies();
     initEligibilityChecker();
     initDestinationsGrid();
     initFeeCalculator();

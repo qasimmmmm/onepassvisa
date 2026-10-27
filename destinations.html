@@ -3,22 +3,24 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Global Visa & Travel Document Destinations — OnePassVisa.com</title>
+  <title>Visa & Travel Document Destinations — OnePassVisa.com</title>
   <meta name="description" content="Browse visa and travel document requirements, processing times, and transparent pricing for 190+ global destinations at OnePassVisa.com." />
   <link rel="stylesheet" href="assets/css/styles.css" />
 </head>
 <body>
 
-  <!-- Top Bar -->
-  <div class="top-bar">
-    <div class="container top-bar-inner">
-      <div class="top-bar-left">
-        <span class="top-bar-item"><span class="status-dot"></span> <span>24/7 Global Visa &amp; Travel Document Processing</span></span>
-        <span class="top-bar-item">256-Bit SSL Encrypted</span>
+  <!-- Above-the-Fold Google Ads Compliance Disclosure Bar -->
+  <div class="compliance-bar">
+    <div class="container compliance-bar-inner">
+      <div class="compliance-notice">
+        <span class="compliance-tag">Independent Service</span>
+        <span>
+          OnePassVisa.com is a private visa and travel document assistance agency and is not affiliated with any government. Service fees apply in addition to government fees, or you can apply directly via <a href="faq.html#gov-directory" style="color:var(--white);text-decoration:underline;">official government portals</a>.
+        </span>
       </div>
       <div class="top-bar-right">
-        <a href="track.html" class="top-bar-item" style="color:var(--white);font-weight:600;">Track Application</a>
-        <label class="top-bar-item">
+        <a href="track.html" style="color:var(--white);font-weight:600;">Track Status</a>
+        <label style="display:inline-flex;align-items:center;gap:0.35rem;">
           <span>Currency:</span>
           <select class="currency-select js-currency-select" aria-label="Select Currency">
             <option value="USD">USD ($)</option>
@@ -82,12 +84,12 @@
   <section class="hero hero-narrow">
     <div class="container">
       <div class="hero-center" style="margin-bottom:2rem;">
-        <span class="section-eyebrow">Country Directory</span>
-        <h1 class="hero-title" style="font-size:clamp(1.9rem,3.4vw,2.75rem);">
-          Visa &amp; Travel Document <span>Destinations</span>
+        <span class="section-eyebrow">Global Destination Directory</span>
+        <h1 class="hero-title" style="font-size:clamp(1.85rem,3.3vw,2.65rem);">
+          Check <span>Visas &amp; Travel Documents</span> by Country
         </h1>
-        <p class="hero-description">
-          Select your nationality and destination to check required travel documents, processing speeds, and all-inclusive fees.
+        <p class="hero-description" style="margin-bottom:0;">
+          Select your nationality and destination below to view required documents, processing times, and transparent government and service fees.
         </p>
       </div>
 
@@ -102,7 +104,7 @@
             <select id="checkerDestination" class="field-control js-destination-select" data-default="schengen"></select>
           </div>
           <div class="field-group">
-            <label class="field-label" for="checkerPurpose">Document Category</label>
+            <label class="field-label" for="checkerPurpose">Document Type</label>
             <select id="checkerPurpose" class="field-control">
               <option value="Tourist eVisa">Tourist eVisa</option>
               <option value="Business Visa">Business eVisa</option>
@@ -122,12 +124,12 @@
     </div>
   </section>
 
-  <!-- Full Country Catalog -->
+  <!-- Full Country Catalog (All 18 Destinations with Photos & Credits) -->
   <section class="section">
     <div class="container">
       <div class="filter-bar">
         <div class="region-pills">
-          <button type="button" class="region-pill js-region-pill active" data-region="all">All Destinations</button>
+          <button type="button" class="region-pill js-region-pill active" data-region="all">All Destinations (18)</button>
           <button type="button" class="region-pill js-region-pill" data-region="Middle East">Middle East</button>
           <button type="button" class="region-pill js-region-pill" data-region="Europe">Europe</button>
           <button type="button" class="region-pill js-region-pill" data-region="Asia-Pacific">Asia-Pacific</button>
@@ -151,7 +153,7 @@
   <div class="modal-backdrop" id="countryDetailModal" role="dialog" aria-modal="true" aria-labelledby="countryModalTitle">
     <div class="modal-dialog">
       <div class="modal-header">
-        <h3 id="countryModalTitle" style="font-size:1.1rem;font-weight:700;">Visa &amp; Travel Document Requirements</h3>
+        <h3 id="countryModalTitle" style="font-size:1.1rem;font-weight:700;">Visa &amp; Travel Document Details</h3>
         <button type="button" class="btn btn-outline btn-sm" onclick="window.opvCloseCountryModal()">Close</button>
       </div>
       <div class="modal-body" id="countryModalBody"></div>
@@ -161,13 +163,17 @@
   <!-- Global Footer -->
   <footer class="site-footer">
     <div class="container">
+      <div class="gov-disclaimer-box">
+        <strong>Important Google Ads &amp; Consumer Disclosure:</strong> OnePassVisa.com is a private, third-party visa and travel document processing agency and is NOT affiliated with any government or embassy. You may apply directly on official government websites for the government fee alone by visiting our <a href="faq.html#gov-directory" style="color:var(--white);text-decoration:underline;">Official Government Portals Directory</a>.
+      </div>
       <div class="footer-bottom" style="border-top:none;padding-top:0;">
-        <div>© 2026 OnePassVisa.com Inc. All rights reserved.</div>
+        <div>© 2026 OnePassVisa.com Inc. • 540 Madison Ave, Suite 2100, New York, NY 10022 • All rights reserved.</div>
         <div style="display:flex;gap:1.25rem;">
           <a href="policies.html#privacy">Privacy</a>
           <a href="policies.html#terms">Terms</a>
           <a href="policies.html#refund">Refunds</a>
           <a href="policies.html#disclaimer">Disclaimer</a>
+          <a href="policies.html#credits">Image Credits</a>
         </div>
       </div>
     </div>
