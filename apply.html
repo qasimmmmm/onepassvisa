@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Online Visa Application Portal — OnePassVisa.com</title>
+  <meta name="description" content="Complete your secure 5-minute online visa application with AI Passport OCR auto-fill and 68-point specialist review at OnePassVisa.com." />
+  <link rel="stylesheet" href="assets/css/styles.css" />
+</head>
+<body>
+
+  <!-- Top Trust & Utility Bar -->
+  <div class="top-bar">
+    <div class="container top-bar-inner">
+      <div class="top-bar-left">
+        <span class="top-bar-item"><span class="pulse-dot"></span> <strong>256-Bit Encrypted Application Portal</strong></span>
+        <span class="top-bar-item">🔒 SOC-2 Type II &amp; GDPR Compliant</span>
+      </div>
+      <div class="top-bar-right">
+        <span class="top-bar-item">💡 Promo Code: <strong>ONEPASS10</strong> (10% Off Service Fee)</span>
+        <label class="top-bar-item">
+          <span>Currency:</span>
+          <select class="top-bar-select js-currency-select" aria-label="Select Currency">
+            <option value="USD">USD ($)</option>
+            <option value="EUR">EUR (€)</option>
+            <option value="GBP">GBP (£)</option>
+            <option value="AED">AED (د.إ)</option>
+            <option value="INR">INR (₹)</option>
+            <option value="CAD">CAD ($)</option>
+            <option value="AUD">AUD ($)</option>
+          </select>
+        </label>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Sticky Header -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="brand-logo">
+        <div class="brand-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+            <circle cx="12" cy="12" r="10"></circle>
+            <path d="M2 12h20"></path>
+            <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+          </svg>
+        </div>
+        <div class="brand-text-wrap">
+          <div class="brand-name">OnePass<span>Visa</span></div>
+          <div class="brand-domain">onepassvisa.com</div>
+        </div>
+      </a>
+
+      <nav class="nav-links" id="mainNavLinks" aria-label="Main Navigation">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="destinations.html" class="nav-link">Destinations</a>
+        <a href="services.html" class="nav-link">Services</a>
+        <a href="track.html" class="nav-link">Track Application</a>
+        <a href="faq.html" class="nav-link">Help &amp; FAQ</a>
+        <a href="about.html" class="nav-link">About &amp; Contact</a>
+        <a href="policies.html" class="nav-link">Policies</a>
+      </nav>
+
+      <div class="header-actions">
+        <a href="track.html" class="btn btn-outline btn-sm">Track Existing Order</a>
+        <button type="button" class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle Menu">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Application Wizard Section -->
+  <section class="section-sm" id="applicationWizard">
+    <div class="container">
+      <div style="margin-bottom:1.5rem;">
+        <span class="badge badge-emerald" style="margin-bottom:0.4rem;">⚡ Guided Digital Visa Funnel</span>
+        <h1 style="font-size:2rem;font-weight:800;color:var(--navy-900);">Complete Your Visa Application</h1>
+        <p style="color:var(--slate-600);font-size:0.95rem;">
+          All fields are audited by our consular team before official government submission. Average completion time: 4 minutes.
+        </p>
+      </div>
+
+      <!-- Confirmation View (shown after Step 5 submission) -->
+      <div id="orderConfirmationView" style="display:none;"></div>
+
+      <div id="wizardMainGrid">
+        <!-- 5-Step Progress Bar -->
+        <div class="wizard-stepper">
+          <div class="wizard-step-indicator active" data-step="1">
+            <span class="wizard-step-circle">1</span>
+            <span>Trip &amp; Speed</span>
+          </div>
+          <div class="wizard-step-indicator" data-step="2">
+            <span class="wizard-step-circle">2</span>
+            <span>Passport &amp; OCR</span>
+          </div>
+          <div class="wizard-step-indicator" data-step="3">
+            <span class="wizard-step-circle">3</span>
+            <span>Photo &amp; Scans</span>
+          </div>
+          <div class="wizard-step-indicator" data-step="4">
+            <span class="wizard-step-circle">4</span>
+            <span>Protection &amp; Audit</span>
+          </div>
+          <div class="wizard-step-indicator" data-step="5">
+            <span class="wizard-step-circle">5</span>
+            <span>Secure Checkout</span>
+          </div>
+        </div>
+
+        <div class="wizard-layout">
+          <!-- Left: Active Step Form Card -->
+          <div class="wizard-card">
+
+            <!-- STEP 1: Trip & Processing Speed -->
+            <div class="wizard-pane active" data-step="1">
+              <h2 style="font-size:1.4rem;font-weight:800;color:var(--navy-900);margin-bottom:0.35rem;">
+                Step 1: Select Destination, Travel Dates &amp; Turnaround Tier
+              </h2>
+              <p style="font-size:0.9rem;color:var(--slate-500);margin-bottom:1.5rem;">
+                We automatically match your nationality with the fastest eligible eVisa, ETA, or Embassy pathway.
+              </p>
+
+              <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.15rem;margin-bottom:1.25rem;">
+                <div class="field-group">
+                  <label class="field-label" for="wizNationality">Applicant Passport Nationality</label>
+                  <select id="wizNationality" class="field-control js-nationality-select" data-default="US"></select>
+                </div>
+                <div class="field-group">
+                  <label class="field-label" for="wizDestination">Destination Country</label>
+                  <select id="wizDestination" class="field-control js-destination-select" data-default="uae"></select>
+                </div>
+                <div class="field-group">
+                  <label class="field-label" for="wizArrivalDate">Estimated Arrival Date</label>
+                  <input type="date" id="wizArrivalDate" class="field-control" value="2026-11-15" />
+                </div>
+                <div class="field-group">
+                  <label class="field-label" for="wizTravelers">Number of Applicants</label>
+                  <input type="number" id="wizTravelers" class="field-control" value="1" min="1" max="15" />
+                </div>
+              </div>
+
+              <div class="field-label" style="margin-top:1.25rem;">Select Guaranteed Processing Speed</div>
+              <div class="tier-selector-grid">
+                <div class="tier-option selected" data-tier="standard">
+                  <span class="badge badge-emerald" style="margin-bottom:0.5rem;">Most Popular</span>
+                  <h4 style="font-size:1rem;font-weight:800;color:var(--navy-900);">Standard Processing</h4>
+                  <p style="font-size:0.8rem;color:var(--slate-500);margin:0.3rem 0 0.75rem;">Full 68-point audit &amp; standard queue</p>
+                  <div style="font-weight:800;color:var(--navy-900);">Included (+$0)</div>
+                </div>
+
+                <div class="tier-option" data-tier="express">
+                  <span class="badge badge-royal" style="margin-bottom:0.5rem;">24–48 Hr Priority</span>
+                  <h4 style="font-size:1rem;font-weight:800;color:var(--navy-900);">Express Priority</h4>
+                  <p style="font-size:0.8rem;color:var(--slate-500);margin:0.3rem 0 0.75rem;">Priority specialist desk &amp; fast filing</p>
+                  <div style="font-weight:800;color:var(--royal-600);">+<span data-usd="29">$29</span> / applicant</div>
+                </div>
+
+                <div class="tier-option" data-tier="rush">
+                  <span class="badge badge-gold" style="margin-bottom:0.5rem;">⚡ Immediate Dispatch</span>
+                  <h4 style="font-size:1rem;font-weight:800;color:var(--navy-900);">Super Rush VIP</h4>
+                  <p style="font-size:0.8rem;color:var(--slate-500);margin:0.3rem 0 0.75rem;">Instant 15-min audit &amp; emergency queue</p>
+                  <div style="font-weight:800;color:var(--gold-600);">+<span data-usd="59">$59</span> / applicant</div>
+                </div>
+              </div>
+
+              <div style="display:flex;justify-content:flex-end;margin-top:1.5rem;">
+                <button type="button" class="btn btn-primary btn-lg" onclick="window.opvGoToStep(2)">
+                  Continue to Passport Details →
+                </button>
+              </div>
+            </div>
+
+            <!-- STEP 2: Traveler Details & AI Passport OCR -->
+            <div class="wizard-pane" data-step="2">
+              <h2 style="font-size:1.4rem;font-weight:800;color:var(--navy-900);margin-bottom:0.35rem;">
+                Step 2: Primary Traveler Details &amp; AI Passport Scanner
+              </h2>
+              <p style="font-size:0.9rem;color:var(--slate-500);margin-bottom:1.25rem;">
+                Use our instant ICAO Machine Readable Zone (MRZ) scanner below to auto-populate your passport fields with zero typos, or type them manually.
+              </p>
+
+              <div class="ocr-Dropzone">
+                <div style="font-size:1.75rem;margin-bottom:0.35rem;">🛂</div>
+                <h3 style="font-size:1.05rem;font-weight:800;color:var(--navy-900);margin-bottom:0.35rem;">
+                  Instant AI Passport MRZ Auto-Fill
+                </h3>
+                <p style="font-size:0.85rem;color:var(--slate-600);max-width:480px;margin:0 auto 1rem;">
+                  Click below to test our AI Passport OCR engine—it extracts full legal names, passport numbers, and expiration dates directly from your bio page.
+                </p>
+                <button type="button" id="simulateOcrBtn" class="btn btn-navy btn-sm">
+                  📸 Simulate AI Passport Scan &amp; Auto-Fill Fields
+                </button>
+                <div id="ocrScanStatus" style="display:none;margin-top:0.85rem;font-size:0.82rem;color:var(--slate-700);"></div>
+              </div>
+
+              <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1.25rem;">
+                <div class="field-group">
+                  <label class="field-label" for="wizFirstName">Given / First &amp; Middle Names (As on Passport)</label>
+                  <input type="text" id="wizFirstName" class="field-control" placeholder="e.g. ALEXANDER JAMES" value="ALEXANDER JAMES" />
+                </div>
+                <div class="field-group">
+                  <label class="field-label" for="wizLastName">Surname / Family Name (As on Passport)</label>
+                  <input type="text" id="wizLastName" class="field-control" placeholder="e.g. VANCE" value="VANCE" />
+                </div>
+                <div class="field-group">
+                  <label class="field-label" for="wizPassportNo">Passport Number</label>
+                  <input type="text" id="wizPassportNo" class="field-control mono" placeholder="e.g. N84920148" value="N84920148" />
+                </div>
+                <div class="field-group">
+                  <label class="field-label" for="wizDob">Date of Birth</label>
+                  <input type="date" id="wizDob" class="field-control" value="1991-06-14" />
+                </div>
+                <div class="field-group">
+                  <label class="field-label" for="wizPassportExpiry">Passport Expiration Date (Min. 6 Months)</label>
+                  <input type="date" id="wizPassportExpiry" class="field-control" value="2032-09-22" />
+                </div>
+                <div class="field-group">
+                  <label class="field-label" for="wizGender">Sex / Gender Marker on Passport</label>
+                  <select id="wizGender" class="field-control">
+                    <option value="M">Male (M)</option>
+                    <option value="F">Female (F)</option>
+                    <option value="X">Unspecified (X)</option>
+                  </select>
+                </div>
+                <div class="field-group">
+                  <label class="field-label" for="wizEmail">Email Address for eVisa Delivery</label>
+                  <input type="email" id="wizEmail" class="field-control" value="alex.vance@globaltravel.io" />
+                </div>
+                <div class="field-group">
+                  <label class="field-label" for="wizPhone">Mobile / WhatsApp Number</label>
+                  <input type="tel" id="wizPhone" class="field-control" value="+1 (415) 890-4421" />
+                </div>
+              </div>
+
+              <div style="display:flex;justify-content:space-between;margin-top:1.5rem;">
+                <button type="button" class="btn btn-outline" onclick="window.opvGoToStep(1)">← Back</button>
+                <button type="button" class="btn btn-primary btn-lg" onclick="window.opvGoToStep(3)">
+                  Save &amp; Continue to Document Upload →
+                </button>
+              </div>
+            </div>
+
+            <!-- STEP 3: Document & Biometric Photo Upload -->
+            <div class="wizard-pane" data-step="3">
+              <h2 style="font-size:1.4rem;font-weight:800;color:var(--navy-900);margin-bottom:0.35rem;">
+                Step 3: Smart Document &amp; Biometric Photo Verification
+              </h2>
+              <p style="font-size:0.9rem;color:var(--slate-500);margin-bottom:1.5rem;">
+                Upload a phone photo or scan—our AI automatically removes shadows, sets a pure white background, and crops to exact embassy specifications. You can also skip and email documents later.
+              </p>
+
+              <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.25rem;margin-bottom:1.5rem;">
+                <div style="border:2px dashed var(--slate-300);border-radius:var(--radius-md);padding:1.5rem;text-align:center;background:var(--slate-50);">
+                  <div style="font-size:1.75rem;margin-bottom:0.5rem;">📄</div>
+                  <h4 style="font-weight:800;color:var(--navy-900);margin-bottom:0.25rem;">Passport Bio Page Scan</h4>
+                  <p style="font-size:0.8rem;color:var(--slate-500);margin-bottom:1rem;">JPG, PNG, HEIC or PDF up to 20MB</p>
+                  <label class="btn btn-outline btn-sm" style="cursor:pointer;">
+                    Choose File / Take Photo
+                    <input type="file" style="display:none;" accept="image/*,.pdf" />
+                  </label>
+                </div>
+
+                <div style="border:2px dashed var(--slate-300);border-radius:var(--radius-md);padding:1.5rem;text-align:center;background:var(--slate-50);">
+                  <div style="font-size:1.75rem;margin-bottom:0.5rem;">🤳</div>
+                  <h4 style="font-weight:800;color:var(--navy-900);margin-bottom:0.25rem;">Applicant Digital Face Photo</h4>
+                  <p style="font-size:0.8rem;color:var(--slate-500);margin-bottom:1rem;">Any background—auto-whitened by OnePass AI</p>
+                  <label class="btn btn-outline btn-sm" style="cursor:pointer;">
+                    Choose Photo / Selfie
+                    <input type="file" style="display:none;" accept="image/*" />
+                  </label>
+                </div>
+              </div>
+
+              <div class="ocr-Dropzone" style="background:var(--royal-50);border-color:var(--royal-500);">
+                <h4 style="font-weight:800;color:var(--navy-900);margin-bottom:0.35rem;">
+                  🔬 Test Our 7-Point ICAO Biometric Compliance Engine
+                </h4>
+                <p style="font-size:0.84rem;color:var(--slate-600);margin-bottom:0.9rem;">
+                  Verify head-to-frame ratio, eye-line height, neutral expression, and DPI resolution right now.
+                </p>
+                <button type="button" id="simulatePhotoCheckBtn" class="btn btn-royal btn-sm">
+                  ✨ Run Instant Biometric Photo &amp; Scan Check
+                </button>
+                <div id="photoCheckResult" style="display:none;"></div>
+              </div>
+
+              <div style="display:flex;justify-content:space-between;margin-top:1.5rem;">
+                <button type="button" class="btn btn-outline" onclick="window.opvGoToStep(2)">← Back</button>
+                <button type="button" class="btn btn-primary btn-lg" onclick="window.opvGoToStep(4)">
+                  Continue to Specialist Review &amp; Add-Ons →
+                </button>
+              </div>
+            </div>
+
+            <!-- STEP 4: Specialist Review & Protection Add-ons -->
+            <div class="wizard-pane" data-step="4">
+              <h2 style="font-size:1.4rem;font-weight:800;color:var(--navy-900);margin-bottom:0.35rem;">
+                Step 4: Consular Audit &amp; Trip Protection Options
+              </h2>
+              <p style="font-size:0.9rem;color:var(--slate-500);margin-bottom:1.5rem;">
+                Your 68-Point Human Specialist Audit is already included free with every order. Customize optional protection below:
+              </p>
+
+              <div style="display:grid;gap:1rem;margin-bottom:1.75rem;">
+                <label style="display:flex;align-items:flex-start;justify-content:space-between;gap:1rem;padding:1.25rem;border:2px solid var(--teal-500);background:var(--emerald-50);border-radius:var(--radius-md);cursor:pointer;">
+                  <div style="display:flex;gap:0.85rem;">
+                    <input type="checkbox" id="addonRejection" checked style="width:20px;height:20px;margin-top:3px;accent-color:var(--teal-600);" />
+                    <div>
+                      <div style="font-weight:800;color:var(--navy-900);">🛡️ 100% Visa Rejection Fee Refund Guarantee</div>
+                      <p style="font-size:0.85rem;color:var(--slate-600);margin-top:0.2rem;">
+                        If your visa is declined by sovereign immigration authorities for any reason, receive a 100% full refund of both Government and OnePassVisa fees within 24 hours.
+                      </p>
+                    </div>
+                  </div>
+                  <strong style="color:var(--teal-600);white-space:nowrap;">+<span data-usd="19">$19</span></strong>
+                </label>
+
+                <label style="display:flex;align-items:flex-start;justify-content:space-between;gap:1rem;padding:1.25rem;border:1.5px solid var(--slate-200);background:var(--white);border-radius:var(--radius-md);cursor:pointer;">
+                  <div style="display:flex;gap:0.85rem;">
+                    <input type="checkbox" id="addonFlight" style="width:20px;height:20px;margin-top:3px;accent-color:var(--teal-600);" />
+                    <div>
+                      <div style="font-weight:800;color:var(--navy-900);">✈️ Embassy-Compliant Verifiable Flight &amp; Hotel Itinerary</div>
+                      <p style="font-size:0.85rem;color:var(--slate-600);margin-top:0.2rem;">
+                        Don’t risk buying non-refundable airline tickets before your visa is approved. Our GDS desk generates a verifiable PNR flight reservation for your visa dossier.
+                      </p>
+                    </div>
+                  </div>
+                  <strong style="color:var(--navy-900);white-space:nowrap;">+<span data-usd="15">$15</span></strong>
+                </label>
+
+                <label style="display:flex;align-items:flex-start;justify-content:space-between;gap:1rem;padding:1.25rem;border:1.5px solid var(--slate-200);background:var(--white);border-radius:var(--radius-md);cursor:pointer;">
+                  <div style="display:flex;gap:0.85rem;">
+                    <input type="checkbox" id="addonWhatsapp" checked style="width:20px;height:20px;margin-top:3px;accent-color:var(--teal-600);" />
+                    <div>
+                      <div style="font-weight:800;color:var(--navy-900);">📲 Instant WhatsApp &amp; SMS Milestone Alerts + PDF Delivery</div>
+                      <p style="font-size:0.85rem;color:var(--slate-600);margin-top:0.2rem;">
+                        Receive real-time SMS and WhatsApp alerts at each of the 6 consular stages plus instant mobile PDF eVisa delivery.
+                      </p>
+                    </div>
+                  </div>
+                  <strong style="color:var(--navy-900);white-space:nowrap;">+<span data-usd="5">$5</span></strong>
+                </label>
+              </div>
+
+              <div style="display:flex;justify-content:space-between;margin-top:1.5rem;">
+                <button type="button" class="btn btn-outline" onclick="window.opvGoToStep(3)">← Back</button>
+                <button type="button" class="btn btn-primary btn-lg" onclick="window.opvGoToStep(5)">
+                  Proceed to Secure Checkout →
+                </button>
+              </div>
+            </div>
+
+            <!-- STEP 5: Secure Checkout -->
+            <div class="wizard-pane" data-step="5">
+              <h2 style="font-size:1.4rem;font-weight:800;color:var(--navy-900);margin-bottom:0.35rem;">
+                Step 5: Secure Payment &amp; Instant Dossier Dispatch
+              </h2>
+              <p style="font-size:0.9rem;color:var(--slate-500);margin-bottom:1.5rem;">
+                PCI-DSS Level 1 encrypted checkout. Your specialist begins auditing your application within 15 minutes of submission.
+              </p>
+
+              <!-- Payment Method Selector -->
+              <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:0.65rem;margin-bottom:1.25rem;">
+                <div style="border:2px solid var(--navy-900);background:var(--slate-50);padding:0.75rem;border-radius:var(--radius-sm);text-align:center;font-weight:700;font-size:0.85rem;">
+                  💳 Credit / Debit
+                </div>
+                <div style="border:1px solid var(--slate-200);padding:0.75rem;border-radius:var(--radius-sm);text-align:center;font-weight:600;font-size:0.85rem;color:var(--slate-600);">
+                   Apple Pay
+                </div>
+                <div style="border:1px solid var(--slate-200);padding:0.75rem;border-radius:var(--radius-sm);text-align:center;font-weight:600;font-size:0.85rem;color:var(--slate-600);">
+                  G Google Pay
+                </div>
+                <div style="border:1px solid var(--slate-200);padding:0.75rem;border-radius:var(--radius-sm);text-align:center;font-weight:600;font-size:0.85rem;color:var(--slate-600);">
+                  🅿️ PayPal
+                </div>
+              </div>
+
+              <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1.25rem;">
+                <div class="field-group" style="grid-column:1/-1;">
+                  <label class="field-label" for="cardHolder">Name on Card</label>
+                  <input type="text" id="cardHolder" class="field-control" value="ALEXANDER JAMES VANCE" />
+                </div>
+                <div class="field-group" style="grid-column:1/-1;">
+                  <label class="field-label" for="cardNumber">Card Number (Demo Mode — Pre-filled)</label>
+                  <input type="text" id="cardNumber" class="field-control mono" value="4532 •••• •••• 8891" />
+                </div>
+                <div class="field-group">
+                  <label class="field-label" for="cardExpiry">Expiration (MM/YY)</label>
+                  <input type="text" id="cardExpiry" class="field-control mono" value="08/29" />
+                </div>
+                <div class="field-group">
+                  <label class="field-label" for="cardCvc">Security Code (CVC)</label>
+                  <input type="text" id="cardCvc" class="field-control mono" value="842" />
+                </div>
+              </div>
+
+              <label style="display:flex;align-items:flex-start;gap:0.65rem;font-size:0.83rem;color:var(--slate-600);margin-bottom:1.5rem;cursor:pointer;">
+                <input type="checkbox" checked style="width:17px;height:17px;margin-top:2px;accent-color:var(--teal-600);" />
+                <span>
+                  I confirm that the passport information provided is accurate and I agree to the OnePassVisa.com <a href="policies.html#terms" style="color:var(--teal-600);font-weight:700;">Terms of Service</a>, <a href="policies.html#privacy" style="color:var(--teal-600);font-weight:700;">Privacy Policy</a>, and <a href="policies.html#refund" style="color:var(--teal-600);font-weight:700;">Refund Policy</a>.
+                </span>
+              </label>
+
+              <div style="display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap;">
+                <button type="button" class="btn btn-outline" onclick="window.opvGoToStep(4)">← Back</button>
+                <button type="button" id="completeOrderBtn" class="btn btn-primary btn-lg">
+                  🔒 Complete &amp; Encrypt Visa Application →
+                </button>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Right: Live Sticky Order Summary Sidebar -->
+          <aside class="order-summary-card">
+            <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:0.75rem;">
+              <span class="badge badge-emerald">68-Point Audit Included</span>
+              <span style="font-size:0.75rem;color:var(--slate-400);font-weight:700;">SSL SECURE</span>
+            </div>
+            <h3 id="sumCountryTitle" style="font-size:1.3rem;font-weight:800;color:var(--navy-900);margin-bottom:0.2rem;">
+              🇦🇪 United Arab Emirates
+            </h3>
+            <p id="sumVisaType" style="font-size:0.86rem;color:var(--teal-600);font-weight:700;margin-bottom:1rem;">
+              Tourist eVisa (30 / 60 Days)
+            </p>
+
+            <div class="summary-line">
+              <span style="color:var(--slate-500);">Travelers</span>
+              <strong id="sumTravelers">1 Applicant</strong>
+            </div>
+            <div class="summary-line">
+              <span style="color:var(--slate-500);">Processing Speed</span>
+              <strong id="sumTierName" style="text-align:right;font-size:0.83rem;">Standard</strong>
+            </div>
+            <div class="summary-line">
+              <span style="color:var(--slate-500);">Government Visa Fee</span>
+              <strong id="sumGovFee">$85</strong>
+            </div>
+            <div class="summary-line">
+              <span style="color:var(--slate-500);">OnePass Service &amp; Audit</span>
+              <strong id="sumServiceFee">$39</strong>
+            </div>
+            <div class="summary-line">
+              <span style="color:var(--slate-500);">Priority Speed Upgrade</span>
+              <strong id="sumTierFee">Included</strong>
+            </div>
+            <div class="summary-line">
+              <span style="color:var(--slate-500);">Protection &amp; Add-Ons</span>
+              <strong id="sumAddonsFee">$24</strong>
+            </div>
+            <div class="summary-line">
+              <span style="color:var(--emerald-600);">Promo Discount</span>
+              <strong id="sumDiscountFee" style="color:var(--emerald-600);">$0</strong>
+            </div>
+
+            <div class="summary-total">
+              <span>Total Due</span>
+              <span id="sumGrandTotal" style="color:var(--teal-600);">$148</span>
+            </div>
+
+            <!-- Promo Code Box -->
+            <div style="margin-top:1.25rem;padding-top:1rem;border-top:1px dashed var(--slate-200);">
+              <div style="display:flex;gap:0.4rem;">
+                <input type="text" id="wizPromoInput" class="field-control" style="height:38px;font-size:0.84rem;" placeholder="Promo code (e.g. ONEPASS10)" />
+                <button type="button" id="applyPromoBtn" class="btn btn-navy btn-sm" style="height:38px;">Apply</button>
+              </div>
+              <div id="promoMsg" style="font-size:0.75rem;margin-top:0.35rem;color:var(--slate-500);">
+                Tip: Enter <strong>ONEPASS10</strong> for 10% off service fees.
+              </div>
+            </div>
+
+            <div style="margin-top:1.25rem;background:var(--slate-50);padding:0.85rem;border-radius:var(--radius-sm);font-size:0.78rem;color:var(--slate-600);line-height:1.5;">
+              🛡️ <strong>OnePass Peace-of-Mind Guarantee:</strong> Your card is protected by 256-bit encryption. If our specialist audit finds you do not need a visa, 100% of your payment is refunded automatically.
+            </div>
+          </aside>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Global Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-bottom" style="border-top:none;padding-top:0;">
+        <div>© 2026 OnePassVisa.com Inc. • 256-Bit Encrypted Application Funnel • ISO-27001 Certified</div>
+        <div style="display:flex;gap:1.25rem;">
+          <a href="policies.html#terms">Terms of Service</a>
+          <a href="policies.html#privacy">Privacy Policy</a>
+          <a href="policies.html#refund">Refund Guarantee</a>
+          <a href="policies.html#disclaimer">Government Disclaimer</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/data.js"></script>
+  <script src="assets/js/app.js"></script>
+</body>
+</html>

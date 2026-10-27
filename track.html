@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Track Your Visa Application Status Live — OnePassVisa.com</title>
+  <meta name="description" content="Real-time 6-stage visa application status tracker and official eVisa PDF download portal at OnePassVisa.com." />
+  <link rel="stylesheet" href="assets/css/styles.css" />
+</head>
+<body>
+
+  <!-- Top Trust & Utility Bar -->
+  <div class="top-bar">
+    <div class="container top-bar-inner">
+      <div class="top-bar-left">
+        <span class="top-bar-item"><span class="pulse-dot"></span> <strong>Real-Time Consular API Sync Active</strong></span>
+        <span class="top-bar-item">🔒 Encrypted Dossier Access</span>
+      </div>
+      <div class="top-bar-right">
+        <a href="apply.html" class="top-bar-item" style="color:var(--emerald-400);font-weight:700;">+ Start New Visa Application</a>
+        <label class="top-bar-item">
+          <span>Currency:</span>
+          <select class="top-bar-select js-currency-select" aria-label="Select Currency">
+            <option value="USD">USD ($)</option>
+            <option value="EUR">EUR (€)</option>
+            <option value="GBP">GBP (£)</option>
+            <option value="AED">AED (د.إ)</option>
+            <option value="INR">INR (₹)</option>
+            <option value="CAD">CAD ($)</option>
+            <option value="AUD">AUD ($)</option>
+          </select>
+        </label>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Sticky Header -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="brand-logo">
+        <div class="brand-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+            <circle cx="12" cy="12" r="10"></circle>
+            <path d="M2 12h20"></path>
+            <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+          </svg>
+        </div>
+        <div class="brand-text-wrap">
+          <div class="brand-name">OnePass<span>Visa</span></div>
+          <div class="brand-domain">onepassvisa.com</div>
+        </div>
+      </a>
+
+      <nav class="nav-links" id="mainNavLinks" aria-label="Main Navigation">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="destinations.html" class="nav-link">Destinations</a>
+        <a href="services.html" class="nav-link">Services</a>
+        <a href="track.html" class="nav-link active">Track Application</a>
+        <a href="faq.html" class="nav-link">Help &amp; FAQ</a>
+        <a href="about.html" class="nav-link">About &amp; Contact</a>
+        <a href="policies.html" class="nav-link">Policies</a>
+      </nav>
+
+      <div class="header-actions">
+        <a href="apply.html" class="btn btn-primary btn-sm">Apply Now →</a>
+        <button type="button" class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle Menu">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Search Banner -->
+  <section class="hero" style="padding:3.5rem 0 4rem;">
+    <div class="container">
+      <div style="max-width:740px;margin:0 auto 2rem;text-align:center;">
+        <span class="badge badge-emerald" style="margin-bottom:0.75rem;">📍 Live 6-Stage Consular Tracker</span>
+        <h1 class="hero-title" style="font-size:clamp(2rem,3.6vw,3.1rem);">
+          Track Your Visa &amp; Download Approved Documents
+        </h1>
+        <p class="hero-description" style="margin:0 auto;">
+          Enter your OnePass Reference ID below (or click one of the live specimen dossiers) to inspect real-time consular audit logs and download your approved eVisa PDF.
+        </p>
+      </div>
+
+      <div class="checker-card" style="max-width:860px;margin:0 auto;">
+        <form id="trackOrderForm" style="display:grid;grid-template-columns:1fr auto;gap:1rem;align-items:end;">
+          <div class="field-group">
+            <label class="field-label" for="trackOrderIdInput">OnePass Tracking ID or Passport Number</label>
+            <input type="text" id="trackOrderIdInput" class="field-control mono" value="OPV-2026-84920" placeholder="e.g. OPV-2026-84920" />
+          </div>
+          <button type="submit" class="btn btn-primary btn-lg" style="height:52px;">
+            Track Live Status →
+          </button>
+        </form>
+
+        <div style="display:flex;align-items:center;gap:0.6rem;flex-wrap:wrap;margin-top:1rem;padding-top:1rem;border-top:1px solid var(--slate-200);font-size:0.82rem;">
+          <span style="color:var(--slate-500);font-weight:700;">Try Live Sample Dossiers:</span>
+          <button type="button" class="region-pill js-demo-track-btn" data-id="OPV-2026-84920" style="padding:0.35rem 0.85rem;font-size:0.78rem;">
+            🇦🇪 OPV-2026-84920 (Approved eVisa)
+          </button>
+          <button type="button" class="region-pill js-demo-track-btn" data-id="OPV-2026-51304" style="padding:0.35rem 0.85rem;font-size:0.78rem;">
+            🇯🇵 OPV-2026-51304 (In Consulate Queue)
+          </button>
+          <button type="button" class="region-pill js-demo-track-btn" data-id="OPV-2026-39102" style="padding:0.35rem 0.85rem;font-size:0.78rem;">
+            🇪🇺 OPV-2026-39102 (Specialist Audit)
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Dynamic Tracking Result Container -->
+  <section class="section-sm">
+    <div class="container">
+      <div id="trackResultContainer"></div>
+    </div>
+  </section>
+
+  <!-- Official Specimen eVisa PDF Preview Modal -->
+  <div class="modal-backdrop" id="evisaPreviewModal" role="dialog" aria-modal="true" aria-labelledby="evisaModalTitle">
+    <div class="modal-dialog" style="max-width:740px;">
+      <div class="modal-header">
+        <h3 id="evisaModalTitle" style="font-size:1.1rem;font-weight:800;">📄 Official Electronic Visa Clearance Certificate (Specimen)</h3>
+        <button type="button" class="btn btn-ghost-light btn-sm" onclick="window.opvCloseSampleEvisaModal()">✕ Close</button>
+      </div>
+      <div class="modal-body">
+        <div style="border:2px solid var(--navy-900);border-radius:var(--radius-md);padding:1.75rem;background:var(--slate-50);">
+          <div style="display:flex;justify-content:space-between;align-items:center;border-bottom:2px solid var(--navy-900);padding-bottom:1rem;margin-bottom:1.25rem;">
+            <div>
+              <div style="font-size:0.72rem;font-weight:800;letter-spacing:0.08em;color:var(--teal-600);text-transform:uppercase;">
+                ELECTRONIC TRAVEL AUTHORIZATION &amp; E-VISA PERMIT
+              </div>
+              <h4 style="font-size:1.35rem;font-weight:800;color:var(--navy-900);">
+                OnePassVisa.com Verified Issuance Record
+              </h4>
+            </div>
+            <span class="badge badge-emerald">✓ VALID FOR BOARDING</span>
+          </div>
+
+          <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-bottom:1.25rem;font-size:0.86rem;">
+            <div>
+              <div class="dest-spec-label">Permit Number</div>
+              <div class="dest-spec-val mono">UAE-ICP-2026-9948102</div>
+            </div>
+            <div>
+              <div class="dest-spec-label">Holder Full Name</div>
+              <div class="dest-spec-val">VANCE, ALEXANDER JAMES</div>
+            </div>
+            <div>
+              <div class="dest-spec-label">Passport Number</div>
+              <div class="dest-spec-val mono">N84920148 (USA)</div>
+            </div>
+            <div>
+              <div class="dest-spec-label">Entry Category</div>
+              <div class="dest-spec-val">Multiple Entry Tourist</div>
+            </div>
+            <div>
+              <div class="dest-spec-label">Date of Issue</div>
+              <div class="dest-spec-val">25 OCT 2026</div>
+            </div>
+            <div>
+              <div class="dest-spec-label">Valid Until</div>
+              <div class="dest-spec-val">25 DEC 2026</div>
+            </div>
+          </div>
+
+          <div class="mrz-strip" style="margin-bottom:1.25rem;">
+            V&lt;AREVANCE&lt;&lt;ALEXANDER&lt;JAMES&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;<br />
+            N849201484USA9106148M2612254ICP9948102&lt;&lt;&lt;&lt;92
+          </div>
+
+          <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;">
+            <span style="font-size:0.78rem;color:var(--slate-500);">
+              Digitally audited &amp; certified by OnePassVisa Consular Desk • ISO-27001 Verified
+            </span>
+            <button type="button" class="btn btn-navy btn-sm" onclick="window.print()">🖨️ Print / Save as PDF</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Global Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-bottom" style="border-top:none;padding-top:0;">
+        <div>© 2026 OnePassVisa.com Inc. All rights reserved.</div>
+        <div style="display:flex;gap:1.25rem;">
+          <a href="policies.html#terms">Terms</a>
+          <a href="policies.html#privacy">Privacy</a>
+          <a href="policies.html#refund">Refunds</a>
+          <a href="policies.html#disclaimer">Disclaimer</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/data.js"></script>
+  <script src="assets/js/app.js"></script>
+</body>
+</html>
