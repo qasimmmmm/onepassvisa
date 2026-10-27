@@ -6,7 +6,7 @@
   <title>United States ETA ($59 Total) | Requirements &amp; Fees | Private Service — OnePassVisa</title>
   <meta name="description" content="Apply for the United States ESTA (Visa Waiver Program) through OnePassVisa, a private assistance service. Official gov fee: $21 + $38 service fee = $59 total. Verified 27 Oct 2026." />
   <link rel="canonical" href="https://onepassvisa.com/us-esta" />
-  <meta name="theme-color" content="#0E5C9E" />
+  <meta name="theme-color" content="#059669" />
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="OnePassVisa" />
   <meta property="og:title" content="United States ETA ($59 Total) | Requirements &amp; Fees | Private Service — OnePassVisa" />
@@ -15,6 +15,7 @@
   <meta property="og:image" content="https://onepassvisa.com/assets/images/logo-horizontal.png" />
   <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg" />
   <link rel="icon" type="image/png" href="assets/images/favicon.png" />
+  <link rel="apple-touch-icon" href="assets/images/apple-touch-icon.png" />
   <link rel="preload" href="assets/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="preload" href="assets/fonts/plus-jakarta-700.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="stylesheet" href="assets/css/onepass-v6.css" />
@@ -28,14 +29,17 @@
 
   <div class="disclosure-bar" role="region" aria-label="Private Service Disclosure">
     <div class="container disclosure-bar-inner">
-      <span><strong>Private Service Notice:</strong> OnePassVisa is an independent private assistance agency, not affiliated with any government. You can apply directly on <a href="faq.html#official-portals">official government portals</a> for the statutory fee only.</span>
+      <span class="disclosure-shield" aria-hidden="true">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L4 5v6.09c0 5.05 3.41 9.76 8 10.91 4.59-1.15 8-5.86 8-10.91V5l-8-3zm-1.06 13.54L7.4 12l1.41-1.41 2.12 2.12 4.24-4.24 1.41 1.41-5.64 5.66z"/></svg>
+      </span>
+      <span><strong>✓ Private Service Notice:</strong> OnePassVisa is an independent assistance agency, not affiliated with any government. Apply directly on official portals for statutory fees only. <a href="faq.html#official-portals">[Learn More]</a></span>
     </div>
   </div>
 
   <header class="site-header">
     <div class="container header-inner">
-      <a href="index.html" class="brand-logo" aria-label="OnePassVisa Home">
-        <img src="assets/images/logo.svg" alt="OnePassVisa.com" width="176" height="39" class="brand-logo-img" />
+      <a href="index.html" class="brand-logo" aria-label="onepassvisa Home">
+        <img src="assets/images/logo.svg" alt="onepassvisa" width="184" height="37" class="brand-logo-img" />
       </a>
 
       <nav class="nav-links" id="mainNavLinks" aria-label="Primary Navigation">
@@ -48,16 +52,65 @@
       </nav>
 
       <div class="header-actions">
-        <select class="currency-select js-currency-select hide-mobile" aria-label="Select currency">
-          <option value="USD">USD ($)</option>
-          <option value="EUR">EUR (€)</option>
-          <option value="GBP">GBP (£)</option>
-          <option value="CAD">CAD (C$)</option>
-          <option value="AUD">AUD (A$)</option>
-          <option value="AED">AED</option>
-          <option value="SGD">SGD (S$)</option>
-        </select>
-        <a href="apply.html" class="btn btn-primary btn-sm">Apply Now</a>
+        <div class="currency-dropdown-wrap hide-mobile" id="currencyDropdownWrap">
+          <button type="button" class="currency-trigger" id="currencyTriggerBtn" aria-haspopup="true" aria-expanded="false" aria-label="Select currency">
+            <span id="currencyTriggerLabel">🇺🇸 USD ($)</span>
+            <span style="font-size:0.7rem;color:var(--text-muted);">▾</span>
+          </button>
+          <div class="currency-menu" id="currencyMenu" role="menu">
+            
+      <button type="button" class="currency-option js-currency-option active" data-currency="USD">
+        <span>🇺🇸 USD</span>
+        <span style="color:var(--text-muted);">$</span>
+      </button>
+    
+      <button type="button" class="currency-option js-currency-option " data-currency="EUR">
+        <span>🇪🇺 EUR</span>
+        <span style="color:var(--text-muted);">€</span>
+      </button>
+    
+      <button type="button" class="currency-option js-currency-option " data-currency="GBP">
+        <span>🇬🇧 GBP</span>
+        <span style="color:var(--text-muted);">£</span>
+      </button>
+    
+      <button type="button" class="currency-option js-currency-option " data-currency="AED">
+        <span>🇦🇪 AED</span>
+        <span style="color:var(--text-muted);">AED </span>
+      </button>
+    
+      <button type="button" class="currency-option js-currency-option " data-currency="INR">
+        <span>🇺🇸 INR</span>
+        <span style="color:var(--text-muted);">₹</span>
+      </button>
+    
+      <button type="button" class="currency-option js-currency-option " data-currency="CAD">
+        <span>🇨🇦 CAD</span>
+        <span style="color:var(--text-muted);">CA$</span>
+      </button>
+    
+      <button type="button" class="currency-option js-currency-option " data-currency="AUD">
+        <span>🇦🇺 AUD</span>
+        <span style="color:var(--text-muted);">A$</span>
+      </button>
+    
+          </div>
+          <select class="js-currency-select" aria-label="Currency" style="display:none;">
+            <option value="USD">USD</option>
+            <option value="EUR">EUR</option>
+            <option value="GBP">GBP</option>
+            <option value="CAD">CAD</option>
+            <option value="AUD">AUD</option>
+            <option value="AED">AED</option>
+            <option value="SGD">SGD</option>
+          </select>
+        </div>
+
+        <a href="apply.html" class="btn btn-primary btn-sm">
+          <span>Apply Now</span>
+          <span class="arrow-icon">→</span>
+        </a>
+
         <button type="button" class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mainNavLinks">
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true">
             <line x1="3" y1="6" x2="21" y2="6"></line>
@@ -78,26 +131,25 @@
           <li aria-hidden="true">/</li>
           <li><a href="destinations.html">Destinations</a></li>
           <li aria-hidden="true">/</li>
-          <li aria-current="page" style="color:var(--navy);font-weight:600;">United States — ETA</li>
+          <li aria-current="page" style="color:var(--navy);font-weight:700;">🇺🇸 United States — ETA</li>
         </ol>
       </nav>
     </div>
 
     <section class="section" style="padding-top:1.25rem;">
       <div class="container dest-detail-layout">
-        
         <div>
           <div style="display:flex;align-items:center;gap:0.5rem;flex-wrap:wrap;margin-bottom:0.65rem;">
-            <span class="badge badge-primary">ETA</span>
-            <span class="badge badge-neutral">Americas</span>
-            <span class="badge badge-emerald">Fees Verified: 27 Oct 2026</span>
+            <span class="badge badge-primary">🇺🇸 ETA</span>
+            <span class="badge badge-neutral">🕒 Up to 72h</span>
+            <span class="badge badge-emerald">✓ Verified: 27 Oct 2026</span>
           </div>
 
           <h1 style="font-size:clamp(1.85rem,3.5vw,2.65rem);margin-bottom:0.65rem;">United States: United States ESTA (Visa Waiver Program)</h1>
           <p style="font-size:1.05rem;color:var(--text-body);margin-bottom:1rem;">Electronic System for Travel Authorization (ESTA) for citizens of the 42 Visa Waiver Program countries traveling to the United States for tourism, business, or transit.</p>
 
-          <div style="background:var(--primary-tint);border:1px solid var(--primary-border);border-radius:var(--radius-md);padding:0.9rem 1.1rem;font-size:0.875rem;color:var(--text-body);margin-bottom:1.5rem;">
-            <strong>Private Service Notice:</strong> OnePassVisa is a private service, not a government website. You can apply directly at <a href="https://esta.cbp.dhs.gov" target="_blank" rel="noopener noreferrer" style="color:var(--primary);font-weight:600;text-decoration:underline;">U.S. Customs and Border Protection ESTA ↗</a> for the $21 government fee only.
+          <div style="background:var(--emerald-tint);border:1px solid var(--emerald-border);border-radius:var(--radius-md);padding:0.9rem 1.1rem;font-size:0.875rem;color:var(--text-body);margin-bottom:1.5rem;">
+            <strong>Private Service Notice:</strong> OnePassVisa is a private service, not a government website. You can apply directly at <a href="https://esta.cbp.dhs.gov" target="_blank" rel="noopener noreferrer" style="color:var(--emerald);font-weight:700;text-decoration:underline;">U.S. Customs and Border Protection ESTA ↗</a> for the $21 government fee only.
           </div>
 
           <div style="border-radius:var(--radius-lg);overflow:hidden;border:1px solid var(--border);margin-bottom:1.75rem;">
@@ -127,37 +179,77 @@
             </div>
           </div>
 
-          
-          <div class="checker-box" style="margin-bottom:2rem;">
-            <h2 style="font-size:1.2rem;margin-bottom:0.35rem;">Check if your passport needs the United States ESTA (Visa Waiver Program)</h2>
-            <p style="font-size:0.875rem;color:var(--text-muted);margin-bottom:1rem;">Select your passport nationality below for an instant eligibility check.</p>
-            <form id="heroCheckerForm" novalidate>
-              <div class="form-grid-2">
-                <div class="field-group">
-                  <label class="field-label" for="checkerNationality">Your Passport Nationality</label>
-                  <select id="checkerNationality" class="field-control js-nationality-select" data-default="US" required>
-                    <option value="" >Select passport country...</option><option value="US" selected>United States</option><option value="GB" >United Kingdom</option><option value="CA" >Canada</option><option value="AU" >Australia</option><option value="IN" >India</option><option value="AE" >United Arab Emirates</option><option value="DE" >Germany</option><option value="FR" >France</option><option value="IT" >Italy</option><option value="ES" >Spain</option><option value="NL" >Netherlands</option><option value="SE" >Sweden</option><option value="NO" >Norway</option><option value="DK" >Denmark</option><option value="FI" >Finland</option><option value="IE" >Ireland</option><option value="CH" >Switzerland</option><option value="AT" >Austria</option><option value="BE" >Belgium</option><option value="PT" >Portugal</option><option value="GR" >Greece</option><option value="PL" >Poland</option><option value="CZ" >Czechia</option><option value="HU" >Hungary</option><option value="RO" >Romania</option><option value="BG" >Bulgaria</option><option value="HR" >Croatia</option><option value="SK" >Slovakia</option><option value="SI" >Slovenia</option><option value="EE" >Estonia</option><option value="LV" >Latvia</option><option value="LT" >Lithuania</option><option value="LU" >Luxembourg</option><option value="MT" >Malta</option><option value="CY" >Cyprus</option><option value="IS" >Iceland</option><option value="JP" >Japan</option><option value="KR" >South Korea</option><option value="SG" >Singapore</option><option value="MY" >Malaysia</option><option value="NZ" >New Zealand</option><option value="BR" >Brazil</option><option value="MX" >Mexico</option><option value="AR" >Argentina</option><option value="CL" >Chile</option><option value="CO" >Colombia</option><option value="PE" >Peru</option><option value="ZA" >South Africa</option><option value="PH" >Philippines</option><option value="ID" >Indonesia</option><option value="TH" >Thailand</option><option value="VN" >Vietnam</option><option value="CN" >China</option><option value="HK" >Hong Kong SAR</option><option value="TW" >Taiwan</option><option value="SA" >Saudi Arabia</option><option value="QA" >Qatar</option><option value="KW" >Kuwait</option><option value="OM" >Oman</option><option value="BH" >Bahrain</option><option value="JO" >Jordan</option><option value="LB" >Lebanon</option><option value="EG" >Egypt</option><option value="MA" >Morocco</option><option value="TN" >Tunisia</option><option value="DZ" >Algeria</option><option value="TR" >Türkiye</option><option value="PK" >Pakistan</option><option value="BD" >Bangladesh</option><option value="LK" >Sri Lanka</option><option value="NP" >Nepal</option><option value="NG" >Nigeria</option><option value="KE" >Kenya</option><option value="GH" >Ghana</option><option value="ET" >Ethiopia</option><option value="TZ" >Tanzania</option><option value="UG" >Uganda</option><option value="RW" >Rwanda</option><option value="MU" >Mauritius</option><option value="SC" >Seychelles</option><option value="UA" >Ukraine</option><option value="GE" >Georgia</option><option value="AM" >Armenia</option><option value="AZ" >Azerbaijan</option><option value="KZ" >Kazakhstan</option><option value="UZ" >Uzbekistan</option><option value="IL" >Israel</option><option value="CR" >Costa Rica</option><option value="PA" >Panama</option><option value="UY" >Uruguay</option><option value="EC" >Ecuador</option><option value="DO" >Dominican Republic</option><option value="JM" >Jamaica</option><option value="TT" >Trinidad and Tobago</option><option value="BS" >Bahamas</option><option value="BB" >Barbados</option>
-                  </select>
-                </div>
-                <div class="field-group">
-                  <label class="field-label" for="checkerDestination">Destination</label>
-                  <select id="checkerDestination" class="field-control js-destination-select" data-default="usa" required>
-                    <option value="vietnam" >Vietnam — eVisa</option><option value="thailand-tdac" >Thailand (Arrival Card) — Arrival Card</option><option value="indonesia" >Indonesia (Bali) — eVisa</option><option value="singapore" >Singapore (SGAC) — Arrival Card</option><option value="india" >India — eVisa</option><option value="cambodia" >Cambodia — eVisa</option><option value="uae" >United Arab Emirates — eVisa</option><option value="saudi" >Saudi Arabia — eVisa</option><option value="turkey" >Türkiye — eVisa</option><option value="egypt" >Egypt — eVisa</option><option value="kenya" >Kenya — ETA</option><option value="uk" >United Kingdom — ETA</option><option value="usa" selected>United States — ETA</option><option value="canada" >Canada — ETA</option><option value="australia" >Australia — ETA</option><option value="malaysia" >Malaysia (MDAC) — Arrival Card</option><option value="thailand-evisa" >Thailand (Tourist e-Visa) — eVisa</option><option value="morocco" >Morocco — eVisa</option>
-                  </select>
-                </div>
-              </div>
-              <div style="margin-top:0.85rem;">
-                <button type="submit" class="btn btn-primary btn-block">Check My Passport Requirement</button>
-              </div>
-            </form>
-            <div id="checkerResultDrawer" class="checker-result" role="region" aria-live="polite"></div>
+          <div style="margin-bottom:2rem;">
+            <h2 style="font-size:1.25rem;margin-bottom:0.5rem;">Check if your passport needs the United States ESTA (Visa Waiver Program)</h2>
+            
+    <div class="checker-capsule">
+      <form id="heroCheckerForm" novalidate>
+        <select id="checkerNationality" class="js-nationality-select" data-default="US" aria-label="Passport Nationality" style="position:absolute;width:1px;height:1px;opacity:0;pointer-events:none;" tabindex="-1">
+          <option value="US" selected>🇺🇸 United States</option><option value="GB" >🇬🇧 United Kingdom</option><option value="CA" >🇨🇦 Canada</option><option value="AU" >🇦🇺 Australia</option><option value="IN" >🇮🇳 India</option><option value="AE" >🇦🇪 United Arab Emirates</option><option value="DE" >🇩🇪 Germany</option><option value="FR" >🇫🇷 France</option><option value="IT" >🇮🇹 Italy</option><option value="ES" >🇪🇸 Spain</option><option value="NL" >🇳🇱 Netherlands</option><option value="SE" >🇸🇪 Sweden</option><option value="NO" >🇳🇴 Norway</option><option value="DK" >🇩🇰 Denmark</option><option value="FI" >🇫🇮 Finland</option><option value="IE" >🇮🇪 Ireland</option><option value="CH" >🇨🇭 Switzerland</option><option value="AT" >🇦🇹 Austria</option><option value="BE" >🇧🇪 Belgium</option><option value="PT" >🇵🇹 Portugal</option><option value="GR" >🇬🇷 Greece</option><option value="PL" >🇵🇱 Poland</option><option value="CZ" >🇨🇿 Czechia</option><option value="HU" >🇭🇺 Hungary</option><option value="RO" >🇷🇴 Romania</option><option value="BG" >🇧🇬 Bulgaria</option><option value="HR" >🇭🇷 Croatia</option><option value="SK" >🇸🇰 Slovakia</option><option value="SI" >🇸🇮 Slovenia</option><option value="EE" >🇪🇪 Estonia</option><option value="LV" >🇱🇻 Latvia</option><option value="LT" >🇱🇹 Lithuania</option><option value="LU" >🇱🇺 Luxembourg</option><option value="MT" >🇲🇹 Malta</option><option value="CY" >🇨🇾 Cyprus</option><option value="IS" >🇮🇸 Iceland</option><option value="JP" >🇯🇵 Japan</option><option value="KR" >🇰🇷 South Korea</option><option value="SG" >🇸🇬 Singapore</option><option value="MY" >🇲🇾 Malaysia</option><option value="NZ" >🇳🇿 New Zealand</option><option value="BR" >🇧🇷 Brazil</option><option value="MX" >🇲🇽 Mexico</option><option value="AR" >🇦🇷 Argentina</option><option value="CL" >🇨🇱 Chile</option><option value="CO" >🇨🇴 Colombia</option><option value="PE" >🇵🇪 Peru</option><option value="ZA" >🇿🇦 South Africa</option><option value="PH" >🇵🇭 Philippines</option><option value="ID" >🇮🇩 Indonesia</option><option value="TH" >🇹🇭 Thailand</option><option value="VN" >🇻🇳 Vietnam</option><option value="CN" >🇨🇳 China</option><option value="HK" >🇭🇰 Hong Kong SAR</option><option value="TW" >🇹🇼 Taiwan</option><option value="SA" >🇸🇦 Saudi Arabia</option><option value="QA" >🇶🇦 Qatar</option><option value="KW" >🇰🇼 Kuwait</option><option value="OM" >🇴🇲 Oman</option><option value="BH" >🇧🇭 Bahrain</option><option value="JO" >🇯🇴 Jordan</option><option value="LB" >🇱🇧 Lebanon</option><option value="EG" >🇪🇬 Egypt</option><option value="MA" >🇲🇦 Morocco</option><option value="TN" >🇹🇳 Tunisia</option><option value="DZ" >🇩🇿 Algeria</option><option value="TR" >🇹🇷 Türkiye</option><option value="PK" >🇵🇰 Pakistan</option><option value="BD" >🇧🇩 Bangladesh</option><option value="LK" >🇱🇰 Sri Lanka</option><option value="NP" >🇳🇵 Nepal</option><option value="NG" >🇳🇬 Nigeria</option><option value="KE" >🇰🇪 Kenya</option><option value="GH" >🇬🇭 Ghana</option><option value="ET" >🇪🇹 Ethiopia</option><option value="TZ" >🇹🇿 Tanzania</option><option value="UG" >🇺🇬 Uganda</option><option value="RW" >🇷🇼 Rwanda</option><option value="MU" >🇲🇺 Mauritius</option><option value="SC" >🇸🇨 Seychelles</option><option value="UA" >🇺🇦 Ukraine</option><option value="GE" >🇬🇪 Georgia</option><option value="AM" >🇦🇲 Armenia</option><option value="AZ" >🇦🇿 Azerbaijan</option><option value="KZ" >🇰🇿 Kazakhstan</option><option value="UZ" >🇺🇿 Uzbekistan</option><option value="IL" >🇮🇱 Israel</option><option value="CR" >🇨🇷 Costa Rica</option><option value="PA" >🇵🇦 Panama</option><option value="UY" >🇺🇾 Uruguay</option><option value="EC" >🇪🇨 Ecuador</option><option value="DO" >🇩🇴 Dominican Republic</option><option value="JM" >🇯🇲 Jamaica</option><option value="TT" >🇹🇹 Trinidad and Tobago</option><option value="BS" >🇧🇸 Bahamas</option><option value="BB" >🇧🇧 Barbados</option>
+        </select>
+        <select id="checkerDestination" class="js-destination-select" data-default="usa" aria-label="Destination and Document" style="position:absolute;width:1px;height:1px;opacity:0;pointer-events:none;" tabindex="-1">
+          <option value="vietnam" >🇻🇳 Vietnam — eVisa</option><option value="thailand-tdac" >🇹🇭 Thailand (Arrival Card) — Arrival Card</option><option value="indonesia" >🇮🇩 Indonesia (Bali) — eVisa</option><option value="singapore" >🇸🇬 Singapore (SGAC) — Arrival Card</option><option value="india" >🇮🇳 India — eVisa</option><option value="cambodia" >🇰🇭 Cambodia — eVisa</option><option value="uae" >🇦🇪 United Arab Emirates — eVisa</option><option value="saudi" >🇸🇦 Saudi Arabia — eVisa</option><option value="turkey" >🇹🇷 Türkiye — eVisa</option><option value="egypt" >🇪🇬 Egypt — eVisa</option><option value="kenya" >🇰🇪 Kenya — ETA</option><option value="uk" >🇬🇧 United Kingdom — ETA</option><option value="usa" selected>🇺🇸 United States — ETA</option><option value="canada" >🇨🇦 Canada — ETA</option><option value="australia" >🇦🇺 Australia — ETA</option><option value="malaysia" >🇲🇾 Malaysia (MDAC) — Arrival Card</option><option value="thailand-evisa" >🇹🇭 Thailand (Tourist e-Visa) — eVisa</option><option value="morocco" >🇲🇦 Morocco — eVisa</option>
+        </select>
+
+        <div class="checker-capsule-grid">
+          <div class="combo-wrap" id="comboNationalityWrap">
+            <button type="button" class="combo-trigger" id="comboNationalityTrigger" aria-haspopup="listbox" aria-expanded="false">
+              <span class="combo-sublabel">Citizen of / Passport</span>
+              <span class="combo-value-row" id="comboNationalityLabel">
+                <span style="display:inline-flex;align-items:center;gap:0.45rem;overflow:hidden;text-overflow:ellipsis;">
+                  <span class="combo-flag">🇺🇸</span>
+                  <span>United States Passport</span>
+                </span>
+                <span style="color:var(--text-muted);font-size:0.75rem;">▾</span>
+              </span>
+            </button>
+            <div class="combo-popover" role="listbox" aria-label="Select Passport Nationality">
+              <input type="search" id="comboNationalitySearch" class="combo-search" placeholder="Search 95+ passports..." aria-label="Search passport country" />
+              <div class="combo-list" id="comboNationalityList"></div>
+            </div>
           </div>
 
-          
+          <div class="combo-swap-badge" aria-hidden="true">⇄</div>
+
+          <div class="combo-wrap" id="comboDestinationWrap">
+            <button type="button" class="combo-trigger" id="comboDestinationTrigger" aria-haspopup="listbox" aria-expanded="false">
+              <span class="combo-sublabel">Traveling to</span>
+              <span class="combo-value-row" id="comboDestinationLabel">
+                <span style="display:inline-flex;align-items:center;gap:0.45rem;overflow:hidden;text-overflow:ellipsis;">
+                  <span class="combo-flag">🇺🇸</span>
+                  <span>United States (ETA)</span>
+                </span>
+                <span style="color:var(--text-muted);font-size:0.75rem;">▾</span>
+              </span>
+            </button>
+            <div class="combo-popover" role="listbox" aria-label="Select Destination">
+              <input type="search" id="comboDestinationSearch" class="combo-search" placeholder="Search 18 destinations..." aria-label="Search destination" />
+              <div class="combo-list" id="comboDestinationList"></div>
+            </div>
+          </div>
+
+          <button type="submit" class="btn btn-primary btn-checker-cta">
+            <span>Check Visa &amp; Apply</span>
+            <span class="arrow-icon">➔</span>
+          </button>
+        </div>
+      </form>
+    </div>
+
+    <div class="checker-subtext">
+      <span><span class="checker-subtext-check">✓</span> Checked 2.4k times today • No signup required</span>
+      <span>•</span>
+      <span>Statutory government fees verified 27 Oct 2026</span>
+    </div>
+
+    <div id="checkerResultDrawer" class="checker-result" role="region" aria-live="polite"></div>
+  
+          </div>
+
           <div class="card" style="margin-bottom:2rem;">
             <h2 style="font-size:1.35rem;margin-bottom:0.5rem;">Itemized Fee Breakdown &amp; Processing Times</h2>
             <p style="font-size:0.9rem;color:var(--text-muted);margin-bottom:1rem;">
-              Official statutory fee verified on <a href="https://esta.cbp.dhs.gov" target="_blank" rel="noopener noreferrer" style="color:var(--primary);text-decoration:underline;">U.S. Customs and Border Protection ESTA</a> on <strong>27 Oct 2026</strong>.
+              Official statutory fee verified on <a href="https://esta.cbp.dhs.gov" target="_blank" rel="noopener noreferrer" style="color:var(--emerald);font-weight:600;text-decoration:underline;">U.S. Customs and Border Protection ESTA</a> on <strong>27 Oct 2026</strong>.
             </p>
             <div class="table-wrap" style="margin-bottom:1.25rem;">
               <table class="data-table">
@@ -194,25 +286,23 @@
             </div>
           </div>
 
-          
           <div class="card" style="margin-bottom:2rem;">
             <h2 style="font-size:1.35rem;margin-bottom:0.75rem;">Required Documents &amp; Information</h2>
             <ul style="display:flex;flex-direction:column;gap:0.65rem;">
               
                 <li style="display:flex;align-items:flex-start;gap:0.65rem;font-size:0.95rem;color:var(--text-body);">
-                  <span style="color:var(--success);font-weight:800;flex-shrink:0;">✓</span>
+                  <span style="color:var(--emerald);font-weight:800;flex-shrink:0;">✓</span>
                   <span>Valid e-Passport with electronic chip from a Visa Waiver Program country</span>
                 </li>
               
                 <li style="display:flex;align-items:flex-start;gap:0.65rem;font-size:0.95rem;color:var(--text-body);">
-                  <span style="color:var(--success);font-weight:800;flex-shrink:0;">✓</span>
+                  <span style="color:var(--emerald);font-weight:800;flex-shrink:0;">✓</span>
                   <span>U.S. point of contact/hotel address and current employment details</span>
                 </li>
               
             </ul>
           </div>
 
-          
           <div class="card" style="margin-bottom:2rem;">
             <h2 style="font-size:1.35rem;margin-bottom:0.75rem;">Apply Yourself vs. Apply With OnePassVisa</h2>
             <div class="table-wrap">
@@ -250,7 +340,6 @@
             </div>
           </div>
 
-          
           <div>
             <h2 style="font-size:1.35rem;margin-bottom:1rem;">US ESTA ETA — Frequently Asked Questions</h2>
             <div class="faq-list">
@@ -299,10 +388,9 @@
           </div>
         </div>
 
-        
         <aside class="sticky-sidebar">
-          <div class="card" style="border-color:var(--primary-border);">
-            <span class="badge badge-primary" style="margin-bottom:0.5rem;">ETA Summary</span>
+          <div class="card" style="border-color:var(--emerald-border);">
+            <span class="badge badge-emerald" style="margin-bottom:0.5rem;">🇺🇸 ETA Summary</span>
             <h2 style="font-size:1.25rem;margin-bottom:0.75rem;">United States ESTA (Visa Waiver Program)</h2>
 
             <div class="summary-row"><span>Statutory Government Fee</span><strong>$21</strong></div>
@@ -314,14 +402,17 @@
               <span data-usd="59">$59</span>
             </div>
 
-            <a href="apply.html?country=usa" class="btn btn-primary btn-lg btn-block" style="margin-bottom:0.75rem;">Start US ESTA Application →</a>
+            <a href="apply.html?country=usa" class="btn btn-primary btn-lg btn-block" style="margin-bottom:0.75rem;">
+              <span>Start US ESTA Application</span>
+              <span class="arrow-icon">→</span>
+            </a>
 
             <div style="font-size:0.78rem;color:var(--text-muted);line-height:1.5;border-top:1px solid var(--border);padding-top:0.75rem;">
               <p style="margin-bottom:0.5rem;">
                 <strong>Refund Summary:</strong> 100% full refund if cancelled before government submission; 100% service fee refund if declined by immigration.
               </p>
               <p>
-                OnePassVisa is a private service, not a government site. You can apply directly at <a href="https://esta.cbp.dhs.gov" target="_blank" rel="noopener noreferrer" style="color:var(--primary);text-decoration:underline;">U.S. Customs and Border Protection ESTA</a> for the $21 government fee only.
+                OnePassVisa is a private service, not a government site. You can apply directly at <a href="https://esta.cbp.dhs.gov" target="_blank" rel="noopener noreferrer" style="color:var(--emerald);font-weight:600;text-decoration:underline;">U.S. Customs and Border Protection ESTA</a> for the $21 government fee only.
               </p>
             </div>
           </div>
@@ -331,13 +422,16 @@
 
     <div class="sticky-mobile-cta">
       <div>
-        <div style="font-size:0.75rem;color:var(--text-muted);">US ESTA ETA Total</div>
-        <div style="font-family:var(--font-display);font-size:1.2rem;font-weight:800;color:var(--navy);">
+        <div style="font-size:0.75rem;color:var(--text-muted);">🇺🇸 US ESTA ETA Total</div>
+        <div class="tabular-nums" style="font-family:var(--font-display);font-size:1.2rem;font-weight:800;color:var(--navy);">
           <span data-usd="59">$59</span>
           <span style="font-size:0.75rem;font-weight:500;color:var(--text-muted);">(Gov $21 + $38 fee)</span>
         </div>
       </div>
-      <a href="apply.html?country=usa" class="btn btn-primary">Start Application →</a>
+      <a href="apply.html?country=usa" class="btn btn-primary">
+        <span>Start Application</span>
+        <span class="arrow-icon">→</span>
+      </a>
     </div>
   
   </main>
@@ -346,8 +440,8 @@
     <div class="container">
       <div class="footer-grid">
         <div>
-          <a href="index.html" aria-label="OnePassVisa Home" style="display:inline-block;margin-bottom:0.85rem;">
-            <img src="assets/images/logo-white.svg" alt="OnePassVisa.com" width="180" height="40" loading="lazy" />
+          <a href="index.html" aria-label="onepassvisa Home" style="display:inline-block;margin-bottom:0.85rem;">
+            <img src="assets/images/logo-white.svg" alt="onepassvisa" width="184" height="37" loading="lazy" />
           </a>
           <p style="font-size:0.875rem;color:#CBD5E1;margin-bottom:0.85rem;max-width:22rem;">
             Private travel document and eVisa filing assistance. Specialist passport &amp; photo review, clear fee breakdowns, and direct links to official government portals.
@@ -426,11 +520,11 @@
 
   <div class="cookie-banner" id="cookieConsentBanner" role="region" aria-label="Cookie Consent">
     <div style="max-width:40rem;">
-      <strong>Privacy &amp; Analytics Consent:</strong> We use essential cookies to save your application progress and optional analytics cookies (Google Consent Mode v2) to improve site performance. See our <a href="policies.html#cookies" style="color:var(--accent);text-decoration:underline;">Cookie Policy</a>.
+      <strong>Privacy &amp; Analytics Consent:</strong> We use essential cookies to save your application progress and optional analytics cookies (Google Consent Mode v2) to improve site performance. See our <a href="policies.html#cookies" style="color:var(--emerald-bright);text-decoration:underline;">Cookie Policy</a>.
     </div>
     <div style="display:flex;gap:0.6rem;flex-wrap:wrap;">
       <button type="button" class="btn btn-outline btn-sm" id="essentialCookiesBtn" style="background:transparent;color:#FFFFFF;border-color:rgba(255,255,255,0.4);">Essential Only</button>
-      <button type="button" class="btn btn-accent btn-sm" id="acceptCookiesBtn">Accept All</button>
+      <button type="button" class="btn btn-primary btn-sm" id="acceptCookiesBtn">Accept All</button>
     </div>
   </div>
 

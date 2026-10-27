@@ -6,7 +6,7 @@
   <title>Apply Online | eVisa, ETA &amp; Arrival Card Application | Private Service — OnePassVisa</title>
   <meta name="description" content="Complete your visa, ETA, or digital arrival card application with OnePassVisa, a private travel document service. Upload passport scans and see itemized government + service fees." />
   <link rel="canonical" href="https://onepassvisa.com/apply" />
-  <meta name="theme-color" content="#0E5C9E" />
+  <meta name="theme-color" content="#059669" />
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="OnePassVisa" />
   <meta property="og:title" content="Apply Online | eVisa, ETA &amp; Arrival Card Application | Private Service — OnePassVisa" />
@@ -15,6 +15,7 @@
   <meta property="og:image" content="https://onepassvisa.com/assets/images/logo-horizontal.png" />
   <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg" />
   <link rel="icon" type="image/png" href="assets/images/favicon.png" />
+  <link rel="apple-touch-icon" href="assets/images/apple-touch-icon.png" />
   <link rel="preload" href="assets/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="preload" href="assets/fonts/plus-jakarta-700.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="stylesheet" href="assets/css/onepass-v6.css" />
@@ -25,14 +26,17 @@
 
   <div class="disclosure-bar" role="region" aria-label="Private Service Disclosure">
     <div class="container disclosure-bar-inner">
-      <span><strong>Private Service Notice:</strong> OnePassVisa is an independent private assistance agency, not affiliated with any government. You can apply directly on <a href="faq.html#official-portals">official government portals</a> for the statutory fee only.</span>
+      <span class="disclosure-shield" aria-hidden="true">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L4 5v6.09c0 5.05 3.41 9.76 8 10.91 4.59-1.15 8-5.86 8-10.91V5l-8-3zm-1.06 13.54L7.4 12l1.41-1.41 2.12 2.12 4.24-4.24 1.41 1.41-5.64 5.66z"/></svg>
+      </span>
+      <span><strong>✓ Private Service Notice:</strong> OnePassVisa is an independent assistance agency, not affiliated with any government. Apply directly on official portals for statutory fees only. <a href="faq.html#official-portals">[Learn More]</a></span>
     </div>
   </div>
 
   <header class="site-header">
     <div class="container header-inner">
-      <a href="index.html" class="brand-logo" aria-label="OnePassVisa Home">
-        <img src="assets/images/logo.svg" alt="OnePassVisa.com" width="176" height="39" class="brand-logo-img" />
+      <a href="index.html" class="brand-logo" aria-label="onepassvisa Home">
+        <img src="assets/images/logo.svg" alt="onepassvisa" width="184" height="37" class="brand-logo-img" />
       </a>
 
       <nav class="nav-links" id="mainNavLinks" aria-label="Primary Navigation">
@@ -45,16 +49,65 @@
       </nav>
 
       <div class="header-actions">
-        <select class="currency-select js-currency-select hide-mobile" aria-label="Select currency">
-          <option value="USD">USD ($)</option>
-          <option value="EUR">EUR (€)</option>
-          <option value="GBP">GBP (£)</option>
-          <option value="CAD">CAD (C$)</option>
-          <option value="AUD">AUD (A$)</option>
-          <option value="AED">AED</option>
-          <option value="SGD">SGD (S$)</option>
-        </select>
-        <a href="apply.html" class="btn btn-primary btn-sm">Apply Now</a>
+        <div class="currency-dropdown-wrap hide-mobile" id="currencyDropdownWrap">
+          <button type="button" class="currency-trigger" id="currencyTriggerBtn" aria-haspopup="true" aria-expanded="false" aria-label="Select currency">
+            <span id="currencyTriggerLabel">🇺🇸 USD ($)</span>
+            <span style="font-size:0.7rem;color:var(--text-muted);">▾</span>
+          </button>
+          <div class="currency-menu" id="currencyMenu" role="menu">
+            
+      <button type="button" class="currency-option js-currency-option active" data-currency="USD">
+        <span>🇺🇸 USD</span>
+        <span style="color:var(--text-muted);">$</span>
+      </button>
+    
+      <button type="button" class="currency-option js-currency-option " data-currency="EUR">
+        <span>🇪🇺 EUR</span>
+        <span style="color:var(--text-muted);">€</span>
+      </button>
+    
+      <button type="button" class="currency-option js-currency-option " data-currency="GBP">
+        <span>🇬🇧 GBP</span>
+        <span style="color:var(--text-muted);">£</span>
+      </button>
+    
+      <button type="button" class="currency-option js-currency-option " data-currency="AED">
+        <span>🇦🇪 AED</span>
+        <span style="color:var(--text-muted);">AED </span>
+      </button>
+    
+      <button type="button" class="currency-option js-currency-option " data-currency="INR">
+        <span>🇺🇸 INR</span>
+        <span style="color:var(--text-muted);">₹</span>
+      </button>
+    
+      <button type="button" class="currency-option js-currency-option " data-currency="CAD">
+        <span>🇨🇦 CAD</span>
+        <span style="color:var(--text-muted);">CA$</span>
+      </button>
+    
+      <button type="button" class="currency-option js-currency-option " data-currency="AUD">
+        <span>🇦🇺 AUD</span>
+        <span style="color:var(--text-muted);">A$</span>
+      </button>
+    
+          </div>
+          <select class="js-currency-select" aria-label="Currency" style="display:none;">
+            <option value="USD">USD</option>
+            <option value="EUR">EUR</option>
+            <option value="GBP">GBP</option>
+            <option value="CAD">CAD</option>
+            <option value="AUD">AUD</option>
+            <option value="AED">AED</option>
+            <option value="SGD">SGD</option>
+          </select>
+        </div>
+
+        <a href="apply.html" class="btn btn-primary btn-sm">
+          <span>Apply Now</span>
+          <span class="arrow-icon">→</span>
+        </a>
+
         <button type="button" class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mainNavLinks">
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true">
             <line x1="3" y1="6" x2="21" y2="6"></line>
@@ -72,7 +125,7 @@
       <div class="container">
         <div class="progress-bar-wrap">
           <div class="progress-steps-header">
-            <span style="color:var(--primary);font-weight:700;">Step 1 of 2: Application &amp; Document Upload</span>
+            <span style="color:var(--emerald);font-weight:700;">Step 1 of 2: Application &amp; Document Upload</span>
             <span>Step 2: Secure Hosted Checkout</span>
           </div>
           <div class="progress-track" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" aria-label="Application Progress">
@@ -81,20 +134,18 @@
         </div>
 
         <div class="apply-layout">
-          
           <form id="applyWizardForm" class="card" novalidate>
             <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:0.5rem;margin-bottom:1rem;">
               <h1 style="font-size:clamp(1.35rem,2.5vw,1.75rem);">Start Your Travel Document Application</h1>
               <button type="button" id="saveDraftBtn" class="btn btn-outline btn-sm">Save &amp; Resume Later</button>
             </div>
-            <div id="saveDraftStatus" style="display:none;background:var(--success-tint);border:1px solid var(--success-border);color:var(--navy);padding:0.65rem 0.9rem;border-radius:var(--radius-sm);font-size:0.85rem;margin-bottom:1rem;"></div>
+            <div id="saveDraftStatus" style="display:none;background:var(--emerald-tint);border:1px solid var(--emerald-border);color:var(--navy);padding:0.65rem 0.9rem;border-radius:var(--radius-sm);font-size:0.85rem;margin-bottom:1rem;"></div>
 
-            
             <div class="form-grid-3" style="margin-bottom:1.25rem;">
               <div class="field-group" style="grid-column:1 / -1;">
                 <label class="field-label" for="applyDestination">Destination &amp; Document *</label>
                 <select id="applyDestination" class="field-control js-destination-select" data-default="vietnam" required>
-                  <option value="vietnam" selected>Vietnam — eVisa</option><option value="thailand-tdac" >Thailand (Arrival Card) — Arrival Card</option><option value="indonesia" >Indonesia (Bali) — eVisa</option><option value="singapore" >Singapore (SGAC) — Arrival Card</option><option value="india" >India — eVisa</option><option value="cambodia" >Cambodia — eVisa</option><option value="uae" >United Arab Emirates — eVisa</option><option value="saudi" >Saudi Arabia — eVisa</option><option value="turkey" >Türkiye — eVisa</option><option value="egypt" >Egypt — eVisa</option><option value="kenya" >Kenya — ETA</option><option value="uk" >United Kingdom — ETA</option><option value="usa" >United States — ETA</option><option value="canada" >Canada — ETA</option><option value="australia" >Australia — ETA</option><option value="malaysia" >Malaysia (MDAC) — Arrival Card</option><option value="thailand-evisa" >Thailand (Tourist e-Visa) — eVisa</option><option value="morocco" >Morocco — eVisa</option>
+                  <option value="vietnam" selected>🇻🇳 Vietnam — eVisa</option><option value="thailand-tdac" >🇹🇭 Thailand (Arrival Card) — Arrival Card</option><option value="indonesia" >🇮🇩 Indonesia (Bali) — eVisa</option><option value="singapore" >🇸🇬 Singapore (SGAC) — Arrival Card</option><option value="india" >🇮🇳 India — eVisa</option><option value="cambodia" >🇰🇭 Cambodia — eVisa</option><option value="uae" >🇦🇪 United Arab Emirates — eVisa</option><option value="saudi" >🇸🇦 Saudi Arabia — eVisa</option><option value="turkey" >🇹🇷 Türkiye — eVisa</option><option value="egypt" >🇪🇬 Egypt — eVisa</option><option value="kenya" >🇰🇪 Kenya — ETA</option><option value="uk" >🇬🇧 United Kingdom — ETA</option><option value="usa" >🇺🇸 United States — ETA</option><option value="canada" >🇨🇦 Canada — ETA</option><option value="australia" >🇦🇺 Australia — ETA</option><option value="malaysia" >🇲🇾 Malaysia (MDAC) — Arrival Card</option><option value="thailand-evisa" >🇹🇭 Thailand (Tourist e-Visa) — eVisa</option><option value="morocco" >🇲🇦 Morocco — eVisa</option>
                 </select>
               </div>
               <div class="field-group">
@@ -116,22 +167,20 @@
               <input type="tel" id="applyPhone" class="field-control" placeholder="+1 202 588 6500" autocomplete="tel" inputmode="tel" required />
             </div>
 
-            
             <div id="applicantsContainer"></div>
 
-            
             <fieldset style="margin-bottom:1.5rem;">
               <legend class="field-label" style="margin-bottom:0.5rem;">Select Specialist Handling Speed</legend>
               <div class="speed-grid">
                 <label class="speed-option selected">
-                  <input type="radio" name="applySpeed" value="standard" checked style="margin-top:0.25rem;accent-color:var(--primary);" />
+                  <input type="radio" name="applySpeed" value="standard" checked style="margin-top:0.25rem;accent-color:var(--emerald);" />
                   <div>
                     <div style="font-weight:700;color:var(--navy);font-size:0.95rem;">Standard Specialist Handling (+$0)</div>
                     <div style="font-size:0.8125rem;color:var(--text-muted);">Document review, photo formatting &amp; portal filing within 6–12 hours.</div>
                   </div>
                 </label>
                 <label class="speed-option">
-                  <input type="radio" name="applySpeed" value="priority" style="margin-top:0.25rem;accent-color:var(--primary);" />
+                  <input type="radio" name="applySpeed" value="priority" style="margin-top:0.25rem;accent-color:var(--emerald);" />
                   <div>
                     <div style="font-weight:700;color:var(--navy);font-size:0.95rem;">Priority Handling (+<span id="applyPriorityPrice">$20</span> per traveler)</div>
                     <div style="font-size:0.8125rem;color:var(--text-muted);">Immediate front-of-queue specialist review &amp; filing within 2 hours.</div>
@@ -140,23 +189,25 @@
               </div>
             </fieldset>
 
-            
             <div style="background:var(--bg-subtle);border:1px solid var(--border);border-radius:var(--radius-md);padding:1rem;margin-bottom:1.25rem;">
               <label style="display:flex;align-items:flex-start;gap:0.75rem;cursor:pointer;font-size:0.875rem;color:var(--text-body);">
-                <input type="checkbox" id="applyTermsConsent" style="width:20px;height:20px;margin-top:0.15rem;accent-color:var(--primary);flex-shrink:0;" required />
+                <input type="checkbox" id="applyTermsConsent" style="width:20px;height:20px;margin-top:0.15rem;accent-color:var(--emerald);flex-shrink:0;" required />
                 <span>
-                  I confirm that the passport details entered are accurate, that I understand <strong>OnePassVisa is a private assistance service not affiliated with any government</strong>, and that I agree to the <a href="policies.html#terms" style="color:var(--primary);text-decoration:underline;">Terms of Service</a> and <a href="policies.html#refund" style="color:var(--primary);text-decoration:underline;">Refund Policy</a>.
+                  I confirm that the passport details entered are accurate, that I understand <strong>OnePassVisa is a private assistance service not affiliated with any government</strong>, and that I agree to the <a href="policies.html#terms" style="color:var(--emerald);font-weight:600;text-decoration:underline;">Terms of Service</a> and <a href="policies.html#refund" style="color:var(--emerald);font-weight:600;text-decoration:underline;">Refund Policy</a>.
                 </span>
               </label>
             </div>
 
             <div id="applyFormError" role="alert" style="display:none;background:var(--danger-tint);border:1px solid var(--danger);color:var(--danger);padding:0.85rem 1rem;border-radius:var(--radius-md);font-size:0.9rem;font-weight:600;margin-bottom:1rem;"></div>
 
-            <button type="submit" id="applySubmitBtn" class="btn btn-primary btn-lg btn-block">Continue to Secure Checkout →</button>
+            <button type="submit" id="applySubmitBtn" class="btn btn-primary btn-lg btn-block">
+              <span>Continue to Secure Checkout</span>
+              <span class="arrow-icon">→</span>
+            </button>
 
             <div style="margin-top:0.85rem;font-size:0.8rem;color:var(--text-muted);line-height:1.5;">
               <p id="applyOfficialDisclosure" style="margin-bottom:0.35rem;">
-                OnePassVisa is a private assistance service, not a government website. You can apply directly at <a href="https://evisa.gov.vn" target="_blank" rel="noopener noreferrer" style="color:var(--primary);text-decoration:underline;">Vietnam National Portal on Immigration</a> for the $25 government fee only. (Verified 27 Oct 2026)
+                OnePassVisa is a private assistance service, not a government website. You can apply directly at <a href="https://evisa.gov.vn" target="_blank" rel="noopener noreferrer" style="color:var(--emerald);font-weight:600;text-decoration:underline;">Vietnam National Portal on Immigration</a> for the $25 government fee only. (Verified 27 Oct 2026)
               </p>
               <p>
                 <strong>Refund Summary:</strong> Cancel before government submission for a 100% full refund. If your application is declined by immigration, we refund 100% of our service fee.
@@ -164,10 +215,9 @@
             </div>
           </form>
 
-          
           <aside class="sticky-sidebar">
-            <div class="card" style="border-color:var(--primary-border);">
-              <span class="badge badge-primary" style="margin-bottom:0.5rem;">Itemized Order Summary</span>
+            <div class="card" style="border-color:var(--emerald-border);">
+              <span class="badge badge-emerald" style="margin-bottom:0.5rem;">Itemized Order Summary</span>
               <h2 id="sumDocTitle" style="font-size:1.2rem;margin-bottom:0.75rem;">Vietnam Tourist e-Visa (Single Entry)</h2>
 
               <div class="summary-row"><span>Statutory Government Fee</span><strong id="sumGovFee">$25 × 1 = $25</strong></div>
@@ -193,9 +243,12 @@
     <div class="sticky-mobile-cta">
       <div>
         <div style="font-size:0.75rem;color:var(--text-muted);">Total (Gov + Service Fee)</div>
-        <div id="stickyMobileTotal" style="font-family:var(--font-display);font-size:1.25rem;font-weight:800;color:var(--navy);">$59</div>
+        <div id="stickyMobileTotal" class="tabular-nums" style="font-family:var(--font-display);font-size:1.25rem;font-weight:800;color:var(--navy);">$59</div>
       </div>
-      <button type="button" class="btn btn-primary" onclick="document.getElementById('applySubmitBtn').click()">Continue →</button>
+      <button type="button" class="btn btn-primary" onclick="document.getElementById('applySubmitBtn').click()">
+        <span>Continue</span>
+        <span class="arrow-icon">→</span>
+      </button>
     </div>
   
   </main>
@@ -204,8 +257,8 @@
     <div class="container">
       <div class="footer-grid">
         <div>
-          <a href="index.html" aria-label="OnePassVisa Home" style="display:inline-block;margin-bottom:0.85rem;">
-            <img src="assets/images/logo-white.svg" alt="OnePassVisa.com" width="180" height="40" loading="lazy" />
+          <a href="index.html" aria-label="onepassvisa Home" style="display:inline-block;margin-bottom:0.85rem;">
+            <img src="assets/images/logo-white.svg" alt="onepassvisa" width="184" height="37" loading="lazy" />
           </a>
           <p style="font-size:0.875rem;color:#CBD5E1;margin-bottom:0.85rem;max-width:22rem;">
             Private travel document and eVisa filing assistance. Specialist passport &amp; photo review, clear fee breakdowns, and direct links to official government portals.
@@ -284,11 +337,11 @@
 
   <div class="cookie-banner" id="cookieConsentBanner" role="region" aria-label="Cookie Consent">
     <div style="max-width:40rem;">
-      <strong>Privacy &amp; Analytics Consent:</strong> We use essential cookies to save your application progress and optional analytics cookies (Google Consent Mode v2) to improve site performance. See our <a href="policies.html#cookies" style="color:var(--accent);text-decoration:underline;">Cookie Policy</a>.
+      <strong>Privacy &amp; Analytics Consent:</strong> We use essential cookies to save your application progress and optional analytics cookies (Google Consent Mode v2) to improve site performance. See our <a href="policies.html#cookies" style="color:var(--emerald-bright);text-decoration:underline;">Cookie Policy</a>.
     </div>
     <div style="display:flex;gap:0.6rem;flex-wrap:wrap;">
       <button type="button" class="btn btn-outline btn-sm" id="essentialCookiesBtn" style="background:transparent;color:#FFFFFF;border-color:rgba(255,255,255,0.4);">Essential Only</button>
-      <button type="button" class="btn btn-accent btn-sm" id="acceptCookiesBtn">Accept All</button>
+      <button type="button" class="btn btn-primary btn-sm" id="acceptCookiesBtn">Accept All</button>
     </div>
   </div>
 

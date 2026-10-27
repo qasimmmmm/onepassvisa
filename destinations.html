@@ -6,7 +6,7 @@
   <title>All 18 Visa, ETA &amp; Arrival Card Destinations | Private Service — OnePassVisa</title>
   <meta name="description" content="Browse all 18 eVisas, ETAs, and digital arrival cards supported by OnePassVisa, a private travel document service. Compare official government fees and our service fees." />
   <link rel="canonical" href="https://onepassvisa.com/destinations" />
-  <meta name="theme-color" content="#0E5C9E" />
+  <meta name="theme-color" content="#059669" />
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="OnePassVisa" />
   <meta property="og:title" content="All 18 Visa, ETA &amp; Arrival Card Destinations | Private Service — OnePassVisa" />
@@ -15,6 +15,7 @@
   <meta property="og:image" content="https://onepassvisa.com/assets/images/logo-horizontal.png" />
   <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg" />
   <link rel="icon" type="image/png" href="assets/images/favicon.png" />
+  <link rel="apple-touch-icon" href="assets/images/apple-touch-icon.png" />
   <link rel="preload" href="assets/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="preload" href="assets/fonts/plus-jakarta-700.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="stylesheet" href="assets/css/onepass-v6.css" />
@@ -26,14 +27,17 @@
 
   <div class="disclosure-bar" role="region" aria-label="Private Service Disclosure">
     <div class="container disclosure-bar-inner">
-      <span><strong>Private Service Notice:</strong> OnePassVisa is an independent private assistance agency, not affiliated with any government. You can apply directly on <a href="faq.html#official-portals">official government portals</a> for the statutory fee only.</span>
+      <span class="disclosure-shield" aria-hidden="true">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L4 5v6.09c0 5.05 3.41 9.76 8 10.91 4.59-1.15 8-5.86 8-10.91V5l-8-3zm-1.06 13.54L7.4 12l1.41-1.41 2.12 2.12 4.24-4.24 1.41 1.41-5.64 5.66z"/></svg>
+      </span>
+      <span><strong>✓ Private Service Notice:</strong> OnePassVisa is an independent assistance agency, not affiliated with any government. Apply directly on official portals for statutory fees only. <a href="faq.html#official-portals">[Learn More]</a></span>
     </div>
   </div>
 
   <header class="site-header">
     <div class="container header-inner">
-      <a href="index.html" class="brand-logo" aria-label="OnePassVisa Home">
-        <img src="assets/images/logo.svg" alt="OnePassVisa.com" width="176" height="39" class="brand-logo-img" />
+      <a href="index.html" class="brand-logo" aria-label="onepassvisa Home">
+        <img src="assets/images/logo.svg" alt="onepassvisa" width="184" height="37" class="brand-logo-img" />
       </a>
 
       <nav class="nav-links" id="mainNavLinks" aria-label="Primary Navigation">
@@ -46,16 +50,65 @@
       </nav>
 
       <div class="header-actions">
-        <select class="currency-select js-currency-select hide-mobile" aria-label="Select currency">
-          <option value="USD">USD ($)</option>
-          <option value="EUR">EUR (€)</option>
-          <option value="GBP">GBP (£)</option>
-          <option value="CAD">CAD (C$)</option>
-          <option value="AUD">AUD (A$)</option>
-          <option value="AED">AED</option>
-          <option value="SGD">SGD (S$)</option>
-        </select>
-        <a href="apply.html" class="btn btn-primary btn-sm">Apply Now</a>
+        <div class="currency-dropdown-wrap hide-mobile" id="currencyDropdownWrap">
+          <button type="button" class="currency-trigger" id="currencyTriggerBtn" aria-haspopup="true" aria-expanded="false" aria-label="Select currency">
+            <span id="currencyTriggerLabel">🇺🇸 USD ($)</span>
+            <span style="font-size:0.7rem;color:var(--text-muted);">▾</span>
+          </button>
+          <div class="currency-menu" id="currencyMenu" role="menu">
+            
+      <button type="button" class="currency-option js-currency-option active" data-currency="USD">
+        <span>🇺🇸 USD</span>
+        <span style="color:var(--text-muted);">$</span>
+      </button>
+    
+      <button type="button" class="currency-option js-currency-option " data-currency="EUR">
+        <span>🇪🇺 EUR</span>
+        <span style="color:var(--text-muted);">€</span>
+      </button>
+    
+      <button type="button" class="currency-option js-currency-option " data-currency="GBP">
+        <span>🇬🇧 GBP</span>
+        <span style="color:var(--text-muted);">£</span>
+      </button>
+    
+      <button type="button" class="currency-option js-currency-option " data-currency="AED">
+        <span>🇦🇪 AED</span>
+        <span style="color:var(--text-muted);">AED </span>
+      </button>
+    
+      <button type="button" class="currency-option js-currency-option " data-currency="INR">
+        <span>🇺🇸 INR</span>
+        <span style="color:var(--text-muted);">₹</span>
+      </button>
+    
+      <button type="button" class="currency-option js-currency-option " data-currency="CAD">
+        <span>🇨🇦 CAD</span>
+        <span style="color:var(--text-muted);">CA$</span>
+      </button>
+    
+      <button type="button" class="currency-option js-currency-option " data-currency="AUD">
+        <span>🇦🇺 AUD</span>
+        <span style="color:var(--text-muted);">A$</span>
+      </button>
+    
+          </div>
+          <select class="js-currency-select" aria-label="Currency" style="display:none;">
+            <option value="USD">USD</option>
+            <option value="EUR">EUR</option>
+            <option value="GBP">GBP</option>
+            <option value="CAD">CAD</option>
+            <option value="AUD">AUD</option>
+            <option value="AED">AED</option>
+            <option value="SGD">SGD</option>
+          </select>
+        </div>
+
+        <a href="apply.html" class="btn btn-primary btn-sm">
+          <span>Apply Now</span>
+          <span class="arrow-icon">→</span>
+        </a>
+
         <button type="button" class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mainNavLinks">
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true">
             <line x1="3" y1="6" x2="21" y2="6"></line>
@@ -75,7 +128,7 @@
           <span class="eyebrow">All 18 Supported Countries &amp; Documents</span>
           <h1 class="section-title">Destinations &amp; Transparent Fee Directory</h1>
           <p class="section-subtitle">
-            Every destination card displays the total per traveler (statutory government fee + OnePassVisa service fee). Click any destination to view full eligibility rules, processing times, and the direct link to the official government portal.
+            Every destination card displays the total per traveler split into statutory government fee + OnePassVisa service fee. Click any destination to view full eligibility rules, processing times, and the direct link to the official government portal.
           </p>
         </div>
 
@@ -98,7 +151,7 @@
         <div class="dest-grid" id="destinationsGrid">
           
     <article class="dest-card reveal-on-scroll">
-      <a href="vietnam-evisa.html" aria-label="Vietnam — Vietnam Tourist e-Visa (Single Entry)">
+      <a href="vietnam-evisa.html" class="dest-card-media" aria-label="Vietnam — Vietnam Tourist e-Visa (Single Entry)">
         <img
           src="https://images.unsplash.com/photo-1528127269322-539801943592?auto=format&fit=crop&w=800&q=80&fm=webp"
           srcset="https://images.unsplash.com/photo-1528127269322-539801943592?auto=format&fit=crop&w=480&q=75&fm=webp 480w, https://images.unsplash.com/photo-1528127269322-539801943592?auto=format&fit=crop&w=800&q=80&fm=webp 800w"
@@ -109,6 +162,8 @@
           alt="Vietnam landmark"
           class="dest-card-img"
         />
+        <span class="dest-flag-badge" aria-hidden="true">🇻🇳</span>
+        <span class="dest-duration-pill">⚡ 3–5 days</span>
       </a>
       <div class="dest-card-body">
         <div>
@@ -118,21 +173,24 @@
           </div>
           <h3 class="dest-card-title"><a href="vietnam-evisa.html">Vietnam</a></h3>
           <div class="dest-card-doc">Vietnam Tourist e-Visa (Single Entry)</div>
-          <div class="dest-card-meta">Stay: Up to 90 Days • Gov time: 3–5 working days</div>
+          <div class="dest-card-meta">Stay: Up to 90 Days • Single Entry (Multiple entry available)</div>
         </div>
         <div class="dest-card-footer">
           <div>
-            <div class="dest-total-price" data-usd="59">$59 <span style="font-size:0.75rem;font-weight:500;color:var(--text-muted);">total</span></div>
-            <div class="dest-fee-sub">Gov $25 + $34 service</div>
+            <div class="dest-total-price tabular-nums"><span data-usd="59">$59</span> <span style="font-size:0.75rem;font-weight:500;color:var(--text-muted);">total</span></div>
+            <div class="dest-fee-pills"><span class="fee-pill fee-pill-gov" data-usd="25" data-prefix="Gov ">Gov $25</span><span class="fee-pill fee-pill-service" data-usd="34" data-prefix="+ " data-suffix=" service">+ $34 service</span></div>
           </div>
-          <a href="vietnam-evisa.html" class="btn btn-primary btn-sm">View &amp; Apply</a>
+          <a href="vietnam-evisa.html" class="dest-card-cta">
+            <span>View &amp; Apply</span>
+            <span class="arrow-icon">→</span>
+          </a>
         </div>
       </div>
     </article>
   
 
     <article class="dest-card reveal-on-scroll">
-      <a href="thailand-arrival-card.html" aria-label="Thailand (Arrival Card) — Thailand Digital Arrival Card (TDAC)">
+      <a href="thailand-arrival-card.html" class="dest-card-media" aria-label="Thailand (Arrival Card) — Thailand Digital Arrival Card (TDAC)">
         <img
           src="https://images.unsplash.com/photo-1552465011-b4e21bf6e79a?auto=format&fit=crop&w=800&q=80&fm=webp"
           srcset="https://images.unsplash.com/photo-1552465011-b4e21bf6e79a?auto=format&fit=crop&w=480&q=75&fm=webp 480w, https://images.unsplash.com/photo-1552465011-b4e21bf6e79a?auto=format&fit=crop&w=800&q=80&fm=webp 800w"
@@ -143,30 +201,35 @@
           alt="Thailand (Arrival Card) landmark"
           class="dest-card-img"
         />
+        <span class="dest-flag-badge" aria-hidden="true">🇹🇭</span>
+        <span class="dest-duration-pill">🕒 72h window</span>
       </a>
       <div class="dest-card-body">
         <div>
           <div style="display:flex;align-items:center;justify-content:space-between;gap:0.5rem;margin-bottom:0.4rem;">
-            <span class="badge badge-primary">Arrival Card</span>
+            <span class="badge badge-emerald">Arrival Card</span>
             <span style="font-size:0.75rem;color:var(--text-muted);font-weight:600;">Asia-Pacific</span>
           </div>
           <h3 class="dest-card-title"><a href="thailand-arrival-card.html">Thailand (Arrival Card)</a></h3>
           <div class="dest-card-doc">Thailand Digital Arrival Card (TDAC)</div>
-          <div class="dest-card-meta">Stay: Per visa / exemption (up to 60 days) • Gov time: Issued within the 72-hour pre-arrival window</div>
+          <div class="dest-card-meta">Stay: Per visa / exemption (up to 60 days) • Single Entry</div>
         </div>
         <div class="dest-card-footer">
           <div>
-            <div class="dest-total-price" data-usd="29">$29 <span style="font-size:0.75rem;font-weight:500;color:var(--text-muted);">total</span></div>
-            <div class="dest-fee-sub">Gov $0 (Free) + $29 service</div>
+            <div class="dest-total-price tabular-nums"><span data-usd="29">$29</span> <span style="font-size:0.75rem;font-weight:500;color:var(--text-muted);">total</span></div>
+            <div class="dest-fee-pills"><span class="fee-pill fee-pill-free">Gov $0 (Free)</span><span class="fee-pill fee-pill-service" data-usd="29" data-prefix="+ " data-suffix=" service">+ $29 service</span></div>
           </div>
-          <a href="thailand-arrival-card.html" class="btn btn-primary btn-sm">View &amp; Apply</a>
+          <a href="thailand-arrival-card.html" class="dest-card-cta">
+            <span>View &amp; Apply</span>
+            <span class="arrow-icon">→</span>
+          </a>
         </div>
       </div>
     </article>
   
 
     <article class="dest-card reveal-on-scroll">
-      <a href="indonesia-evoa.html" aria-label="Indonesia (Bali) — Indonesia &amp; Bali Electronic Visa on Arrival (B1 e-VOA)">
+      <a href="indonesia-evoa.html" class="dest-card-media" aria-label="Indonesia (Bali) — Indonesia &amp; Bali Electronic Visa on Arrival (B1 e-VOA)">
         <img
           src="https://images.unsplash.com/photo-1537996194471-e657df975ab4?auto=format&fit=crop&w=800&q=80&fm=webp"
           srcset="https://images.unsplash.com/photo-1537996194471-e657df975ab4?auto=format&fit=crop&w=480&q=75&fm=webp 480w, https://images.unsplash.com/photo-1537996194471-e657df975ab4?auto=format&fit=crop&w=800&q=80&fm=webp 800w"
@@ -177,6 +240,8 @@
           alt="Indonesia (Bali) landmark"
           class="dest-card-img"
         />
+        <span class="dest-flag-badge" aria-hidden="true">🇮🇩</span>
+        <span class="dest-duration-pill">⚡ 24–48h</span>
       </a>
       <div class="dest-card-body">
         <div>
@@ -186,21 +251,24 @@
           </div>
           <h3 class="dest-card-title"><a href="indonesia-evoa.html">Indonesia (Bali)</a></h3>
           <div class="dest-card-doc">Indonesia &amp; Bali Electronic Visa on Arrival (B1 e-VOA)</div>
-          <div class="dest-card-meta">Stay: 30 Days (Extendable once for 30 days) • Gov time: 24–48 hours</div>
+          <div class="dest-card-meta">Stay: 30 Days (Extendable once for 30 days) • Single Entry</div>
         </div>
         <div class="dest-card-footer">
           <div>
-            <div class="dest-total-price" data-usd="69">$69 <span style="font-size:0.75rem;font-weight:500;color:var(--text-muted);">total</span></div>
-            <div class="dest-fee-sub">Gov $35 + $34 service</div>
+            <div class="dest-total-price tabular-nums"><span data-usd="69">$69</span> <span style="font-size:0.75rem;font-weight:500;color:var(--text-muted);">total</span></div>
+            <div class="dest-fee-pills"><span class="fee-pill fee-pill-gov" data-usd="35" data-prefix="Gov ">Gov $35</span><span class="fee-pill fee-pill-service" data-usd="34" data-prefix="+ " data-suffix=" service">+ $34 service</span></div>
           </div>
-          <a href="indonesia-evoa.html" class="btn btn-primary btn-sm">View &amp; Apply</a>
+          <a href="indonesia-evoa.html" class="dest-card-cta">
+            <span>View &amp; Apply</span>
+            <span class="arrow-icon">→</span>
+          </a>
         </div>
       </div>
     </article>
   
 
     <article class="dest-card reveal-on-scroll">
-      <a href="singapore-arrival-card.html" aria-label="Singapore (SGAC) — Singapore Digital Arrival Card (SGAC) &amp; Health Declaration">
+      <a href="singapore-arrival-card.html" class="dest-card-media" aria-label="Singapore (SGAC) — Singapore Digital Arrival Card (SGAC) &amp; Health Declaration">
         <img
           src="https://images.unsplash.com/photo-1525625293386-3f8f99389edd?auto=format&fit=crop&w=800&q=80&fm=webp"
           srcset="https://images.unsplash.com/photo-1525625293386-3f8f99389edd?auto=format&fit=crop&w=480&q=75&fm=webp 480w, https://images.unsplash.com/photo-1525625293386-3f8f99389edd?auto=format&fit=crop&w=800&q=80&fm=webp 800w"
@@ -211,30 +279,35 @@
           alt="Singapore (SGAC) landmark"
           class="dest-card-img"
         />
+        <span class="dest-flag-badge" aria-hidden="true">🇸🇬</span>
+        <span class="dest-duration-pill">🕒 72h window</span>
       </a>
       <div class="dest-card-body">
         <div>
           <div style="display:flex;align-items:center;justify-content:space-between;gap:0.5rem;margin-bottom:0.4rem;">
-            <span class="badge badge-primary">Arrival Card</span>
+            <span class="badge badge-emerald">Arrival Card</span>
             <span style="font-size:0.75rem;color:var(--text-muted);font-weight:600;">Asia-Pacific</span>
           </div>
           <h3 class="dest-card-title"><a href="singapore-arrival-card.html">Singapore (SGAC)</a></h3>
           <div class="dest-card-doc">Singapore Digital Arrival Card (SGAC) &amp; Health Declaration</div>
-          <div class="dest-card-meta">Stay: Per entry eligibility (typically 30–90 days) • Gov time: Processed within 3 days before arrival</div>
+          <div class="dest-card-meta">Stay: Per entry eligibility (typically 30–90 days) • Single Entry</div>
         </div>
         <div class="dest-card-footer">
           <div>
-            <div class="dest-total-price" data-usd="29">$29 <span style="font-size:0.75rem;font-weight:500;color:var(--text-muted);">total</span></div>
-            <div class="dest-fee-sub">Gov $0 (Free) + $29 service</div>
+            <div class="dest-total-price tabular-nums"><span data-usd="29">$29</span> <span style="font-size:0.75rem;font-weight:500;color:var(--text-muted);">total</span></div>
+            <div class="dest-fee-pills"><span class="fee-pill fee-pill-free">Gov $0 (Free)</span><span class="fee-pill fee-pill-service" data-usd="29" data-prefix="+ " data-suffix=" service">+ $29 service</span></div>
           </div>
-          <a href="singapore-arrival-card.html" class="btn btn-primary btn-sm">View &amp; Apply</a>
+          <a href="singapore-arrival-card.html" class="dest-card-cta">
+            <span>View &amp; Apply</span>
+            <span class="arrow-icon">→</span>
+          </a>
         </div>
       </div>
     </article>
   
 
     <article class="dest-card reveal-on-scroll">
-      <a href="india-evisa.html" aria-label="India — India Tourist e-Visa (30-Day Double Entry)">
+      <a href="india-evisa.html" class="dest-card-media" aria-label="India — India Tourist e-Visa (30-Day Double Entry)">
         <img
           src="https://images.unsplash.com/photo-1524492412937-b28074a5d7da?auto=format&fit=crop&w=800&q=80&fm=webp"
           srcset="https://images.unsplash.com/photo-1524492412937-b28074a5d7da?auto=format&fit=crop&w=480&q=75&fm=webp 480w, https://images.unsplash.com/photo-1524492412937-b28074a5d7da?auto=format&fit=crop&w=800&q=80&fm=webp 800w"
@@ -245,6 +318,8 @@
           alt="India landmark"
           class="dest-card-img"
         />
+        <span class="dest-flag-badge" aria-hidden="true">🇮🇳</span>
+        <span class="dest-duration-pill">🕒 72h</span>
       </a>
       <div class="dest-card-body">
         <div>
@@ -254,21 +329,24 @@
           </div>
           <h3 class="dest-card-title"><a href="india-evisa.html">India</a></h3>
           <div class="dest-card-doc">India Tourist e-Visa (30-Day Double Entry)</div>
-          <div class="dest-card-meta">Stay: 30 Days • Gov time: 72 hours (3 business days)</div>
+          <div class="dest-card-meta">Stay: 30 Days • Double Entry</div>
         </div>
         <div class="dest-card-footer">
           <div>
-            <div class="dest-total-price" data-usd="64">$64 <span style="font-size:0.75rem;font-weight:500;color:var(--text-muted);">total</span></div>
-            <div class="dest-fee-sub">Gov $25 + $39 service</div>
+            <div class="dest-total-price tabular-nums"><span data-usd="64">$64</span> <span style="font-size:0.75rem;font-weight:500;color:var(--text-muted);">total</span></div>
+            <div class="dest-fee-pills"><span class="fee-pill fee-pill-gov" data-usd="25" data-prefix="Gov ">Gov $25</span><span class="fee-pill fee-pill-service" data-usd="39" data-prefix="+ " data-suffix=" service">+ $39 service</span></div>
           </div>
-          <a href="india-evisa.html" class="btn btn-primary btn-sm">View &amp; Apply</a>
+          <a href="india-evisa.html" class="dest-card-cta">
+            <span>View &amp; Apply</span>
+            <span class="arrow-icon">→</span>
+          </a>
         </div>
       </div>
     </article>
   
 
     <article class="dest-card reveal-on-scroll">
-      <a href="cambodia-evisa.html" aria-label="Cambodia — Cambodia Tourist e-Visa (Type T)">
+      <a href="cambodia-evisa.html" class="dest-card-media" aria-label="Cambodia — Cambodia Tourist e-Visa (Type T)">
         <img
           src="https://images.unsplash.com/photo-1569683795645-b62e50fbf103?auto=format&fit=crop&w=800&q=80&fm=webp"
           srcset="https://images.unsplash.com/photo-1569683795645-b62e50fbf103?auto=format&fit=crop&w=480&q=75&fm=webp 480w, https://images.unsplash.com/photo-1569683795645-b62e50fbf103?auto=format&fit=crop&w=800&q=80&fm=webp 800w"
@@ -279,6 +357,8 @@
           alt="Cambodia landmark"
           class="dest-card-img"
         />
+        <span class="dest-flag-badge" aria-hidden="true">🇰🇭</span>
+        <span class="dest-duration-pill">⚡ 3 days</span>
       </a>
       <div class="dest-card-body">
         <div>
@@ -288,21 +368,24 @@
           </div>
           <h3 class="dest-card-title"><a href="cambodia-evisa.html">Cambodia</a></h3>
           <div class="dest-card-doc">Cambodia Tourist e-Visa (Type T)</div>
-          <div class="dest-card-meta">Stay: 30 Days • Gov time: 3 business days</div>
+          <div class="dest-card-meta">Stay: 30 Days • Single Entry</div>
         </div>
         <div class="dest-card-footer">
           <div>
-            <div class="dest-total-price" data-usd="64">$64 <span style="font-size:0.75rem;font-weight:500;color:var(--text-muted);">total</span></div>
-            <div class="dest-fee-sub">Gov $30 + $34 service</div>
+            <div class="dest-total-price tabular-nums"><span data-usd="64">$64</span> <span style="font-size:0.75rem;font-weight:500;color:var(--text-muted);">total</span></div>
+            <div class="dest-fee-pills"><span class="fee-pill fee-pill-gov" data-usd="30" data-prefix="Gov ">Gov $30</span><span class="fee-pill fee-pill-service" data-usd="34" data-prefix="+ " data-suffix=" service">+ $34 service</span></div>
           </div>
-          <a href="cambodia-evisa.html" class="btn btn-primary btn-sm">View &amp; Apply</a>
+          <a href="cambodia-evisa.html" class="dest-card-cta">
+            <span>View &amp; Apply</span>
+            <span class="arrow-icon">→</span>
+          </a>
         </div>
       </div>
     </article>
   
 
     <article class="dest-card reveal-on-scroll">
-      <a href="uae-evisa.html" aria-label="United Arab Emirates — UAE 30-Day Tourist eVisa">
+      <a href="uae-evisa.html" class="dest-card-media" aria-label="United Arab Emirates — UAE 30-Day Tourist eVisa">
         <img
           src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=800&q=80&fm=webp"
           srcset="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=480&q=75&fm=webp 480w, https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=800&q=80&fm=webp 800w"
@@ -313,6 +396,8 @@
           alt="United Arab Emirates landmark"
           class="dest-card-img"
         />
+        <span class="dest-flag-badge" aria-hidden="true">🇦🇪</span>
+        <span class="dest-duration-pill">⚡ 2–4 days</span>
       </a>
       <div class="dest-card-body">
         <div>
@@ -322,21 +407,24 @@
           </div>
           <h3 class="dest-card-title"><a href="uae-evisa.html">United Arab Emirates</a></h3>
           <div class="dest-card-doc">UAE 30-Day Tourist eVisa</div>
-          <div class="dest-card-meta">Stay: 30 Days • Gov time: 2–4 working days</div>
+          <div class="dest-card-meta">Stay: 30 Days • Single Entry</div>
         </div>
         <div class="dest-card-footer">
           <div>
-            <div class="dest-total-price" data-usd="139">$139 <span style="font-size:0.75rem;font-weight:500;color:var(--text-muted);">total</span></div>
-            <div class="dest-fee-sub">Gov $95 + $44 service</div>
+            <div class="dest-total-price tabular-nums"><span data-usd="139">$139</span> <span style="font-size:0.75rem;font-weight:500;color:var(--text-muted);">total</span></div>
+            <div class="dest-fee-pills"><span class="fee-pill fee-pill-gov" data-usd="95" data-prefix="Gov ">Gov $95</span><span class="fee-pill fee-pill-service" data-usd="44" data-prefix="+ " data-suffix=" service">+ $44 service</span></div>
           </div>
-          <a href="uae-evisa.html" class="btn btn-primary btn-sm">View &amp; Apply</a>
+          <a href="uae-evisa.html" class="dest-card-cta">
+            <span>View &amp; Apply</span>
+            <span class="arrow-icon">→</span>
+          </a>
         </div>
       </div>
     </article>
   
 
     <article class="dest-card reveal-on-scroll">
-      <a href="saudi-evisa.html" aria-label="Saudi Arabia — Saudi 1-Year Multiple-Entry Tourist eVisa">
+      <a href="saudi-evisa.html" class="dest-card-media" aria-label="Saudi Arabia — Saudi 1-Year Multiple-Entry Tourist eVisa">
         <img
           src="https://images.unsplash.com/photo-1586724237569-f3d0c1dee8c6?auto=format&fit=crop&w=800&q=80&fm=webp"
           srcset="https://images.unsplash.com/photo-1586724237569-f3d0c1dee8c6?auto=format&fit=crop&w=480&q=75&fm=webp 480w, https://images.unsplash.com/photo-1586724237569-f3d0c1dee8c6?auto=format&fit=crop&w=800&q=80&fm=webp 800w"
@@ -347,6 +435,8 @@
           alt="Saudi Arabia landmark"
           class="dest-card-img"
         />
+        <span class="dest-flag-badge" aria-hidden="true">🇸🇦</span>
+        <span class="dest-duration-pill">⚡ 24–72h</span>
       </a>
       <div class="dest-card-body">
         <div>
@@ -356,21 +446,24 @@
           </div>
           <h3 class="dest-card-title"><a href="saudi-evisa.html">Saudi Arabia</a></h3>
           <div class="dest-card-doc">Saudi 1-Year Multiple-Entry Tourist eVisa</div>
-          <div class="dest-card-meta">Stay: Up to 90 Days per visit • Gov time: 24–72 hours</div>
+          <div class="dest-card-meta">Stay: Up to 90 Days per visit • Multiple Entry</div>
         </div>
         <div class="dest-card-footer">
           <div>
-            <div class="dest-total-price" data-usd="152">$152 <span style="font-size:0.75rem;font-weight:500;color:var(--text-muted);">total</span></div>
-            <div class="dest-fee-sub">Gov $108 + $44 service</div>
+            <div class="dest-total-price tabular-nums"><span data-usd="152">$152</span> <span style="font-size:0.75rem;font-weight:500;color:var(--text-muted);">total</span></div>
+            <div class="dest-fee-pills"><span class="fee-pill fee-pill-gov" data-usd="108" data-prefix="Gov ">Gov $108</span><span class="fee-pill fee-pill-service" data-usd="44" data-prefix="+ " data-suffix=" service">+ $44 service</span></div>
           </div>
-          <a href="saudi-evisa.html" class="btn btn-primary btn-sm">View &amp; Apply</a>
+          <a href="saudi-evisa.html" class="dest-card-cta">
+            <span>View &amp; Apply</span>
+            <span class="arrow-icon">→</span>
+          </a>
         </div>
       </div>
     </article>
   
 
     <article class="dest-card reveal-on-scroll">
-      <a href="turkey-evisa.html" aria-label="Türkiye — Republic of Türkiye Electronic Visa (e-Visa)">
+      <a href="turkey-evisa.html" class="dest-card-media" aria-label="Türkiye — Republic of Türkiye Electronic Visa (e-Visa)">
         <img
           src="https://images.unsplash.com/photo-1524231757912-21f4fe3a7200?auto=format&fit=crop&w=800&q=80&fm=webp"
           srcset="https://images.unsplash.com/photo-1524231757912-21f4fe3a7200?auto=format&fit=crop&w=480&q=75&fm=webp 480w, https://images.unsplash.com/photo-1524231757912-21f4fe3a7200?auto=format&fit=crop&w=800&q=80&fm=webp 800w"
@@ -381,6 +474,8 @@
           alt="Türkiye landmark"
           class="dest-card-img"
         />
+        <span class="dest-flag-badge" aria-hidden="true">🇹🇷</span>
+        <span class="dest-duration-pill">⚡ 24–48h</span>
       </a>
       <div class="dest-card-body">
         <div>
@@ -390,21 +485,24 @@
           </div>
           <h3 class="dest-card-title"><a href="turkey-evisa.html">Türkiye</a></h3>
           <div class="dest-card-doc">Republic of Türkiye Electronic Visa (e-Visa)</div>
-          <div class="dest-card-meta">Stay: 30 to 90 Days (by nationality) • Gov time: 24–48 hours</div>
+          <div class="dest-card-meta">Stay: 30 to 90 Days (by nationality) • Single or Multiple Entry</div>
         </div>
         <div class="dest-card-footer">
           <div>
-            <div class="dest-total-price" data-usd="86">$86 <span style="font-size:0.75rem;font-weight:500;color:var(--text-muted);">total</span></div>
-            <div class="dest-fee-sub">Gov $52 + $34 service</div>
+            <div class="dest-total-price tabular-nums"><span data-usd="86">$86</span> <span style="font-size:0.75rem;font-weight:500;color:var(--text-muted);">total</span></div>
+            <div class="dest-fee-pills"><span class="fee-pill fee-pill-gov" data-usd="52" data-prefix="Gov ">Gov $52</span><span class="fee-pill fee-pill-service" data-usd="34" data-prefix="+ " data-suffix=" service">+ $34 service</span></div>
           </div>
-          <a href="turkey-evisa.html" class="btn btn-primary btn-sm">View &amp; Apply</a>
+          <a href="turkey-evisa.html" class="dest-card-cta">
+            <span>View &amp; Apply</span>
+            <span class="arrow-icon">→</span>
+          </a>
         </div>
       </div>
     </article>
   
 
     <article class="dest-card reveal-on-scroll">
-      <a href="egypt-evisa.html" aria-label="Egypt — Egypt Tourist e-Visa (Single Entry)">
+      <a href="egypt-evisa.html" class="dest-card-media" aria-label="Egypt — Egypt Tourist e-Visa (Single Entry)">
         <img
           src="https://images.unsplash.com/photo-1539650116574-8efeb43e2750?auto=format&fit=crop&w=800&q=80&fm=webp"
           srcset="https://images.unsplash.com/photo-1539650116574-8efeb43e2750?auto=format&fit=crop&w=480&q=75&fm=webp 480w, https://images.unsplash.com/photo-1539650116574-8efeb43e2750?auto=format&fit=crop&w=800&q=80&fm=webp 800w"
@@ -415,6 +513,8 @@
           alt="Egypt landmark"
           class="dest-card-img"
         />
+        <span class="dest-flag-badge" aria-hidden="true">🇪🇬</span>
+        <span class="dest-duration-pill">🕒 5–7 days</span>
       </a>
       <div class="dest-card-body">
         <div>
@@ -424,21 +524,24 @@
           </div>
           <h3 class="dest-card-title"><a href="egypt-evisa.html">Egypt</a></h3>
           <div class="dest-card-doc">Egypt Tourist e-Visa (Single Entry)</div>
-          <div class="dest-card-meta">Stay: 30 Days • Gov time: 5–7 business days</div>
+          <div class="dest-card-meta">Stay: 30 Days • Single Entry</div>
         </div>
         <div class="dest-card-footer">
           <div>
-            <div class="dest-total-price" data-usd="59">$59 <span style="font-size:0.75rem;font-weight:500;color:var(--text-muted);">total</span></div>
-            <div class="dest-fee-sub">Gov $25 + $34 service</div>
+            <div class="dest-total-price tabular-nums"><span data-usd="59">$59</span> <span style="font-size:0.75rem;font-weight:500;color:var(--text-muted);">total</span></div>
+            <div class="dest-fee-pills"><span class="fee-pill fee-pill-gov" data-usd="25" data-prefix="Gov ">Gov $25</span><span class="fee-pill fee-pill-service" data-usd="34" data-prefix="+ " data-suffix=" service">+ $34 service</span></div>
           </div>
-          <a href="egypt-evisa.html" class="btn btn-primary btn-sm">View &amp; Apply</a>
+          <a href="egypt-evisa.html" class="dest-card-cta">
+            <span>View &amp; Apply</span>
+            <span class="arrow-icon">→</span>
+          </a>
         </div>
       </div>
     </article>
   
 
     <article class="dest-card reveal-on-scroll">
-      <a href="kenya-eta.html" aria-label="Kenya — Kenya Electronic Travel Authorisation (eTA)">
+      <a href="kenya-eta.html" class="dest-card-media" aria-label="Kenya — Kenya Electronic Travel Authorisation (eTA)">
         <img
           src="https://images.unsplash.com/photo-1547471080-7cc2caa01a7e?auto=format&fit=crop&w=800&q=80&fm=webp"
           srcset="https://images.unsplash.com/photo-1547471080-7cc2caa01a7e?auto=format&fit=crop&w=480&q=75&fm=webp 480w, https://images.unsplash.com/photo-1547471080-7cc2caa01a7e?auto=format&fit=crop&w=800&q=80&fm=webp 800w"
@@ -449,6 +552,8 @@
           alt="Kenya landmark"
           class="dest-card-img"
         />
+        <span class="dest-flag-badge" aria-hidden="true">🇰🇪</span>
+        <span class="dest-duration-pill">⚡ 3 days</span>
       </a>
       <div class="dest-card-body">
         <div>
@@ -458,21 +563,24 @@
           </div>
           <h3 class="dest-card-title"><a href="kenya-eta.html">Kenya</a></h3>
           <div class="dest-card-doc">Kenya Electronic Travel Authorisation (eTA)</div>
-          <div class="dest-card-meta">Stay: Up to 90 Days • Gov time: 3 business days</div>
+          <div class="dest-card-meta">Stay: Up to 90 Days • Single Entry</div>
         </div>
         <div class="dest-card-footer">
           <div>
-            <div class="dest-total-price" data-usd="69">$69 <span style="font-size:0.75rem;font-weight:500;color:var(--text-muted);">total</span></div>
-            <div class="dest-fee-sub">Gov $34 + $35 service</div>
+            <div class="dest-total-price tabular-nums"><span data-usd="69">$69</span> <span style="font-size:0.75rem;font-weight:500;color:var(--text-muted);">total</span></div>
+            <div class="dest-fee-pills"><span class="fee-pill fee-pill-gov" data-usd="34" data-prefix="Gov ">Gov $34</span><span class="fee-pill fee-pill-service" data-usd="35" data-prefix="+ " data-suffix=" service">+ $35 service</span></div>
           </div>
-          <a href="kenya-eta.html" class="btn btn-primary btn-sm">View &amp; Apply</a>
+          <a href="kenya-eta.html" class="dest-card-cta">
+            <span>View &amp; Apply</span>
+            <span class="arrow-icon">→</span>
+          </a>
         </div>
       </div>
     </article>
   
 
     <article class="dest-card reveal-on-scroll">
-      <a href="uk-eta.html" aria-label="United Kingdom — UK Electronic Travel Authorisation (ETA)">
+      <a href="uk-eta.html" class="dest-card-media" aria-label="United Kingdom — UK Electronic Travel Authorisation (ETA)">
         <img
           src="https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?auto=format&fit=crop&w=800&q=80&fm=webp"
           srcset="https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?auto=format&fit=crop&w=480&q=75&fm=webp 480w, https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?auto=format&fit=crop&w=800&q=80&fm=webp 800w"
@@ -483,6 +591,8 @@
           alt="United Kingdom landmark"
           class="dest-card-img"
         />
+        <span class="dest-flag-badge" aria-hidden="true">🇬🇧</span>
+        <span class="dest-duration-pill">⚡ 1–3 days</span>
       </a>
       <div class="dest-card-body">
         <div>
@@ -492,21 +602,24 @@
           </div>
           <h3 class="dest-card-title"><a href="uk-eta.html">United Kingdom</a></h3>
           <div class="dest-card-doc">UK Electronic Travel Authorisation (ETA)</div>
-          <div class="dest-card-meta">Stay: Up to 6 Months per visit • Gov time: Typically within 3 working days</div>
+          <div class="dest-card-meta">Stay: Up to 6 Months per visit • Multiple Entry</div>
         </div>
         <div class="dest-card-footer">
           <div>
-            <div class="dest-total-price" data-usd="55">$55 <span style="font-size:0.75rem;font-weight:500;color:var(--text-muted);">total</span></div>
-            <div class="dest-fee-sub">Gov $21 + $34 service</div>
+            <div class="dest-total-price tabular-nums"><span data-usd="55">$55</span> <span style="font-size:0.75rem;font-weight:500;color:var(--text-muted);">total</span></div>
+            <div class="dest-fee-pills"><span class="fee-pill fee-pill-gov" data-usd="21" data-prefix="Gov ">Gov $21</span><span class="fee-pill fee-pill-service" data-usd="34" data-prefix="+ " data-suffix=" service">+ $34 service</span></div>
           </div>
-          <a href="uk-eta.html" class="btn btn-primary btn-sm">View &amp; Apply</a>
+          <a href="uk-eta.html" class="dest-card-cta">
+            <span>View &amp; Apply</span>
+            <span class="arrow-icon">→</span>
+          </a>
         </div>
       </div>
     </article>
   
 
     <article class="dest-card reveal-on-scroll">
-      <a href="us-esta.html" aria-label="United States — United States ESTA (Visa Waiver Program)">
+      <a href="us-esta.html" class="dest-card-media" aria-label="United States — United States ESTA (Visa Waiver Program)">
         <img
           src="https://images.unsplash.com/photo-1485871981521-5b1fd3805eee?auto=format&fit=crop&w=800&q=80&fm=webp"
           srcset="https://images.unsplash.com/photo-1485871981521-5b1fd3805eee?auto=format&fit=crop&w=480&q=75&fm=webp 480w, https://images.unsplash.com/photo-1485871981521-5b1fd3805eee?auto=format&fit=crop&w=800&q=80&fm=webp 800w"
@@ -517,6 +630,8 @@
           alt="United States landmark"
           class="dest-card-img"
         />
+        <span class="dest-flag-badge" aria-hidden="true">🇺🇸</span>
+        <span class="dest-duration-pill">🕒 Up to 72h</span>
       </a>
       <div class="dest-card-body">
         <div>
@@ -526,21 +641,24 @@
           </div>
           <h3 class="dest-card-title"><a href="us-esta.html">United States</a></h3>
           <div class="dest-card-doc">United States ESTA (Visa Waiver Program)</div>
-          <div class="dest-card-meta">Stay: Up to 90 Days per visit • Gov time: Up to 72 hours</div>
+          <div class="dest-card-meta">Stay: Up to 90 Days per visit • Multiple Entry</div>
         </div>
         <div class="dest-card-footer">
           <div>
-            <div class="dest-total-price" data-usd="59">$59 <span style="font-size:0.75rem;font-weight:500;color:var(--text-muted);">total</span></div>
-            <div class="dest-fee-sub">Gov $21 + $38 service</div>
+            <div class="dest-total-price tabular-nums"><span data-usd="59">$59</span> <span style="font-size:0.75rem;font-weight:500;color:var(--text-muted);">total</span></div>
+            <div class="dest-fee-pills"><span class="fee-pill fee-pill-gov" data-usd="21" data-prefix="Gov ">Gov $21</span><span class="fee-pill fee-pill-service" data-usd="38" data-prefix="+ " data-suffix=" service">+ $38 service</span></div>
           </div>
-          <a href="us-esta.html" class="btn btn-primary btn-sm">View &amp; Apply</a>
+          <a href="us-esta.html" class="dest-card-cta">
+            <span>View &amp; Apply</span>
+            <span class="arrow-icon">→</span>
+          </a>
         </div>
       </div>
     </article>
   
 
     <article class="dest-card reveal-on-scroll">
-      <a href="canada-eta.html" aria-label="Canada — Canada Electronic Travel Authorization (eTA)">
+      <a href="canada-eta.html" class="dest-card-media" aria-label="Canada — Canada Electronic Travel Authorization (eTA)">
         <img
           src="https://images.unsplash.com/photo-1517935706615-2717063c2225?auto=format&fit=crop&w=800&q=80&fm=webp"
           srcset="https://images.unsplash.com/photo-1517935706615-2717063c2225?auto=format&fit=crop&w=480&q=75&fm=webp 480w, https://images.unsplash.com/photo-1517935706615-2717063c2225?auto=format&fit=crop&w=800&q=80&fm=webp 800w"
@@ -551,6 +669,8 @@
           alt="Canada landmark"
           class="dest-card-img"
         />
+        <span class="dest-flag-badge" aria-hidden="true">🇨🇦</span>
+        <span class="dest-duration-pill">⚡ Minutes–72h</span>
       </a>
       <div class="dest-card-body">
         <div>
@@ -560,21 +680,24 @@
           </div>
           <h3 class="dest-card-title"><a href="canada-eta.html">Canada</a></h3>
           <div class="dest-card-doc">Canada Electronic Travel Authorization (eTA)</div>
-          <div class="dest-card-meta">Stay: Up to 6 Months per visit • Gov time: Typically minutes to 72 hours</div>
+          <div class="dest-card-meta">Stay: Up to 6 Months per visit • Multiple Entry</div>
         </div>
         <div class="dest-card-footer">
           <div>
-            <div class="dest-total-price" data-usd="39">$39 <span style="font-size:0.75rem;font-weight:500;color:var(--text-muted);">total</span></div>
-            <div class="dest-fee-sub">Gov $5 + $34 service</div>
+            <div class="dest-total-price tabular-nums"><span data-usd="39">$39</span> <span style="font-size:0.75rem;font-weight:500;color:var(--text-muted);">total</span></div>
+            <div class="dest-fee-pills"><span class="fee-pill fee-pill-gov" data-usd="5" data-prefix="Gov ">Gov $5</span><span class="fee-pill fee-pill-service" data-usd="34" data-prefix="+ " data-suffix=" service">+ $34 service</span></div>
           </div>
-          <a href="canada-eta.html" class="btn btn-primary btn-sm">View &amp; Apply</a>
+          <a href="canada-eta.html" class="dest-card-cta">
+            <span>View &amp; Apply</span>
+            <span class="arrow-icon">→</span>
+          </a>
         </div>
       </div>
     </article>
   
 
     <article class="dest-card reveal-on-scroll">
-      <a href="australia-eta.html" aria-label="Australia — Australia Electronic Travel Authority (Subclass 601 / eVisitor 651)">
+      <a href="australia-eta.html" class="dest-card-media" aria-label="Australia — Australia Electronic Travel Authority (Subclass 601 / eVisitor 651)">
         <img
           src="https://images.unsplash.com/photo-1506973035872-a4ec16b8e8d9?auto=format&fit=crop&w=800&q=80&fm=webp"
           srcset="https://images.unsplash.com/photo-1506973035872-a4ec16b8e8d9?auto=format&fit=crop&w=480&q=75&fm=webp 480w, https://images.unsplash.com/photo-1506973035872-a4ec16b8e8d9?auto=format&fit=crop&w=800&q=80&fm=webp 800w"
@@ -585,6 +708,8 @@
           alt="Australia landmark"
           class="dest-card-img"
         />
+        <span class="dest-flag-badge" aria-hidden="true">🇦🇺</span>
+        <span class="dest-duration-pill">⚡ 24–72h</span>
       </a>
       <div class="dest-card-body">
         <div>
@@ -594,21 +719,24 @@
           </div>
           <h3 class="dest-card-title"><a href="australia-eta.html">Australia</a></h3>
           <div class="dest-card-doc">Australia Electronic Travel Authority (Subclass 601 / eVisitor 651)</div>
-          <div class="dest-card-meta">Stay: Up to 3 Months per visit • Gov time: 24–72 hours</div>
+          <div class="dest-card-meta">Stay: Up to 3 Months per visit • Multiple Entry</div>
         </div>
         <div class="dest-card-footer">
           <div>
-            <div class="dest-total-price" data-usd="49">$49 <span style="font-size:0.75rem;font-weight:500;color:var(--text-muted);">total</span></div>
-            <div class="dest-fee-sub">Gov $14 + $35 service</div>
+            <div class="dest-total-price tabular-nums"><span data-usd="49">$49</span> <span style="font-size:0.75rem;font-weight:500;color:var(--text-muted);">total</span></div>
+            <div class="dest-fee-pills"><span class="fee-pill fee-pill-gov" data-usd="14" data-prefix="Gov ">Gov $14</span><span class="fee-pill fee-pill-service" data-usd="35" data-prefix="+ " data-suffix=" service">+ $35 service</span></div>
           </div>
-          <a href="australia-eta.html" class="btn btn-primary btn-sm">View &amp; Apply</a>
+          <a href="australia-eta.html" class="dest-card-cta">
+            <span>View &amp; Apply</span>
+            <span class="arrow-icon">→</span>
+          </a>
         </div>
       </div>
     </article>
   
 
     <article class="dest-card reveal-on-scroll">
-      <a href="malaysia-arrival-card.html" aria-label="Malaysia (MDAC) — Malaysia Digital Arrival Card (MDAC)">
+      <a href="malaysia-arrival-card.html" class="dest-card-media" aria-label="Malaysia (MDAC) — Malaysia Digital Arrival Card (MDAC)">
         <img
           src="https://images.unsplash.com/photo-1596422846543-75c6fc197f07?auto=format&fit=crop&w=800&q=80&fm=webp"
           srcset="https://images.unsplash.com/photo-1596422846543-75c6fc197f07?auto=format&fit=crop&w=480&q=75&fm=webp 480w, https://images.unsplash.com/photo-1596422846543-75c6fc197f07?auto=format&fit=crop&w=800&q=80&fm=webp 800w"
@@ -619,30 +747,35 @@
           alt="Malaysia (MDAC) landmark"
           class="dest-card-img"
         />
+        <span class="dest-flag-badge" aria-hidden="true">🇲🇾</span>
+        <span class="dest-duration-pill">🕒 72h window</span>
       </a>
       <div class="dest-card-body">
         <div>
           <div style="display:flex;align-items:center;justify-content:space-between;gap:0.5rem;margin-bottom:0.4rem;">
-            <span class="badge badge-primary">Arrival Card</span>
+            <span class="badge badge-emerald">Arrival Card</span>
             <span style="font-size:0.75rem;color:var(--text-muted);font-weight:600;">Asia-Pacific</span>
           </div>
           <h3 class="dest-card-title"><a href="malaysia-arrival-card.html">Malaysia (MDAC)</a></h3>
           <div class="dest-card-doc">Malaysia Digital Arrival Card (MDAC)</div>
-          <div class="dest-card-meta">Stay: Per entry exemption (typically 30–90 days) • Gov time: Submitted within 3 days before arrival</div>
+          <div class="dest-card-meta">Stay: Per entry exemption (typically 30–90 days) • Single Entry</div>
         </div>
         <div class="dest-card-footer">
           <div>
-            <div class="dest-total-price" data-usd="29">$29 <span style="font-size:0.75rem;font-weight:500;color:var(--text-muted);">total</span></div>
-            <div class="dest-fee-sub">Gov $0 (Free) + $29 service</div>
+            <div class="dest-total-price tabular-nums"><span data-usd="29">$29</span> <span style="font-size:0.75rem;font-weight:500;color:var(--text-muted);">total</span></div>
+            <div class="dest-fee-pills"><span class="fee-pill fee-pill-free">Gov $0 (Free)</span><span class="fee-pill fee-pill-service" data-usd="29" data-prefix="+ " data-suffix=" service">+ $29 service</span></div>
           </div>
-          <a href="malaysia-arrival-card.html" class="btn btn-primary btn-sm">View &amp; Apply</a>
+          <a href="malaysia-arrival-card.html" class="dest-card-cta">
+            <span>View &amp; Apply</span>
+            <span class="arrow-icon">→</span>
+          </a>
         </div>
       </div>
     </article>
   
 
     <article class="dest-card reveal-on-scroll">
-      <a href="thailand-evisa.html" aria-label="Thailand (Tourist e-Visa) — Thailand 60-Day Tourist e-Visa">
+      <a href="thailand-evisa.html" class="dest-card-media" aria-label="Thailand (Tourist e-Visa) — Thailand 60-Day Tourist e-Visa">
         <img
           src="https://images.unsplash.com/photo-1508009603885-50cf7c579365?auto=format&fit=crop&w=800&q=80&fm=webp"
           srcset="https://images.unsplash.com/photo-1508009603885-50cf7c579365?auto=format&fit=crop&w=480&q=75&fm=webp 480w, https://images.unsplash.com/photo-1508009603885-50cf7c579365?auto=format&fit=crop&w=800&q=80&fm=webp 800w"
@@ -653,6 +786,8 @@
           alt="Thailand (Tourist e-Visa) landmark"
           class="dest-card-img"
         />
+        <span class="dest-flag-badge" aria-hidden="true">🇹🇭</span>
+        <span class="dest-duration-pill">🕒 5–10 days</span>
       </a>
       <div class="dest-card-body">
         <div>
@@ -662,21 +797,24 @@
           </div>
           <h3 class="dest-card-title"><a href="thailand-evisa.html">Thailand (Tourist e-Visa)</a></h3>
           <div class="dest-card-doc">Thailand 60-Day Tourist e-Visa</div>
-          <div class="dest-card-meta">Stay: 60 Days (Extendable by 30 days) • Gov time: 5–10 business days</div>
+          <div class="dest-card-meta">Stay: 60 Days (Extendable by 30 days) • Single Entry</div>
         </div>
         <div class="dest-card-footer">
           <div>
-            <div class="dest-total-price" data-usd="79">$79 <span style="font-size:0.75rem;font-weight:500;color:var(--text-muted);">total</span></div>
-            <div class="dest-fee-sub">Gov $40 + $39 service</div>
+            <div class="dest-total-price tabular-nums"><span data-usd="79">$79</span> <span style="font-size:0.75rem;font-weight:500;color:var(--text-muted);">total</span></div>
+            <div class="dest-fee-pills"><span class="fee-pill fee-pill-gov" data-usd="40" data-prefix="Gov ">Gov $40</span><span class="fee-pill fee-pill-service" data-usd="39" data-prefix="+ " data-suffix=" service">+ $39 service</span></div>
           </div>
-          <a href="thailand-evisa.html" class="btn btn-primary btn-sm">View &amp; Apply</a>
+          <a href="thailand-evisa.html" class="dest-card-cta">
+            <span>View &amp; Apply</span>
+            <span class="arrow-icon">→</span>
+          </a>
         </div>
       </div>
     </article>
   
 
     <article class="dest-card reveal-on-scroll">
-      <a href="morocco-evisa.html" aria-label="Morocco — Kingdom of Morocco Tourist eVisa">
+      <a href="morocco-evisa.html" class="dest-card-media" aria-label="Morocco — Kingdom of Morocco Tourist eVisa">
         <img
           src="https://images.unsplash.com/photo-1539020140153-e479b8c22e70?auto=format&fit=crop&w=800&q=80&fm=webp"
           srcset="https://images.unsplash.com/photo-1539020140153-e479b8c22e70?auto=format&fit=crop&w=480&q=75&fm=webp 480w, https://images.unsplash.com/photo-1539020140153-e479b8c22e70?auto=format&fit=crop&w=800&q=80&fm=webp 800w"
@@ -687,6 +825,8 @@
           alt="Morocco landmark"
           class="dest-card-img"
         />
+        <span class="dest-flag-badge" aria-hidden="true">🇲🇦</span>
+        <span class="dest-duration-pill">🕒 72h</span>
       </a>
       <div class="dest-card-body">
         <div>
@@ -696,14 +836,17 @@
           </div>
           <h3 class="dest-card-title"><a href="morocco-evisa.html">Morocco</a></h3>
           <div class="dest-card-doc">Kingdom of Morocco Tourist eVisa</div>
-          <div class="dest-card-meta">Stay: Up to 30 Days • Gov time: 3 business days (72 hours)</div>
+          <div class="dest-card-meta">Stay: Up to 30 Days • Single Entry</div>
         </div>
         <div class="dest-card-footer">
           <div>
-            <div class="dest-total-price" data-usd="116">$116 <span style="font-size:0.75rem;font-weight:500;color:var(--text-muted);">total</span></div>
-            <div class="dest-fee-sub">Gov $77 + $39 service</div>
+            <div class="dest-total-price tabular-nums"><span data-usd="116">$116</span> <span style="font-size:0.75rem;font-weight:500;color:var(--text-muted);">total</span></div>
+            <div class="dest-fee-pills"><span class="fee-pill fee-pill-gov" data-usd="77" data-prefix="Gov ">Gov $77</span><span class="fee-pill fee-pill-service" data-usd="39" data-prefix="+ " data-suffix=" service">+ $39 service</span></div>
           </div>
-          <a href="morocco-evisa.html" class="btn btn-primary btn-sm">View &amp; Apply</a>
+          <a href="morocco-evisa.html" class="dest-card-cta">
+            <span>View &amp; Apply</span>
+            <span class="arrow-icon">→</span>
+          </a>
         </div>
       </div>
     </article>
@@ -718,8 +861,8 @@
     <div class="container">
       <div class="footer-grid">
         <div>
-          <a href="index.html" aria-label="OnePassVisa Home" style="display:inline-block;margin-bottom:0.85rem;">
-            <img src="assets/images/logo-white.svg" alt="OnePassVisa.com" width="180" height="40" loading="lazy" />
+          <a href="index.html" aria-label="onepassvisa Home" style="display:inline-block;margin-bottom:0.85rem;">
+            <img src="assets/images/logo-white.svg" alt="onepassvisa" width="184" height="37" loading="lazy" />
           </a>
           <p style="font-size:0.875rem;color:#CBD5E1;margin-bottom:0.85rem;max-width:22rem;">
             Private travel document and eVisa filing assistance. Specialist passport &amp; photo review, clear fee breakdowns, and direct links to official government portals.
@@ -798,11 +941,11 @@
 
   <div class="cookie-banner" id="cookieConsentBanner" role="region" aria-label="Cookie Consent">
     <div style="max-width:40rem;">
-      <strong>Privacy &amp; Analytics Consent:</strong> We use essential cookies to save your application progress and optional analytics cookies (Google Consent Mode v2) to improve site performance. See our <a href="policies.html#cookies" style="color:var(--accent);text-decoration:underline;">Cookie Policy</a>.
+      <strong>Privacy &amp; Analytics Consent:</strong> We use essential cookies to save your application progress and optional analytics cookies (Google Consent Mode v2) to improve site performance. See our <a href="policies.html#cookies" style="color:var(--emerald-bright);text-decoration:underline;">Cookie Policy</a>.
     </div>
     <div style="display:flex;gap:0.6rem;flex-wrap:wrap;">
       <button type="button" class="btn btn-outline btn-sm" id="essentialCookiesBtn" style="background:transparent;color:#FFFFFF;border-color:rgba(255,255,255,0.4);">Essential Only</button>
-      <button type="button" class="btn btn-accent btn-sm" id="acceptCookiesBtn">Accept All</button>
+      <button type="button" class="btn btn-primary btn-sm" id="acceptCookiesBtn">Accept All</button>
     </div>
   </div>
 

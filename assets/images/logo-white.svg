@@ -1,12 +1,10 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 310 68" width="186" height="41" role="img" aria-label="OnePassVisa.com">
-  <g transform="translate(4, 4)">
-    <path d="M18 42 A23 23 0 0 1 46 12" fill="none" stroke="#3898EC" stroke-width="5.2" stroke-linecap="round"/>
-    <path d="M23 50 A23 23 0 0 0 56 31" fill="none" stroke="#FCA21E" stroke-width="4.5" stroke-linecap="round"/>
-    <path d="M6 46 C18 52, 42 36, 68 8 L43 18 L50 24 C32 38, 16 44, 6 46 Z" fill="#3898EC"/>
-    <path d="M68 8 L50 24 L53 31 L59 26 L63 34 Z" fill="#FCA21E"/>
-  </g>
-  <text x="82" y="42" font-family="'Plus Jakarta Sans', 'Inter', -apple-system, sans-serif" font-size="33" font-weight="800" letter-spacing="-0.8">
-    <tspan fill="#FFFFFF">OnePass</tspan><tspan fill="#FCA21E">Visa</tspan>
-  </text>
-  <text x="253" y="58" font-family="'Plus Jakarta Sans', 'Inter', -apple-system, sans-serif" font-size="14.5" font-weight="800" fill="#E2E8F0" letter-spacing="-0.2">.com</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 56" width="280" height="56" role="img" aria-label="onepassvisa">
+  <defs>
+    <mask id="logo-open-o-dark">
+      <rect width="280" height="56" fill="#FFFFFF" />
+      <rect x="25.6" y="-2" width="4.6" height="30" transform="rotate(32 28 28)" fill="#000000" />
+    </mask>
+  </defs>
+  <circle cx="28" cy="28" r="18.5" fill="none" stroke="#10B981" stroke-width="9.6" mask="url(#logo-open-o-dark)" />
+  <text x="53" y="39.5" font-family="'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif" font-size="36" font-weight="800" letter-spacing="-1.3" fill="#FFFFFF">nepassvisa</text>
 </svg>

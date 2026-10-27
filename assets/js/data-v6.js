@@ -956,10 +956,66 @@
     };
   }
 
+  function codeToFlag(iso2) {
+    if (!iso2 || iso2.length !== 2) return '🌐';
+    const upper = iso2.toUpperCase();
+    return String.fromCodePoint(
+      0x1f1e6 + upper.charCodeAt(0) - 65,
+      0x1f1e6 + upper.charCodeAt(1) - 65
+    );
+  }
+
+  const DEST_META = {
+    'vietnam': { iso: 'VN', durationBadge: '⚡ 3–5 days' },
+    'thailand-tdac': { iso: 'TH', durationBadge: '🕒 72h window' },
+    'indonesia': { iso: 'ID', durationBadge: '⚡ 24–48h' },
+    'singapore': { iso: 'SG', durationBadge: '🕒 72h window' },
+    'india': { iso: 'IN', durationBadge: '🕒 72h' },
+    'cambodia': { iso: 'KH', durationBadge: '⚡ 3 days' },
+    'uae': { iso: 'AE', durationBadge: '⚡ 2–4 days' },
+    'saudi': { iso: 'SA', durationBadge: '⚡ 24–72h' },
+    'turkey': { iso: 'TR', durationBadge: '⚡ 24–48h' },
+    'egypt': { iso: 'EG', durationBadge: '🕒 5–7 days' },
+    'kenya': { iso: 'KE', durationBadge: '⚡ 3 days' },
+    'uk': { iso: 'GB', durationBadge: '⚡ 1–3 days' },
+    'usa': { iso: 'US', durationBadge: '🕒 Up to 72h' },
+    'canada': { iso: 'CA', durationBadge: '⚡ Minutes–72h' },
+    'australia': { iso: 'AU', durationBadge: '⚡ 24–72h' },
+    'malaysia': { iso: 'MY', durationBadge: '🕒 72h window' },
+    'thailand-evisa': { iso: 'TH', durationBadge: '🕒 5–10 days' },
+    'morocco': { iso: 'MA', durationBadge: '🕒 72h' }
+  };
+
+  const CURR_ISO = {
+    USD: 'US',
+    EUR: 'EU',
+    GBP: 'GB',
+    CAD: 'CA',
+    AUD: 'AU',
+    AED: 'AE',
+    SGD: 'SG'
+  };
+
+  Object.keys(CURRENCIES).forEach((k) => {
+    CURRENCIES[k].flag = codeToFlag(CURR_ISO[k] || 'US');
+  });
+
+  NATIONALITIES.forEach((n) => {
+    n.flag = codeToFlag(n.code);
+  });
+
+  DESTINATIONS.forEach((d) => {
+    const meta = DEST_META[d.id] || { iso: 'UN', durationBadge: '⚡ 3 days' };
+    d.isoCode = meta.iso;
+    d.flag = codeToFlag(meta.iso);
+    d.durationBadge = meta.durationBadge;
+  });
+
   const EXPORT_DATA = {
     currencies: CURRENCIES,
     nationalities: NATIONALITIES,
     destinations: DESTINATIONS,
+    codeToFlag,
     evaluateRequirement,
     calculatePrice
   };
