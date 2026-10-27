@@ -2,212 +2,197 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-  <meta name="theme-color" content="#FAFBF8" />
-  <title>Track Your Visa & Travel Document Status — OnePassVisa.com</title>
-  <meta name="description" content="Track your online visa or travel document application status and download your approved PDF at OnePassVisa.com." />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Track Your Visa or ETA Application | Private Service — OnePassVisa</title>
+  <meta name="description" content="Check the status of your eVisa, ETA, or arrival card order using your OnePassVisa Reference and email address." />
+  <link rel="canonical" href="https://onepassvisa.com/track" />
+  <meta name="theme-color" content="#0E5C9E" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="OnePassVisa" />
+  <meta property="og:title" content="Track Your Visa or ETA Application | Private Service — OnePassVisa" />
+  <meta property="og:description" content="Check the status of your eVisa, ETA, or arrival card order using your OnePassVisa Reference and email address." />
+  <meta property="og:url" content="https://onepassvisa.com/track" />
+  <meta property="og:image" content="https://onepassvisa.com/assets/images/logo-horizontal.png" />
+  <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg" />
   <link rel="icon" type="image/png" href="assets/images/favicon.png" />
-  <link rel="apple-touch-icon" href="assets/images/apple-touch-icon.png" />
-  <link rel="stylesheet" href="assets/css/onepass-v5.css" />
+  <link rel="preload" href="assets/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="assets/fonts/plus-jakarta-700.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="stylesheet" href="assets/css/onepass-v6.css" />
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"OnePassVisa","legalName":"OnePassVisa Digital Travel Services LLC","url":"https://onepassvisa.com/","logo":"https://onepassvisa.com/assets/images/logo.svg","description":"Independent private visa and travel document assistance service helping travelers apply for eVisas, ETAs, and digital arrival cards.","contactPoint":{"@type":"ContactPoint","email":"support@onepassvisa.com","contactType":"customer support","availableLanguage":["English"]}}</script>
 </head>
 <body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
 
-    <!-- Main Header (Exact iVisaPortal Clean Header) -->
+  <div class="disclosure-bar" role="region" aria-label="Private Service Disclosure">
+    <div class="container disclosure-bar-inner">
+      <span><strong>Private Service Notice:</strong> OnePassVisa is an independent private assistance agency, not affiliated with any government. You can apply directly on <a href="faq.html#official-portals">official government portals</a> for the statutory fee only.</span>
+    </div>
+  </div>
+
   <header class="site-header">
     <div class="container header-inner">
-      <a href="index.html" class="brand-logo" aria-label="OnePassVisa.com home">
-        <img src="assets/images/logo-horizontal.png" alt="OnePassVisa.com Official Logo" class="brand-logo-img" width="186" height="42" />
+      <a href="index.html" class="brand-logo" aria-label="OnePassVisa Home">
+        <img src="assets/images/logo.svg" alt="OnePassVisa.com" width="176" height="39" class="brand-logo-img" />
       </a>
 
-      <nav class="nav-links" id="mainNavLinks" aria-label="Primary navigation">
-        <a href="index.html" class="nav-link">Home</a>
-        <a href="destinations.html" class="nav-link">Visas</a>
-        <a href="services.html" class="nav-link">Travel Documents/ETAs</a>
-        <a href="index.html#how-it-works" class="nav-link">How it works</a>
-        <a href="index.html#calculator" class="nav-link">Pricing</a>
-        <a href="faq.html" class="nav-link">FAQs</a>
-        <a href="about.html" class="nav-link">Support</a>
+      <nav class="nav-links" id="mainNavLinks" aria-label="Primary Navigation">
+        <a href="index.html" class="nav-link ">Home</a>
+        <a href="destinations.html" class="nav-link ">Destinations</a>
+        <a href="services.html" class="nav-link ">Document Types</a>
+        <a href="track.html" class="nav-link active">Track Order</a>
+        <a href="faq.html" class="nav-link ">FAQ</a>
+        <a href="about.html" class="nav-link ">About &amp; Contact</a>
       </nav>
 
       <div class="header-actions">
-        <label style="display:inline-flex;align-items:center;" aria-label="Select Currency">
-          <select class="currency-select js-currency-select">
-            <option value="USD">USD ($)</option>
-            <option value="EUR">EUR (€)</option>
-            <option value="GBP">GBP (£)</option>
-            <option value="AED">AED</option>
-            <option value="INR">INR (₹)</option>
-            <option value="CAD">CAD ($)</option>
-            <option value="AUD">AUD ($)</option>
-          </select>
-        </label>
-        <a href="track.html" class="btn btn-outline btn-sm">Track application</a>
-        <a href="apply.html" class="btn btn-primary btn-sm">
-          <span>Check visa options</span>
-        </a>
-        <button type="button" class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Open menu" aria-expanded="false">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <line x1="4" y1="12" x2="20" y2="12"></line>
-            <line x1="4" y1="6" x2="20" y2="6"></line>
-            <line x1="4" y1="18" x2="20" y2="18"></line>
+        <select class="currency-select js-currency-select hide-mobile" aria-label="Select currency">
+          <option value="USD">USD ($)</option>
+          <option value="EUR">EUR (€)</option>
+          <option value="GBP">GBP (£)</option>
+          <option value="CAD">CAD (C$)</option>
+          <option value="AUD">AUD (A$)</option>
+          <option value="AED">AED</option>
+          <option value="SGD">SGD (S$)</option>
+        </select>
+        <a href="apply.html" class="btn btn-primary btn-sm">Apply Now</a>
+        <button type="button" class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mainNavLinks">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true">
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
           </svg>
         </button>
       </div>
     </div>
   </header>
 
-  <!-- Service Disclosure Bar -->
-  <div role="note" aria-label="Service disclosure" class="compliance-bar">
-    <div class="container compliance-bar-inner" style="justify-content:center;">
-      <div class="compliance-notice">
-        <span class="compliance-tag">Private assistance service</span>
-        <span class="compliance-divider" aria-hidden="true">|</span>
-        <span>Independent of government. Clear requirements and listed fees.</span>
-        <a href="policies.html#disclaimer" class="compliance-link">Service disclosure</a>
-        <span class="compliance-divider" aria-hidden="true">•</span>
-        <a href="faq.html#gov-directory" class="compliance-link">Official government portals</a>
-      </div>
-    </div>
-  </div>
-
-  <!-- Breadcrumb -->
-  <div class="container breadcrumb-bar">
-    <nav aria-label="Breadcrumb">
-      <ol class="breadcrumb-list">
-        <li><a href="index.html">Home</a></li>
-        <li aria-hidden="true">›</li>
-        <li style="color:var(--foreground);font-weight:500;">Application Status</li>
-      </ol>
-    </nav>
-  </div>
-
-  <!-- Hero Search Banner -->
-  <section class="hero hero-narrow">
-    <div class="container">
-      <div class="hero-center" style="margin-bottom:2rem;">
-        <span class="section-eyebrow">Order Status Tracker</span>
-        <h1 class="hero-title" style="font-size:clamp(1.85rem,3.3vw,2.65rem);">
-          Track Your <span>Visa or Travel Document</span>
-        </h1>
-        <p class="hero-description" style="margin-bottom:0;">
-          Enter your OnePass Reference ID below to check your application progress and download your travel document.
-        </p>
-      </div>
-
-      <div class="checker-card" style="max-width:820px;margin:0 auto;">
-        <form id="trackOrderForm" style="display:grid;grid-template-columns:1fr auto;gap:1rem;align-items:end;">
-          <div class="field-group">
-            <label class="field-label" for="trackOrderIdInput">Tracking Reference Number</label>
-            <input type="text" id="trackOrderIdInput" class="field-control mono" value="OPV-2026-84920" placeholder="e.g. OPV-2026-84920" />
-          </div>
-          <button type="submit" class="btn btn-primary btn-lg" style="height:46px;">
-            <span>Track Status</span>
-            <svg width="16" height="16" class="icon-arrow" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 10h12M11 5l5 5-5 5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </button>
-        </form>
-
-        <div style="display:flex;align-items:center;gap:0.5rem;flex-wrap:wrap;margin-top:1rem;padding-top:1rem;border-top:1px solid var(--gray-200);font-size:0.8rem;">
-          <span style="color:var(--gray-500);font-weight:600;">Sample Reference Numbers:</span>
-          <button type="button" class="region-pill js-demo-track-btn" data-id="OPV-2026-84920" style="height:30px;padding:0 0.75rem;font-size:0.76rem;">
-            OPV-2026-84920 (Approved UAE eVisa)
-          </button>
-          <button type="button" class="region-pill js-demo-track-btn" data-id="OPV-2026-51304" style="height:30px;padding:0 0.75rem;font-size:0.76rem;">
-            OPV-2026-51304 (Japan Immigration Review)
-          </button>
-          <button type="button" class="region-pill js-demo-track-btn" data-id="OPV-2026-39102" style="height:30px;padding:0 0.75rem;font-size:0.76rem;">
-            OPV-2026-39102 (UK ETA Review)
-          </button>
+  <main id="main-content">
+    
+    <section class="section" style="padding-top:2rem;">
+      <div class="container" style="max-width:44rem;">
+        <div class="section-header-left">
+          <span class="eyebrow">Live Order Status</span>
+          <h1 class="section-title">Track Your Application</h1>
+          <p class="section-subtitle">
+            Enter the Application Reference sent in your confirmation email along with the email address used during checkout.
+          </p>
         </div>
-      </div>
-    </div>
-  </section>
 
-  <!-- Dynamic Tracking Result Container -->
-  <section class="section-sm">
-    <div class="container">
-      <div id="trackResultContainer"></div>
-    </div>
-  </section>
-
-  <!-- Sample Travel Document Preview Modal -->
-  <div class="modal-backdrop" id="evisaPreviewModal" role="dialog" aria-modal="true" aria-labelledby="evisaModalTitle">
-    <div class="modal-dialog" style="max-width:700px;">
-      <div class="modal-header">
-        <h3 id="evisaModalTitle" style="font-size:1.05rem;font-weight:700;">Sample Electronic Visa Summary</h3>
-        <button type="button" class="btn btn-outline btn-sm" onclick="window.opvCloseSampleEvisaModal()">Close</button>
-      </div>
-      <div class="modal-body">
-        <div style="border:1px solid var(--gray-300);border-radius:var(--radius-md);padding:1.5rem;background:var(--gray-50);">
-          <div style="display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--gray-300);padding-bottom:0.9rem;margin-bottom:1.15rem;">
-            <div>
-              <div style="font-size:0.7rem;font-weight:700;letter-spacing:0.06em;color:var(--blue-600);text-transform:uppercase;">
-                SAMPLE TRAVEL DOCUMENT SUMMARY
+        <div class="card" style="margin-bottom:1.5rem;">
+          <form id="trackOrderForm" novalidate>
+            <div class="form-grid-2" style="margin-bottom:1rem;">
+              <div class="field-group">
+                <label class="field-label" for="trackReferenceInput">Application Reference *</label>
+                <input type="text" id="trackReferenceInput" class="field-control" placeholder="e.g. OPV-20261027-A1B2C3" autocapitalize="characters" spellcheck="false" required />
               </div>
-              <h4 style="font-size:1.2rem;font-weight:800;color:var(--navy-900);">
-                OnePassVisa.com Application Record
-              </h4>
+              <div class="field-group">
+                <label class="field-label" for="trackEmailInput">Applicant Email Address *</label>
+                <input type="email" id="trackEmailInput" class="field-control" placeholder="you@example.com" autocomplete="email" inputmode="email" required />
+              </div>
             </div>
-            <span class="badge badge-emerald">APPROVED</span>
-          </div>
-
-          <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-bottom:1.15rem;font-size:0.85rem;">
-            <div>
-              <div class="dest-spec-label">Reference Number</div>
-              <div class="dest-spec-val mono">UAE-2026-9948102</div>
-            </div>
-            <div>
-              <div class="dest-spec-label">Traveler Name</div>
-              <div class="dest-spec-val">VANCE, ALEXANDER JAMES</div>
-            </div>
-            <div>
-              <div class="dest-spec-label">Passport Number</div>
-              <div class="dest-spec-val mono">N84920148 (USA)</div>
-            </div>
-            <div>
-              <div class="dest-spec-label">Document Type</div>
-              <div class="dest-spec-val">30-Day Tourist eVisa</div>
-            </div>
-            <div>
-              <div class="dest-spec-label">Issue Date</div>
-              <div class="dest-spec-val">25 OCT 2026</div>
-            </div>
-            <div>
-              <div class="dest-spec-label">Valid Until</div>
-              <div class="dest-spec-val">25 DEC 2026</div>
-            </div>
-          </div>
-
-          <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;padding-top:0.9rem;border-top:1px solid var(--gray-200);">
-            <span style="font-size:0.76rem;color:var(--gray-500);">
-              Specimen preview generated by OnePassVisa.com
-            </span>
-            <button type="button" class="btn btn-navy btn-sm" onclick="window.print()">Print / Save PDF</button>
-          </div>
+            <button type="submit" class="btn btn-primary btn-lg btn-block">Look Up Application Status</button>
+          </form>
         </div>
-      </div>
-    </div>
-  </div>
 
-  <!-- Global Footer -->
+        <div id="trackResultContainer" role="region" aria-live="polite" style="display:none;"></div>
+      </div>
+    </section>
+  
+  </main>
+
   <footer class="site-footer">
     <div class="container">
-      <div class="gov-disclaimer-box">
-        <strong>Important Google Ads &amp; Consumer Disclosure:</strong> OnePassVisa.com is a private, third-party visa and travel document processing agency and is NOT affiliated with any government or embassy. You may apply directly on official government websites for the government fee alone by visiting our <a href="faq.html#gov-directory" style="color:var(--white);text-decoration:underline;">Official Government Portals Directory</a>.
+      <div class="footer-grid">
+        <div>
+          <a href="index.html" aria-label="OnePassVisa Home" style="display:inline-block;margin-bottom:0.85rem;">
+            <img src="assets/images/logo-white.svg" alt="OnePassVisa.com" width="180" height="40" loading="lazy" />
+          </a>
+          <p style="font-size:0.875rem;color:#CBD5E1;margin-bottom:0.85rem;max-width:22rem;">
+            Private travel document and eVisa filing assistance. Specialist passport &amp; photo review, clear fee breakdowns, and direct links to official government portals.
+          </p>
+          <div style="font-size:0.8125rem;color:#94A3B8;">
+            <div>Email: <a href="mailto:support@onepassvisa.com" style="color:#FFFFFF;text-decoration:underline;">support@onepassvisa.com</a></div>
+            <div style="margin-top:0.2rem;">Support Hours: Mon–Sun, 00:00–23:59 UTC</div>
+          </div>
+        </div>
+
+        <div>
+          <div class="footer-heading">Popular eVisas</div>
+          <div class="footer-links">
+            <a href="vietnam-evisa.html">Vietnam Tourist eVisa</a>
+            <a href="thailand-evisa.html">Thailand Tourist eVisa</a>
+            <a href="indonesia-evoa.html">Indonesia (Bali) e-VOA</a>
+            <a href="india-evisa.html">India Tourist eVisa</a>
+            <a href="cambodia-evisa.html">Cambodia Tourist eVisa</a>
+            <a href="uae-evisa.html">UAE (Dubai) Tourist eVisa</a>
+          </div>
+        </div>
+
+        <div>
+          <div class="footer-heading">ETAs &amp; Arrival Cards</div>
+          <div class="footer-links">
+            <a href="uk-eta.html">United Kingdom ETA</a>
+            <a href="us-esta.html">United States ESTA</a>
+            <a href="canada-eta.html">Canada eTA</a>
+            <a href="australia-eta.html">Australia eVisitor / ETA</a>
+            <a href="thailand-arrival-card.html">Thailand Arrival Card (TDAC)</a>
+            <a href="singapore-arrival-card.html">Singapore Arrival Card (SGAC)</a>
+          </div>
+        </div>
+
+        <div>
+          <div class="footer-heading">Traveler Tools</div>
+          <div class="footer-links">
+            <a href="index.html#checker">Visa Requirements Checker</a>
+            <a href="index.html#calculator">Fee Calculator</a>
+            <a href="destinations.html">All 18 Destinations</a>
+            <a href="services.html">Document Categories</a>
+            <a href="track.html">Track Application</a>
+            <a href="faq.html#official-portals">Official Government Links</a>
+          </div>
+        </div>
+
+        <div>
+          <div class="footer-heading">Company &amp; Legal</div>
+          <div class="footer-links">
+            <a href="about.html">About &amp; Contact Us</a>
+            <a href="policies.html#terms">Terms of Service</a>
+            <a href="policies.html#privacy">Privacy Policy</a>
+            <a href="policies.html#refund">Refund Policy</a>
+            <a href="policies.html#disclaimer">Non-Affiliation Notice</a>
+            <a href="policies.html#credits">Photography Credits</a>
+          </div>
+        </div>
       </div>
-      <div class="footer-bottom" style="border-top:none;padding-top:0;">
-        <div>© 2026 OnePassVisa.com Inc. • 540 Madison Ave, Suite 2100, New York, NY 10022 • All rights reserved.</div>
-        <div style="display:flex;gap:1.25rem;">
-          <a href="policies.html#terms">Terms</a>
-          <a href="policies.html#privacy">Privacy</a>
-          <a href="policies.html#refund">Refunds</a>
-          <a href="policies.html#disclaimer">Disclaimer</a>
-          <a href="policies.html#credits">Image Credits</a>
+
+      <div class="footer-disclaimer">
+        <strong>Important Legal Disclosure:</strong> OnePassVisa.com is operated by OnePassVisa Digital Travel Services LLC (Registered in Delaware, USA), a private non-government travel document checking and filing service. We are not affiliated with any embassy, consulate, or immigration authority. Every destination page provides a direct link to the official government portal where travelers can apply independently for the statutory government fee only (including $0 for free official digital arrival cards). Final approval and processing timelines rest solely with the issuing government authority.
+      </div>
+
+      <div class="footer-bottom">
+        <div>&copy; 2026 OnePassVisa Digital Travel Services LLC. All rights reserved.</div>
+        <div style="display:flex;gap:1.25rem;flex-wrap:wrap;">
+          <a href="policies.html#privacy" style="color:#CBD5E1;">Privacy</a>
+          <a href="policies.html#terms" style="color:#CBD5E1;">Terms</a>
+          <a href="policies.html#refund" style="color:#CBD5E1;">Refunds</a>
+          <a href="policies.html#cookies" style="color:#CBD5E1;">Cookies</a>
+          <a href="sitemap.xml" style="color:#CBD5E1;">Sitemap</a>
         </div>
       </div>
     </div>
   </footer>
 
-  <script src="assets/js/data-v5.js"></script>
-  <script src="assets/js/app-v5.js"></script>
+  <div class="cookie-banner" id="cookieConsentBanner" role="region" aria-label="Cookie Consent">
+    <div style="max-width:40rem;">
+      <strong>Privacy &amp; Analytics Consent:</strong> We use essential cookies to save your application progress and optional analytics cookies (Google Consent Mode v2) to improve site performance. See our <a href="policies.html#cookies" style="color:var(--accent);text-decoration:underline;">Cookie Policy</a>.
+    </div>
+    <div style="display:flex;gap:0.6rem;flex-wrap:wrap;">
+      <button type="button" class="btn btn-outline btn-sm" id="essentialCookiesBtn" style="background:transparent;color:#FFFFFF;border-color:rgba(255,255,255,0.4);">Essential Only</button>
+      <button type="button" class="btn btn-accent btn-sm" id="acceptCookiesBtn">Accept All</button>
+    </div>
+  </div>
+
+  <script src="assets/js/data-v6.js" defer></script>
+  <script src="assets/js/app-v6.js" defer></script>
 </body>
 </html>

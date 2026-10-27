@@ -2,426 +2,297 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-  <meta name="theme-color" content="#FAFBF8" />
-  <title>Online Visa & Travel Document Application — OnePassVisa.com</title>
-  <meta name="description" content="Complete your online visa or travel document application in minutes at OnePassVisa.com." />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Apply Online | eVisa, ETA &amp; Arrival Card Application | Private Service — OnePassVisa</title>
+  <meta name="description" content="Complete your visa, ETA, or digital arrival card application with OnePassVisa, a private travel document service. Upload passport scans and see itemized government + service fees." />
+  <link rel="canonical" href="https://onepassvisa.com/apply" />
+  <meta name="theme-color" content="#0E5C9E" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="OnePassVisa" />
+  <meta property="og:title" content="Apply Online | eVisa, ETA &amp; Arrival Card Application | Private Service — OnePassVisa" />
+  <meta property="og:description" content="Complete your visa, ETA, or digital arrival card application with OnePassVisa, a private travel document service. Upload passport scans and see itemized government + service fees." />
+  <meta property="og:url" content="https://onepassvisa.com/apply" />
+  <meta property="og:image" content="https://onepassvisa.com/assets/images/logo-horizontal.png" />
+  <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg" />
   <link rel="icon" type="image/png" href="assets/images/favicon.png" />
-  <link rel="apple-touch-icon" href="assets/images/apple-touch-icon.png" />
-  <link rel="stylesheet" href="assets/css/onepass-v5.css" />
+  <link rel="preload" href="assets/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="assets/fonts/plus-jakarta-700.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="stylesheet" href="assets/css/onepass-v6.css" />
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"OnePassVisa","legalName":"OnePassVisa Digital Travel Services LLC","url":"https://onepassvisa.com/","logo":"https://onepassvisa.com/assets/images/logo.svg","description":"Independent private visa and travel document assistance service helping travelers apply for eVisas, ETAs, and digital arrival cards.","contactPoint":{"@type":"ContactPoint","email":"support@onepassvisa.com","contactType":"customer support","availableLanguage":["English"]}}</script>
 </head>
-<body>
+<body style="padding-bottom:4.5rem;">
+  <a href="#main-content" class="skip-link">Skip to main content</a>
 
-    <!-- Main Header (Exact iVisaPortal Clean Header) -->
+  <div class="disclosure-bar" role="region" aria-label="Private Service Disclosure">
+    <div class="container disclosure-bar-inner">
+      <span><strong>Private Service Notice:</strong> OnePassVisa is an independent private assistance agency, not affiliated with any government. You can apply directly on <a href="faq.html#official-portals">official government portals</a> for the statutory fee only.</span>
+    </div>
+  </div>
+
   <header class="site-header">
     <div class="container header-inner">
-      <a href="index.html" class="brand-logo" aria-label="OnePassVisa.com home">
-        <img src="assets/images/logo-horizontal.png" alt="OnePassVisa.com Official Logo" class="brand-logo-img" width="186" height="42" />
+      <a href="index.html" class="brand-logo" aria-label="OnePassVisa Home">
+        <img src="assets/images/logo.svg" alt="OnePassVisa.com" width="176" height="39" class="brand-logo-img" />
       </a>
 
-      <nav class="nav-links" id="mainNavLinks" aria-label="Primary navigation">
-        <a href="index.html" class="nav-link">Home</a>
-        <a href="destinations.html" class="nav-link">Visas</a>
-        <a href="services.html" class="nav-link">Travel Documents/ETAs</a>
-        <a href="index.html#how-it-works" class="nav-link">How it works</a>
-        <a href="index.html#calculator" class="nav-link">Pricing</a>
-        <a href="faq.html" class="nav-link">FAQs</a>
-        <a href="about.html" class="nav-link">Support</a>
+      <nav class="nav-links" id="mainNavLinks" aria-label="Primary Navigation">
+        <a href="index.html" class="nav-link ">Home</a>
+        <a href="destinations.html" class="nav-link ">Destinations</a>
+        <a href="services.html" class="nav-link ">Document Types</a>
+        <a href="track.html" class="nav-link ">Track Order</a>
+        <a href="faq.html" class="nav-link ">FAQ</a>
+        <a href="about.html" class="nav-link ">About &amp; Contact</a>
       </nav>
 
       <div class="header-actions">
-        <label style="display:inline-flex;align-items:center;" aria-label="Select Currency">
-          <select class="currency-select js-currency-select">
-            <option value="USD">USD ($)</option>
-            <option value="EUR">EUR (€)</option>
-            <option value="GBP">GBP (£)</option>
-            <option value="AED">AED</option>
-            <option value="INR">INR (₹)</option>
-            <option value="CAD">CAD ($)</option>
-            <option value="AUD">AUD ($)</option>
-          </select>
-        </label>
-        <a href="track.html" class="btn btn-outline btn-sm">Track application</a>
-        <a href="apply.html" class="btn btn-primary btn-sm">
-          <span>Check visa options</span>
-        </a>
-        <button type="button" class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Open menu" aria-expanded="false">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <line x1="4" y1="12" x2="20" y2="12"></line>
-            <line x1="4" y1="6" x2="20" y2="6"></line>
-            <line x1="4" y1="18" x2="20" y2="18"></line>
+        <select class="currency-select js-currency-select hide-mobile" aria-label="Select currency">
+          <option value="USD">USD ($)</option>
+          <option value="EUR">EUR (€)</option>
+          <option value="GBP">GBP (£)</option>
+          <option value="CAD">CAD (C$)</option>
+          <option value="AUD">AUD (A$)</option>
+          <option value="AED">AED</option>
+          <option value="SGD">SGD (S$)</option>
+        </select>
+        <a href="apply.html" class="btn btn-primary btn-sm">Apply Now</a>
+        <button type="button" class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mainNavLinks">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true">
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
           </svg>
         </button>
       </div>
     </div>
   </header>
 
-  <!-- Service Disclosure Bar -->
-  <div role="note" aria-label="Service disclosure" class="compliance-bar">
-    <div class="container compliance-bar-inner" style="justify-content:center;">
-      <div class="compliance-notice">
-        <span class="compliance-tag">Private assistance service</span>
-        <span class="compliance-divider" aria-hidden="true">|</span>
-        <span>Independent of government. Clear requirements and listed fees.</span>
-        <a href="policies.html#disclaimer" class="compliance-link">Service disclosure</a>
-        <span class="compliance-divider" aria-hidden="true">•</span>
-        <a href="faq.html#gov-directory" class="compliance-link">Official government portals</a>
-      </div>
-    </div>
-  </div>
-
-  <!-- Breadcrumb -->
-  <div class="container breadcrumb-bar">
-    <nav aria-label="Breadcrumb">
-      <ol class="breadcrumb-list">
-        <li><a href="index.html">Home</a></li>
-        <li aria-hidden="true">›</li>
-        <li style="color:var(--foreground);font-weight:500;">Apply Online</li>
-      </ol>
-    </nav>
-  </div>
-
-  <!-- Application Wizard Section -->
-  <section class="section-sm" id="applicationWizard">
-    <div class="container">
-      <div style="margin-bottom:1.5rem;">
-        <span class="section-eyebrow">Online Application</span>
-        <h1 style="font-size:1.75rem;font-weight:800;color:var(--navy-900);">Apply for Your Visa or Travel Document</h1>
-        <p style="color:var(--gray-600);font-size:0.92rem;">
-          Complete the 4 simple steps below. Every application is checked by our specialist team before submission.
-        </p>
-      </div>
-
-      <div id="orderConfirmationView" style="display:none;"></div>
-
-      <div id="wizardMainGrid">
-        <!-- 4-Step Progress Bar -->
-        <div class="wizard-stepper">
-          <div class="wizard-step-indicator active" data-step="1">
-            <span class="wizard-step-circle">1</span>
-            <span>Trip &amp; Processing Speed</span>
+  <main id="main-content">
+    
+    <section class="section" style="padding-top:1.25rem;">
+      <div class="container">
+        <div class="progress-bar-wrap">
+          <div class="progress-steps-header">
+            <span style="color:var(--primary);font-weight:700;">Step 1 of 2: Application &amp; Document Upload</span>
+            <span>Step 2: Secure Hosted Checkout</span>
           </div>
-          <div class="wizard-step-indicator" data-step="2">
-            <span class="wizard-step-circle">2</span>
-            <span>Applicant &amp; Passport Details</span>
-          </div>
-          <div class="wizard-step-indicator" data-step="3">
-            <span class="wizard-step-circle">3</span>
-            <span>Document &amp; Photo Upload</span>
-          </div>
-          <div class="wizard-step-indicator" data-step="4">
-            <span class="wizard-step-circle">4</span>
-            <span>Review &amp; Payment</span>
+          <div class="progress-track" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" aria-label="Application Progress">
+            <div class="progress-fill" style="width:50%;"></div>
           </div>
         </div>
 
-        <div class="wizard-layout">
-          <!-- Left: Active Step Form Card -->
-          <div class="wizard-card">
+        <div class="apply-layout">
+          
+          <form id="applyWizardForm" class="card" novalidate>
+            <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:0.5rem;margin-bottom:1rem;">
+              <h1 style="font-size:clamp(1.35rem,2.5vw,1.75rem);">Start Your Travel Document Application</h1>
+              <button type="button" id="saveDraftBtn" class="btn btn-outline btn-sm">Save &amp; Resume Later</button>
+            </div>
+            <div id="saveDraftStatus" style="display:none;background:var(--success-tint);border:1px solid var(--success-border);color:var(--navy);padding:0.65rem 0.9rem;border-radius:var(--radius-sm);font-size:0.85rem;margin-bottom:1rem;"></div>
 
-            <!-- STEP 1: Trip & Speed -->
-            <div class="wizard-pane active" data-step="1">
-              <h2 style="font-size:1.22rem;font-weight:700;color:var(--navy-900);margin-bottom:0.35rem;">
-                Step 1: Select Destination, Dates &amp; Speed
-              </h2>
-              <p style="font-size:0.88rem;color:var(--gray-500);margin-bottom:1.35rem;">
-                Choose your passport nationality, destination country, and preferred processing speed.
-              </p>
-
-              <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1.25rem;">
-                <div class="field-group">
-                  <label class="field-label" for="wizNationality">Passport Nationality</label>
-                  <select id="wizNationality" class="field-control js-nationality-select" data-default="US"></select>
-                </div>
-                <div class="field-group">
-                  <label class="field-label" for="wizDestination">Destination Country</label>
-                  <select id="wizDestination" class="field-control js-destination-select" data-default="uae"></select>
-                </div>
-                <div class="field-group">
-                  <label class="field-label" for="wizArrivalDate">Planned Arrival Date</label>
-                  <input type="date" id="wizArrivalDate" class="field-control" value="2026-11-15" />
-                </div>
-                <div class="field-group">
-                  <label class="field-label" for="wizTravelers">Number of Applicants</label>
-                  <input type="number" id="wizTravelers" class="field-control" value="1" min="1" max="15" />
-                </div>
+            
+            <div class="form-grid-3" style="margin-bottom:1.25rem;">
+              <div class="field-group" style="grid-column:1 / -1;">
+                <label class="field-label" for="applyDestination">Destination &amp; Document *</label>
+                <select id="applyDestination" class="field-control js-destination-select" data-default="vietnam" required>
+                  <option value="vietnam" selected>Vietnam — eVisa</option><option value="thailand-tdac" >Thailand (Arrival Card) — Arrival Card</option><option value="indonesia" >Indonesia (Bali) — eVisa</option><option value="singapore" >Singapore (SGAC) — Arrival Card</option><option value="india" >India — eVisa</option><option value="cambodia" >Cambodia — eVisa</option><option value="uae" >United Arab Emirates — eVisa</option><option value="saudi" >Saudi Arabia — eVisa</option><option value="turkey" >Türkiye — eVisa</option><option value="egypt" >Egypt — eVisa</option><option value="kenya" >Kenya — ETA</option><option value="uk" >United Kingdom — ETA</option><option value="usa" >United States — ETA</option><option value="canada" >Canada — ETA</option><option value="australia" >Australia — ETA</option><option value="malaysia" >Malaysia (MDAC) — Arrival Card</option><option value="thailand-evisa" >Thailand (Tourist e-Visa) — eVisa</option><option value="morocco" >Morocco — eVisa</option>
+                </select>
               </div>
-
-              <div class="field-label" style="margin-top:1.25rem;">Select Processing Speed</div>
-              <div class="tier-selector-grid">
-                <div class="tier-option selected" data-tier="standard">
-                  <span class="badge badge-blue" style="margin-bottom:0.4rem;">Standard</span>
-                  <h4 style="font-size:0.95rem;font-weight:700;color:var(--navy-900);">Standard Processing</h4>
-                  <p style="font-size:0.78rem;color:var(--gray-500);margin:0.25rem 0 0.65rem;">Full document check &amp; standard queue</p>
-                  <div style="font-weight:700;font-size:0.88rem;color:var(--navy-900);">Included (+$0)</div>
-                </div>
-
-                <div class="tier-option" data-tier="express">
-                  <span class="badge badge-emerald" style="margin-bottom:0.4rem;">Express</span>
-                  <h4 style="font-size:0.95rem;font-weight:700;color:var(--navy-900);">Express Processing</h4>
-                  <p style="font-size:0.78rem;color:var(--gray-500);margin:0.25rem 0 0.65rem;">24–48 hour priority specialist queue</p>
-                  <div style="font-weight:700;font-size:0.88rem;color:var(--blue-600);">+<span data-usd="29">$29</span> / applicant</div>
-                </div>
-
-                <div class="tier-option" data-tier="rush">
-                  <span class="badge badge-amber" style="margin-bottom:0.4rem;">Priority</span>
-                  <h4 style="font-size:0.95rem;font-weight:700;color:var(--navy-900);">Priority Rush</h4>
-                  <p style="font-size:0.78rem;color:var(--gray-500);margin:0.25rem 0 0.65rem;">Immediate review &amp; priority filing</p>
-                  <div style="font-weight:700;font-size:0.88rem;color:var(--navy-900);">+<span data-usd="59">$59</span> / applicant</div>
-                </div>
+              <div class="field-group">
+                <label class="field-label" for="applyTravelers">Number of Travelers *</label>
+                <input type="number" id="applyTravelers" class="field-control" value="1" min="1" max="20" inputmode="numeric" required />
               </div>
-
-              <div style="display:flex;justify-content:flex-end;margin-top:1.25rem;">
-                <button type="button" class="btn btn-primary btn-lg" onclick="window.opvGoToStep(2)">
-                  <span>Continue to Applicant Details</span>
-                  <svg width="16" height="16" class="icon-arrow" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 10h12M11 5l5 5-5 5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                </button>
+              <div class="field-group">
+                <label class="field-label" for="applyArrivalDate">Planned Arrival Date *</label>
+                <input type="date" id="applyArrivalDate" class="field-control" required />
+              </div>
+              <div class="field-group">
+                <label class="field-label" for="applyEmail">Delivery Email Address *</label>
+                <input type="email" id="applyEmail" class="field-control" placeholder="you@example.com" autocomplete="email" inputmode="email" required />
               </div>
             </div>
 
-            <!-- STEP 2: Applicant & Passport Details -->
-            <div class="wizard-pane" data-step="2">
-              <h2 style="font-size:1.22rem;font-weight:700;color:var(--navy-900);margin-bottom:0.35rem;">
-                Step 2: Applicant &amp; Passport Information
-              </h2>
-              <p style="font-size:0.88rem;color:var(--gray-500);margin-bottom:1.25rem;">
-                Enter the details as shown on the applicant's passport bio page, or click Auto-Fill to test with sample passport data.
-              </p>
-
-              <div class="ocr-box">
-                <div>
-                  <h3 style="font-size:0.92rem;font-weight:700;color:var(--navy-900);">Quick Sample Auto-Fill</h3>
-                  <p style="font-size:0.8rem;color:var(--gray-600);">Test the form by auto-filling sample passport information.</p>
-                  <div id="ocrScanStatus" style="display:none;margin-top:0.35rem;font-size:0.8rem;"></div>
-                </div>
-                <button type="button" id="simulateOcrBtn" class="btn btn-outline btn-sm">
-                  Auto-Fill Sample Passport
-                </button>
-              </div>
-
-              <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1.25rem;">
-                <div class="field-group">
-                  <label class="field-label" for="wizFirstName">Given / First Names</label>
-                  <input type="text" id="wizFirstName" class="field-control" value="ALEXANDER JAMES" />
-                </div>
-                <div class="field-group">
-                  <label class="field-label" for="wizLastName">Surname / Last Name</label>
-                  <input type="text" id="wizLastName" class="field-control" value="VANCE" />
-                </div>
-                <div class="field-group">
-                  <label class="field-label" for="wizPassportNo">Passport Number</label>
-                  <input type="text" id="wizPassportNo" class="field-control mono" value="N84920148" />
-                </div>
-                <div class="field-group">
-                  <label class="field-label" for="wizDob">Date of Birth</label>
-                  <input type="date" id="wizDob" class="field-control" value="1991-06-14" />
-                </div>
-                <div class="field-group">
-                  <label class="field-label" for="wizPassportExpiry">Passport Expiration Date</label>
-                  <input type="date" id="wizPassportExpiry" class="field-control" value="2032-09-22" />
-                </div>
-                <div class="field-group">
-                  <label class="field-label" for="wizGender">Sex / Gender</label>
-                  <select id="wizGender" class="field-control">
-                    <option value="M">Male</option>
-                    <option value="F">Female</option>
-                  </select>
-                </div>
-                <div class="field-group">
-                  <label class="field-label" for="wizEmail">Email Address (For Visa Delivery)</label>
-                  <input type="email" id="wizEmail" class="field-control" value="alex.vance@globaltravel.io" />
-                </div>
-                <div class="field-group">
-                  <label class="field-label" for="wizPhone">Phone Number</label>
-                  <input type="tel" id="wizPhone" class="field-control" value="+1 (415) 890-4421" />
-                </div>
-              </div>
-
-              <div style="display:flex;justify-content:space-between;margin-top:1.5rem;">
-                <button type="button" class="btn btn-outline" onclick="window.opvGoToStep(1)">Back</button>
-                <button type="button" class="btn btn-primary btn-lg" onclick="window.opvGoToStep(3)">
-                  <span>Continue to Document Upload</span>
-                  <svg width="16" height="16" class="icon-arrow" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 10h12M11 5l5 5-5 5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                </button>
-              </div>
+            <div class="field-group" style="margin-bottom:1.5rem;">
+              <label class="field-label" for="applyPhone">Mobile / WhatsApp Number (for urgent document queries) *</label>
+              <input type="tel" id="applyPhone" class="field-control" placeholder="+1 202 588 6500" autocomplete="tel" inputmode="tel" required />
             </div>
 
-            <!-- STEP 3: Document & Photo Upload -->
-            <div class="wizard-pane" data-step="3">
-              <h2 style="font-size:1.22rem;font-weight:700;color:var(--navy-900);margin-bottom:0.35rem;">
-                Step 3: Upload Passport Scan &amp; Photo
-              </h2>
-              <p style="font-size:0.88rem;color:var(--gray-500);margin-bottom:1.35rem;">
-                Upload your passport bio page and a recent facial photo. Our team formats dimensions and background compliance before submission.
-              </p>
+            
+            <div id="applicantsContainer"></div>
 
-              <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.25rem;margin-bottom:1.5rem;">
-                <div style="border:1px dashed var(--gray-300);border-radius:var(--radius-md);padding:1.5rem;text-align:center;background:var(--gray-50);">
-                  <h4 style="font-weight:700;color:var(--navy-900);margin-bottom:0.25rem;">Passport Bio Page Scan</h4>
-                  <p style="font-size:0.8rem;color:var(--gray-500);margin-bottom:1rem;">JPG, PNG, or PDF up to 20MB</p>
-                  <label class="btn btn-outline btn-sm" style="cursor:pointer;">
-                    Select File
-                    <input type="file" style="display:none;" accept="image/*,.pdf" />
-                  </label>
-                </div>
-
-                <div style="border:1px dashed var(--gray-300);border-radius:var(--radius-md);padding:1.5rem;text-align:center;background:var(--gray-50);">
-                  <h4 style="font-weight:700;color:var(--navy-900);margin-bottom:0.25rem;">Applicant Digital Photo</h4>
-                  <p style="font-size:0.8rem;color:var(--gray-500);margin-bottom:1rem;">Cropped &amp; formatted by our team</p>
-                  <label class="btn btn-outline btn-sm" style="cursor:pointer;">
-                    Select Photo
-                    <input type="file" style="display:none;" accept="image/*" />
-                  </label>
-                </div>
-              </div>
-
-              <label style="display:flex;align-items:flex-start;justify-content:space-between;gap:1rem;padding:1.1rem;border:1px solid var(--gray-200);background:var(--gray-50);border-radius:var(--radius-sm);cursor:pointer;margin-bottom:1.5rem;">
-                <div style="display:flex;gap:0.75rem;">
-                  <input type="checkbox" id="addonRejection" checked style="width:18px;height:18px;margin-top:2px;accent-color:var(--blue-600);" />
+            
+            <fieldset style="margin-bottom:1.5rem;">
+              <legend class="field-label" style="margin-bottom:0.5rem;">Select Specialist Handling Speed</legend>
+              <div class="speed-grid">
+                <label class="speed-option selected">
+                  <input type="radio" name="applySpeed" value="standard" checked style="margin-top:0.25rem;accent-color:var(--primary);" />
                   <div>
-                    <div style="font-weight:700;font-size:0.9rem;color:var(--navy-900);">Optional Fee Refund Protection</div>
-                    <p style="font-size:0.82rem;color:var(--gray-600);margin-top:0.15rem;">
-                      Receive a 100% refund of both government and service fees if your application is denied by the immigration authority.
-                    </p>
+                    <div style="font-weight:700;color:var(--navy);font-size:0.95rem;">Standard Specialist Handling (+$0)</div>
+                    <div style="font-size:0.8125rem;color:var(--text-muted);">Document review, photo formatting &amp; portal filing within 6–12 hours.</div>
                   </div>
-                </div>
-                <strong style="color:var(--navy-900);font-size:0.9rem;white-space:nowrap;">+<span data-usd="19">$19</span></strong>
-              </label>
-
-              <div style="display:flex;justify-content:space-between;margin-top:1.5rem;">
-                <button type="button" class="btn btn-outline" onclick="window.opvGoToStep(2)">Back</button>
-                <button type="button" class="btn btn-primary btn-lg" onclick="window.opvGoToStep(4)">
-                  <span>Continue to Payment</span>
-                  <svg width="16" height="16" class="icon-arrow" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 10h12M11 5l5 5-5 5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                </button>
+                </label>
+                <label class="speed-option">
+                  <input type="radio" name="applySpeed" value="priority" style="margin-top:0.25rem;accent-color:var(--primary);" />
+                  <div>
+                    <div style="font-weight:700;color:var(--navy);font-size:0.95rem;">Priority Handling (+<span id="applyPriorityPrice">$20</span> per traveler)</div>
+                    <div style="font-size:0.8125rem;color:var(--text-muted);">Immediate front-of-queue specialist review &amp; filing within 2 hours.</div>
+                  </div>
+                </label>
               </div>
-            </div>
+            </fieldset>
 
-            <!-- STEP 4: Payment & Submit -->
-            <div class="wizard-pane" data-step="4">
-              <h2 style="font-size:1.22rem;font-weight:700;color:var(--navy-900);margin-bottom:0.35rem;">
-                Step 4: Review &amp; Secure Payment
-              </h2>
-              <p style="font-size:0.88rem;color:var(--gray-500);margin-bottom:1.35rem;">
-                All payments are encrypted over 256-bit SSL. Your application enters specialist document review immediately after checkout.
-              </p>
-
-              <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1.25rem;">
-                <div class="field-group" style="grid-column:1/-1;">
-                  <label class="field-label" for="cardHolder">Cardholder Name</label>
-                  <input type="text" id="cardHolder" class="field-control" value="ALEXANDER JAMES VANCE" />
-                </div>
-                <div class="field-group" style="grid-column:1/-1;">
-                  <label class="field-label" for="cardNumber">Card Number (Demo Pre-Filled)</label>
-                  <input type="text" id="cardNumber" class="field-control mono" value="4532 •••• •••• 8891" />
-                </div>
-                <div class="field-group">
-                  <label class="field-label" for="cardExpiry">Expiration Date (MM/YY)</label>
-                  <input type="text" id="cardExpiry" class="field-control mono" value="08/29" />
-                </div>
-                <div class="field-group">
-                  <label class="field-label" for="cardCvc">Security Code (CVC)</label>
-                  <input type="text" id="cardCvc" class="field-control mono" value="842" />
-                </div>
-              </div>
-
-              <label style="display:flex;align-items:flex-start;gap:0.65rem;font-size:0.82rem;color:var(--gray-600);margin-bottom:1.5rem;cursor:pointer;">
-                <input type="checkbox" checked style="width:16px;height:16px;margin-top:2px;accent-color:var(--blue-600);" />
+            
+            <div style="background:var(--bg-subtle);border:1px solid var(--border);border-radius:var(--radius-md);padding:1rem;margin-bottom:1.25rem;">
+              <label style="display:flex;align-items:flex-start;gap:0.75rem;cursor:pointer;font-size:0.875rem;color:var(--text-body);">
+                <input type="checkbox" id="applyTermsConsent" style="width:20px;height:20px;margin-top:0.15rem;accent-color:var(--primary);flex-shrink:0;" required />
                 <span>
-                  I confirm that my passport details are accurate, understand that OnePassVisa.com is a private assistance agency charging a service fee in addition to the government fee, and agree to the <a href="policies.html#terms" style="color:var(--blue-600);font-weight:600;">Terms of Service</a>, <a href="policies.html#privacy" style="color:var(--blue-600);font-weight:600;">Privacy Policy</a>, and <a href="policies.html#refund" style="color:var(--blue-600);font-weight:600;">Refund Policy</a>.
+                  I confirm that the passport details entered are accurate, that I understand <strong>OnePassVisa is a private assistance service not affiliated with any government</strong>, and that I agree to the <a href="policies.html#terms" style="color:var(--primary);text-decoration:underline;">Terms of Service</a> and <a href="policies.html#refund" style="color:var(--primary);text-decoration:underline;">Refund Policy</a>.
                 </span>
               </label>
+            </div>
 
-              <div style="display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap;">
-                <button type="button" class="btn btn-outline" onclick="window.opvGoToStep(3)">Back</button>
-                <button type="button" id="completeOrderBtn" class="btn btn-primary btn-lg">
-                  <span>Submit Visa Application</span>
-                  <svg width="16" height="16" class="icon-arrow" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 10h12M11 5l5 5-5 5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                </button>
+            <div id="applyFormError" role="alert" style="display:none;background:var(--danger-tint);border:1px solid var(--danger);color:var(--danger);padding:0.85rem 1rem;border-radius:var(--radius-md);font-size:0.9rem;font-weight:600;margin-bottom:1rem;"></div>
+
+            <button type="submit" id="applySubmitBtn" class="btn btn-primary btn-lg btn-block">Continue to Secure Checkout →</button>
+
+            <div style="margin-top:0.85rem;font-size:0.8rem;color:var(--text-muted);line-height:1.5;">
+              <p id="applyOfficialDisclosure" style="margin-bottom:0.35rem;">
+                OnePassVisa is a private assistance service, not a government website. You can apply directly at <a href="https://evisa.gov.vn" target="_blank" rel="noopener noreferrer" style="color:var(--primary);text-decoration:underline;">Vietnam National Portal on Immigration</a> for the $25 government fee only. (Verified 27 Oct 2026)
+              </p>
+              <p>
+                <strong>Refund Summary:</strong> Cancel before government submission for a 100% full refund. If your application is declined by immigration, we refund 100% of our service fee.
+              </p>
+            </div>
+          </form>
+
+          
+          <aside class="sticky-sidebar">
+            <div class="card" style="border-color:var(--primary-border);">
+              <span class="badge badge-primary" style="margin-bottom:0.5rem;">Itemized Order Summary</span>
+              <h2 id="sumDocTitle" style="font-size:1.2rem;margin-bottom:0.75rem;">Vietnam Tourist e-Visa (Single Entry)</h2>
+
+              <div class="summary-row"><span>Statutory Government Fee</span><strong id="sumGovFee">$25 × 1 = $25</strong></div>
+              <div class="summary-row"><span>OnePassVisa Service Fee</span><strong id="sumServiceFee">$34 × 1 = $34</strong></div>
+              <div class="summary-row"><span>Our Specialist Handling Time</span><strong id="sumHandlingTime">Standard review: 6–12 hrs</strong></div>
+              <div class="summary-row"><span>Official Gov Processing Time</span><strong id="sumGovTime">3–5 working days by Vietnam Immigration</strong></div>
+              <div class="summary-total">
+                <span>Total Due at Checkout</span>
+                <span id="sumGrandTotal">$59</span>
               </div>
-            </div>
 
-          </div>
-
-          <!-- Right: Order Summary Sidebar -->
-          <aside class="order-summary-card">
-            <div style="font-size:0.72rem;text-transform:uppercase;letter-spacing:0.05em;color:var(--gray-500);font-weight:700;margin-bottom:0.4rem;">
-              Transparent Fee Summary
-            </div>
-            <h3 id="sumCountryTitle" style="font-size:1.2rem;font-weight:800;color:var(--navy-900);margin-bottom:0.15rem;">
-              United Arab Emirates
-            </h3>
-            <p id="sumVisaType" style="font-size:0.84rem;color:var(--blue-600);font-weight:600;margin-bottom:1rem;">
-              30-Day &amp; 60-Day Tourist eVisa
-            </p>
-
-            <div class="summary-line">
-              <span style="color:var(--gray-500);">Applicants</span>
-              <strong id="sumTravelers">1 Applicant</strong>
-            </div>
-            <div class="summary-line">
-              <span style="color:var(--gray-500);">Speed Tier</span>
-              <strong id="sumTierName" style="text-align:right;font-size:0.82rem;">Standard</strong>
-            </div>
-            <div class="summary-line">
-              <span style="color:var(--gray-500);">Government Fee</span>
-              <strong id="sumGovFee">$85</strong>
-            </div>
-            <div class="summary-line">
-              <span style="color:var(--gray-500);">OnePass Service Fee</span>
-              <strong id="sumServiceFee">$39</strong>
-            </div>
-            <div class="summary-line">
-              <span style="color:var(--gray-500);">Priority Speed Upgrade</span>
-              <strong id="sumTierFee">Included</strong>
-            </div>
-            <div class="summary-line">
-              <span style="color:var(--gray-500);">Refund Protection</span>
-              <strong id="sumAddonsFee">$19</strong>
-            </div>
-            <div class="summary-line">
-              <span style="color:var(--emerald-700);">Discount</span>
-              <strong id="sumDiscountFee" style="color:var(--emerald-700);">$0</strong>
-            </div>
-
-            <div class="summary-total">
-              <span>Total</span>
-              <span id="sumGrandTotal" style="color:var(--blue-600);">$143</span>
-            </div>
-
-            <div style="margin-top:1.15rem;padding-top:1rem;border-top:1px solid var(--gray-200);">
-              <div style="display:flex;gap:0.4rem;">
-                <input type="text" id="wizPromoInput" class="field-control" style="height:36px;font-size:0.82rem;" placeholder="Promo code (ONEPASS10)" />
-                <button type="button" id="applyPromoBtn" class="btn btn-outline btn-sm" style="height:36px;">Apply</button>
+              <div style="margin-top:1rem;padding-top:1rem;border-top:1px solid var(--border);font-size:0.8125rem;color:var(--text-muted);">
+                <div style="margin-bottom:0.4rem;">✓ <strong>Included:</strong> Specialist passport MRZ check &amp; portrait photo formatting</div>
+                <div style="margin-bottom:0.4rem;">✓ <strong>Payment Methods:</strong> Apple Pay, Google Pay &amp; all major cards</div>
+                <div>✓ <strong>Guarantee:</strong> 100% service fee refund if declined</div>
               </div>
-              <div id="promoMsg" style="font-size:0.74rem;margin-top:0.35rem;color:var(--gray-500);"></div>
             </div>
           </aside>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Global Footer -->
+    <div class="sticky-mobile-cta">
+      <div>
+        <div style="font-size:0.75rem;color:var(--text-muted);">Total (Gov + Service Fee)</div>
+        <div id="stickyMobileTotal" style="font-family:var(--font-display);font-size:1.25rem;font-weight:800;color:var(--navy);">$59</div>
+      </div>
+      <button type="button" class="btn btn-primary" onclick="document.getElementById('applySubmitBtn').click()">Continue →</button>
+    </div>
+  
+  </main>
+
   <footer class="site-footer">
     <div class="container">
-      <div class="gov-disclaimer-box">
-        <strong>Important Google Ads &amp; Consumer Disclosure:</strong> OnePassVisa.com is a private, third-party visa and travel document processing agency and is NOT affiliated with any government or embassy. You may apply directly on official government websites for the government fee alone by visiting our <a href="faq.html#gov-directory" style="color:var(--white);text-decoration:underline;">Official Government Portals Directory</a>.
+      <div class="footer-grid">
+        <div>
+          <a href="index.html" aria-label="OnePassVisa Home" style="display:inline-block;margin-bottom:0.85rem;">
+            <img src="assets/images/logo-white.svg" alt="OnePassVisa.com" width="180" height="40" loading="lazy" />
+          </a>
+          <p style="font-size:0.875rem;color:#CBD5E1;margin-bottom:0.85rem;max-width:22rem;">
+            Private travel document and eVisa filing assistance. Specialist passport &amp; photo review, clear fee breakdowns, and direct links to official government portals.
+          </p>
+          <div style="font-size:0.8125rem;color:#94A3B8;">
+            <div>Email: <a href="mailto:support@onepassvisa.com" style="color:#FFFFFF;text-decoration:underline;">support@onepassvisa.com</a></div>
+            <div style="margin-top:0.2rem;">Support Hours: Mon–Sun, 00:00–23:59 UTC</div>
+          </div>
+        </div>
+
+        <div>
+          <div class="footer-heading">Popular eVisas</div>
+          <div class="footer-links">
+            <a href="vietnam-evisa.html">Vietnam Tourist eVisa</a>
+            <a href="thailand-evisa.html">Thailand Tourist eVisa</a>
+            <a href="indonesia-evoa.html">Indonesia (Bali) e-VOA</a>
+            <a href="india-evisa.html">India Tourist eVisa</a>
+            <a href="cambodia-evisa.html">Cambodia Tourist eVisa</a>
+            <a href="uae-evisa.html">UAE (Dubai) Tourist eVisa</a>
+          </div>
+        </div>
+
+        <div>
+          <div class="footer-heading">ETAs &amp; Arrival Cards</div>
+          <div class="footer-links">
+            <a href="uk-eta.html">United Kingdom ETA</a>
+            <a href="us-esta.html">United States ESTA</a>
+            <a href="canada-eta.html">Canada eTA</a>
+            <a href="australia-eta.html">Australia eVisitor / ETA</a>
+            <a href="thailand-arrival-card.html">Thailand Arrival Card (TDAC)</a>
+            <a href="singapore-arrival-card.html">Singapore Arrival Card (SGAC)</a>
+          </div>
+        </div>
+
+        <div>
+          <div class="footer-heading">Traveler Tools</div>
+          <div class="footer-links">
+            <a href="index.html#checker">Visa Requirements Checker</a>
+            <a href="index.html#calculator">Fee Calculator</a>
+            <a href="destinations.html">All 18 Destinations</a>
+            <a href="services.html">Document Categories</a>
+            <a href="track.html">Track Application</a>
+            <a href="faq.html#official-portals">Official Government Links</a>
+          </div>
+        </div>
+
+        <div>
+          <div class="footer-heading">Company &amp; Legal</div>
+          <div class="footer-links">
+            <a href="about.html">About &amp; Contact Us</a>
+            <a href="policies.html#terms">Terms of Service</a>
+            <a href="policies.html#privacy">Privacy Policy</a>
+            <a href="policies.html#refund">Refund Policy</a>
+            <a href="policies.html#disclaimer">Non-Affiliation Notice</a>
+            <a href="policies.html#credits">Photography Credits</a>
+          </div>
+        </div>
       </div>
-      <div class="footer-bottom" style="border-top:none;padding-top:0;">
-        <div>© 2026 OnePassVisa.com Inc. • 540 Madison Ave, Suite 2100, New York, NY 10022 • All rights reserved.</div>
-        <div style="display:flex;gap:1.25rem;">
-          <a href="policies.html#terms">Terms</a>
-          <a href="policies.html#privacy">Privacy</a>
-          <a href="policies.html#refund">Refunds</a>
-          <a href="policies.html#disclaimer">Disclaimer</a>
-          <a href="policies.html#credits">Image Credits</a>
+
+      <div class="footer-disclaimer">
+        <strong>Important Legal Disclosure:</strong> OnePassVisa.com is operated by OnePassVisa Digital Travel Services LLC (Registered in Delaware, USA), a private non-government travel document checking and filing service. We are not affiliated with any embassy, consulate, or immigration authority. Every destination page provides a direct link to the official government portal where travelers can apply independently for the statutory government fee only (including $0 for free official digital arrival cards). Final approval and processing timelines rest solely with the issuing government authority.
+      </div>
+
+      <div class="footer-bottom">
+        <div>&copy; 2026 OnePassVisa Digital Travel Services LLC. All rights reserved.</div>
+        <div style="display:flex;gap:1.25rem;flex-wrap:wrap;">
+          <a href="policies.html#privacy" style="color:#CBD5E1;">Privacy</a>
+          <a href="policies.html#terms" style="color:#CBD5E1;">Terms</a>
+          <a href="policies.html#refund" style="color:#CBD5E1;">Refunds</a>
+          <a href="policies.html#cookies" style="color:#CBD5E1;">Cookies</a>
+          <a href="sitemap.xml" style="color:#CBD5E1;">Sitemap</a>
         </div>
       </div>
     </div>
   </footer>
 
-  <script src="assets/js/data-v5.js"></script>
-  <script src="assets/js/app-v5.js"></script>
+  <div class="cookie-banner" id="cookieConsentBanner" role="region" aria-label="Cookie Consent">
+    <div style="max-width:40rem;">
+      <strong>Privacy &amp; Analytics Consent:</strong> We use essential cookies to save your application progress and optional analytics cookies (Google Consent Mode v2) to improve site performance. See our <a href="policies.html#cookies" style="color:var(--accent);text-decoration:underline;">Cookie Policy</a>.
+    </div>
+    <div style="display:flex;gap:0.6rem;flex-wrap:wrap;">
+      <button type="button" class="btn btn-outline btn-sm" id="essentialCookiesBtn" style="background:transparent;color:#FFFFFF;border-color:rgba(255,255,255,0.4);">Essential Only</button>
+      <button type="button" class="btn btn-accent btn-sm" id="acceptCookiesBtn">Accept All</button>
+    </div>
+  </div>
+
+  <script src="assets/js/data-v6.js" defer></script>
+  <script src="assets/js/app-v6.js" defer></script>
 </body>
 </html>
