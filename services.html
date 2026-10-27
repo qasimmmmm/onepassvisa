@@ -3,27 +3,27 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Visa & Travel Document Services — OnePassVisa.com</title>
-  <meta name="description" content="Explore OnePassVisa's global suite of services: eVisas, ETAs, Schengen & US Embassy Concierge, Digital Arrival Cards, Document Apostille, and Corporate Mobility." />
+  <title>Visas & Travel Documents Overview — OnePassVisa.com</title>
+  <meta name="description" content="Online processing exclusively for Tourist eVisas, Business eVisas, Electronic Travel Authorizations (ETA / ESTA), Transit Visas, and Digital Arrival Cards." />
   <link rel="stylesheet" href="assets/css/styles.css" />
 </head>
 <body>
 
-  <!-- Top Trust & Utility Bar -->
+  <!-- Top Bar -->
   <div class="top-bar">
     <div class="container top-bar-inner">
       <div class="top-bar-left">
-        <span class="top-bar-item"><span class="pulse-dot"></span> <strong>Full-Spectrum Consular &amp; Travel Document Suite</strong></span>
+        <span class="top-bar-item"><span class="status-dot"></span> <span>24/7 Global Visa &amp; Travel Document Processing</span></span>
       </div>
       <div class="top-bar-right">
-        <a href="track.html" class="top-bar-item" style="color:var(--emerald-400);font-weight:700;">📍 Track Order Status</a>
+        <a href="track.html" class="top-bar-item" style="color:var(--white);font-weight:600;">Track Application</a>
         <label class="top-bar-item">
           <span>Currency:</span>
-          <select class="top-bar-select js-currency-select" aria-label="Select Currency">
+          <select class="currency-select js-currency-select" aria-label="Select Currency">
             <option value="USD">USD ($)</option>
             <option value="EUR">EUR (€)</option>
             <option value="GBP">GBP (£)</option>
-            <option value="AED">AED (د.إ)</option>
+            <option value="AED">AED</option>
             <option value="INR">INR (₹)</option>
             <option value="CAD">CAD ($)</option>
             <option value="AUD">AUD ($)</option>
@@ -33,37 +33,41 @@
     </div>
   </div>
 
-  <!-- Main Sticky Header -->
+  <!-- Main Header -->
   <header class="site-header">
     <div class="container header-inner">
       <a href="index.html" class="brand-logo">
-        <div class="brand-icon">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
-            <circle cx="12" cy="12" r="10"></circle>
-            <path d="M2 12h20"></path>
-            <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+        <div class="brand-mark">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="4" y="2" width="16" height="20" rx="2.5"></rect>
+            <circle cx="12" cy="10" r="3.5"></circle>
+            <path d="M8.5 17.5h7"></path>
           </svg>
         </div>
-        <div class="brand-text-wrap">
-          <div class="brand-name">OnePass<span>Visa</span></div>
-          <div class="brand-domain">onepassvisa.com</div>
+        <div class="brand-wordmark">
+          <div class="brand-title">OnePass<span>Visa</span></div>
+          <div class="brand-subtitle">Visas &amp; Travel Documents</div>
         </div>
       </a>
 
       <nav class="nav-links" id="mainNavLinks" aria-label="Main Navigation">
         <a href="index.html" class="nav-link">Home</a>
         <a href="destinations.html" class="nav-link">Destinations</a>
-        <a href="services.html" class="nav-link active">Services</a>
-        <a href="track.html" class="nav-link">Track Application</a>
-        <a href="faq.html" class="nav-link">Help &amp; FAQ</a>
-        <a href="about.html" class="nav-link">About &amp; Contact</a>
+        <a href="services.html" class="nav-link active">Visas &amp; Documents</a>
+        <a href="track.html" class="nav-link">Track Status</a>
+        <a href="faq.html" class="nav-link">FAQ</a>
+        <a href="about.html" class="nav-link">About</a>
         <a href="policies.html" class="nav-link">Policies</a>
       </nav>
 
       <div class="header-actions">
-        <a href="apply.html" class="btn btn-primary btn-sm">Apply Now →</a>
+        <a href="track.html" class="btn btn-outline btn-sm">Track Order</a>
+        <a href="apply.html" class="btn btn-primary btn-sm">
+          <span>Apply Online</span>
+          <svg class="icon-arrow" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 10h12M11 5l5 5-5 5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
         <button type="button" class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle Menu">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <line x1="3" y1="6" x2="21" y2="6"></line>
             <line x1="3" y1="12" x2="21" y2="12"></line>
             <line x1="3" y1="18" x2="21" y2="18"></line>
@@ -74,123 +78,99 @@
   </header>
 
   <!-- Hero -->
-  <section class="hero" style="padding:4rem 0;">
-    <div class="container" style="text-align:center;max-width:820px;">
-      <span class="badge badge-emerald" style="margin-bottom:0.85rem;">🛂 End-to-End Cross-Border Solutions</span>
-      <h1 class="hero-title" style="font-size:clamp(2.2rem,3.8vw,3.4rem);">
-        Every Travel Document You Need under <span class="gold-italic">One Pass</span>.
+  <section class="hero hero-narrow">
+    <div class="container hero-center" style="margin-bottom:0;">
+      <span class="section-eyebrow">Official Entry Authorizations</span>
+      <h1 class="hero-title" style="font-size:clamp(1.9rem,3.4vw,2.75rem);">
+        Visas &amp; <span>Travel Documents</span> We Process
       </h1>
-      <p class="hero-description" style="margin:0 auto;">
-        From 4-hour emergency eVisas and mandatory digital arrival cards to executive Schengen &amp; US Embassy interview preparation, document legalization, and corporate mobility management.
+      <p class="hero-description">
+        OnePassVisa.com focuses exclusively on electronic visas and mandatory travel documents required to board international flights and clear border control.
       </p>
     </div>
   </section>
 
-  <!-- 6 Core Service Pillars -->
+  <!-- 4 Dedicated Visa & Travel Document Categories -->
   <section class="section">
     <div class="container">
-      <div class="destinations-grid" style="grid-template-columns:repeat(auto-fill,minmax(360px,1fr));gap:1.75rem;">
+      <div class="destinations-grid" style="grid-template-columns:repeat(auto-fill,minmax(460px,1fr));gap:1.5rem;">
 
-        <!-- Pillar 1 -->
+        <!-- Category 1 -->
         <div class="wizard-card" id="evisas">
-          <span class="badge badge-emerald" style="margin-bottom:0.85rem;">01 • Instant Digital Clearance</span>
-          <h2 style="font-size:1.35rem;font-weight:800;color:var(--navy-900);margin-bottom:0.65rem;">
-            Global eVisas &amp; Electronic Travel Authorizations (ETAs)
+          <span class="badge badge-blue" style="margin-bottom:0.75rem;">01 • Electronic Visas</span>
+          <h2 style="font-size:1.3rem;font-weight:700;color:var(--navy-900);margin-bottom:0.5rem;">
+            Tourist &amp; Visitor eVisas
           </h2>
-          <p style="font-size:0.93rem;color:var(--slate-600);margin-bottom:1.25rem;">
-            100% paperless visa processing for 90+ countries including UAE, Saudi Arabia, India, UK ETA, US ESTA, Australia ETA, Canada eTA, Vietnam, Japan, and Kenya.
+          <p style="font-size:0.9rem;color:var(--gray-600);margin-bottom:1.15rem;">
+            Official single-entry and multiple-entry Tourist eVisas issued digitally for leisure, holidays, and visiting family or friends—with no embassy appointment required.
           </p>
-          <ul style="font-size:0.88rem;color:var(--slate-700);display:grid;gap:0.45rem;margin-bottom:1.5rem;">
-            <li>✓ 4-Hour Super Rush &amp; 24-Hour Express options</li>
-            <li>✓ Automated passport MRZ &amp; photo formatting</li>
-            <li>✓ Delivered directly via Email &amp; WhatsApp PDF</li>
+          <ul style="font-size:0.86rem;color:var(--gray-700);display:grid;gap:0.45rem;margin-bottom:1.4rem;">
+            <li>• UAE (Dubai &amp; Abu Dhabi) 30-Day &amp; 60-Day Tourist eVisa</li>
+            <li>• Saudi Arabia 1-Year Multiple-Entry Tourist eVisa</li>
+            <li>• India 30-Day, 1-Year &amp; 5-Year Tourist e-Visa</li>
+            <li>• Vietnam, Japan, Türkiye, Egypt &amp; Thailand Tourist e-Visas</li>
           </ul>
-          <a href="apply.html" class="btn btn-primary btn-sm">Apply for an eVisa / ETA →</a>
+          <a href="apply.html" class="btn btn-primary btn-sm">
+            <span>Apply for Tourist eVisa</span>
+            <svg class="icon-arrow" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 10h12M11 5l5 5-5 5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
         </div>
 
-        <!-- Pillar 2 -->
-        <div class="wizard-card" id="embassy">
-          <span class="badge badge-royal" style="margin-bottom:0.85rem;">02 • White-Glove Consular Desk</span>
-          <h2 style="font-size:1.35rem;font-weight:800;color:var(--navy-900);margin-bottom:0.65rem;">
-            Schengen, US B1/B2, UK &amp; Canada Embassy Concierge
+        <!-- Category 2 -->
+        <div class="wizard-card" id="eta">
+          <span class="badge badge-emerald" style="margin-bottom:0.75rem;">02 • Pre-Travel Clearances</span>
+          <h2 style="font-size:1.3rem;font-weight:700;color:var(--navy-900);margin-bottom:0.5rem;">
+            Electronic Travel Authorizations (ETA / ESTA / eTA)
           </h2>
-          <p style="font-size:0.93rem;color:var(--slate-600);margin-bottom:1.25rem;">
-            Need an in-person sticker visa? Former consular officers prepare your entire application packet, DS-160/Schengen forms, financial cover letter, and lock in priority appointment slots.
+          <p style="font-size:0.9rem;color:var(--gray-600);margin-bottom:1.15rem;">
+            Mandatory digital travel documents required for visa-exempt travelers before boarding flights to major global destinations. Linked electronically to your passport number.
           </p>
-          <ul style="font-size:0.88rem;color:var(--slate-700);display:grid;gap:0.45rem;margin-bottom:1.5rem;">
-            <li>✓ Priority VFS / TLS / BLS &amp; US Embassy slot monitoring</li>
-            <li>✓ Verifiable PNR flight &amp; hotel itinerary included</li>
-            <li>✓ 1-on-1 consular interview coaching session</li>
+          <ul style="font-size:0.86rem;color:var(--gray-700);display:grid;gap:0.45rem;margin-bottom:1.4rem;">
+            <li>• United States ESTA (2-Year Travel Authorization)</li>
+            <li>• United Kingdom ETA (2-Year Electronic Travel Authorisation)</li>
+            <li>• Canada eTA (5-Year Travel Authorization)</li>
+            <li>• Australia ETA (Subclass 601) &amp; Kenya eTA</li>
           </ul>
-          <a href="apply.html?country=schengen" class="btn btn-navy btn-sm">Book Embassy Concierge →</a>
+          <a href="apply.html?country=uk" class="btn btn-primary btn-sm">
+            <span>Apply for ETA / ESTA</span>
+            <svg class="icon-arrow" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 10h12M11 5l5 5-5 5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
         </div>
 
-        <!-- Pillar 3 -->
+        <!-- Category 3 -->
+        <div class="wizard-card" id="business">
+          <span class="badge badge-blue" style="margin-bottom:0.75rem;">03 • Commercial &amp; Transit</span>
+          <h2 style="font-size:1.3rem;font-weight:700;color:var(--navy-900);margin-bottom:0.5rem;">
+            Business eVisas &amp; Airport Transit Visas
+          </h2>
+          <p style="font-size:0.9rem;color:var(--gray-600);margin-bottom:1.15rem;">
+            Fast-track electronic business visas for corporate meetings, exhibitions, and trade conferences, as well as short-stay 48-to-96 hour transit visas for connecting flights.
+          </p>
+          <ul style="font-size:0.86rem;color:var(--gray-700);display:grid;gap:0.45rem;margin-bottom:1.4rem;">
+            <li>• India 1-Year Multiple-Entry e-Business Visa</li>
+            <li>• Saudi Arabia, Vietnam &amp; Morocco Business eVisas</li>
+            <li>• UAE 48-Hour &amp; 96-Hour Airport Transit Visas</li>
+            <li>• Pre-submission invitation letter &amp; document verification</li>
+          </ul>
+          <a href="apply.html?country=india" class="btn btn-outline btn-sm">Apply for Business or Transit Visa</a>
+        </div>
+
+        <!-- Category 4 -->
         <div class="wizard-card" id="arrival-cards">
-          <span class="badge badge-gold" style="margin-bottom:0.85rem;">03 • Mandatory Pre-Boarding Cards</span>
-          <h2 style="font-size:1.35rem;font-weight:800;color:var(--navy-900);margin-bottom:0.65rem;">
-            Electronic Arrival Cards &amp; Customs QR Declarations
+          <span class="badge badge-amber" style="margin-bottom:0.75rem;">04 • Mandatory Entry Declarations</span>
+          <h2 style="font-size:1.3rem;font-weight:700;color:var(--navy-900);margin-bottom:0.5rem;">
+            Digital Arrival Cards &amp; Entry Documents
           </h2>
-          <p style="font-size:0.93rem;color:var(--slate-600);margin-bottom:1.25rem;">
-            Even visa-free travelers are now required to present digital arrival QR codes prior to boarding. Fill out your details anytime—we file automatically when the government window opens.
+          <p style="font-size:0.9rem;color:var(--gray-600);margin-bottom:1.15rem;">
+            Pre-register mandatory digital arrival cards and electronic customs declarations anytime before your departure—we submit your form automatically when the official window opens.
           </p>
-          <ul style="font-size:0.88rem;color:var(--slate-700);display:grid;gap:0.45rem;margin-bottom:1.5rem;">
-            <li>✓ Singapore Arrival Card (SGAC) &amp; Malaysia (MDAC)</li>
-            <li>✓ Visit Japan Web QR &amp; Thailand Digital Card (TDAC)</li>
-            <li>✓ Indonesia All-Customs QR &amp; Bali Tourism Levy</li>
+          <ul style="font-size:0.86rem;color:var(--gray-700);display:grid;gap:0.45rem;margin-bottom:1.4rem;">
+            <li>• Singapore Digital Arrival Card (SGAC)</li>
+            <li>• Thailand Digital Arrival Card (TDAC)</li>
+            <li>• Indonesia (Bali) e-VOA &amp; Electronic Customs Declaration</li>
+            <li>• Japan Digital Entry &amp; Customs QR Registration</li>
           </ul>
-          <a href="apply.html?country=singapore" class="btn btn-outline btn-sm">Pre-Register Arrival Card →</a>
-        </div>
-
-        <!-- Pillar 4 -->
-        <div class="wizard-card" id="photo-tool">
-          <span class="badge badge-emerald" style="margin-bottom:0.85rem;">04 • ICAO Biometric Studio</span>
-          <h2 style="font-size:1.35rem;font-weight:800;color:var(--navy-900);margin-bottom:0.65rem;">
-            AI Biometric Visa Photo &amp; Document Pre-Check
-          </h2>
-          <p style="font-size:0.93rem;color:var(--slate-600);margin-bottom:1.25rem;">
-            Different embassies demand vastly different photo ratios (2×2 inch US/India, 35×45mm Schengen/UK, 40×60mm China). Our AI studio converts any smartphone selfie into a compliant portrait.
-          </p>
-          <ul style="font-size:0.88rem;color:var(--slate-700);display:grid;gap:0.45rem;margin-bottom:1.5rem;">
-            <li>✓ Pure white (#FFFFFF) background replacement</li>
-            <li>✓ Head-to-chin biometric ratio calibration</li>
-            <li>✓ PDF compression under strict 200KB–2MB government caps</li>
-          </ul>
-          <a href="apply.html" class="btn btn-outline btn-sm">Try Photo Checker in Wizard →</a>
-        </div>
-
-        <!-- Pillar 5 -->
-        <div class="wizard-card" id="apostille">
-          <span class="badge badge-royal" style="margin-bottom:0.85rem;">05 • Legalization &amp; Translation</span>
-          <h2 style="font-size:1.35rem;font-weight:800;color:var(--navy-900);margin-bottom:0.65rem;">
-            Document Apostille, MOFA Attestation &amp; Translation
-          </h2>
-          <p style="font-size:0.93rem;color:var(--slate-600);margin-bottom:1.25rem;">
-            Relocating for work, Golden Visa residency, or study? We handle Hague Apostille certification, Embassy/MOFA attestation, and sworn translation in 40+ languages.
-          </p>
-          <ul style="font-size:0.88rem;color:var(--slate-700);display:grid;gap:0.45rem;margin-bottom:1.5rem;">
-            <li>✓ University degrees, birth &amp; marriage certificates</li>
-            <li>✓ Corporate commercial invoices &amp; powers of attorney</li>
-            <li>✓ Insured DHL Express global diplomatic return</li>
-          </ul>
-          <a href="about.html#contact" class="btn btn-outline btn-sm">Request Attestation Quote →</a>
-        </div>
-
-        <!-- Pillar 6 -->
-        <div class="wizard-card" id="corporate">
-          <span class="badge badge-gold" style="margin-bottom:0.85rem;">06 • Enterprise B2B Desk</span>
-          <h2 style="font-size:1.35rem;font-weight:800;color:var(--navy-900);margin-bottom:0.65rem;">
-            Corporate Travel &amp; Global Mobility Management
-          </h2>
-          <p style="font-size:0.93rem;color:var(--slate-600);margin-bottom:1.25rem;">
-            Empower your HR, travel managers, and executive teams with centralized multi-employee visa tracking, consolidated monthly invoicing, and a dedicated account director.
-          </p>
-          <ul style="font-size:0.88rem;color:var(--slate-700);display:grid;gap:0.45rem;margin-bottom:1.5rem;">
-            <li>✓ Bulk group applications for conferences &amp; crews</li>
-            <li>✓ Automated passport expiry &amp; 90/180-day Schengen tracking</li>
-            <li>✓ Custom SLA with 15-minute response guarantee</li>
-          </ul>
-          <a href="about.html#contact" class="btn btn-navy btn-sm">Open Corporate Account →</a>
+          <a href="apply.html?country=singapore" class="btn btn-outline btn-sm">Apply for Arrival Document</a>
         </div>
 
       </div>
@@ -203,8 +183,8 @@
       <div class="footer-bottom" style="border-top:none;padding-top:0;">
         <div>© 2026 OnePassVisa.com Inc. All rights reserved.</div>
         <div style="display:flex;gap:1.25rem;">
-          <a href="policies.html#terms">Terms</a>
           <a href="policies.html#privacy">Privacy</a>
+          <a href="policies.html#terms">Terms</a>
           <a href="policies.html#refund">Refunds</a>
           <a href="policies.html#disclaimer">Disclaimer</a>
         </div>

@@ -4,26 +4,26 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Help Center, Visa FAQs & Government Directory — OnePassVisa.com</title>
-  <meta name="description" content="Find instant answers to visa application questions, passport validity rules, refund guarantees, and official sovereign government portal links at OnePassVisa.com." />
+  <meta name="description" content="Answers to common questions about online visa applications, travel documents, passport validity, refund policies, and official government portals." />
   <link rel="stylesheet" href="assets/css/styles.css" />
 </head>
 <body>
 
-  <!-- Top Trust & Utility Bar -->
+  <!-- Top Bar -->
   <div class="top-bar">
     <div class="container top-bar-inner">
       <div class="top-bar-left">
-        <span class="top-bar-item"><span class="pulse-dot"></span> <strong>24/7 Traveler Knowledge Base &amp; Support Center</strong></span>
+        <span class="top-bar-item"><span class="status-dot"></span> <span>24/7 Visa &amp; Travel Document Support Center</span></span>
       </div>
       <div class="top-bar-right">
-        <a href="track.html" class="top-bar-item" style="color:var(--emerald-400);font-weight:700;">📍 Track Order Status</a>
+        <a href="track.html" class="top-bar-item" style="color:var(--white);font-weight:600;">Track Application</a>
         <label class="top-bar-item">
           <span>Currency:</span>
-          <select class="top-bar-select js-currency-select" aria-label="Select Currency">
+          <select class="currency-select js-currency-select" aria-label="Select Currency">
             <option value="USD">USD ($)</option>
             <option value="EUR">EUR (€)</option>
             <option value="GBP">GBP (£)</option>
-            <option value="AED">AED (د.إ)</option>
+            <option value="AED">AED</option>
             <option value="INR">INR (₹)</option>
             <option value="CAD">CAD ($)</option>
             <option value="AUD">AUD ($)</option>
@@ -33,37 +33,40 @@
     </div>
   </div>
 
-  <!-- Main Sticky Header -->
+  <!-- Main Header -->
   <header class="site-header">
     <div class="container header-inner">
       <a href="index.html" class="brand-logo">
-        <div class="brand-icon">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
-            <circle cx="12" cy="12" r="10"></circle>
-            <path d="M2 12h20"></path>
-            <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+        <div class="brand-mark">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="4" y="2" width="16" height="20" rx="2.5"></rect>
+            <circle cx="12" cy="10" r="3.5"></circle>
+            <path d="M8.5 17.5h7"></path>
           </svg>
         </div>
-        <div class="brand-text-wrap">
-          <div class="brand-name">OnePass<span>Visa</span></div>
-          <div class="brand-domain">onepassvisa.com</div>
+        <div class="brand-wordmark">
+          <div class="brand-title">OnePass<span>Visa</span></div>
+          <div class="brand-subtitle">Visas &amp; Travel Documents</div>
         </div>
       </a>
 
       <nav class="nav-links" id="mainNavLinks" aria-label="Main Navigation">
         <a href="index.html" class="nav-link">Home</a>
         <a href="destinations.html" class="nav-link">Destinations</a>
-        <a href="services.html" class="nav-link">Services</a>
-        <a href="track.html" class="nav-link">Track Application</a>
-        <a href="faq.html" class="nav-link active">Help &amp; FAQ</a>
-        <a href="about.html" class="nav-link">About &amp; Contact</a>
+        <a href="services.html" class="nav-link">Visas &amp; Documents</a>
+        <a href="track.html" class="nav-link">Track Status</a>
+        <a href="faq.html" class="nav-link active">FAQ</a>
+        <a href="about.html" class="nav-link">About</a>
         <a href="policies.html" class="nav-link">Policies</a>
       </nav>
 
       <div class="header-actions">
-        <a href="apply.html" class="btn btn-primary btn-sm">Apply Now →</a>
+        <a href="apply.html" class="btn btn-primary btn-sm">
+          <span>Apply Online</span>
+          <svg class="icon-arrow" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 10h12M11 5l5 5-5 5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
         <button type="button" class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle Menu">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <line x1="3" y1="6" x2="21" y2="6"></line>
             <line x1="3" y1="12" x2="21" y2="12"></line>
             <line x1="3" y1="18" x2="21" y2="18"></line>
@@ -74,17 +77,17 @@
   </header>
 
   <!-- Hero Search -->
-  <section class="hero" style="padding:3.5rem 0 4rem;">
-    <div class="container" style="text-align:center;max-width:760px;">
-      <span class="badge badge-emerald" style="margin-bottom:0.85rem;">📚 Help Center &amp; Transparency Hub</span>
-      <h1 class="hero-title" style="font-size:clamp(2.1rem,3.6vw,3.2rem);">
-        How Can Our Consular Team Help You?
+  <section class="hero hero-narrow">
+    <div class="container hero-center" style="margin-bottom:0;">
+      <span class="section-eyebrow">Help Center</span>
+      <h1 class="hero-title" style="font-size:clamp(1.85rem,3.3vw,2.65rem);">
+        Frequently Asked <span>Questions</span>
       </h1>
-      <p class="hero-description" style="margin:0 auto 1.75rem;">
-        Search common questions regarding passport validity, eVisa processing speeds, biometric photo rules, and fee refunds.
+      <p class="hero-description" style="margin-bottom:1.5rem;">
+        Search common questions regarding online visas, travel authorizations, passport validity, and fee refunds.
       </p>
-      <div style="max-width:560px;margin:0 auto;">
-        <input type="search" id="faqSearchInput" class="field-control" style="background:var(--white);height:54px;border-radius:var(--radius-full);padding:0 1.5rem;" placeholder="🔍 Search FAQs (e.g. refund, passport expiry, urgent, photo)..." aria-label="Search FAQs" />
+      <div style="max-width:520px;margin:0 auto;">
+        <input type="search" id="faqSearchInput" class="field-control" style="height:48px;border-radius:var(--radius-full);padding:0 1.35rem;" placeholder="Search FAQs (e.g. refund, passport validity, urgent)..." aria-label="Search FAQs" />
       </div>
     </div>
   </section>
@@ -96,75 +99,65 @@
 
         <div class="faq-item open">
           <button type="button" class="faq-question">
-            <span>1. What is the difference between an eVisa, an ETA, and an Arrival Card?</span>
-            <span>＋</span>
+            <span>1. What is the difference between an eVisa, an ETA, and a Digital Arrival Card?</span>
+            <span>+</span>
           </button>
           <div class="faq-answer">
             <ul>
-              <li><strong>eVisa (Electronic Visa):</strong> An official visa issued digitally (e.g., UAE, India, Saudi Arabia, Vietnam, Japan). It carries the exact same legal authority as a traditional passport sticker without requiring a physical embassy visit.</li>
-              <li><strong>ETA / eTA (Electronic Travel Authorization):</strong> A mandatory pre-screening clearance for visa-exempt nationals (e.g., US ESTA, UK ETA, Canada eTA, Australia ETA, Kenya eTA) linked electronically to your passport number.</li>
-              <li><strong>Digital Arrival Card:</strong> A mandatory pre-arrival customs &amp; immigration declaration required by all incoming passengers regardless of visa status (e.g., Singapore SGAC, Malaysia MDAC, Thailand TDAC, Indonesia e-CD).</li>
+              <li><strong>eVisa (Electronic Visa):</strong> An official visa issued digitally (e.g., UAE, India, Saudi Arabia, Vietnam, Japan). It carries the same legal standing as a traditional passport visa without requiring an embassy visit.</li>
+              <li><strong>ETA / ESTA (Electronic Travel Authorization):</strong> A mandatory pre-travel digital clearance for visa-exempt nationals (e.g., US ESTA, UK ETA, Canada eTA, Australia ETA, Kenya eTA) linked directly to your passport number.</li>
+              <li><strong>Digital Arrival Card:</strong> A mandatory pre-arrival immigration and customs declaration required prior to boarding (e.g., Singapore SGAC, Thailand TDAC, Indonesia e-CD).</li>
             </ul>
           </div>
         </div>
 
         <div class="faq-item">
           <button type="button" class="faq-question">
-            <span>2. How much passport validity do I need to apply for a visa?</span>
-            <span>＋</span>
+            <span>2. How much passport validity do I need to apply for a visa or travel document?</span>
+            <span>+</span>
           </button>
           <div class="faq-answer">
-            The international standard across 95% of destinations (including UAE, Saudi Arabia, India, Singapore, Indonesia, Vietnam, and Egypt) requires your passport to be valid for at least <strong>6 months beyond your planned date of arrival</strong> and to have at least 2 blank pages. For Schengen countries, your passport must be valid for at least 3 months beyond your planned departure from the Schengen zone and issued within the last 10 years.
+            Most countries (including UAE, Saudi Arabia, India, Singapore, Indonesia, Vietnam, and Egypt) require your passport to be valid for at least <strong>6 months beyond your planned date of arrival</strong> and to have at least 2 blank pages.
           </div>
         </div>
 
         <div class="faq-item">
           <button type="button" class="faq-question">
-            <span>3. Can I submit an application if I haven't booked my flights or hotel yet?</span>
-            <span>＋</span>
+            <span>3. How fast is your Express and Super Rush processing?</span>
+            <span>+</span>
           </button>
           <div class="faq-answer">
-            <strong>Yes!</strong> In fact, most embassies advise against purchasing non-refundable airline tickets before your visa is approved. During Step 4 of our application wizard, you can select our <strong>Embassy-Compliant Verifiable Flight &amp; Hotel Itinerary</strong> add-on, and our GDS travel desk will generate a compliant reservation specifically for your visa submission.
+            When you select <strong>Super Rush</strong>, your application is prioritized by our specialist team within 15 minutes. For destinations with real-time electronic immigration systems (such as UAE, Saudi Arabia, Türkiye, US ESTA, UK ETA, Canada eTA, Australia ETA, and Singapore SGAC), approvals are typically issued within 1 to 4 hours.
           </div>
         </div>
 
         <div class="faq-item">
           <button type="button" class="faq-question">
-            <span>4. How fast is your Super Rush VIP processing tier?</span>
-            <span>＋</span>
+            <span>4. Do I need to print my approved eVisa or Travel Document?</span>
+            <span>+</span>
           </button>
           <div class="faq-answer">
-            When you select <strong>Super Rush VIP</strong>, your application bypasses the standard queue and is audited by an on-duty senior consular specialist within <strong>15 minutes</strong>. For destinations with real-time electronic portals (such as UAE, Saudi Arabia, Turkey, US ESTA, UK ETA, Canada eTA, Australia ETA, and Singapore SGAC), approvals are typically issued within <strong>1 to 4 hours</strong>.
+            While your eVisa or ETA is digitally linked to your passport number in airline and border control systems, we recommend keeping both the digital PDF on your phone and one printed copy in your carry-on bag for airline check-in verification.
           </div>
         </div>
 
         <div class="faq-item">
           <button type="button" class="faq-question">
-            <span>5. Do I need to print my approved eVisa or can I show it on my phone?</span>
-            <span>＋</span>
+            <span>5. Can I apply for multiple family members or travelers in one order?</span>
+            <span>+</span>
           </button>
           <div class="faq-answer">
-            While your eVisa or ETA is digitally linked to your passport number in airline and border control computers, we strongly recommend keeping both the digital PDF on your smartphone and <strong>one printed color or black-and-white copy</strong> in your carry-on wallet, as several airline check-in desks stamp the paper printout during boarding verification.
+            Yes. In Step 1 of the <a href="apply.html" style="color:var(--blue-600);font-weight:600;">Online Application</a>, select the number of applicants. You can complete payment in a single transaction and track all travelers under one reference number.
           </div>
         </div>
 
         <div class="faq-item">
           <button type="button" class="faq-question">
-            <span>6. Can I apply for my whole family or corporate group in a single order?</span>
-            <span>＋</span>
+            <span>6. What is your Refund &amp; Rejection Protection Policy?</span>
+            <span>+</span>
           </button>
           <div class="faq-answer">
-            Yes. In Step 1 of the <a href="apply.html" style="color:var(--teal-600);font-weight:700;">Online Application Wizard</a>, simply choose the number of travelers (up to 15 per order, or unlimited via our Corporate Desk). You can pay in a single transaction and track every family member under one master OnePass Reference ID.
-          </div>
-        </div>
-
-        <div class="faq-item">
-          <button type="button" class="faq-question">
-            <span>7. What is your Refund &amp; Rejection Protection Policy?</span>
-            <span>＋</span>
-          </button>
-          <div class="faq-answer">
-            You may cancel your order for a <strong>100% full refund</strong> of both government and service fees at any time prior to government dispatch. Once dispatched, if you selected our optional <strong>100% Visa Rejection Fee Refund Guarantee</strong>, we will refund your full payment if the sovereign immigration authority denies your visa. Read the full legal terms in our <a href="policies.html#refund" style="color:var(--teal-600);font-weight:700;">Refund &amp; Cancellation Policy</a>.
+            You may cancel your order for a 100% full refund of both government and processing fees at any time prior to government submission. In addition, if you select our optional <strong>Rejection Fee Refund Protection</strong>, we refund your full payment if the immigration authority denies your visa. Read our full <a href="policies.html#refund" style="color:var(--blue-600);font-weight:600;">Refund &amp; Cancellation Policy</a>.
           </div>
         </div>
 
@@ -173,13 +166,13 @@
   </section>
 
   <!-- Official Government Transparency Directory -->
-  <section class="section" id="gov-directory" style="background:var(--white);border-top:1px solid var(--slate-200);">
+  <section class="section bg-subtle" id="gov-directory">
     <div class="container">
       <div class="section-header">
-        <span class="section-eyebrow">🏛️ Consumer Transparency Initiative</span>
-        <h2 class="section-title">Official Sovereign Government Portals Directory</h2>
+        <span class="section-eyebrow">Consumer Transparency</span>
+        <h2 class="section-title">Official Government Portals Directory</h2>
         <p class="section-subtitle">
-          At OnePassVisa.com, we believe in complete transparency. Travelers can either use our value-added 68-point specialist concierge service or apply directly on sovereign government websites below without our service fee.
+          Travelers may apply using our specialist document review service or apply directly through official government websites below without our processing fee.
         </p>
       </div>
 
@@ -187,60 +180,60 @@
         <table class="comparison-table">
           <thead>
             <tr>
-              <th>Country / Jurisdiction</th>
-              <th>Official Government Immigration Authority</th>
-              <th>Direct Sovereign Portal</th>
-              <th>OnePass Concierge Route</th>
+              <th>Country / Region</th>
+              <th>Official Immigration Authority</th>
+              <th>Direct Government Portal</th>
+              <th>Apply via OnePassVisa</th>
             </tr>
           </thead>
           <tbody>
             <tr>
-              <td>🇦🇪 <strong>United Arab Emirates</strong></td>
-              <td>Federal Authority for Identity &amp; Citizenship (ICP / GDRFA)</td>
-              <td><a href="https://icp.gov.ae" target="_blank" rel="noopener noreferrer" style="color:var(--royal-600);text-decoration:underline;">icp.gov.ae ↗</a></td>
-              <td><a href="apply.html?country=uae" class="btn btn-primary btn-sm">Apply via OnePass →</a></td>
+              <td><strong>United Arab Emirates</strong></td>
+              <td>Federal Authority for Identity &amp; Citizenship (ICP)</td>
+              <td><a href="https://icp.gov.ae" target="_blank" rel="noopener noreferrer" style="color:var(--blue-600);text-decoration:underline;">icp.gov.ae</a></td>
+              <td><a href="apply.html?country=uae" class="btn btn-primary btn-sm">Apply Online</a></td>
             </tr>
             <tr>
-              <td>🇪🇺 <strong>Schengen Area (EU)</strong></td>
-              <td>European Commission Directorate-General for Migration</td>
-              <td><a href="https://home-affairs.ec.europa.eu" target="_blank" rel="noopener noreferrer" style="color:var(--royal-600);text-decoration:underline;">ec.europa.eu ↗</a></td>
-              <td><a href="apply.html?country=schengen" class="btn btn-primary btn-sm">Apply via OnePass →</a></td>
+              <td><strong>Schengen Area (EU)</strong></td>
+              <td>European Commission Migration &amp; Home Affairs</td>
+              <td><a href="https://home-affairs.ec.europa.eu" target="_blank" rel="noopener noreferrer" style="color:var(--blue-600);text-decoration:underline;">ec.europa.eu</a></td>
+              <td><a href="apply.html?country=schengen" class="btn btn-primary btn-sm">Apply Online</a></td>
             </tr>
             <tr>
-              <td>🇺🇸 <strong>United States</strong></td>
+              <td><strong>United States</strong></td>
               <td>U.S. Department of State &amp; CBP ESTA</td>
-              <td><a href="https://travel.state.gov" target="_blank" rel="noopener noreferrer" style="color:var(--royal-600);text-decoration:underline;">travel.state.gov ↗</a></td>
-              <td><a href="apply.html?country=usa" class="btn btn-primary btn-sm">Apply via OnePass →</a></td>
+              <td><a href="https://travel.state.gov" target="_blank" rel="noopener noreferrer" style="color:var(--blue-600);text-decoration:underline;">travel.state.gov</a></td>
+              <td><a href="apply.html?country=usa" class="btn btn-primary btn-sm">Apply Online</a></td>
             </tr>
             <tr>
-              <td>🇬🇧 <strong>United Kingdom</strong></td>
-              <td>UK Visas and Immigration (UKVI Home Office)</td>
-              <td><a href="https://www.gov.uk/browse/visas-immigration" target="_blank" rel="noopener noreferrer" style="color:var(--royal-600);text-decoration:underline;">gov.uk ↗</a></td>
-              <td><a href="apply.html?country=uk" class="btn btn-primary btn-sm">Apply via OnePass →</a></td>
+              <td><strong>United Kingdom</strong></td>
+              <td>UK Visas and Immigration (UKVI)</td>
+              <td><a href="https://www.gov.uk/browse/visas-immigration" target="_blank" rel="noopener noreferrer" style="color:var(--blue-600);text-decoration:underline;">gov.uk</a></td>
+              <td><a href="apply.html?country=uk" class="btn btn-primary btn-sm">Apply Online</a></td>
             </tr>
             <tr>
-              <td>🇸🇦 <strong>Saudi Arabia</strong></td>
-              <td>Ministry of Foreign Affairs &amp; Visit Saudi Portal</td>
-              <td><a href="https://visa.visitsaudi.com" target="_blank" rel="noopener noreferrer" style="color:var(--royal-600);text-decoration:underline;">visa.visitsaudi.com ↗</a></td>
-              <td><a href="apply.html?country=saudi" class="btn btn-primary btn-sm">Apply via OnePass →</a></td>
+              <td><strong>Saudi Arabia</strong></td>
+              <td>Ministry of Foreign Affairs (Visit Saudi)</td>
+              <td><a href="https://visa.visitsaudi.com" target="_blank" rel="noopener noreferrer" style="color:var(--blue-600);text-decoration:underline;">visa.visitsaudi.com</a></td>
+              <td><a href="apply.html?country=saudi" class="btn btn-primary btn-sm">Apply Online</a></td>
             </tr>
             <tr>
-              <td>🇮🇳 <strong>India</strong></td>
+              <td><strong>India</strong></td>
               <td>Ministry of Home Affairs — Bureau of Immigration</td>
-              <td><a href="https://indianvisaonline.gov.in" target="_blank" rel="noopener noreferrer" style="color:var(--royal-600);text-decoration:underline;">indianvisaonline.gov.in ↗</a></td>
-              <td><a href="apply.html?country=india" class="btn btn-primary btn-sm">Apply via OnePass →</a></td>
+              <td><a href="https://indianvisaonline.gov.in" target="_blank" rel="noopener noreferrer" style="color:var(--blue-600);text-decoration:underline;">indianvisaonline.gov.in</a></td>
+              <td><a href="apply.html?country=india" class="btn btn-primary btn-sm">Apply Online</a></td>
             </tr>
             <tr>
-              <td>🇯🇵 <strong>Japan</strong></td>
-              <td>Ministry of Foreign Affairs of Japan (MOFA eVISA)</td>
-              <td><a href="https://www.evisa.mofa.go.jp" target="_blank" rel="noopener noreferrer" style="color:var(--royal-600);text-decoration:underline;">evisa.mofa.go.jp ↗</a></td>
-              <td><a href="apply.html?country=japan" class="btn btn-primary btn-sm">Apply via OnePass →</a></td>
+              <td><strong>Japan</strong></td>
+              <td>Ministry of Foreign Affairs of Japan (MOFA)</td>
+              <td><a href="https://www.evisa.mofa.go.jp" target="_blank" rel="noopener noreferrer" style="color:var(--blue-600);text-decoration:underline;">evisa.mofa.go.jp</a></td>
+              <td><a href="apply.html?country=japan" class="btn btn-primary btn-sm">Apply Online</a></td>
             </tr>
             <tr>
-              <td>🇦🇺 <strong>Australia</strong></td>
-              <td>Department of Home Affairs (ImmiAccount)</td>
-              <td><a href="https://immi.homeaffairs.gov.au" target="_blank" rel="noopener noreferrer" style="color:var(--royal-600);text-decoration:underline;">immi.homeaffairs.gov.au ↗</a></td>
-              <td><a href="apply.html?country=australia" class="btn btn-primary btn-sm">Apply via OnePass →</a></td>
+              <td><strong>Australia</strong></td>
+              <td>Department of Home Affairs</td>
+              <td><a href="https://immi.homeaffairs.gov.au" target="_blank" rel="noopener noreferrer" style="color:var(--blue-600);text-decoration:underline;">immi.homeaffairs.gov.au</a></td>
+              <td><a href="apply.html?country=australia" class="btn btn-primary btn-sm">Apply Online</a></td>
             </tr>
           </tbody>
         </table>

@@ -3,27 +3,27 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>About Us, Global Consular Hubs & 24/7 Contact — OnePassVisa.com</title>
-  <meta name="description" content="Learn how OnePassVisa.com combines AI biometric technology with former consular officers across New York, London, Dubai, and Singapore." />
+  <title>About OnePassVisa & Contact Support — OnePassVisa.com</title>
+  <meta name="description" content="Learn about OnePassVisa.com and contact our 24/7 visa and travel document specialist team." />
   <link rel="stylesheet" href="assets/css/styles.css" />
 </head>
 <body>
 
-  <!-- Top Trust & Utility Bar -->
+  <!-- Top Bar -->
   <div class="top-bar">
     <div class="container top-bar-inner">
       <div class="top-bar-left">
-        <span class="top-bar-item"><span class="pulse-dot"></span> <strong>Global Operations:</strong> New York • London • Dubai • Singapore • Toronto</span>
+        <span class="top-bar-item"><span class="status-dot"></span> <span>Global Operations: New York • London • Dubai • Singapore</span></span>
       </div>
       <div class="top-bar-right">
-        <a href="track.html" class="top-bar-item" style="color:var(--emerald-400);font-weight:700;">📍 Track Order Status</a>
+        <a href="track.html" class="top-bar-item" style="color:var(--white);font-weight:600;">Track Application</a>
         <label class="top-bar-item">
           <span>Currency:</span>
-          <select class="top-bar-select js-currency-select" aria-label="Select Currency">
+          <select class="currency-select js-currency-select" aria-label="Select Currency">
             <option value="USD">USD ($)</option>
             <option value="EUR">EUR (€)</option>
             <option value="GBP">GBP (£)</option>
-            <option value="AED">AED (د.إ)</option>
+            <option value="AED">AED</option>
             <option value="INR">INR (₹)</option>
             <option value="CAD">CAD ($)</option>
             <option value="AUD">AUD ($)</option>
@@ -33,37 +33,40 @@
     </div>
   </div>
 
-  <!-- Main Sticky Header -->
+  <!-- Main Header -->
   <header class="site-header">
     <div class="container header-inner">
       <a href="index.html" class="brand-logo">
-        <div class="brand-icon">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
-            <circle cx="12" cy="12" r="10"></circle>
-            <path d="M2 12h20"></path>
-            <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+        <div class="brand-mark">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="4" y="2" width="16" height="20" rx="2.5"></rect>
+            <circle cx="12" cy="10" r="3.5"></circle>
+            <path d="M8.5 17.5h7"></path>
           </svg>
         </div>
-        <div class="brand-text-wrap">
-          <div class="brand-name">OnePass<span>Visa</span></div>
-          <div class="brand-domain">onepassvisa.com</div>
+        <div class="brand-wordmark">
+          <div class="brand-title">OnePass<span>Visa</span></div>
+          <div class="brand-subtitle">Visas &amp; Travel Documents</div>
         </div>
       </a>
 
       <nav class="nav-links" id="mainNavLinks" aria-label="Main Navigation">
         <a href="index.html" class="nav-link">Home</a>
         <a href="destinations.html" class="nav-link">Destinations</a>
-        <a href="services.html" class="nav-link">Services</a>
-        <a href="track.html" class="nav-link">Track Application</a>
-        <a href="faq.html" class="nav-link">Help &amp; FAQ</a>
-        <a href="about.html" class="nav-link active">About &amp; Contact</a>
+        <a href="services.html" class="nav-link">Visas &amp; Documents</a>
+        <a href="track.html" class="nav-link">Track Status</a>
+        <a href="faq.html" class="nav-link">FAQ</a>
+        <a href="about.html" class="nav-link active">About</a>
         <a href="policies.html" class="nav-link">Policies</a>
       </nav>
 
       <div class="header-actions">
-        <a href="apply.html" class="btn btn-primary btn-sm">Apply Now →</a>
+        <a href="apply.html" class="btn btn-primary btn-sm">
+          <span>Apply Online</span>
+          <svg class="icon-arrow" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 10h12M11 5l5 5-5 5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
         <button type="button" class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle Menu">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <line x1="3" y1="6" x2="21" y2="6"></line>
             <line x1="3" y1="12" x2="21" y2="12"></line>
             <line x1="3" y1="18" x2="21" y2="18"></line>
@@ -74,158 +77,116 @@
   </header>
 
   <!-- Hero -->
-  <section class="hero" style="padding:4rem 0;">
-    <div class="container" style="text-align:center;max-width:820px;">
-      <span class="badge badge-emerald" style="margin-bottom:0.85rem;">🌍 Our Mission &amp; Global Infrastructure</span>
-      <h1 class="hero-title" style="font-size:clamp(2.2rem,3.8vw,3.4rem);">
-        Making International Borders <span class="gold-italic">Invisible</span> for Lawful Travelers.
+  <section class="hero hero-narrow">
+    <div class="container hero-center" style="margin-bottom:0;">
+      <span class="section-eyebrow">About OnePassVisa</span>
+      <h1 class="hero-title" style="font-size:clamp(1.85rem,3.3vw,2.65rem);">
+        Simplifying Global <span>Visas &amp; Travel Documents</span>
       </h1>
-      <p class="hero-description" style="margin:0 auto;">
-        Founded by travel technologists and former diplomatic attachés, <strong>OnePassVisa.com</strong> transforms fragmented, error-prone government visa systems into a unified, predictable 5-minute experience.
+      <p class="hero-description">
+        OnePassVisa.com is a dedicated digital platform built to help international travelers obtain accurate, timely visas and pre-travel authorizations without bureaucratic complexity.
       </p>
     </div>
   </section>
 
-  <!-- Story & Stats -->
+  <!-- Key Metrics -->
   <section class="section">
     <div class="container">
       <div class="steps-grid">
         <div class="step-card">
-          <div style="font-size:2rem;font-weight:800;color:var(--navy-900);margin-bottom:0.35rem;">1.24M+</div>
-          <h3 class="step-title">Visas &amp; ETAs Processed</h3>
-          <p class="step-desc">Trusted by solo backpackers, families, Fortune 500 executives, and international airline crews since inception.</p>
+          <div style="font-size:1.75rem;font-weight:800;color:var(--blue-600);margin-bottom:0.25rem;">1.24M+</div>
+          <h3 class="step-title">Visas &amp; Documents Issued</h3>
+          <p class="step-desc">Processed for leisure and business travelers across 190+ global destinations.</p>
         </div>
         <div class="step-card">
-          <div style="font-size:2rem;font-weight:800;color:var(--teal-600);margin-bottom:0.35rem;">99.4%</div>
-          <h3 class="step-title">First-Submission Approval</h3>
-          <p class="step-desc">Backed by our proprietary 68-point human consular audit that catches MRZ, photo, and date discrepancies prior to filing.</p>
+          <div style="font-size:1.75rem;font-weight:800;color:var(--navy-900);margin-bottom:0.25rem;">99.4%</div>
+          <h3 class="step-title">Approval Track Record</h3>
+          <p class="step-desc">Every passport scan, MRZ code, and photograph is reviewed before government filing.</p>
         </div>
         <div class="step-card">
-          <div style="font-size:2rem;font-weight:800;color:var(--navy-900);margin-bottom:0.35rem;">5 Hubs</div>
-          <h3 class="step-title">Follow-the-Sun Operations</h3>
-          <p class="step-desc">Strategically positioned processing desks in New York, London, Dubai (DIFC), Singapore, and Toronto for true 24/7/365 coverage.</p>
+          <div style="font-size:1.75rem;font-weight:800;color:var(--blue-600);margin-bottom:0.25rem;">24/7</div>
+          <h3 class="step-title">Global Processing Desk</h3>
+          <p class="step-desc">Continuous processing across regional offices in Dubai, London, New York, and Singapore.</p>
         </div>
         <div class="step-card">
-          <div style="font-size:2rem;font-weight:800;color:var(--gold-500);margin-bottom:0.35rem;">15 Mins</div>
-          <h3 class="step-title">Emergency Audit SLA</h3>
-          <p class="step-desc">Stranded at check-in? Our Super Rush desk prioritizes airport emergencies and immediate electronic travel clearances.</p>
+          <div style="font-size:1.75rem;font-weight:800;color:var(--navy-900);margin-bottom:0.25rem;">256-Bit</div>
+          <h3 class="step-title">Data Security</h3>
+          <p class="step-desc">Bank-grade encryption protecting applicant passport and personal travel records.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Global Offices -->
-  <section class="section" id="offices" style="background:var(--white);border-top:1px solid var(--slate-200);border-bottom:1px solid var(--slate-200);">
-    <div class="container">
-      <div class="section-header">
-        <span class="section-eyebrow">🏢 Global Consular Processing Centers</span>
-        <h2 class="section-title">Where We Operate</h2>
-        <p class="section-subtitle">
-          Our regional hubs maintain direct familiarity with local diplomatic missions, biometric centers, and Ministry of Foreign Affairs legalization desks.
-        </p>
-      </div>
-
-      <div class="destinations-grid">
-        <div class="step-card">
-          <span class="badge badge-emerald" style="margin-bottom:0.65rem;">Middle East &amp; GCC HQ</span>
-          <h3 class="step-title">🇦🇪 Dubai, United Arab Emirates</h3>
-          <p class="step-desc">
-            Gate Avenue, Zone D, Level 14, Dubai International Financial Centre (DIFC), Dubai, UAE<br />
-            <strong style="color:var(--navy-900);display:block;margin-top:0.5rem;">Desk:</strong> UAE ICP/GDRFA, Saudi eVisa, Qatar Hayya &amp; GCC Residency Visas
-          </p>
-        </div>
-
-        <div class="step-card">
-          <span class="badge badge-royal" style="margin-bottom:0.65rem;">Europe &amp; UK Operations</span>
-          <h3 class="step-title">🇬🇧 London, United Kingdom</h3>
-          <p class="step-desc">
-            30 St Mary Axe (The Gherkin), Level 18, City of London, EC3A 8EP, United Kingdom<br />
-            <strong style="color:var(--navy-900);display:block;margin-top:0.5rem;">Desk:</strong> UK ETA, Schengen C-Visa Concierge &amp; Hague Apostille
-          </p>
-        </div>
-
-        <div class="step-card">
-          <span class="badge badge-gold" style="margin-bottom:0.65rem;">Americas Headquarters</span>
-          <h3 class="step-title">🇺🇸 New York, United States</h3>
-          <p class="step-desc">
-            540 Madison Avenue, Suite 2100, Midtown Manhattan, New York, NY 10022, USA<br />
-            <strong style="color:var(--navy-900);display:block;margin-top:0.5rem;">Desk:</strong> US ESTA, B1/B2 DS-160, Canada eTA &amp; LATAM Consular Services
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- 24/7 Contact & Support Ticket Section -->
-  <section class="section" id="contact">
+  <!-- Contact Section -->
+  <section class="section bg-subtle" id="contact">
     <div class="container">
       <div class="wizard-layout">
         <div class="wizard-card">
-          <span class="badge badge-emerald" style="margin-bottom:0.65rem;">💬 15-Minute Response Guarantee</span>
-          <h2 style="font-size:1.65rem;font-weight:800;color:var(--navy-900);margin-bottom:0.4rem;">
-            Contact Our 24/7 Visa Concierge Desk
+          <span class="section-eyebrow" style="margin-bottom:0.65rem;">Customer Support</span>
+          <h2 style="font-size:1.5rem;font-weight:800;color:var(--navy-900);margin-bottom:0.4rem;">
+            Contact Our Visa Specialist Team
           </h2>
-          <p style="color:var(--slate-600);font-size:0.94rem;margin-bottom:1.5rem;">
-            Have a question about complex nationality eligibility, an urgent flight today, or an existing application? Send a priority dispatch to our on-duty consular specialists.
+          <p style="color:var(--gray-600);font-size:0.9rem;margin-bottom:1.5rem;">
+            Need help checking visa eligibility or tracking an existing application? Send us a message below and our team will respond within 15 minutes.
           </p>
 
-          <div id="contactFormSuccess" style="display:none;background:var(--emerald-100);color:var(--emerald-600);padding:1rem;border-radius:var(--radius-sm);font-weight:700;margin-bottom:1.25rem;"></div>
+          <div id="contactFormSuccess" style="display:none;background:var(--emerald-50);border:1px solid var(--emerald-100);color:var(--emerald-700);padding:0.9rem 1rem;border-radius:var(--radius-sm);font-weight:600;font-size:0.88rem;margin-bottom:1.25rem;"></div>
 
           <form id="contactSupportForm" style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;">
             <div class="field-group">
-              <label class="field-label" for="ctName">Your Full Name</label>
-              <input type="text" id="ctName" class="field-control" required placeholder="e.g. Sarah Jenkins" />
+              <label class="field-label" for="ctName">Full Name</label>
+              <input type="text" id="ctName" class="field-control" required placeholder="Your full name" />
             </div>
             <div class="field-group">
               <label class="field-label" for="ctEmail">Email Address</label>
-              <input type="email" id="ctEmail" class="field-control" required placeholder="you@company.com" />
+              <input type="email" id="ctEmail" class="field-control" required placeholder="you@example.com" />
             </div>
             <div class="field-group">
-              <label class="field-label" for="ctOrderId">Tracking ID (Optional)</label>
+              <label class="field-label" for="ctOrderId">Application Reference ID (Optional)</label>
               <input type="text" id="ctOrderId" class="field-control mono" placeholder="e.g. OPV-2026-84920" />
             </div>
             <div class="field-group">
-              <label class="field-label" for="ctTopic">Inquiry Priority</label>
+              <label class="field-label" for="ctTopic">Subject</label>
               <select id="ctTopic" class="field-control">
-                <option value="urgent">⚡ Urgent Flight Within 48 Hours</option>
-                <option value="eligibility">🛂 Pre-Application Eligibility Question</option>
-                <option value="status">📍 Existing Application Update</option>
-                <option value="corporate">🏢 Corporate / Group Travel Account</option>
-                <option value="billing">💳 Billing or Refund Request</option>
+                <option value="eligibility">Visa &amp; Travel Document Eligibility</option>
+                <option value="urgent">Urgent Application Processing</option>
+                <option value="status">Existing Application Status</option>
+                <option value="billing">Billing or Refund Inquiry</option>
               </select>
             </div>
             <div class="field-group" style="grid-column:1/-1;">
-              <label class="field-label" for="ctMessage">How can our visa specialists assist you?</label>
-              <textarea id="ctMessage" rows="4" class="field-control" required placeholder="Tell us your passport nationality, destination country, and travel date..."></textarea>
+              <label class="field-label" for="ctMessage">Message</label>
+              <textarea id="ctMessage" rows="4" class="field-control" required placeholder="Please include your passport nationality, destination country, and travel date..."></textarea>
             </div>
             <div style="grid-column:1/-1;">
-              <button type="submit" class="btn btn-primary btn-lg">Dispatch Priority Message →</button>
+              <button type="submit" class="btn btn-primary btn-lg">
+                <span>Send Message</span>
+                <svg class="icon-arrow" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 10h12M11 5l5 5-5 5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </button>
             </div>
           </form>
         </div>
 
         <aside class="order-summary-card">
-          <h3 style="font-size:1.2rem;font-weight:800;color:var(--navy-900);margin-bottom:1rem;">
-            Direct Priority Channels
+          <h3 style="font-size:1.1rem;font-weight:700;color:var(--navy-900);margin-bottom:1rem;">
+            Direct Contact Channels
           </h3>
-          <div style="display:grid;gap:1rem;font-size:0.9rem;">
-            <div style="padding:1rem;background:var(--slate-50);border-radius:var(--radius-sm);border:1px solid var(--slate-200);">
-              <div class="dest-spec-label">24/7 Emergency Airport Hotline</div>
-              <div class="dest-spec-val" style="font-size:1.05rem;">+1 (800) 555-0199</div>
-              <div style="font-size:0.78rem;color:var(--slate-500);margin-top:2px;">Toll-Free US/Canada • Global Callback</div>
+          <div style="display:grid;gap:0.9rem;font-size:0.88rem;">
+            <div style="padding:0.95rem;background:var(--gray-50);border-radius:var(--radius-sm);border:1px solid var(--gray-200);">
+              <div class="dest-spec-label">24/7 Support Desk</div>
+              <div class="dest-spec-val" style="font-size:0.98rem;">support@onepassvisa.com</div>
+              <div style="font-size:0.78rem;color:var(--gray-500);margin-top:2px;">Average response time: under 15 minutes</div>
             </div>
 
-            <div style="padding:1rem;background:var(--emerald-50);border-radius:var(--radius-sm);border:1px solid var(--emerald-100);">
-              <div class="dest-spec-label" style="color:var(--teal-600);">WhatsApp Consular Concierge</div>
-              <div class="dest-spec-val" style="font-size:1.05rem;">+971 58 555 0199</div>
-              <div style="font-size:0.78rem;color:var(--slate-600);margin-top:2px;">Send passport scans or voice notes 24/7</div>
+            <div style="padding:0.95rem;background:var(--gray-50);border-radius:var(--radius-sm);border:1px solid var(--gray-200);">
+              <div class="dest-spec-label">Telephone Support</div>
+              <div class="dest-spec-val" style="font-size:0.98rem;">+1 (800) 555-0199</div>
+              <div style="font-size:0.78rem;color:var(--gray-500);margin-top:2px;">Available 24/7 for urgent departures</div>
             </div>
 
-            <div style="padding:1rem;background:var(--slate-50);border-radius:var(--radius-sm);border:1px solid var(--slate-200);">
-              <div class="dest-spec-label">Dedicated Email Desks</div>
-              <div class="dest-spec-val">concierge@onepassvisa.com</div>
-              <div class="dest-spec-val" style="margin-top:4px;">corporate@onepassvisa.com</div>
-              <div class="dest-spec-val" style="margin-top:4px;">privacy@onepassvisa.com</div>
+            <div style="padding:0.95rem;background:var(--gray-50);border-radius:var(--radius-sm);border:1px solid var(--gray-200);">
+              <div class="dest-spec-label">Regional Processing Hubs</div>
+              <div class="dest-spec-val">Dubai (DIFC) • London • New York • Singapore</div>
             </div>
           </div>
         </aside>

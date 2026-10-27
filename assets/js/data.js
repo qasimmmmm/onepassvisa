@@ -1,5 +1,6 @@
 /* ==========================================================================
-   OnePassVisa.com — Global Visa Database, Currencies & Sample Tracking Data
+   OnePassVisa.com — Global Visas & Travel Documents Database
+   Strictly Focused on Electronic Visas (eVisas), ETAs & Travel Documents
    ========================================================================== */
 
 window.ONEPASS_DATA = {
@@ -7,37 +8,37 @@ window.ONEPASS_DATA = {
     USD: { symbol: '$', rate: 1, name: 'USD ($)' },
     EUR: { symbol: '€', rate: 0.92, name: 'EUR (€)' },
     GBP: { symbol: '£', rate: 0.79, name: 'GBP (£)' },
-    AED: { symbol: 'AED ', rate: 3.67, name: 'AED (د.إ)' },
+    AED: { symbol: 'AED ', rate: 3.67, name: 'AED' },
     INR: { symbol: '₹', rate: 83.5, name: 'INR (₹)' },
     CAD: { symbol: 'CA$', rate: 1.37, name: 'CAD ($)' },
     AUD: { symbol: 'A$', rate: 1.52, name: 'AUD ($)' }
   },
 
   nationalities: [
-    { code: 'US', name: 'United States', flag: '🇺🇸' },
-    { code: 'GB', name: 'United Kingdom', flag: '🇬🇧' },
-    { code: 'IN', name: 'India', flag: '🇮🇳' },
-    { code: 'AE', name: 'United Arab Emirates', flag: '🇦🇪' },
-    { code: 'CA', name: 'Canada', flag: '🇨🇦' },
-    { code: 'AU', name: 'Australia', flag: '🇦🇺' },
-    { code: 'PH', name: 'Philippines', flag: '🇵🇭' },
-    { code: 'PK', name: 'Pakistan', flag: '🇵🇰' },
-    { code: 'NG', name: 'Nigeria', flag: '🇳🇬' },
-    { code: 'ZA', name: 'South Africa', flag: '🇿🇦' },
-    { code: 'DE', name: 'Germany', flag: '🇩🇪' },
-    { code: 'FR', name: 'France', flag: '🇫🇷' },
-    { code: 'SA', name: 'Saudi Arabia', flag: '🇸🇦' },
-    { code: 'SG', name: 'Singapore', flag: '🇸🇬' },
-    { code: 'MY', name: 'Malaysia', flag: '🇲🇾' },
-    { code: 'BR', name: 'Brazil', flag: '🇧🇷' },
-    { code: 'MX', name: 'Mexico', flag: '🇲🇽' },
-    { code: 'CN', name: 'China', flag: '🇨🇳' },
-    { code: 'JP', name: 'Japan', flag: '🇯🇵' },
-    { code: 'EG', name: 'Egypt', flag: '🇪🇬' },
-    { code: 'TR', name: 'Türkiye', flag: '🇹🇷' },
-    { code: 'ID', name: 'Indonesia', flag: '🇮🇩' },
-    { code: 'TH', name: 'Thailand', flag: '🇹🇭' },
-    { code: 'KE', name: 'Kenya', flag: '🇰🇪' }
+    { code: 'US', name: 'United States' },
+    { code: 'GB', name: 'United Kingdom' },
+    { code: 'IN', name: 'India' },
+    { code: 'AE', name: 'United Arab Emirates' },
+    { code: 'CA', name: 'Canada' },
+    { code: 'AU', name: 'Australia' },
+    { code: 'PH', name: 'Philippines' },
+    { code: 'PK', name: 'Pakistan' },
+    { code: 'NG', name: 'Nigeria' },
+    { code: 'ZA', name: 'South Africa' },
+    { code: 'DE', name: 'Germany' },
+    { code: 'FR', name: 'France' },
+    { code: 'SA', name: 'Saudi Arabia' },
+    { code: 'SG', name: 'Singapore' },
+    { code: 'MY', name: 'Malaysia' },
+    { code: 'BR', name: 'Brazil' },
+    { code: 'MX', name: 'Mexico' },
+    { code: 'CN', name: 'China' },
+    { code: 'JP', name: 'Japan' },
+    { code: 'EG', name: 'Egypt' },
+    { code: 'TR', name: 'Türkiye' },
+    { code: 'ID', name: 'Indonesia' },
+    { code: 'TH', name: 'Thailand' },
+    { code: 'KE', name: 'Kenya' }
   ],
 
   destinations: [
@@ -45,15 +46,15 @@ window.ONEPASS_DATA = {
       id: 'uae',
       name: 'United Arab Emirates',
       shortName: 'UAE (Dubai & Abu Dhabi)',
-      flag: '🇦🇪',
+      iso: 'AE',
       region: 'Middle East',
-      visaType: 'Tourist eVisa (30 / 60 Days)',
+      visaType: '30-Day & 60-Day Tourist eVisa',
       categoryBadge: 'eVisa',
       processingTime: '12 – 24 Hours',
-      expressTime: '4 Hours (Super Rush)',
+      expressTime: '4 Hours Express',
       validity: '60 Days from Issue',
       maxStay: '30 or 60 Days',
-      entryType: 'Single / Multiple Entry',
+      entryType: 'Single / Multiple',
       govFeeUSD: 85,
       serviceFeeUSD: 39,
       approvalRate: '99.8%',
@@ -61,50 +62,49 @@ window.ONEPASS_DATA = {
       govPortal: 'https://icp.gov.ae',
       documents: [
         'Color scan of Passport Bio Page (minimum 6 months validity)',
-        'Recent passport-size digital photograph (white background)',
-        'Confirmed return flight ticket or itinerary (we can generate this)',
-        'National ID card copy (for select nationalities)'
+        'Digital passport-size photograph (white background)',
+        'Return flight details or intended travel dates'
       ],
-      overview: 'The UAE Tourist eVisa grants seamless entry into Dubai, Abu Dhabi, Sharjah, and all seven Emirates. Processed 100% digitally with no embassy visit or physical passport submission required.'
+      overview: 'Official UAE Tourist eVisa for entry into Dubai, Abu Dhabi, and all seven Emirates. Processed 100% online with digital PDF delivery.'
     },
     {
       id: 'schengen',
       name: 'Schengen Area (Europe)',
       shortName: 'Schengen (29 European Countries)',
-      flag: '🇪🇺',
+      iso: 'EU',
       region: 'Europe',
-      visaType: 'Short-Stay Schengen Visa & ETIAS',
-      categoryBadge: 'Embassy Concierge',
-      processingTime: '5 – 12 Business Days',
-      expressTime: '48 Hr Appointment Slot',
-      validity: 'Up to 180 Days / 5 Years',
-      maxStay: '90 Days per 180-Day Period',
+      visaType: 'Short-Stay Visitor Visa & ETIAS Travel Document',
+      categoryBadge: 'Visa / ETIAS',
+      processingTime: '5 – 10 Business Days',
+      expressTime: '48 Hr Priority Review',
+      validity: 'Up to 180 Days',
+      maxStay: '90 Days per 180 Days',
       entryType: 'Multiple Entry',
       govFeeUSD: 98,
-      serviceFeeUSD: 69,
+      serviceFeeUSD: 59,
       approvalRate: '98.9%',
       image: 'https://images.unsplash.com/photo-1502602898657-3e91760cbb34?auto=format&fit=crop&w=900&q=80',
       govPortal: 'https://home-affairs.ec.europa.eu',
       documents: [
-        'Valid Passport with at least 2 blank visa pages',
-        'Completed & harmonized Schengen Visa Application Form (prepared by OnePass)',
-        'Schengen-compliant Travel Medical Insurance (€30,000 coverage)',
-        'Verifiable Flight & Hotel reservation itinerary + 3 months bank statements'
+        'Valid Passport with at least 2 blank pages',
+        'Compliant 35x45mm biometric photograph',
+        'Completed Schengen Visa & Travel Document application form',
+        'Travel dates and accommodation details'
       ],
-      overview: 'Travel freely across 29 European nations including France, Germany, Italy, Spain, Switzerland, and the Netherlands. Our former consular specialists prepare your complete dossier and secure priority biometric appointments.'
+      overview: 'Travel across 29 European countries including France, Germany, Italy, Spain, Switzerland, and the Netherlands with complete visa documentation review.'
     },
     {
       id: 'usa',
       name: 'United States',
-      shortName: 'United States (ESTA & B1/B2)',
-      flag: '🇺🇸',
+      shortName: 'United States (ESTA & Visitor Visa)',
+      iso: 'US',
       region: 'Americas',
-      visaType: 'ESTA Travel Auth & B1/B2 Visitor',
-      categoryBadge: 'ETA / Embassy',
-      processingTime: '2 Hours (ESTA) / Priority DS-160',
-      expressTime: '2 Hours Instant ESTA',
-      validity: '2 Years (ESTA) / 10 Years (B1/B2)',
-      maxStay: 'Up to 90 / 180 Days per entry',
+      visaType: 'ESTA Travel Authorization & B1/B2 Visa',
+      categoryBadge: 'Travel Auth / Visa',
+      processingTime: '2 – 12 Hours (ESTA)',
+      expressTime: '2 Hours Priority',
+      validity: '2 Years (ESTA)',
+      maxStay: 'Up to 90 Days per trip',
       entryType: 'Multiple Entry',
       govFeeUSD: 21,
       serviceFeeUSD: 39,
@@ -112,25 +112,24 @@ window.ONEPASS_DATA = {
       image: 'https://images.unsplash.com/photo-1485738422979-f5c462d49f74?auto=format&fit=crop&w=900&q=80',
       govPortal: 'https://travel.state.gov',
       documents: [
-        'Biometric e-Passport valid for duration of stay',
-        'Digital US 2x2 inch Visa Photograph',
-        'Employment / Travel history details for DS-160 or ESTA form',
-        'US Point of Contact / Hotel address'
+        'Valid biometric e-Passport scan',
+        'Digital 2x2 inch photograph (for B1/B2 applications)',
+        'US point of contact or accommodation address'
       ],
-      overview: 'Whether you qualify for the rapid US ESTA Electronic System for Travel Authorization or need full DS-160 preparation and automated US Embassy interview slot monitoring for a 10-year B1/B2 visa, OnePassVisa handles every step.'
+      overview: 'Electronic System for Travel Authorization (ESTA) and B1/B2 Visitor Visa processing for tourism, business meetings, and transit in the United States.'
     },
     {
       id: 'uk',
       name: 'United Kingdom',
-      shortName: 'United Kingdom (UK ETA & Visitor)',
-      flag: '🇬🇧',
+      shortName: 'United Kingdom (UK ETA & Visitor Visa)',
+      iso: 'GB',
       region: 'Europe',
-      visaType: 'UK Electronic Travel Auth (ETA) & Standard Visitor',
-      categoryBadge: 'ETA / eVisa',
-      processingTime: '24 – 48 Hours (UK ETA)',
-      expressTime: '4 Hours Priority Review',
-      validity: '2 Years (UK ETA)',
-      maxStay: 'Up to 6 Months per visit',
+      visaType: 'UK Electronic Travel Authorisation (ETA)',
+      categoryBadge: 'Travel Document',
+      processingTime: '24 – 48 Hours',
+      expressTime: '4 Hours Priority',
+      validity: '2 Years',
+      maxStay: 'Up to 6 Months',
       entryType: 'Multiple Entry',
       govFeeUSD: 13,
       serviceFeeUSD: 35,
@@ -138,22 +137,22 @@ window.ONEPASS_DATA = {
       image: 'https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?auto=format&fit=crop&w=900&q=80',
       govPortal: 'https://www.gov.uk/browse/visas-immigration',
       documents: [
-        'Valid Biometric Passport scan',
-        'Compliant UK digital facial photo (checked automatically by our AI tool)',
-        'Travel dates and UK accommodation details'
+        'Biometric Passport Bio Page scan',
+        'Digital facial photograph on plain light background',
+        'Planned arrival date in the United Kingdom'
       ],
-      overview: 'Fast-track your UK Electronic Travel Authorisation (ETA) or 6-month Standard Visitor Visa for England, Scotland, Wales, and Northern Ireland with our 68-point document audit.'
+      overview: 'Mandatory UK Electronic Travel Authorisation (ETA) and Standard Visitor Visa processing for England, Scotland, Wales, and Northern Ireland.'
     },
     {
       id: 'saudi',
       name: 'Saudi Arabia',
-      shortName: 'Saudi Arabia (Tourist & Umrah eVisa)',
-      flag: '🇸🇦',
+      shortName: 'Saudi Arabia (1-Year Tourist eVisa)',
+      iso: 'SA',
       region: 'Middle East',
-      visaType: '1-Year Multiple Entry eVisa',
+      visaType: '1-Year Multiple Entry Tourist eVisa',
       categoryBadge: 'eVisa',
       processingTime: '6 – 24 Hours',
-      expressTime: '2 Hours (Super Rush)',
+      expressTime: '2 Hours Express',
       validity: '1 Year from Issue',
       maxStay: '90 Days Total',
       entryType: 'Multiple Entry',
@@ -165,20 +164,20 @@ window.ONEPASS_DATA = {
       documents: [
         'Passport valid for at least 6 months',
         'Digital passport-style photograph',
-        'GCC Residency Permit or US/UK/Schengen Visa (if applying under instant eVisa category)'
+        'Residency permit or valid visa (if applying under GCC/US/UK/EU stream)'
       ],
-      overview: 'Receive your 1-year multiple-entry Saudi Arabia eVisa for tourism, business events, family visits, or Umrah. Includes mandatory Saudi health insurance policy integration.'
+      overview: '1-year multiple-entry Saudi Arabia eVisa for tourism, business visits, family visits, and Umrah.'
     },
     {
       id: 'japan',
       name: 'Japan',
-      shortName: 'Japan (eVisa & Visit Japan Web)',
-      flag: '🇯🇵',
+      shortName: 'Japan (Tourist eVisa & Entry Document)',
+      iso: 'JP',
       region: 'Asia-Pacific',
-      visaType: 'Tourist eVisa & Digital Arrival Card',
+      visaType: 'Tourist eVisa & Digital Entry Document',
       categoryBadge: 'eVisa',
       processingTime: '4 – 5 Business Days',
-      expressTime: '48 Hours Priority Audit',
+      expressTime: '48 Hours Priority',
       validity: '90 Days from Issue',
       maxStay: 'Up to 90 Days',
       entryType: 'Single Entry',
@@ -189,46 +188,46 @@ window.ONEPASS_DATA = {
       govPortal: 'https://www.evisa.mofa.go.jp',
       documents: [
         'Passport Bio Page scan',
-        'Digital photo (45mm x 35mm specification)',
-        'Day-by-day Schedule of Stay in Japan (auto-generated by OnePassVisa)',
-        'Proof of legal residence & recent bank statement'
+        'Digital photograph (45mm x 35mm specification)',
+        'Schedule of stay and accommodation details in Japan',
+        'Proof of legal residence and recent bank statement'
       ],
-      overview: 'Official Japan eVisa processing plus QR code generation for Immigration & Customs fast-track entry at Tokyo Haneda, Narita, and Osaka Kansai airports.'
+      overview: 'Official Japan eVisa and digital arrival clearance for entry at Tokyo Haneda, Narita, and Osaka Kansai airports.'
     },
     {
       id: 'india',
       name: 'India',
       shortName: 'India (Tourist & Business e-Visa)',
-      flag: '🇮🇳',
+      iso: 'IN',
       region: 'Asia-Pacific',
       visaType: '30-Day / 1-Year / 5-Year e-Visa',
       categoryBadge: 'eVisa',
       processingTime: '24 – 48 Hours',
-      expressTime: '12 Hours Urgent',
+      expressTime: '12 Hours Express',
       validity: '30 Days to 5 Years',
       maxStay: '30 / 90 / 180 Days',
-      entryType: 'Double / Multiple Entry',
+      entryType: 'Double / Multiple',
       govFeeUSD: 25,
       serviceFeeUSD: 34,
       approvalRate: '99.6%',
       image: 'https://images.unsplash.com/photo-1524492412937-b28074a5d7da?auto=format&fit=crop&w=900&q=80',
       govPortal: 'https://indianvisaonline.gov.in',
       documents: [
-        'Clear color scan of Passport Bio Page (PDF format handled by us)',
+        'Color scan of Passport Bio Page',
         'Square 2x2 digital photograph with white background',
-        'Business card & invitation letter (for e-Business Visa only)'
+        'Business card or invitation letter (for e-Business Visa only)'
       ],
-      overview: 'Skip the notoriously complex 8-page Indian government form. Our simplified 4-minute questionnaire automatically resizes your photo and PDF to strict Indian Bureau of Immigration rules.'
+      overview: 'Streamlined online application for Indian Tourist and Business e-Visas with automatic photo and PDF formatting.'
     },
     {
       id: 'australia',
       name: 'Australia',
-      shortName: 'Australia (ETA Subclass 601 & Visitor 600)',
-      flag: '🇦🇺',
+      shortName: 'Australia (ETA 601 & eVisitor 651)',
+      iso: 'AU',
       region: 'Asia-Pacific',
-      visaType: 'Electronic Travel Authority & eVisitor',
-      categoryBadge: 'ETA / eVisa',
-      processingTime: '12 – 24 Hours (ETA)',
+      visaType: 'Electronic Travel Authority (ETA) & Visitor Visa',
+      categoryBadge: 'Travel Document',
+      processingTime: '12 – 24 Hours',
       expressTime: '3 Hours Express',
       validity: '12 Months',
       maxStay: '90 Days per visit',
@@ -241,22 +240,22 @@ window.ONEPASS_DATA = {
       documents: [
         'Valid Passport Bio Page scan',
         'Digital facial photograph',
-        'Employment & financial summary (for Subclass 600 Visitor stream)'
+        'Travel dates and contact details'
       ],
-      overview: 'Seamless electronic travel authorization for Australia. Electronically linked directly to your passport number for automated SmartGate clearance at Sydney, Melbourne, Brisbane, and Perth.'
+      overview: 'Electronic Travel Authority (ETA) and eVisitor travel documents linked directly to your passport for entry into Australia.'
     },
     {
       id: 'canada',
       name: 'Canada',
-      shortName: 'Canada (eTA & Visitor Visa)',
-      flag: '🇨🇦',
+      shortName: 'Canada (eTA Travel Authorization)',
+      iso: 'CA',
       region: 'Americas',
-      visaType: 'Electronic Travel Auth (eTA) & TRV',
-      categoryBadge: 'ETA / Embassy',
-      processingTime: '2 – 12 Hours (eTA)',
-      expressTime: '1 Hour Instant eTA',
+      visaType: 'Electronic Travel Authorization (eTA)',
+      categoryBadge: 'Travel Document',
+      processingTime: '2 – 12 Hours',
+      expressTime: '1 Hour Express',
       validity: 'Up to 5 Years',
-      maxStay: 'Up to 6 Months per stay',
+      maxStay: 'Up to 6 Months',
       entryType: 'Multiple Entry',
       govFeeUSD: 6,
       serviceFeeUSD: 34,
@@ -264,25 +263,24 @@ window.ONEPASS_DATA = {
       image: 'https://images.unsplash.com/photo-1517935706615-2717063c2225?auto=format&fit=crop&w=900&q=80',
       govPortal: 'https://www.canada.ca/en/immigration-refugees-citizenship.html',
       documents: [
-        'Valid Passport scan',
-        'Basic employment and home address details',
-        'US Non-Immigrant Visa number (if applying via CAN+ / eligible eTA expansion)'
+        'Valid Passport Bio Page scan',
+        'Basic employment and home address details'
       ],
-      overview: 'Get your 5-year Canadian eTA in minutes or let our IRCC-experienced specialists assemble a rock-solid Temporary Resident Visitor (TRV) application.'
+      overview: 'Official Canadian Electronic Travel Authorization (eTA) linked digitally to your passport for up to 5 years.'
     },
     {
       id: 'singapore',
       name: 'Singapore',
       shortName: 'Singapore (SG Arrival Card & e-Visa)',
-      flag: '🇸🇬',
+      iso: 'SG',
       region: 'Asia-Pacific',
-      visaType: 'SG Arrival Card (SGAC) & Tourist e-Visa',
-      categoryBadge: 'Arrival Card / eVisa',
-      processingTime: '2 – 6 Hours (SGAC) / 3 Days (e-Visa)',
-      expressTime: '1 Hour Instant SGAC',
-      validity: 'Per Trip / Up to 2 Years',
-      maxStay: '30 Days',
-      entryType: 'Single / Multiple Entry',
+      visaType: 'SG Digital Arrival Card (SGAC) & Tourist e-Visa',
+      categoryBadge: 'Arrival Document',
+      processingTime: '2 – 6 Hours',
+      expressTime: '1 Hour Express',
+      validity: 'Single Entry / Per Trip',
+      maxStay: 'Up to 30 Days',
+      entryType: 'Single / Multiple',
       govFeeUSD: 0,
       serviceFeeUSD: 29,
       approvalRate: '99.9%',
@@ -290,24 +288,24 @@ window.ONEPASS_DATA = {
       govPortal: 'https://www.ica.gov.sg',
       documents: [
         'Passport Bio Page scan',
-        'Flight number & arrival date at Changi Airport',
-        'Hotel or residential address in Singapore'
+        'Arrival date and flight number',
+        'Accommodation address in Singapore'
       ],
-      overview: 'Pre-register your mandatory Singapore Electronic Arrival Card & Health Declaration anytime before your trip—we automatically submit it within the official ICA window and deliver your barcode pass.'
+      overview: 'Mandatory Singapore Digital Arrival Card (SGAC) and Tourist e-Visa processing for fast automated lane clearance at Changi Airport.'
     },
     {
       id: 'turkey',
       name: 'Türkiye',
-      shortName: 'Türkiye (Instant Tourist e-Visa)',
-      flag: '🇹🇷',
+      shortName: 'Türkiye (Electronic Tourist e-Visa)',
+      iso: 'TR',
       region: 'Europe',
-      visaType: 'Electronic Visa (e-Visa)',
+      visaType: 'Official Tourist & Business e-Visa',
       categoryBadge: 'eVisa',
       processingTime: '1 – 6 Hours',
-      expressTime: '30 Mins Super Rush',
+      expressTime: '30 Mins Express',
       validity: '180 Days from Issue',
       maxStay: '30 or 90 Days',
-      entryType: 'Single / Multiple Entry',
+      entryType: 'Single / Multiple',
       govFeeUSD: 51,
       serviceFeeUSD: 29,
       approvalRate: '99.8%',
@@ -315,46 +313,46 @@ window.ONEPASS_DATA = {
       govPortal: 'https://www.evisa.gov.tr',
       documents: [
         'Passport valid for at least 6 months from arrival',
-        'Supporting Schengen/US/UK/Ireland visa or residence permit (for conditional nationalities)'
+        'Supporting Schengen, US, UK, or Ireland visa/residence (if required for nationality)'
       ],
-      overview: 'Instant electronic visa for Istanbul, Cappadocia, and Antalya. Approved PDF e-Visa delivered straight to your inbox and WhatsApp within hours.'
+      overview: 'Fast electronic visa processing for travel to Istanbul, Cappadocia, Antalya, and all ports of entry across Türkiye.'
     },
     {
       id: 'vietnam',
       name: 'Vietnam',
       shortName: 'Vietnam (90-Day Tourist & Business e-Visa)',
-      flag: '🇻🇳',
+      iso: 'VN',
       region: 'Asia-Pacific',
-      visaType: '90-Day e-Visa (Single / Multiple)',
+      visaType: '90-Day Single & Multiple Entry e-Visa',
       categoryBadge: 'eVisa',
       processingTime: '3 – 4 Business Days',
-      expressTime: '24 Hours Emergency VIP',
+      expressTime: '24 Hours Express',
       validity: 'Up to 90 Days',
       maxStay: '90 Days',
-      entryType: 'Single / Multiple Entry',
+      entryType: 'Single / Multiple',
       govFeeUSD: 25,
       serviceFeeUSD: 35,
       approvalRate: '99.6%',
       image: 'https://images.unsplash.com/photo-1528127269322-539801943592?auto=format&fit=crop&w=900&q=80',
       govPortal: 'https://evisa.xuatnhapcanh.gov.vn',
       documents: [
-        'Clear scan of full Passport Bio Page including MRZ lines',
-        'Portrait photo (no glasses, looking straight ahead)'
+        'Full scan of Passport Bio Page including MRZ lines',
+        'Digital portrait photograph (white background, no glasses)'
       ],
-      overview: 'Open to all nationalities! Avoid common rejections caused by Vietnam Immigration’s strict name-order and portrait photo rules with our specialist pre-verification.'
+      overview: 'Official 90-day Vietnam e-Visa available for all nationalities with pre-submission name-order and portrait verification.'
     },
     {
       id: 'indonesia',
       name: 'Indonesia (Bali)',
-      shortName: 'Indonesia & Bali (e-VOA + Bali Levy)',
-      flag: '🇮🇩',
+      shortName: 'Indonesia (e-VOA & Arrival Declaration)',
+      iso: 'ID',
       region: 'Asia-Pacific',
-      visaType: 'Electronic Visa on Arrival (e-VOA) & Customs QR',
-      categoryBadge: 'eVisa',
+      visaType: 'Electronic Visa on Arrival (e-VOA) & Customs Document',
+      categoryBadge: 'eVisa / Document',
       processingTime: '6 – 24 Hours',
       expressTime: '2 Hours Express',
       validity: '90 Days to Enter',
-      maxStay: '30 Days (Extendable to 60)',
+      maxStay: '30 Days (Extendable)',
       entryType: 'Single Entry',
       govFeeUSD: 34,
       serviceFeeUSD: 29,
@@ -363,24 +361,24 @@ window.ONEPASS_DATA = {
       govPortal: 'https://evisa.imigrasi.go.id',
       documents: [
         'Passport Bio Page (minimum 6 months validity)',
-        'Digital passport-style photo',
-        'Return flight details & Bali hotel address'
+        'Digital passport-style photograph',
+        'Return flight details and hotel address'
       ],
-      overview: 'Breeze through Bali Ngurah Rai & Jakarta airports using the automated e-Gates with a pre-approved Indonesia e-VOA and All-Indonesia Customs QR declaration.'
+      overview: 'Use automated airport e-Gates in Bali and Jakarta with a pre-approved Indonesia e-VOA and electronic customs travel document.'
     },
     {
       id: 'egypt',
       name: 'Egypt',
       shortName: 'Egypt (Single & Multiple Tourist e-Visa)',
-      flag: '🇪🇬',
+      iso: 'EG',
       region: 'Middle East',
       visaType: 'Official Tourist e-Visa',
       categoryBadge: 'eVisa',
       processingTime: '2 – 4 Business Days',
-      expressTime: '24 Hours Rush',
+      expressTime: '24 Hours Express',
       validity: '90 or 180 Days',
       maxStay: '30 Days per visit',
-      entryType: 'Single / Multiple Entry',
+      entryType: 'Single / Multiple',
       govFeeUSD: 25,
       serviceFeeUSD: 34,
       approvalRate: '99.5%',
@@ -388,23 +386,23 @@ window.ONEPASS_DATA = {
       govPortal: 'https://visa2egypt.gov.eg',
       documents: [
         'Passport Bio Page with at least 6 months validity',
-        'Accommodation details in Cairo, Luxor, or Sharm El-Sheikh'
+        'Intended arrival date and hotel details in Egypt'
       ],
-      overview: 'Skip cash-only visa queues at Cairo International Airport. Apply online in 4 minutes for your official Arab Republic of Egypt Tourist e-Visa.'
+      overview: 'Pre-approved electronic visa for Cairo, Luxor, Hurghada, and Sharm El-Sheikh without waiting in airport visa-on-arrival lines.'
     },
     {
       id: 'thailand',
       name: 'Thailand',
-      shortName: 'Thailand (e-Visa, DTV & TDAC Arrival Card)',
-      flag: '🇹🇭',
+      shortName: 'Thailand (Tourist e-Visa & TDAC Arrival Card)',
+      iso: 'TH',
       region: 'Asia-Pacific',
-      visaType: 'Tourist e-Visa, 5-Yr DTV & Digital Arrival Card',
-      categoryBadge: 'eVisa / Arrival Card',
-      processingTime: '24 Hours (TDAC) / 5 Days (e-Visa)',
-      expressTime: '4 Hours Express Audit',
-      validity: '90 Days to 5 Years (DTV)',
-      maxStay: '60 – 180 Days',
-      entryType: 'Single / Multiple Entry',
+      visaType: 'Tourist e-Visa & Digital Arrival Card (TDAC)',
+      categoryBadge: 'eVisa / Document',
+      processingTime: '24 Hours (TDAC) / 4 Days (e-Visa)',
+      expressTime: '4 Hours Priority',
+      validity: '90 Days',
+      maxStay: '60 Days',
+      entryType: 'Single / Multiple',
       govFeeUSD: 38,
       serviceFeeUSD: 35,
       approvalRate: '99.4%',
@@ -412,18 +410,18 @@ window.ONEPASS_DATA = {
       govPortal: 'https://www.thaievisa.go.th',
       documents: [
         'Passport Bio Page scan',
-        'Digital photo (taken within last 6 months)',
-        'Flight confirmation & proof of accommodation in Thailand'
+        'Digital passport photograph',
+        'Arrival flight and accommodation details in Thailand'
       ],
-      overview: 'From the Thailand Digital Arrival Card (TDAC) to standard 60-day Tourist e-Visas and the 5-year Destination Thailand Visa (DTV) for remote workers.'
+      overview: 'Complete processing for the Thailand Digital Arrival Card (TDAC) and 60-day Tourist e-Visas.'
     },
     {
       id: 'qatar',
       name: 'Qatar',
       shortName: 'Qatar (Hayya Tourist A1 / A3 eVisa)',
-      flag: '🇶🇦',
+      iso: 'QA',
       region: 'Middle East',
-      visaType: 'Hayya Tourist eVisa',
+      visaType: 'Hayya Tourist Entry eVisa',
       categoryBadge: 'eVisa',
       processingTime: '24 – 48 Hours',
       expressTime: '6 Hours Express',
@@ -436,21 +434,21 @@ window.ONEPASS_DATA = {
       image: 'https://images.unsplash.com/photo-1578895101408-1a36b834405b?auto=format&fit=crop&w=900&q=80',
       govPortal: 'https://hayya.qa',
       documents: [
-        'Passport valid for at least 3 months',
-        'Clear digital face photo',
-        'Hotel booking confirmation in Doha'
+        'Passport valid for at least 6 months',
+        'Clear digital facial photograph',
+        'Accommodation details in Doha'
       ],
-      overview: 'Fast electronic entry clearance for Doha and all of Qatar via the Hayya A1 Tourist and A3 GCC/Schengen holder visa pathways.'
+      overview: 'Official electronic entry clearance for Doha and all of Qatar via the Hayya Tourist eVisa platform.'
     },
     {
       id: 'kenya',
       name: 'Kenya',
-      shortName: 'Kenya (Electronic Travel Auth - eTA)',
-      flag: '🇰🇪',
+      shortName: 'Kenya (Electronic Travel Authorization - eTA)',
+      iso: 'KE',
       region: 'Africa',
-      visaType: 'Mandatory Kenya eTA',
-      categoryBadge: 'ETA',
-      processingTime: '24 – 72 Hours',
+      visaType: 'Mandatory Kenya eTA Travel Document',
+      categoryBadge: 'Travel Document',
+      processingTime: '24 – 48 Hours',
       expressTime: '6 Hours Priority',
       validity: '90 Days',
       maxStay: '90 Days',
@@ -462,21 +460,21 @@ window.ONEPASS_DATA = {
       govPortal: 'https://etakenya.go.ke',
       documents: [
         'Passport Bio Page scan',
-        'Selfie / Digital Passport Photograph',
-        'Safari Lodge / Hotel booking & Return Flight ticket'
+        'Digital passport photograph',
+        'Flight and hotel confirmation details'
       ],
-      overview: 'Kenya replaced traditional visas with the mandatory Electronic Travel Authorisation (eTA) for all international travelers. Get approved prior to boarding.'
+      overview: 'Mandatory Electronic Travel Authorisation (eTA) required prior to boarding for all international travelers visiting Kenya.'
     },
     {
       id: 'morocco',
       name: 'Morocco',
-      shortName: 'Morocco (Accès Maroc Tourist eVisa)',
-      flag: '🇲🇦',
+      shortName: 'Morocco (Tourist & Business eVisa)',
+      iso: 'MA',
       region: 'Africa',
-      visaType: 'Tourist & Business eVisa',
+      visaType: 'Official Tourist & Business eVisa',
       categoryBadge: 'eVisa',
       processingTime: '24 – 72 Hours',
-      expressTime: '24 Hours Express Express',
+      expressTime: '24 Hours Express',
       validity: '180 Days',
       maxStay: '30 Days',
       entryType: 'Single Entry',
@@ -487,10 +485,10 @@ window.ONEPASS_DATA = {
       govPortal: 'https://www.acces-maroc.ma',
       documents: [
         'Passport Bio Page scan',
-        'Digital passport photo',
-        'Valid US, UK, Schengen, Australia, or GCC Residence/Visa (or eligible nationality)'
+        'Digital passport photograph',
+        'Supporting residency or visa document (if required for nationality)'
       ],
-      overview: 'Discover Marrakech, Casablanca, and Fez with the official Kingdom of Morocco eVisa—reviewed and expedited by our North Africa desk.'
+      overview: 'Electronic visa processing for tourism and business travel to Marrakech, Casablanca, Rabat, and Tangier.'
     }
   ],
 
@@ -499,69 +497,69 @@ window.ONEPASS_DATA = {
       id: 'OPV-2026-84920',
       applicant: 'Alexander James Vance',
       passportNo: 'N84920148',
-      nationality: 'United States 🇺🇸',
-      destination: 'United Arab Emirates 🇦🇪',
-      visaType: '30-Day Tourist eVisa (Multiple Entry)',
+      nationality: 'United States',
+      destination: 'United Arab Emirates',
+      visaType: '30-Day Tourist eVisa',
       submittedAt: 'Oct 25, 2026 • 09:14 UTC',
-      tier: 'Super Rush (4-Hour Priority)',
+      tier: 'Express Priority',
       statusBadge: 'APPROVED & ISSUED',
       statusType: 'emerald',
-      specialist: 'Sarah Al-Mansoor (Senior Consular Auditor)',
+      specialist: 'Sarah Al-Mansoor (Senior Visa Auditor)',
       evisaNumber: 'UAE-ICP-2026-9948102',
       validUntil: 'Dec 25, 2026',
       steps: [
-        { title: 'Application & Encrypted Payment Received', time: 'Oct 25, 2026 • 09:14 UTC', state: 'done', note: '256-bit TLS encrypted dossier created.' },
-        { title: '68-Point Specialist Document & MRZ Audit', time: 'Oct 25, 2026 • 09:32 UTC', state: 'done', note: 'Verified by Senior Auditor Sarah Al-Mansoor. Zero errors found.' },
-        { title: 'Biometric Photo Compliance Optimization', time: 'Oct 25, 2026 • 09:38 UTC', state: 'done', note: 'ICAO biometric head-ratio & white balance calibrated.' },
-        { title: 'Dispatched to UAE ICP Government Portal', time: 'Oct 25, 2026 • 09:45 UTC', state: 'done', note: 'Submitted via priority government API channel.' },
-        { title: 'Immigration Authority Security Clearance', time: 'Oct 25, 2026 • 12:10 UTC', state: 'done', note: 'Cleared by Federal Authority for Identity & Citizenship.' },
-        { title: 'Official eVisa Issued & Delivered', time: 'Oct 25, 2026 • 12:42 UTC', state: 'done', note: 'PDF eVisa sent via Email & WhatsApp. Ready to board.' }
+        { title: 'Application & Payment Received', time: 'Oct 25, 2026 • 09:14 UTC', state: 'done', note: 'Encrypted application record created.' },
+        { title: 'Specialist Passport & Document Verification', time: 'Oct 25, 2026 • 09:32 UTC', state: 'done', note: 'Passport bio page and MRZ data verified with zero errors.' },
+        { title: 'Biometric Photograph Formatting', time: 'Oct 25, 2026 • 09:38 UTC', state: 'done', note: 'Photo calibrated to official immigration specifications.' },
+        { title: 'Submitted to Government Immigration Portal', time: 'Oct 25, 2026 • 09:45 UTC', state: 'done', note: 'Lodged with UAE ICP immigration authority.' },
+        { title: 'Immigration Security Clearance', time: 'Oct 25, 2026 • 12:10 UTC', state: 'done', note: 'Approved by immigration officer.' },
+        { title: 'Official eVisa Issued & Delivered', time: 'Oct 25, 2026 • 12:42 UTC', state: 'done', note: 'Official PDF eVisa sent to applicant email and ready for download.' }
       ]
     },
     'OPV-2026-51304': {
       id: 'OPV-2026-51304',
       applicant: 'Priya Nair Sharma',
       passportNo: 'Z5910384',
-      nationality: 'India 🇮🇳',
-      destination: 'Japan 🇯🇵',
+      nationality: 'India',
+      destination: 'Japan',
       visaType: '90-Day Single Entry Tourist eVisa',
       submittedAt: 'Oct 26, 2026 • 14:20 UTC',
-      tier: 'Express Priority (48-Hour Audit)',
-      statusBadge: 'IN IMMIGRATION REVIEW',
-      statusType: 'gold',
+      tier: 'Express Priority',
+      statusBadge: 'UNDER IMMIGRATION REVIEW',
+      statusType: 'amber',
       specialist: 'Kenji Takahashi (Asia-Pacific Visa Desk)',
       evisaNumber: 'Pending Issuance (Est. Oct 28, 2026)',
       validUntil: 'Upon Approval',
       steps: [
-        { title: 'Application & Encrypted Payment Received', time: 'Oct 26, 2026 • 14:20 UTC', state: 'done', note: 'Order confirmed and assigned to Tokyo/Singapore desk.' },
-        { title: '68-Point Specialist Document & Schedule of Stay Audit', time: 'Oct 26, 2026 • 15:05 UTC', state: 'done', note: 'Day-by-day Tokyo & Kyoto itinerary formatted to MOFA rules.' },
-        { title: 'Biometric Photo Compliance Optimization', time: 'Oct 26, 2026 • 15:18 UTC', state: 'done', note: '45x35mm specification verified.' },
-        { title: 'Submitted to Japan MOFA eVisa System', time: 'Oct 26, 2026 • 16:00 UTC', state: 'done', note: 'Application reference #JP-MOFA-88219 logged.' },
-        { title: 'Consular Officer Examination in Progress', time: 'In Progress (Est. completion: 24 hrs)', state: 'current', note: 'Under standard review with Japanese Consulate.' },
-        { title: 'Official eVisa Issuance & Visit Japan Web QR', time: 'Upcoming', state: 'pending', note: 'Will be emailed immediately upon final sign-off.' }
+        { title: 'Application & Payment Received', time: 'Oct 26, 2026 • 14:20 UTC', state: 'done', note: 'Application assigned to Asia-Pacific processing desk.' },
+        { title: 'Specialist Passport & Document Verification', time: 'Oct 26, 2026 • 15:05 UTC', state: 'done', note: 'Passport details and schedule of stay verified.' },
+        { title: 'Biometric Photograph Formatting', time: 'Oct 26, 2026 • 15:18 UTC', state: 'done', note: '45x35mm specification verified.' },
+        { title: 'Submitted to Government Immigration Portal', time: 'Oct 26, 2026 • 16:00 UTC', state: 'done', note: 'Application reference #JP-MOFA-88219 logged.' },
+        { title: 'Immigration Officer Review in Progress', time: 'In Progress (Est. 24 hrs)', state: 'current', note: 'Currently under standard examination by immigration authority.' },
+        { title: 'Official eVisa Issuance & Delivery', time: 'Upcoming', state: 'pending', note: 'Will be delivered by email immediately upon approval.' }
       ]
     },
     'OPV-2026-39102': {
       id: 'OPV-2026-39102',
       applicant: 'Mateo Silva Costa',
       passportNo: 'GY883921',
-      nationality: 'Brazil 🇧🇷',
-      destination: 'Schengen Area (France) 🇪🇺',
-      visaType: 'Short-Stay Schengen C-Visa Dossier',
+      nationality: 'Brazil',
+      destination: 'United Kingdom',
+      visaType: 'UK Electronic Travel Authorisation (ETA)',
       submittedAt: 'Oct 27, 2026 • 11:05 UTC',
-      tier: 'Embassy Concierge + Priority Slot',
-      statusBadge: 'SPECIALIST AUDIT ACTIVE',
-      statusType: 'royal',
-      specialist: 'Claire Dubois (Former EU Consular Attaché)',
-      evisaNumber: 'Biometric Slot Confirmed: Nov 02, 2026',
-      validUntil: 'Upon Issuance',
+      tier: 'Standard Processing',
+      statusBadge: 'DOCUMENT AUDIT IN PROGRESS',
+      statusType: 'blue',
+      specialist: 'Claire Dubois (Europe & UK Visa Desk)',
+      evisaNumber: 'Pending Dispatch',
+      validUntil: '2 Years upon Issuance',
       steps: [
-        { title: 'Application & Encrypted Payment Received', time: 'Oct 27, 2026 • 11:05 UTC', state: 'done', note: 'Schengen Concierge activated.' },
-        { title: '68-Point Specialist Document & Financial Audit', time: 'Active Now • Reviewing Bank Statements', state: 'current', note: 'Claire Dubois is finalizing your France-Visas form & cover letter.' },
-        { title: 'Schengen Insurance & Flight Itinerary Generation', time: 'Scheduled Today', state: 'pending', note: '€30,000 certificate & verifiable PNR reservation.' },
-        { title: 'Priority VFS / TLS Biometric Appointment Lock', time: 'Confirmed for Nov 02, 2026 • 10:00 AM', state: 'pending', note: 'Express lane appointment pass ready.' },
-        { title: 'Consulate General Submission & Passport Tracking', time: 'Upcoming', state: 'pending', note: 'Live SMS updates during passport stamping.' },
-        { title: 'Passport & Multi-Entry Schengen Visa Delivered', time: 'Upcoming', state: 'pending', note: 'Courier return or collection.' }
+        { title: 'Application & Payment Received', time: 'Oct 27, 2026 • 11:05 UTC', state: 'done', note: 'UK ETA travel document order confirmed.' },
+        { title: 'Specialist Passport & Document Verification', time: 'Active Now', state: 'current', note: 'Specialist is verifying passport MRZ lines and facial photograph.' },
+        { title: 'Biometric Photograph Formatting', time: 'Queued', state: 'pending', note: 'Automated compliance check.' },
+        { title: 'Submitted to UK Home Office Portal', time: 'Upcoming', state: 'pending', note: 'Direct electronic submission.' },
+        { title: 'UKVI Automated Security Clearance', time: 'Upcoming', state: 'pending', note: 'Real-time status tracking.' },
+        { title: 'UK ETA Travel Authorization Issued', time: 'Upcoming', state: 'pending', note: 'Digitally linked to passport and emailed as PDF.' }
       ]
     }
   }
