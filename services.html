@@ -2,27 +2,41 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Visas & Travel Documents Overview — OnePassVisa.com</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#FAFBF8" />
+  <title>Travel Documents &amp; ETAs | OnePassVisa</title>
   <meta name="description" content="Online processing exclusively for Tourist eVisas, Business eVisas, Electronic Travel Authorizations (ETA / ESTA), Transit Visas, and Digital Arrival Cards." />
-  <link rel="stylesheet" href="assets/css/styles.css?v=3" />
+  <link rel="stylesheet" href="assets/css/styles.css?v=4" />
 </head>
 <body>
 
-  <!-- Above-the-Fold Google Ads Compliance Disclosure Bar -->
-  <div class="compliance-bar">
-    <div class="container compliance-bar-inner">
-      <div class="compliance-notice">
-        <span class="compliance-tag">Independent Service</span>
-        <span>
-          OnePassVisa.com is a private visa and travel document assistance agency and is not affiliated with any government. Service fees apply in addition to government fees, or you can apply directly via <a href="faq.html#gov-directory" style="color:var(--white);text-decoration:underline;">official government portals</a>.
-        </span>
-      </div>
-      <div class="top-bar-right">
-        <a href="track.html" style="color:var(--white);font-weight:600;">Track Status</a>
-        <label style="display:inline-flex;align-items:center;gap:0.35rem;">
-          <span>Currency:</span>
-          <select class="currency-select js-currency-select" aria-label="Select Currency">
+  <!-- Main Header -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="brand-logo" aria-label="OnePassVisa home">
+        <svg viewBox="0 0 68 96" width="26" height="36" aria-hidden="true" class="brand-mark-svg">
+          <polyline points="16,24 28,36 52,12" fill="none" stroke="#00A859" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"></polyline>
+          <line x1="34" y1="56" x2="34" y2="84" stroke="#00A859" stroke-width="12" stroke-linecap="round"></line>
+        </svg>
+        <div class="brand-wordmark">
+          <div class="brand-title">OnePass<span>Visa</span></div>
+          <div class="brand-subtitle">Visas &amp; Travel Documents</div>
+        </div>
+      </a>
+
+      <nav class="nav-links" id="mainNavLinks" aria-label="Primary navigation">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="destinations.html" class="nav-link">Visas</a>
+        <a href="services.html" class="nav-link active">Travel Documents/ETAs</a>
+        <a href="index.html#how-it-works" class="nav-link">How it works</a>
+        <a href="index.html#calculator" class="nav-link">Pricing</a>
+        <a href="faq.html" class="nav-link">FAQs</a>
+        <a href="about.html" class="nav-link">Support</a>
+      </nav>
+
+      <div class="header-actions">
+        <label style="display:inline-flex;align-items:center;" aria-label="Select Currency">
+          <select class="currency-select js-currency-select">
             <option value="USD">USD ($)</option>
             <option value="EUR">EUR (€)</option>
             <option value="GBP">GBP (£)</option>
@@ -32,198 +46,196 @@
             <option value="AUD">AUD ($)</option>
           </select>
         </label>
-      </div>
-    </div>
-  </div>
-
-  <!-- Main Header -->
-  <header class="site-header">
-    <div class="container header-inner">
-      <a href="index.html" class="brand-logo">
-        <div class="brand-mark">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <rect x="4" y="2" width="16" height="20" rx="2.5"></rect>
-            <circle cx="12" cy="10" r="3.5"></circle>
-            <path d="M8.5 17.5h7"></path>
-          </svg>
-        </div>
-        <div class="brand-wordmark">
-          <div class="brand-title">OnePass<span>Visa</span></div>
-          <div class="brand-subtitle">Visas &amp; Travel Documents</div>
-        </div>
-      </a>
-
-      <nav class="nav-links" id="mainNavLinks" aria-label="Main Navigation">
-        <a href="index.html" class="nav-link">Home</a>
-        <a href="destinations.html" class="nav-link">Destinations</a>
-        <a href="services.html" class="nav-link active">Visas &amp; Documents</a>
-        <a href="track.html" class="nav-link">Track Status</a>
-        <a href="faq.html" class="nav-link">FAQ</a>
-        <a href="about.html" class="nav-link">About</a>
-        <a href="policies.html" class="nav-link">Policies</a>
-      </nav>
-
-      <div class="header-actions">
-        <a href="track.html" class="btn btn-outline btn-sm">Track Order</a>
+        <a href="track.html" class="btn btn-outline btn-sm">Track application</a>
         <a href="apply.html" class="btn btn-primary btn-sm">
-          <span>Apply Online</span>
-          <svg width="16" height="16" class="icon-arrow" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 10h12M11 5l5 5-5 5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <span>Check visa options</span>
         </a>
-        <button type="button" class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle Menu">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <line x1="3" y1="6" x2="21" y2="6"></line>
-            <line x1="3" y1="12" x2="21" y2="12"></line>
-            <line x1="3" y1="18" x2="21" y2="18"></line>
+        <button type="button" class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Open menu" aria-expanded="false">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="4" y1="12" x2="20" y2="12"></line>
+            <line x1="4" y1="6" x2="20" y2="6"></line>
+            <line x1="4" y1="18" x2="20" y2="18"></line>
           </svg>
         </button>
       </div>
     </div>
   </header>
 
-  <!-- Hero -->
-  <section class="hero hero-narrow">
-    <div class="container hero-center" style="margin-bottom:0;">
-      <span class="section-eyebrow">Dedicated Entry Document Services</span>
-      <h1 class="hero-title" style="font-size:clamp(1.85rem,3.3vw,2.65rem);">
-        Visas &amp; <span>Travel Documents</span> We Process
-      </h1>
-      <p class="hero-description" style="margin-bottom:0;">
-        We focus strictly on electronic visas and mandatory travel documents required to board international flights and enter destination countries.
-      </p>
-    </div>
-  </section>
-
-  <!-- 4 Dedicated Visa & Travel Document Categories (With High-Res Photos & Credits) -->
-  <section class="section">
-    <div class="container">
-      <div class="destinations-grid" style="grid-template-columns:repeat(auto-fill,minmax(460px,1fr));gap:1.75rem;">
-
-        <!-- Category 1 -->
-        <article class="step-card-visual" id="evisas">
-          <div class="step-card-img-wrap" style="height:210px;">
-            <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=900&q=80" alt="Leisure tourist beach destination" />
-            <span class="photo-credit">Photo: <a href="https://unsplash.com/photos/KMn4VEeEPR8" target="_blank" rel="noopener noreferrer">Sean Oulashin / Unsplash</a></span>
-          </div>
-          <div class="step-card-content" style="padding:1.6rem;">
-            <span class="badge badge-blue" style="margin-bottom:0.65rem;">01 • Electronic Visas</span>
-            <h2 style="font-size:1.25rem;font-weight:700;color:var(--navy-900);margin-bottom:0.45rem;">
-              Tourist &amp; Visitor eVisas
-            </h2>
-            <p style="font-size:0.9rem;color:var(--gray-600);margin-bottom:1rem;">
-              Single-entry and multiple-entry Tourist eVisas issued digitally for holidays, sightseeing, and visiting family or friends—with no embassy appointment required.
-            </p>
-            <ul style="font-size:0.86rem;color:var(--gray-700);display:grid;gap:0.4rem;margin-bottom:1.35rem;">
-              <li>• UAE (Dubai &amp; Abu Dhabi) 30-Day &amp; 60-Day Tourist eVisa</li>
-              <li>• Saudi Arabia 1-Year Multiple-Entry Tourist eVisa</li>
-              <li>• India 30-Day, 1-Year &amp; 5-Year Tourist e-Visa</li>
-              <li>• Vietnam, Japan, Türkiye, Egypt &amp; Thailand Tourist e-Visas</li>
-            </ul>
-            <a href="apply.html" class="btn btn-primary btn-sm">
-              <span>Apply for Tourist eVisa</span>
-              <svg width="16" height="16" class="icon-arrow" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 10h12M11 5l5 5-5 5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </a>
-          </div>
-        </article>
-
-        <!-- Category 2 -->
-        <article class="step-card-visual" id="eta">
-          <div class="step-card-img-wrap" style="height:210px;">
-            <img src="https://images.unsplash.com/photo-1569154941061-e231b4725ef1?auto=format&fit=crop&w=900&q=80" alt="International airport terminal departure area" />
-            <span class="photo-credit">Photo: <a href="https://unsplash.com/photos/Z40sav8IYqQ" target="_blank" rel="noopener noreferrer">Artur Tumasjan / Unsplash</a></span>
-          </div>
-          <div class="step-card-content" style="padding:1.6rem;">
-            <span class="badge badge-emerald" style="margin-bottom:0.65rem;">02 • Pre-Travel Authorizations</span>
-            <h2 style="font-size:1.25rem;font-weight:700;color:var(--navy-900);margin-bottom:0.45rem;">
-              Electronic Travel Authorizations (ETA / ESTA / eTA)
-            </h2>
-            <p style="font-size:0.9rem;color:var(--gray-600);margin-bottom:1rem;">
-              Mandatory digital travel clearances required for visa-exempt nationals before boarding flights. Linked electronically to your passport number.
-            </p>
-            <ul style="font-size:0.86rem;color:var(--gray-700);display:grid;gap:0.4rem;margin-bottom:1.35rem;">
-              <li>• United States ESTA (2-Year Travel Authorization)</li>
-              <li>• United Kingdom ETA (2-Year Electronic Travel Authorisation)</li>
-              <li>• Canada eTA (5-Year Travel Authorization)</li>
-              <li>• Australia ETA (Subclass 601) &amp; Kenya eTA</li>
-            </ul>
-            <a href="apply.html?country=uk" class="btn btn-primary btn-sm">
-              <span>Apply for ETA / ESTA</span>
-              <svg width="16" height="16" class="icon-arrow" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 10h12M11 5l5 5-5 5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </a>
-          </div>
-        </article>
-
-        <!-- Category 3 -->
-        <article class="step-card-visual" id="business">
-          <div class="step-card-img-wrap" style="height:210px;">
-            <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=900&q=80" alt="Modern business district skyscrapers" />
-            <span class="photo-credit">Photo: <a href="https://unsplash.com/photos/PhYq704ffdA" target="_blank" rel="noopener noreferrer">Sean Pollock / Unsplash</a></span>
-          </div>
-          <div class="step-card-content" style="padding:1.6rem;">
-            <span class="badge badge-blue" style="margin-bottom:0.65rem;">03 • Business &amp; Transit</span>
-            <h2 style="font-size:1.25rem;font-weight:700;color:var(--navy-900);margin-bottom:0.45rem;">
-              Business eVisas &amp; Airport Transit Visas
-            </h2>
-            <p style="font-size:0.9rem;color:var(--gray-600);margin-bottom:1rem;">
-              Short-stay electronic business visas for meetings, conferences, and trade exhibitions, plus 48-to-96 hour airport transit visas for connecting flights.
-            </p>
-            <ul style="font-size:0.86rem;color:var(--gray-700);display:grid;gap:0.4rem;margin-bottom:1.35rem;">
-              <li>• India 1-Year Multiple-Entry e-Business Visa</li>
-              <li>• Saudi Arabia, Vietnam &amp; Morocco Business eVisas</li>
-              <li>• UAE 48-Hour &amp; 96-Hour Airport Transit Visas</li>
-              <li>• Pre-submission business document &amp; photo review</li>
-            </ul>
-            <a href="apply.html?country=india" class="btn btn-outline btn-sm">Apply for Business or Transit Visa</a>
-          </div>
-        </article>
-
-        <!-- Category 4 -->
-        <article class="step-card-visual" id="arrival-cards">
-          <div class="step-card-img-wrap" style="height:210px;">
-            <img src="https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?auto=format&fit=crop&w=900&q=80" alt="International destination skyline at dusk" />
-            <span class="photo-credit">Photo: <a href="https://unsplash.com/photos/alY6_OpdwRQ" target="_blank" rel="noopener noreferrer">Louie Martinez / Unsplash</a></span>
-          </div>
-          <div class="step-card-content" style="padding:1.6rem;">
-            <span class="badge badge-amber" style="margin-bottom:0.65rem;">04 • Arrival Declarations</span>
-            <h2 style="font-size:1.25rem;font-weight:700;color:var(--navy-900);margin-bottom:0.45rem;">
-              Digital Arrival Cards &amp; Entry Documents
-            </h2>
-            <p style="font-size:0.9rem;color:var(--gray-600);margin-bottom:1rem;">
-              Pre-register mandatory digital arrival cards and electronic customs declarations anytime before your flight—submitted automatically when the entry window opens.
-            </p>
-            <ul style="font-size:0.86rem;color:var(--gray-700);display:grid;gap:0.4rem;margin-bottom:1.35rem;">
-              <li>• Singapore Digital Arrival Card (SGAC)</li>
-              <li>• Thailand Digital Arrival Card (TDAC)</li>
-              <li>• Indonesia (Bali) e-VOA &amp; Customs Declaration</li>
-              <li>• Japan Digital Entry &amp; Customs QR Registration</li>
-            </ul>
-            <a href="apply.html?country=singapore" class="btn btn-outline btn-sm">Apply for Arrival Document</a>
-          </div>
-        </article>
-
+  <main id="main-content">
+    <!-- Service Disclosure Bar -->
+    <div role="note" aria-label="Service disclosure" class="compliance-bar">
+      <div class="container compliance-bar-inner" style="justify-content:center;">
+        <div class="compliance-notice">
+          <span class="compliance-tag">Private assistance service</span>
+          <span class="compliance-divider" aria-hidden="true">|</span>
+          <span>Independent of government. Clear requirements and listed fees.</span>
+          <a href="policies.html#disclaimer" class="compliance-link">Service disclosure</a>
+          <span class="compliance-divider" aria-hidden="true">•</span>
+          <a href="faq.html#gov-directory" class="compliance-link">Official government portals</a>
+        </div>
       </div>
     </div>
-  </section>
 
-  <!-- Global Footer -->
+    <!-- Breadcrumb -->
+    <div class="container breadcrumb-bar">
+      <nav aria-label="Breadcrumb">
+        <ol class="breadcrumb-list">
+          <li><a href="index.html">Home</a></li>
+          <li aria-hidden="true">›</li>
+          <li style="color:var(--foreground);font-weight:500;">Travel Documents/ETAs</li>
+        </ol>
+      </nav>
+    </div>
+
+    <!-- Hero Panel -->
+    <section class="hero hero-narrow">
+      <div class="container">
+        <div class="hero-panel">
+          <div class="hero-center" style="margin-bottom:0;">
+            <p class="ivp-eyebrow">The details before departure</p>
+            <h1 class="hero-heading" style="font-size:clamp(2rem,3.8vw,3.35rem);">
+              Travel Documents &amp; <span>ETAs</span>
+            </h1>
+            <p class="hero-description" style="margin-bottom:0;">
+              Your visa is one part of the journey. We process Tourist eVisas, Electronic Travel Authorizations (ETA / ESTA), Business Visas, and mandatory Digital Arrival Cards in one simple place.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4 Dedicated Visa & Travel Document Categories (With High-Res Photos & Credits) -->
+    <section class="section" style="padding-top:1.5rem;">
+      <div class="container">
+        <div class="destinations-grid" style="grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:1.5rem;">
+
+          <!-- Category 1 -->
+          <article class="step-card-visual" id="evisas">
+            <div class="step-card-img-wrap" style="height:210px;">
+              <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=900&q=80" alt="Leisure tourist beach destination" />
+              <span class="photo-credit">Photo: <a href="https://unsplash.com/photos/KMn4VEeEPR8" target="_blank" rel="noopener noreferrer">Sean Oulashin / Unsplash</a></span>
+            </div>
+            <div class="step-card-content" style="padding:1.6rem;">
+              <span class="badge badge-emerald" style="margin-bottom:0.65rem;">01 • Electronic Visas</span>
+              <h2 style="font-size:1.3rem;font-weight:700;color:var(--foreground);margin-bottom:0.45rem;">
+                Tourist &amp; Visitor eVisas
+              </h2>
+              <p style="font-size:0.92rem;color:var(--muted-foreground);margin-bottom:1rem;">
+                Single-entry and multiple-entry Tourist eVisas issued digitally for holidays, sightseeing, and visiting family or friends—with no embassy appointment required.
+              </p>
+              <ul style="font-size:0.88rem;color:var(--foreground);display:grid;gap:0.4rem;margin-bottom:1.35rem;">
+                <li>• UAE (Dubai &amp; Abu Dhabi) 30-Day &amp; 60-Day Tourist eVisa</li>
+                <li>• Saudi Arabia 1-Year Multiple-Entry Tourist eVisa</li>
+                <li>• India 30-Day, 1-Year &amp; 5-Year Tourist e-Visa</li>
+                <li>• Vietnam, Japan, Türkiye, Egypt &amp; Thailand Tourist e-Visas</li>
+              </ul>
+              <a href="apply.html" class="btn btn-primary btn-sm">
+                <span>Apply for Tourist eVisa</span>
+                <svg width="16" height="16" class="icon-arrow" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 10h12M11 5l5 5-5 5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </a>
+            </div>
+          </article>
+
+          <!-- Category 2 -->
+          <article class="step-card-visual" id="eta">
+            <div class="step-card-img-wrap" style="height:210px;">
+              <img src="https://images.unsplash.com/photo-1569154941061-e231b4725ef1?auto=format&fit=crop&w=900&q=80" alt="International airport terminal departure area" />
+              <span class="photo-credit">Photo: <a href="https://unsplash.com/photos/Z40sav8IYqQ" target="_blank" rel="noopener noreferrer">Artur Tumasjan / Unsplash</a></span>
+            </div>
+            <div class="step-card-content" style="padding:1.6rem;">
+              <span class="badge badge-emerald" style="margin-bottom:0.65rem;">02 • Pre-Travel Authorizations</span>
+              <h2 style="font-size:1.3rem;font-weight:700;color:var(--foreground);margin-bottom:0.45rem;">
+                Electronic Travel Authorizations (ETA / ESTA)
+              </h2>
+              <p style="font-size:0.92rem;color:var(--muted-foreground);margin-bottom:1rem;">
+                Mandatory digital travel clearances required for visa-exempt nationals before boarding flights. Linked electronically to your passport number.
+              </p>
+              <ul style="font-size:0.88rem;color:var(--foreground);display:grid;gap:0.4rem;margin-bottom:1.35rem;">
+                <li>• United States ESTA (2-Year Travel Authorization)</li>
+                <li>• United Kingdom ETA (2-Year Electronic Travel Authorisation)</li>
+                <li>• Canada eTA (5-Year Travel Authorization)</li>
+                <li>• Australia ETA (Subclass 601) &amp; Kenya eTA</li>
+              </ul>
+              <a href="apply.html?country=uk" class="btn btn-primary btn-sm">
+                <span>Apply for ETA / ESTA</span>
+                <svg width="16" height="16" class="icon-arrow" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 10h12M11 5l5 5-5 5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </a>
+            </div>
+          </article>
+
+          <!-- Category 3 -->
+          <article class="step-card-visual" id="business">
+            <div class="step-card-img-wrap" style="height:210px;">
+              <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=900&q=80" alt="Modern business district skyscrapers" />
+              <span class="photo-credit">Photo: <a href="https://unsplash.com/photos/PhYq704ffdA" target="_blank" rel="noopener noreferrer">Sean Pollock / Unsplash</a></span>
+            </div>
+            <div class="step-card-content" style="padding:1.6rem;">
+              <span class="badge badge-emerald" style="margin-bottom:0.65rem;">03 • Business &amp; Transit</span>
+              <h2 style="font-size:1.3rem;font-weight:700;color:var(--foreground);margin-bottom:0.45rem;">
+                Business eVisas &amp; Airport Transit Visas
+              </h2>
+              <p style="font-size:0.92rem;color:var(--muted-foreground);margin-bottom:1rem;">
+                Short-stay electronic business visas for meetings, conferences, and trade exhibitions, plus 48-to-96 hour airport transit visas for connecting flights.
+              </p>
+              <ul style="font-size:0.88rem;color:var(--foreground);display:grid;gap:0.4rem;margin-bottom:1.35rem;">
+                <li>• India 1-Year Multiple-Entry e-Business Visa</li>
+                <li>• Saudi Arabia, Vietnam &amp; Morocco Business eVisas</li>
+                <li>• UAE 48-Hour &amp; 96-Hour Airport Transit Visas</li>
+                <li>• Pre-submission business document &amp; photo review</li>
+              </ul>
+              <a href="apply.html?country=india" class="btn btn-outline btn-sm">Apply for Business or Transit Visa</a>
+            </div>
+          </article>
+
+          <!-- Category 4 -->
+          <article class="step-card-visual" id="arrival-cards">
+            <div class="step-card-img-wrap" style="height:210px;">
+              <img src="https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?auto=format&fit=crop&w=900&q=80" alt="International destination skyline at dusk" />
+              <span class="photo-credit">Photo: <a href="https://unsplash.com/photos/alY6_OpdwRQ" target="_blank" rel="noopener noreferrer">Louie Martinez / Unsplash</a></span>
+            </div>
+            <div class="step-card-content" style="padding:1.6rem;">
+              <span class="badge badge-amber" style="margin-bottom:0.65rem;">04 • Arrival Declarations</span>
+              <h2 style="font-size:1.3rem;font-weight:700;color:var(--foreground);margin-bottom:0.45rem;">
+                Digital Arrival Cards &amp; Entry Documents
+              </h2>
+              <p style="font-size:0.92rem;color:var(--muted-foreground);margin-bottom:1rem;">
+                Pre-register mandatory digital arrival cards and electronic customs declarations anytime before your flight—submitted automatically when the entry window opens.
+              </p>
+              <ul style="font-size:0.88rem;color:var(--foreground);display:grid;gap:0.4rem;margin-bottom:1.35rem;">
+                <li>• Singapore Digital Arrival Card (SGAC)</li>
+                <li>• Thailand Digital Arrival Card (TDAC)</li>
+                <li>• Indonesia (Bali) e-VOA &amp; Customs Declaration</li>
+                <li>• Japan Digital Entry &amp; Customs QR Registration</li>
+              </ul>
+              <a href="apply.html?country=singapore" class="btn btn-outline btn-sm">Apply for Arrival Document</a>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Dark Charcoal Footer -->
   <footer class="site-footer">
     <div class="container">
       <div class="gov-disclaimer-box">
-        <strong>Important Google Ads &amp; Consumer Disclosure:</strong> OnePassVisa.com is a private, third-party visa and travel document processing agency and is NOT affiliated with any government or embassy. You may apply directly on official government websites for the government fee alone by visiting our <a href="faq.html#gov-directory" style="color:var(--white);text-decoration:underline;">Official Government Portals Directory</a>.
+        <strong>Service &amp; Non-Affiliation Disclosure:</strong> OnePassVisa.com is a private visa and travel document assistance agency and is NOT affiliated with any government or embassy. You may apply directly on official government websites for the government fee alone by visiting our <a href="faq.html#gov-directory" style="color:var(--white);text-decoration:underline;">Official Government Portals Directory</a>.
       </div>
       <div class="footer-bottom" style="border-top:none;padding-top:0;">
-        <div>© 2026 OnePassVisa.com Inc. • 540 Madison Ave, Suite 2100, New York, NY 10022 • All rights reserved.</div>
-        <div style="display:flex;gap:1.25rem;">
+        <div>© 2026 OnePassVisa Inc. • 540 Madison Ave, Suite 2100, New York, NY 10022 • All rights reserved.</div>
+        <div style="display:flex;gap:1.25rem;flex-wrap:wrap;">
           <a href="policies.html#privacy">Privacy</a>
           <a href="policies.html#terms">Terms</a>
           <a href="policies.html#refund">Refunds</a>
           <a href="policies.html#disclaimer">Disclaimer</a>
-          <a href="policies.html#credits">Image Credits</a>
+          <a href="policies.html#credits">Photo Credits</a>
         </div>
       </div>
     </div>
   </footer>
 
-  <script src="assets/js/data.js?v=3"></script>
-  <script src="assets/js/app.js?v=3"></script>
+  <script src="assets/js/data.js?v=4"></script>
+  <script src="assets/js/app.js?v=4"></script>
 </body>
 </html>

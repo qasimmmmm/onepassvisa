@@ -2,27 +2,41 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>OnePassVisa.com — Online Visas & Travel Documents</title>
-  <meta name="description" content="Independent online visa and travel document assistance for Tourist eVisas, Business Visas, ETAs, and Digital Arrival Cards across 190+ countries." />
-  <link rel="stylesheet" href="assets/css/styles.css?v=3" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#FAFBF8" />
+  <title>Visa Requirements &amp; Travel Document Assistance | OnePassVisa</title>
+  <meta name="description" content="Explore visa options, understand destination requirements and prepare your travel documents with OnePassVisa. Simple checklists and online processing for your next journey." />
+  <link rel="stylesheet" href="assets/css/styles.css?v=4" />
 </head>
 <body>
 
-  <!-- Above-the-Fold Google Ads Compliance Disclosure Bar -->
-  <div class="compliance-bar">
-    <div class="container compliance-bar-inner">
-      <div class="compliance-notice">
-        <span class="compliance-tag">Independent Service</span>
-        <span>
-          OnePassVisa.com is a private visa and travel document assistance agency and is not affiliated with any government. We charge a service fee in addition to government fees, or you can apply directly via <a href="faq.html#gov-directory" style="color:var(--white);text-decoration:underline;">official government portals</a>.
-        </span>
-      </div>
-      <div class="top-bar-right">
-        <a href="track.html" style="color:var(--white);font-weight:600;">Track Status</a>
-        <label style="display:inline-flex;align-items:center;gap:0.35rem;">
-          <span>Currency:</span>
-          <select class="currency-select js-currency-select" aria-label="Select Currency">
+  <!-- Main Header (Exact iVisaPortal Clean Header) -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="brand-logo" aria-label="OnePassVisa home">
+        <svg viewBox="0 0 68 96" width="26" height="36" aria-hidden="true" class="brand-mark-svg">
+          <polyline points="16,24 28,36 52,12" fill="none" stroke="#00A859" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"></polyline>
+          <line x1="34" y1="56" x2="34" y2="84" stroke="#00A859" stroke-width="12" stroke-linecap="round"></line>
+        </svg>
+        <div class="brand-wordmark">
+          <div class="brand-title">OnePass<span>Visa</span></div>
+          <div class="brand-subtitle">Visas &amp; Travel Documents</div>
+        </div>
+      </a>
+
+      <nav class="nav-links" id="mainNavLinks" aria-label="Primary navigation">
+        <a href="index.html" class="nav-link active">Home</a>
+        <a href="destinations.html" class="nav-link">Visas</a>
+        <a href="services.html" class="nav-link">Travel Documents/ETAs</a>
+        <a href="#how-it-works" class="nav-link">How it works</a>
+        <a href="#calculator" class="nav-link">Pricing</a>
+        <a href="faq.html" class="nav-link">FAQs</a>
+        <a href="about.html" class="nav-link">Support</a>
+      </nav>
+
+      <div class="header-actions">
+        <label style="display:inline-flex;align-items:center;" aria-label="Select Currency">
+          <select class="currency-select js-currency-select">
             <option value="USD">USD ($)</option>
             <option value="EUR">EUR (€)</option>
             <option value="GBP">GBP (£)</option>
@@ -32,556 +46,682 @@
             <option value="AUD">AUD ($)</option>
           </select>
         </label>
-      </div>
-    </div>
-  </div>
-
-  <!-- Main Header -->
-  <header class="site-header">
-    <div class="container header-inner">
-      <a href="index.html" class="brand-logo">
-        <div class="brand-mark">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <rect x="4" y="2" width="16" height="20" rx="2.5"></rect>
-            <circle cx="12" cy="10" r="3.5"></circle>
-            <path d="M8.5 17.5h7"></path>
-          </svg>
-        </div>
-        <div class="brand-wordmark">
-          <div class="brand-title">OnePass<span>Visa</span></div>
-          <div class="brand-subtitle">Visas &amp; Travel Documents</div>
-        </div>
-      </a>
-
-      <nav class="nav-links" id="mainNavLinks" aria-label="Main Navigation">
-        <a href="index.html" class="nav-link active">Home</a>
-        <a href="destinations.html" class="nav-link">Destinations</a>
-        <a href="services.html" class="nav-link">Visas &amp; Documents</a>
-        <a href="track.html" class="nav-link">Track Status</a>
-        <a href="faq.html" class="nav-link">FAQ</a>
-        <a href="about.html" class="nav-link">About</a>
-        <a href="policies.html" class="nav-link">Policies</a>
-      </nav>
-
-      <div class="header-actions">
-        <a href="track.html" class="btn btn-outline btn-sm">Track Order</a>
+        <a href="track.html" class="btn btn-outline btn-sm">Track application</a>
         <a href="apply.html" class="btn btn-primary btn-sm">
-          <span>Apply Online</span>
-          <svg width="16" height="16" class="icon-arrow" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 10h12M11 5l5 5-5 5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <span>Check visa options</span>
         </a>
-        <button type="button" class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle Menu">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <line x1="3" y1="6" x2="21" y2="6"></line>
-            <line x1="3" y1="12" x2="21" y2="12"></line>
-            <line x1="3" y1="18" x2="21" y2="18"></line>
+        <button type="button" class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Open menu" aria-expanded="false">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="4" y1="12" x2="20" y2="12"></line>
+            <line x1="4" y1="6" x2="20" y2="6"></line>
+            <line x1="4" y1="18" x2="20" y2="18"></line>
           </svg>
         </button>
       </div>
     </div>
   </header>
 
-  <!-- Hero Section with Clean Text & Credited Photography -->
-  <section class="hero">
-    <div class="container">
-      <div class="hero-split">
-        <div>
-          <span class="section-eyebrow">Global Visa &amp; Travel Document Assistance</span>
-          <h1 class="hero-title">
-            Simple Online Applications for <span>Visas &amp; Travel Documents</span>
-          </h1>
-          <p class="hero-description">
-            Check entry rules and apply online in minutes for Tourist eVisas, Business Visas, Electronic Travel Authorizations (ETAs), and Digital Arrival Cards. Every application is checked by our team for accuracy before submission.
+  <main id="main-content">
+    <!-- Service Disclosure Bar (Exact iVisaPortal Above-the-Fold Disclosure) -->
+    <div role="note" aria-label="Service disclosure" class="compliance-bar">
+      <div class="container compliance-bar-inner" style="justify-content:center;">
+        <div class="compliance-notice">
+          <span class="compliance-tag">Private assistance service</span>
+          <span class="compliance-divider" aria-hidden="true">|</span>
+          <span>Independent of government. Clear requirements and listed fees.</span>
+          <a href="policies.html#disclaimer" class="compliance-link">Service disclosure</a>
+          <span class="compliance-divider" aria-hidden="true">•</span>
+          <a href="faq.html#gov-directory" class="compliance-link">Official government portals</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Hero Panel Section (Exact iVisaPortal Rounded Soft-Sage Hero Panel) -->
+    <section class="hero">
+      <div class="container">
+        <div class="hero-panel">
+          <div class="hero-split">
+            <!-- Left Column: Eyebrow + Heading + Form Box -->
+            <div>
+              <div class="hero-pill-eyebrow">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.2c.4-.3.6-.7.5-1.2z"></path>
+                </svg>
+                <span>A world of journeys starts here</span>
+              </div>
+
+              <h1 class="hero-heading">
+                Big travel plans.<br />
+                <span>Simple visa steps.</span>
+              </h1>
+
+              <p class="hero-description">
+                Find your visa options, understand the requirements, and get your travel documents ready for the journey ahead.
+              </p>
+
+              <!-- Interactive Eligibility Checker Card Inside Hero Panel -->
+              <div class="hero-form-box" id="visaCheckerWidget">
+                <form id="heroCheckerForm">
+                  <div class="hero-form-2col">
+                    <div class="field-group">
+                      <label class="field-label" for="checkerNationality">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M2 12h20"></path><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+                        <span>Passport country</span>
+                      </label>
+                      <select id="checkerNationality" class="field-control js-nationality-select" data-default="US"></select>
+                    </div>
+
+                    <div class="field-group">
+                      <label class="field-label" for="checkerDestination">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                        <span>Where are you traveling?</span>
+                      </label>
+                      <select id="checkerDestination" class="field-control js-destination-select" data-default="thailand"></select>
+                    </div>
+                  </div>
+
+                  <input type="hidden" id="checkerPurpose" value="Tourist eVisa" />
+
+                  <button type="submit" class="btn btn-primary btn-lg btn-block" style="margin-top:1.15rem;">
+                    <span>Check visa requirements</span>
+                    <svg width="16" height="16" class="icon-arrow" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 10h12M11 5l5 5-5 5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                  </button>
+
+                  <p style="margin-top:0.9rem;display:flex;align-items:center;justify-content:center;gap:0.45rem;font-size:0.78rem;color:var(--muted-foreground);">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"></path><path d="m9 12 2 2 4-4"></path></svg>
+                    <span>No passport number or payment needed to explore your options.</span>
+                  </p>
+                </form>
+              </div>
+
+              <div class="hero-bullet-list">
+                <div class="hero-bullet-item">
+                  <svg width="16" height="16" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M16.5 5.5l-8 8-4-4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                  <span>Clear requirements</span>
+                </div>
+                <div class="hero-bullet-item">
+                  <svg width="16" height="16" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M16.5 5.5l-8 8-4-4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                  <span>No account needed to explore</span>
+                </div>
+                <div class="hero-bullet-item">
+                  <svg width="16" height="16" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M16.5 5.5l-8 8-4-4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                  <span>Transparent government &amp; service fees</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Right Column: Editorial Hero Collage with Visible Photographer Credits -->
+            <div class="hero-collage">
+              <div class="hero-main-photo-card">
+                <img src="https://images.unsplash.com/photo-1552465011-b4e21bf6e79a?auto=format&fit=crop&w=1200&q=80" alt="Turquoise water and limestone cliffs at Railay Beach, Krabi, Thailand" />
+                <span class="photo-credit">Photo: <a href="https://unsplash.com/photos/sELcHR_bGVs" target="_blank" rel="noopener noreferrer">Sumit Chinchane / Unsplash</a></span>
+                <div class="hero-main-overlay">
+                  <p style="display:flex;align-items:center;gap:0.35rem;font-size:0.86rem;opacity:0.95;">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                    <span>Krabi, Thailand</span>
+                  </p>
+                  <h2 style="color:var(--white);font-size:clamp(1.55rem,2.6vw,2.15rem);line-height:1.15;margin-top:0.35rem;">
+                    Less paperwork.<br />More possibilities.
+                  </h2>
+                </div>
+              </div>
+
+              <div class="hero-sub-collage">
+                <a href="destinations.html?country=vietnam" class="hero-sub-photo-card">
+                  <img src="https://images.unsplash.com/photo-1528127269322-539801943592?auto=format&fit=crop&w=800&q=80" alt="Limestone islands rising from the water in Ha Long Bay, Vietnam" />
+                  <span class="photo-credit">Photo: <a href="https://unsplash.com/photos/w7ZyuGYNpRQ" target="_blank" rel="noopener noreferrer">Ammie Ngo / Unsplash</a></span>
+                  <div class="hero-main-overlay" style="padding:1rem;">
+                    <span class="font-display" style="font-size:1.1rem;font-weight:700;color:var(--white);">Discover Vietnam</span>
+                  </div>
+                </a>
+
+                <a href="services.html" class="hero-sub-info-card">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-bottom:0.65rem;">
+                    <path d="M4 22h14a2 2 0 0 0 2-2V7l-5-5H6a2 2 0 0 0-2 2v4"></path>
+                    <path d="M14 2v4a2 2 0 0 0 2 2h4"></path>
+                    <path d="m3 15 2 2 4-4"></path>
+                  </svg>
+                  <span class="font-display" style="font-size:1.12rem;font-weight:700;line-height:1.25;color:var(--foreground);">
+                    One trip.<br />Every document.
+                  </span>
+                  <span style="margin-top:0.35rem;font-size:0.86rem;color:var(--muted-foreground);">
+                    eVisas, Arrival cards &amp; ETAs
+                  </span>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Dynamic Eligibility Result Drawer -->
+          <div id="checkerResultDrawer" class="checker-result-drawer"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3-Pillar Value Bar (Exact iVisaPortal Section) -->
+    <section class="value-pillars-bar">
+      <div class="container">
+        <div class="value-pillars-grid">
+          <div class="value-pillar-item">
+            <span class="value-pillar-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"></circle>
+                <path d="M2 12h20"></path>
+                <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+              </svg>
+            </span>
+            <div>
+              <h2 style="font-family:var(--font-sans);font-size:1rem;font-weight:600;color:var(--foreground);">The right starting point</h2>
+              <p style="margin-top:0.35rem;font-size:0.88rem;color:var(--muted-foreground);">Visa options, entry conditions and travel documents, organized by destination.</p>
+            </div>
+          </div>
+
+          <div class="value-pillar-item">
+            <span class="value-pillar-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="m3 17 2 2 4-4"></path>
+                <path d="m3 7 2 2 4-4"></path>
+                <path d="M13 6h8"></path>
+                <path d="M13 12h8"></path>
+                <path d="M13 18h8"></path>
+              </svg>
+            </span>
+            <div>
+              <h2 style="font-family:var(--font-sans);font-size:1rem;font-weight:600;color:var(--foreground);">The details that matter</h2>
+              <p style="margin-top:0.35rem;font-size:0.88rem;color:var(--muted-foreground);">Practical document checklists and photo verification to help you prepare before you apply.</p>
+            </div>
+          </div>
+
+          <div class="value-pillar-item">
+            <span class="value-pillar-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect width="18" height="18" x="3" y="3" rx="2"></rect>
+                <path d="M3 9a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2"></path>
+                <path d="M3 11h3c.8 0 1.6.3 2.1.9l1.1.9c1.6 1.6 4.1 1.6 5.7 0l1.1-.9c.5-.5 1.3-.9 2.1-.9H21"></path>
+              </svg>
+            </span>
+            <div>
+              <h2 style="font-family:var(--font-sans);font-size:1rem;font-weight:600;color:var(--foreground);">Clarity about costs</h2>
+              <p style="margin-top:0.35rem;font-size:0.88rem;color:var(--muted-foreground);">Understand service fees and statutory government charges before making a decision.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Featured Destinations Grid (Exact iVisaPortal Header + Cards with Photo Credits) -->
+    <section class="section" id="destinations">
+      <div class="container">
+        <div class="section-header-split">
+          <div>
+            <p class="ivp-eyebrow">Places worth the journey</p>
+            <h2 class="ivp-section-heading">Where will you go next?</h2>
+            <p class="section-subtitle" style="max-width:36rem;">
+              From temple towns to tropical coastlines and global financial hubs, start with the right visa and travel document information.
+            </p>
+          </div>
+          <a href="destinations.html" class="btn btn-outline">
+            <span>Explore all 18 destinations</span>
+          </a>
+        </div>
+
+        <div class="filter-bar">
+          <div class="region-pills">
+            <button type="button" class="region-pill js-region-pill active" data-region="all">All Regions</button>
+            <button type="button" class="region-pill js-region-pill" data-region="Asia-Pacific">Asia-Pacific</button>
+            <button type="button" class="region-pill js-region-pill" data-region="Middle East">Middle East</button>
+            <button type="button" class="region-pill js-region-pill" data-region="Europe">Europe</button>
+            <button type="button" class="region-pill js-region-pill" data-region="Americas">Americas</button>
+            <button type="button" class="region-pill js-region-pill" data-region="Africa">Africa</button>
+          </div>
+
+          <div class="search-input-wrap">
+            <span class="search-icon">
+              <svg width="16" height="16" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="9" r="6"/><path d="M13.5 13.5L17 17" stroke-linecap="round"/></svg>
+            </span>
+            <input type="search" id="destSearchInput" class="search-input" placeholder="Search country, eVisa, ETA..." aria-label="Search destination country" />
+          </div>
+        </div>
+
+        <!-- Cards rendered dynamically from data.js with photographer credits -->
+        <div class="destinations-grid" id="destinationsGrid" data-limit="6"></div>
+      </div>
+    </section>
+
+    <!-- 3-Step Process Section (Exact iVisaPortal "Simple from the start" + Photos & Credits) -->
+    <section class="section bg-subtle" id="how-it-works">
+      <div class="container">
+        <div class="section-header">
+          <p class="ivp-eyebrow">Simple from the start</p>
+          <h2 class="ivp-section-heading">Your next trip, one step closer.</h2>
+          <p class="section-subtitle">
+            A clear path through the details, so you can focus on the destination.
           </p>
-
-          <div class="hero-bullet-list">
-            <div class="hero-bullet-item">
-              <svg width="16" height="16" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M16.5 5.5l-8 8-4-4" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              <span>100% Online Process</span>
-            </div>
-            <div class="hero-bullet-item">
-              <svg width="16" height="16" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M16.5 5.5l-8 8-4-4" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              <span>Passport &amp; Photo Verification</span>
-            </div>
-            <div class="hero-bullet-item">
-              <svg width="16" height="16" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M16.5 5.5l-8 8-4-4" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              <span>Clear Government &amp; Service Fees</span>
-            </div>
-            <div class="hero-bullet-item">
-              <svg width="16" height="16" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M16.5 5.5l-8 8-4-4" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              <span>Delivered by Email as PDF</span>
-            </div>
-          </div>
         </div>
 
-        <!-- Right Visual Collage with Photographer Credits -->
-        <div class="hero-photo-grid">
-          <div class="photo-card photo-card-tall">
-            <img src="https://images.unsplash.com/photo-1544016768-982d1554f0b9?auto=format&fit=crop&w=800&q=80" alt="Traveler holding passport at airport terminal" />
-            <span class="photo-credit">Photo: <a href="https://unsplash.com/photos/7F65HDP0-E0" target="_blank" rel="noopener noreferrer">ConvertKit / Unsplash</a></span>
+        <div class="steps-grid-3">
+          <article class="step-card-visual">
+            <div class="step-card-img-wrap">
+              <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=800&q=80" alt="Traveler selecting passport and destination online" loading="lazy" />
+              <span class="photo-credit">Photo: <a href="https://unsplash.com/photos/g1Kr4Ozfoac" target="_blank" rel="noopener noreferrer">John Schnobrich / Unsplash</a></span>
+            </div>
+            <div class="step-card-content">
+              <div class="step-header-row">
+                <span class="step-icon-box">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M2 12h20"></path><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+                </span>
+                <span class="step-num-watermark" aria-hidden="true">01</span>
+              </div>
+              <h3 class="step-title">Tell us about your trip</h3>
+              <p class="step-desc">
+                Select the passport you travel with and your destination. Review the exact entry rules, permitted stay, and required documents.
+              </p>
+            </div>
+          </article>
+
+          <article class="step-card-visual">
+            <div class="step-card-img-wrap">
+              <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=800&q=80" alt="Document specialist reviewing visa checklist" loading="lazy" />
+              <span class="photo-credit">Photo: <a href="https://unsplash.com/photos/5fNmWej4tAA" target="_blank" rel="noopener noreferrer">Scott Graham / Unsplash</a></span>
+            </div>
+            <div class="step-card-content">
+              <div class="step-header-row">
+                <span class="step-icon-box">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 22h14a2 2 0 0 0 2-2V7l-5-5H6a2 2 0 0 0-2 2v4"></path><path d="M14 2v4a2 2 0 0 0 2 2h4"></path><path d="m3 15 2 2 4-4"></path></svg>
+                </span>
+                <span class="step-num-watermark" aria-hidden="true">02</span>
+              </div>
+              <h3 class="step-title">We verify your documents</h3>
+              <p class="step-desc">
+                Upload your passport bio scan and photo. Our specialists verify passport validity, name accuracy, and photo specifications before submission.
+              </p>
+            </div>
+          </article>
+
+          <article class="step-card-visual">
+            <div class="step-card-img-wrap">
+              <img src="https://images.unsplash.com/photo-1488646953014-85cb44e25828?auto=format&fit=crop&w=800&q=80" alt="Traveler ready for departure with approved travel documents" loading="lazy" />
+              <span class="photo-credit">Photo: <a href="https://unsplash.com/photos/O453M2Liufs" target="_blank" rel="noopener noreferrer">Glenn Carstens-Peters / Unsplash</a></span>
+            </div>
+            <div class="step-card-content">
+              <div class="step-header-row">
+                <span class="step-icon-box">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 17 2 2 4-4"></path><path d="m3 7 2 2 4-4"></path><path d="M13 6h8"></path><path d="M13 12h8"></path><path d="M13 18h8"></path></svg>
+                </span>
+                <span class="step-num-watermark" aria-hidden="true">03</span>
+              </div>
+              <h3 class="step-title">Travel with confidence</h3>
+              <p class="step-desc">
+                Once approved by the destination authority, receive your eVisa, ETA, or Digital Arrival Card by email as a ready-to-print PDF.
+              </p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Editorial Split Section (Exact iVisaPortal "Feel prepared. Travel with confidence.") -->
+    <section class="section">
+      <div class="container">
+        <div class="editorial-split-grid">
+          <div>
+            <div class="editorial-photo-frame">
+              <img src="https://images.unsplash.com/photo-1537996194471-e657df975ab4?auto=format&fit=crop&w=1000&q=80" alt="Limestone cliffs and turquoise waves in Bali, Indonesia" loading="lazy" />
+              <span class="photo-credit">Photo: <a href="https://unsplash.com/photos/1527pjeb6jg" target="_blank" rel="noopener noreferrer">Alfiano Sutianto / Unsplash</a></span>
+            </div>
+            <div class="editorial-floating-card">
+              <span class="value-pillar-icon" style="border-radius:999px;">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="16" r="1"></circle><rect x="3" y="10" width="18" height="12" rx="2"></rect><path d="M7 10V7a5 5 0 0 1 10 0v3"></path></svg>
+              </span>
+              <div>
+                <p style="font-weight:600;color:var(--foreground);">Your details stay in your control.</p>
+                <p style="margin-top:0.25rem;font-size:0.88rem;color:var(--muted-foreground);">Explore requirements without sharing your passport number or creating an account until you are ready to apply.</p>
+              </div>
+            </div>
           </div>
-          <div class="photo-card photo-card-short">
-            <img src="https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&w=800&q=80" alt="Commercial aircraft flying above clouds" />
-            <span class="photo-credit">Photo: <a href="https://unsplash.com/photos/rf6ywHVkrlY" target="_blank" rel="noopener noreferrer">Ross Parmly / Unsplash</a></span>
-          </div>
-          <div class="photo-card photo-card-short">
-            <img src="https://images.unsplash.com/photo-1530521954074-e64f6810b32d?auto=format&fit=crop&w=800&q=80" alt="Traveler checking flight departure board" />
-            <span class="photo-credit">Photo: <a href="https://unsplash.com/photos/mSESwdMZr-A" target="_blank" rel="noopener noreferrer">Jeshoots / Unsplash</a></span>
+
+          <div>
+            <p class="ivp-eyebrow">Thoughtful details. Clear choices.</p>
+            <h2 class="ivp-section-heading">Feel prepared.<br />Travel with confidence.</h2>
+            <p class="section-subtitle" style="margin-bottom:1.75rem;">
+              Every trip is different. We bring the key visa and travel document requirements together, with room to understand your options before taking the next step.
+            </p>
+
+            <ul style="display:grid;gap:1.25rem;margin-bottom:2rem;">
+              <li style="display:flex;gap:0.85rem;align-items:flex-start;">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="margin-top:3px;flex-shrink:0;"><path d="M20 6 9 17l-5-5"></path></svg>
+                <div>
+                  <h3 style="font-family:var(--font-sans);font-size:1rem;font-weight:600;color:var(--foreground);">Know what to prepare</h3>
+                  <p style="margin-top:0.2rem;font-size:0.9rem;color:var(--muted-foreground);">Passport validity, photo rules, and arrival declarations explained clearly for each destination.</p>
+                </div>
+              </li>
+              <li style="display:flex;gap:0.85rem;align-items:flex-start;">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="margin-top:3px;flex-shrink:0;"><path d="M20 6 9 17l-5-5"></path></svg>
+                <div>
+                  <h3 style="font-family:var(--font-sans);font-size:1rem;font-weight:600;color:var(--foreground);">Focused strictly on Visas &amp; Travel Documents</h3>
+                  <p style="margin-top:0.2rem;font-size:0.9rem;color:var(--muted-foreground);">Dedicated exclusively to Tourist eVisas, Business Visas, ETAs/ESTAs, and Digital Arrival Cards.</p>
+                </div>
+              </li>
+              <li style="display:flex;gap:0.85rem;align-items:flex-start;">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="margin-top:3px;flex-shrink:0;"><path d="M20 6 9 17l-5-5"></path></svg>
+                <div>
+                  <h3 style="font-family:var(--font-sans);font-size:1rem;font-weight:600;color:var(--foreground);">Understand who we are</h3>
+                  <p style="margin-top:0.2rem;font-size:0.9rem;color:var(--muted-foreground);">An independent private service with clear contact details, published policies, and direct government portal links.</p>
+                </div>
+              </li>
+            </ul>
+
+            <a href="about.html" class="btn btn-outline">Meet OnePassVisa</a>
           </div>
         </div>
       </div>
+    </section>
 
-      <!-- Visa & Travel Document Eligibility Checker -->
-      <div class="checker-card" id="visaCheckerWidget">
-        <form id="heroCheckerForm" class="checker-form-grid">
-          <div class="field-group">
-            <label class="field-label" for="checkerNationality">Citizen of (Passport)</label>
-            <select id="checkerNationality" class="field-control js-nationality-select" data-default="US"></select>
-          </div>
-          <div class="field-group">
-            <label class="field-label" for="checkerDestination">Traveling to</label>
-            <select id="checkerDestination" class="field-control js-destination-select" data-default="uae"></select>
-          </div>
-          <div class="field-group">
-            <label class="field-label" for="checkerPurpose">Document Type</label>
-            <select id="checkerPurpose" class="field-control">
-              <option value="Tourist eVisa">Tourist eVisa</option>
-              <option value="Business Visa">Business eVisa</option>
-              <option value="Electronic Travel Authorization (ETA)">Electronic Travel Auth (ETA / ESTA)</option>
-              <option value="Digital Arrival Card">Digital Arrival Card</option>
-              <option value="Transit Visa">Transit Visa</option>
-            </select>
+    <!-- Deep Forest Cost Banner (#103E30 Exact iVisaPortal Cost Section) + Interactive Fee Calculator -->
+    <section class="section" id="calculator" style="padding-top:1rem;">
+      <div class="container">
+        <div class="forest-cost-banner" style="margin-bottom:2rem;">
+          <div>
+            <p class="forest-cost-eyebrow">Understand the full picture</p>
+            <h2 class="forest-cost-title">Clear costs.<br />In plain sight.</h2>
+            <svg width="46" height="46" viewBox="0 0 24 24" fill="none" stroke="#BBEBCF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-top:1.5rem;">
+              <rect width="18" height="18" x="3" y="3" rx="2"></rect>
+              <path d="M3 9a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2"></path>
+              <path d="M3 11h3c.8 0 1.6.3 2.1.9l1.1.9c1.6 1.6 4.1 1.6 5.7 0l1.1-.9c.5-.5 1.3-.9 2.1-.9H21"></path>
+            </svg>
           </div>
           <div>
-            <button type="submit" class="btn btn-primary btn-lg" style="height:46px;width:100%;">
-              <span>Check Requirements</span>
-              <svg width="16" height="16" class="icon-arrow" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 10h12M11 5l5 5-5 5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </button>
+            <p style="font-size:1.1rem;line-height:1.7;color:rgba(255,255,255,0.92);">
+              Know which charges are statutory government fees, which cover private assistance, and which depend on your travel speed.
+            </p>
+            <ul style="margin-top:1.15rem;display:grid;gap:0.65rem;font-size:0.92rem;color:rgba(255,255,255,0.82);">
+              <li style="display:flex;gap:0.65rem;align-items:center;">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#BBEBCF" stroke-width="2.2"><path d="M20 6 9 17l-5-5"/></svg>
+                <span>Visa type and entry choice shown separately.</span>
+              </li>
+              <li style="display:flex;gap:0.65rem;align-items:center;">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#BBEBCF" stroke-width="2.2"><path d="M20 6 9 17l-5-5"/></svg>
+                <span>Statutory government fees itemized beside our service fee.</span>
+              </li>
+              <li style="display:flex;gap:0.65rem;align-items:center;">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#BBEBCF" stroke-width="2.2"><path d="M20 6 9 17l-5-5"/></svg>
+                <span>Direct links to official government websites always provided.</span>
+              </li>
+            </ul>
           </div>
-        </form>
-
-        <!-- Dynamic Eligibility Result Drawer -->
-        <div id="checkerResultDrawer" class="checker-result-drawer"></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Popular Visa & Travel Document Destinations (Each Card Has Photo + Credit) -->
-  <section class="section" id="destinations">
-    <div class="container">
-      <div class="section-header">
-        <span class="section-eyebrow">Popular Destinations</span>
-        <h2 class="section-title">Browse Visas &amp; Travel Documents by Country</h2>
-        <p class="section-subtitle">
-          Select a destination to see required documents, processing times, and transparent pricing (Government Fee + Service Fee).
-        </p>
-      </div>
-
-      <div class="filter-bar">
-        <div class="region-pills">
-          <button type="button" class="region-pill js-region-pill active" data-region="all">All Regions</button>
-          <button type="button" class="region-pill js-region-pill" data-region="Middle East">Middle East</button>
-          <button type="button" class="region-pill js-region-pill" data-region="Europe">Europe</button>
-          <button type="button" class="region-pill js-region-pill" data-region="Asia-Pacific">Asia-Pacific</button>
-          <button type="button" class="region-pill js-region-pill" data-region="Americas">Americas</button>
-          <button type="button" class="region-pill js-region-pill" data-region="Africa">Africa</button>
         </div>
 
-        <div class="search-input-wrap">
-          <span class="search-icon">
-            <svg width="15" height="15" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="9" r="6"/><path d="M13.5 13.5L17 17" stroke-linecap="round"/></svg>
-          </span>
-          <input type="search" id="destSearchInput" class="search-input" placeholder="Search country or document..." aria-label="Search destination country" />
+        <!-- Interactive Fee Calculator Card -->
+        <div class="wizard-card">
+          <div class="wizard-layout" style="grid-template-columns:1.25fr 0.75fr;align-items:center;">
+            <div>
+              <h3 style="font-size:1.35rem;margin-bottom:1rem;">Instant Visa &amp; Travel Document Fee Calculator</h3>
+              <div class="hero-form-2col" style="margin-bottom:1.15rem;">
+                <div class="field-group">
+                  <label class="field-label" for="calcDestination">Destination Country</label>
+                  <select id="calcDestination" class="field-control js-destination-select" data-default="uae"></select>
+                </div>
+                <div class="field-group">
+                  <label class="field-label" for="calcTravelers">Number of Travelers</label>
+                  <input type="number" id="calcTravelers" class="field-control" value="1" min="1" max="20" />
+                </div>
+              </div>
+
+              <div class="field-group" style="margin-bottom:1.15rem;">
+                <span class="field-label">Processing Speed</span>
+                <div class="tier-selector-grid" style="margin:0.35rem 0 0;">
+                  <label class="tier-option" style="cursor:pointer;">
+                    <input type="radio" name="calcTier" value="standard" checked style="accent-color:var(--primary);" />
+                    <strong style="display:block;font-size:0.9rem;margin-top:0.25rem;">Standard</strong>
+                    <span style="font-size:0.78rem;color:var(--muted-foreground);">Included (+$0)</span>
+                  </label>
+                  <label class="tier-option" style="cursor:pointer;">
+                    <input type="radio" name="calcTier" value="express" style="accent-color:var(--primary);" />
+                    <strong style="display:block;font-size:0.9rem;margin-top:0.25rem;">Express</strong>
+                    <span style="font-size:0.78rem;color:var(--primary);">24–48 Hrs (+<span data-usd="29">$29</span>)</span>
+                  </label>
+                  <label class="tier-option" style="cursor:pointer;">
+                    <input type="radio" name="calcTier" value="rush" style="accent-color:var(--primary);" />
+                    <strong style="display:block;font-size:0.9rem;margin-top:0.25rem;">Priority Rush</strong>
+                    <span style="font-size:0.78rem;color:var(--foreground);">Fastest (+<span data-usd="59">$59</span>)</span>
+                  </label>
+                </div>
+              </div>
+
+              <label style="display:flex;align-items:center;gap:0.65rem;background:var(--bg-page);border:1px solid var(--border);padding:0.85rem 1rem;border-radius:var(--radius-sm);cursor:pointer;font-size:0.9rem;font-weight:500;">
+                <input type="checkbox" id="calcProtection" checked style="width:18px;height:18px;accent-color:var(--primary);" />
+                <span>Add <strong>Fee Refund Protection</strong> if denied (+<span data-usd="19">$19</span> / traveler)</span>
+              </label>
+            </div>
+
+            <div style="background:var(--bg-page);border:1px solid var(--border);padding:1.5rem;border-radius:var(--radius-lg);">
+              <div style="font-size:0.75rem;text-transform:uppercase;letter-spacing:0.06em;color:var(--muted-foreground);font-weight:700;margin-bottom:0.65rem;">
+                Complete Fee Breakdown
+              </div>
+              <div class="summary-line">
+                <span style="color:var(--muted-foreground);">Government Fee</span>
+                <strong id="calcGovFee">$85 × 1</strong>
+              </div>
+              <div class="summary-line">
+                <span style="color:var(--muted-foreground);">Service &amp; Speed Fee</span>
+                <strong id="calcServiceFee">$58 × 1</strong>
+              </div>
+              <div class="summary-line">
+                <span style="color:var(--muted-foreground);">Estimated Turnaround</span>
+                <strong id="calcSpeedOut" style="color:var(--primary);">12 – 24 Hours</strong>
+              </div>
+              <div class="summary-total" style="margin-bottom:1.25rem;">
+                <span>Total</span>
+                <span id="calcTotalOut" style="color:var(--primary);font-size:1.55rem;">$143</span>
+              </div>
+              <a href="apply.html" id="calcApplyLink" class="btn btn-primary btn-block">
+                <span>Start Application</span>
+                <svg width="16" height="16" class="icon-arrow" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 10h12M11 5l5 5-5 5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </a>
+            </div>
+          </div>
         </div>
       </div>
+    </section>
 
-      <!-- Cards rendered dynamically from data.js with photographer credits -->
-      <div class="destinations-grid" id="destinationsGrid" data-limit="9"></div>
-
-      <div style="text-align:center;margin-top:2.5rem;">
-        <a href="destinations.html" class="btn btn-outline btn-lg">
-          <span>View All 18 Featured Countries</span>
-          <svg width="16" height="16" class="icon-arrow" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 10h12M11 5l5 5-5 5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- Visual 3-Step Process with Photography & Credits -->
-  <section class="section bg-subtle">
-    <div class="container">
-      <div class="section-header">
-        <span class="section-eyebrow">Easy 3-Step Process</span>
-        <h2 class="section-title">How to Apply Online</h2>
-        <p class="section-subtitle">
-          A clear, guided process designed to help you submit error-free visa and travel document applications.
-        </p>
-      </div>
-
-      <div class="steps-grid-3">
-        <article class="step-card-visual">
-          <div class="step-card-img-wrap">
-            <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=800&q=80" alt="Applicant filling out online visa form on laptop" />
-            <span class="photo-credit">Photo: <a href="https://unsplash.com/photos/g1Kr4Ozfoac" target="_blank" rel="noopener noreferrer">John Schnobrich / Unsplash</a></span>
-          </div>
-          <div class="step-card-content">
-            <div class="step-icon-box">Step 1</div>
-            <h3 class="step-title">Fill Out the Simple Online Form</h3>
-            <p class="step-desc">
-              Choose your destination, enter your travel details in plain English, and upload a photo or scan of your passport bio page.
-            </p>
-          </div>
-        </article>
-
-        <article class="step-card-visual">
-          <div class="step-card-img-wrap">
-            <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=800&q=80" alt="Visa specialist reviewing travel documents" />
-            <span class="photo-credit">Photo: <a href="https://unsplash.com/photos/5fNmWej4tAA" target="_blank" rel="noopener noreferrer">Scott Graham / Unsplash</a></span>
-          </div>
-          <div class="step-card-content">
-            <div class="step-icon-box">Step 2</div>
-            <h3 class="step-title">We Check Your Documents &amp; Photo</h3>
-            <p class="step-desc">
-              Our team checks your passport validity, name spelling, and photo dimensions so your application meets exact immigration rules.
-            </p>
-          </div>
-        </article>
-
-        <article class="step-card-visual">
-          <div class="step-card-img-wrap">
-            <img src="https://images.unsplash.com/photo-1488646953014-85cb44e25828?auto=format&fit=crop&w=800&q=80" alt="Traveler with passport and boarding pass" />
-            <span class="photo-credit">Photo: <a href="https://unsplash.com/photos/O453M2Liufs" target="_blank" rel="noopener noreferrer">Glenn Carstens-Peters / Unsplash</a></span>
-          </div>
-          <div class="step-card-content">
-            <div class="step-icon-box">Step 3</div>
-            <h3 class="step-title">Receive Your Visa by Email</h3>
-            <p class="step-desc">
-              Once approved by the destination authority, we email your eVisa, ETA, or Arrival Card as a ready-to-print PDF document.
-            </p>
-          </div>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <!-- 4 Core Categories of Visas & Travel Documents (With Photos & Credits) -->
-  <section class="section">
-    <div class="container">
-      <div class="section-header">
-        <span class="section-eyebrow">Focused Exclusively on Entry Documents</span>
-        <h2 class="section-title">Types of Visas &amp; Travel Documents</h2>
-        <p class="section-subtitle">
-          We only process official visas and pre-travel entry authorizations required for international air and land travel.
-        </p>
-      </div>
-
-      <div class="steps-grid">
-        <article class="step-card-visual">
-          <div class="step-card-img-wrap" style="height:145px;">
-            <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=700&q=80" alt="Tropical leisure destination beach" />
-            <span class="photo-credit">Photo: <a href="https://unsplash.com/photos/KMn4VEeEPR8" target="_blank" rel="noopener noreferrer">Sean Oulashin / Unsplash</a></span>
-          </div>
-          <div class="step-card-content">
-            <h3 class="step-title">Tourist eVisas</h3>
-            <p class="step-desc">
-              Single and multiple-entry electronic visas for holidays, sightseeing, and visiting family or friends.
-            </p>
-          </div>
-        </article>
-
-        <article class="step-card-visual">
-          <div class="step-card-img-wrap" style="height:145px;">
-            <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=700&q=80" alt="Financial district skyscrapers for business travel" />
-            <span class="photo-credit">Photo: <a href="https://unsplash.com/photos/PhYq704ffdA" target="_blank" rel="noopener noreferrer">Sean Pollock / Unsplash</a></span>
-          </div>
-          <div class="step-card-content">
-            <h3 class="step-title">Business &amp; Transit Visas</h3>
-            <p class="step-desc">
-              Short-stay business eVisas for meetings and trade events, plus 48-to-96 hour airport transit visas.
-            </p>
-          </div>
-        </article>
-
-        <article class="step-card-visual">
-          <div class="step-card-img-wrap" style="height:145px;">
-            <img src="https://images.unsplash.com/photo-1569154941061-e231b4725ef1?auto=format&fit=crop&w=700&q=80" alt="Airport departure gate and passport control" />
-            <span class="photo-credit">Photo: <a href="https://unsplash.com/photos/Z40sav8IYqQ" target="_blank" rel="noopener noreferrer">Artur Tumasjan / Unsplash</a></span>
-          </div>
-          <div class="step-card-content">
-            <h3 class="step-title">Travel Auth (ETA / ESTA)</h3>
-            <p class="step-desc">
-              Pre-travel digital authorizations for visa-exempt travelers visiting the US, UK, Canada, Australia, and Kenya.
-            </p>
-          </div>
-        </article>
-
-        <article class="step-card-visual">
-          <div class="step-card-img-wrap" style="height:145px;">
-            <img src="https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?auto=format&fit=crop&w=700&q=80" alt="International arrival city skyline" />
-            <span class="photo-credit">Photo: <a href="https://unsplash.com/photos/alY6_OpdwRQ" target="_blank" rel="noopener noreferrer">Louie Martinez / Unsplash</a></span>
-          </div>
-          <div class="step-card-content">
-            <h3 class="step-title">Digital Arrival Cards</h3>
-            <p class="step-desc">
-              Mandatory pre-boarding electronic arrival cards for Singapore (SGAC), Thailand (TDAC), Bali, and Japan.
-            </p>
-          </div>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <!-- Simple Fee & Processing Time Calculator -->
-  <section class="section bg-subtle" id="calculator">
-    <div class="container">
-      <div class="section-header">
-        <span class="section-eyebrow">Clear Fee Breakdown</span>
-        <h2 class="section-title">Calculate Your Visa &amp; Service Fees</h2>
-        <p class="section-subtitle">
-          See the exact statutory government fee and our processing fee in your preferred currency before you start.
-        </p>
-      </div>
-
-      <div class="wizard-card" style="max-width:960px;margin:0 auto;">
-        <div style="display:grid;grid-template-columns:1.2fr 0.8fr;gap:2rem;align-items:center;" class="wizard-layout">
+    <!-- 2-Column FAQ Section (Exact iVisaPortal "Before you begin.") -->
+    <section class="section bg-subtle">
+      <div class="container">
+        <div class="faq-split-grid">
           <div>
-            <div style="display:grid;grid-template-columns:1.3fr 0.7fr;gap:1rem;margin-bottom:1.25rem;">
-              <div class="field-group">
-                <label class="field-label" for="calcDestination">Destination Country</label>
-                <select id="calcDestination" class="field-control js-destination-select" data-default="uae"></select>
-              </div>
-              <div class="field-group">
-                <label class="field-label" for="calcTravelers">Number of Travelers</label>
-                <input type="number" id="calcTravelers" class="field-control" value="1" min="1" max="20" />
-              </div>
-            </div>
-
-            <div class="field-group" style="margin-bottom:1.25rem;">
-              <span class="field-label">Select Processing Speed</span>
-              <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:0.75rem;margin-top:0.35rem;">
-                <label style="border:1px solid var(--gray-300);padding:0.85rem;border-radius:var(--radius-sm);cursor:pointer;background:var(--white);">
-                  <input type="radio" name="calcTier" value="standard" checked style="accent-color:var(--blue-600);" />
-                  <strong style="display:block;font-size:0.88rem;color:var(--navy-900);margin-top:0.25rem;">Standard</strong>
-                  <span style="font-size:0.75rem;color:var(--gray-500);">Included (+$0)</span>
-                </label>
-                <label style="border:1px solid var(--gray-300);padding:0.85rem;border-radius:var(--radius-sm);cursor:pointer;background:var(--white);">
-                  <input type="radio" name="calcTier" value="express" style="accent-color:var(--blue-600);" />
-                  <strong style="display:block;font-size:0.88rem;color:var(--navy-900);margin-top:0.25rem;">Express</strong>
-                  <span style="font-size:0.75rem;color:var(--blue-600);">24–48 Hrs (+<span data-usd="29">$29</span>)</span>
-                </label>
-                <label style="border:1px solid var(--gray-300);padding:0.85rem;border-radius:var(--radius-sm);cursor:pointer;background:var(--white);">
-                  <input type="radio" name="calcTier" value="rush" style="accent-color:var(--blue-600);" />
-                  <strong style="display:block;font-size:0.88rem;color:var(--navy-900);margin-top:0.25rem;">Priority Rush</strong>
-                  <span style="font-size:0.75rem;color:var(--navy-900);">Fastest (+<span data-usd="59">$59</span>)</span>
-                </label>
-              </div>
-            </div>
-
-            <label style="display:flex;align-items:center;gap:0.65rem;background:var(--gray-50);border:1px solid var(--gray-200);padding:0.8rem 1rem;border-radius:var(--radius-sm);cursor:pointer;font-size:0.88rem;font-weight:500;color:var(--navy-900);">
-              <input type="checkbox" id="calcProtection" checked style="width:16px;height:16px;accent-color:var(--blue-600);" />
-              <span>Add <strong>Fee Refund Protection</strong> if denied (+<span data-usd="19">$19</span> / person)</span>
-            </label>
-          </div>
-
-          <div style="background:var(--gray-50);border:1px solid var(--gray-200);padding:1.5rem;border-radius:var(--radius-md);">
-            <div style="font-size:0.72rem;text-transform:uppercase;letter-spacing:0.06em;color:var(--gray-500);font-weight:700;margin-bottom:0.65rem;">
-              Price Summary
-            </div>
-            <div class="summary-line">
-              <span style="color:var(--gray-600);">Government Fee</span>
-              <strong id="calcGovFee">$85 × 1</strong>
-            </div>
-            <div class="summary-line">
-              <span style="color:var(--gray-600);">Service &amp; Speed Fee</span>
-              <strong id="calcServiceFee">$58 × 1</strong>
-            </div>
-            <div class="summary-line">
-              <span style="color:var(--gray-600);">Estimated Speed</span>
-              <strong id="calcSpeedOut" style="color:var(--blue-600);">12 – 24 Hours</strong>
-            </div>
-            <div class="summary-total" style="margin-bottom:1.25rem;">
-              <span>Total</span>
-              <span id="calcTotalOut" style="color:var(--blue-600);font-size:1.5rem;">$143</span>
-            </div>
-            <a href="apply.html" id="calcApplyLink" class="btn btn-primary btn-block">
-              <span>Start Application</span>
-              <svg width="16" height="16" class="icon-arrow" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 10h12M11 5l5 5-5 5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span class="value-pillar-icon" style="margin-bottom:1.15rem;">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"></path></svg>
+            </span>
+            <p class="ivp-eyebrow">Good questions, clear answers</p>
+            <h2 class="ivp-section-heading">Before you begin.</h2>
+            <p class="section-subtitle" style="margin-bottom:1.25rem;">
+              Get to know the documents, our private assistance service, and what happens next.
+            </p>
+            <a href="services.html" style="font-weight:600;color:var(--primary);text-decoration:underline;text-underline-offset:4px;">
+              Visa, ETA or arrival card? →
             </a>
           </div>
-        </div>
-      </div>
-    </div>
-  </section>
 
-  <!-- Simple, Easy-to-Read FAQ Section -->
-  <section class="section">
-    <div class="container">
-      <div class="section-header">
-        <span class="section-eyebrow">Quick Answers</span>
-        <h2 class="section-title">Frequently Asked Questions</h2>
-        <p class="section-subtitle">
-          Simple answers to common questions about applying for visas and travel documents online.
-        </p>
-      </div>
+          <div class="faq-list">
+            <div class="faq-item open">
+              <button type="button" class="faq-question">
+                <span>What is the difference between a visa, an ETA and an arrival card?</span>
+                <span>+</span>
+              </button>
+              <div class="faq-answer">
+                A visa, an electronic travel authorization (ETA / ESTA), and an arrival declaration are different entry requirements. Depending on your passport and destination, you may need one or both. Our destination guides and <a href="services.html" style="color:var(--primary);font-weight:600;">Travel Documents/ETAs</a> section keep them clearly separated.
+              </div>
+            </div>
 
-      <div class="faq-list">
-        <div class="faq-item open">
-          <button type="button" class="faq-question">
-            <span>Is OnePassVisa.com a government website?</span>
-            <span>+</span>
-          </button>
-          <div class="faq-answer">
-            No. OnePassVisa.com is a private, independent visa and travel document assistance agency. We provide simplified online forms, document and photo formatting, and 24/7 customer support for a service fee. Travelers can also apply directly on official government portals for the government fee alone.
-          </div>
-        </div>
+            <div class="faq-item">
+              <button type="button" class="faq-question">
+                <span>Is OnePassVisa.com affiliated with any government?</span>
+                <span>+</span>
+              </button>
+              <div class="faq-answer">
+                No. OnePassVisa.com is an independent, private visa and travel document assistance agency. We charge a transparent service fee for document review, photo formatting, and guided filing. Travelers can also apply directly through official government websites for the statutory government fee alone.
+              </div>
+            </div>
 
-        <div class="faq-item">
-          <button type="button" class="faq-question">
-            <span>Do I need to mail my physical passport?</span>
-            <span>+</span>
-          </button>
-          <div class="faq-answer">
-            No. Electronic Visas (eVisas), Electronic Travel Authorizations (ETAs), and Digital Arrival Cards are processed completely online using a clear scan or photo of your passport bio page.
-          </div>
-        </div>
+            <div class="faq-item">
+              <button type="button" class="faq-question">
+                <span>What does a complete visa price include?</span>
+                <span>+</span>
+              </button>
+              <div class="faq-answer">
+                A complete quote clearly separates the statutory government charge and our private assistance fee. Both fees are shown side-by-side before you start your application.
+              </div>
+            </div>
 
-        <div class="faq-item">
-          <button type="button" class="faq-question">
-            <span>How do I receive my approved visa or travel document?</span>
-            <span>+</span>
-          </button>
-          <div class="faq-answer">
-            Once approved, your visa or travel authorization is sent directly to your email address as a PDF document and is also available to download anytime on our <a href="track.html" style="color:var(--blue-600);font-weight:600;">Track Status</a> page.
-          </div>
-        </div>
-
-        <div class="faq-item">
-          <button type="button" class="faq-question">
-            <span>What is your refund policy?</span>
-            <span>+</span>
-          </button>
-          <div class="faq-answer">
-            You can cancel your order for a 100% refund at any time before your application is submitted to the destination government portal. Read our complete <a href="policies.html#refund" style="color:var(--blue-600);font-weight:600;">Refund &amp; Cancellation Policy</a>.
+            <div class="faq-item">
+              <button type="button" class="faq-question">
+                <span>Can you guarantee visa approval?</span>
+                <span>+</span>
+              </button>
+              <div class="faq-answer">
+                No. Government immigration authorities exclusively control visa decisions, processing times, and border admission. Our team checks every application and photo for compliance to prevent avoidable paperwork errors.
+              </div>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
+
+    <!-- Bottom Travel Documents / ETA Split Banner (Exact iVisaPortal Callout with Photo & Credit) -->
+    <section class="section">
+      <div class="container">
+        <div style="display:grid;grid-template-columns:1.15fr 0.85fr;border-radius:var(--radius-xl);border:1px solid var(--border);background:var(--bg-secondary);overflow:hidden;" class="hero-split">
+          <div style="padding:clamp(1.75rem,4vw,3rem);">
+            <p class="ivp-eyebrow">Already sorted your visa?</p>
+            <h2 class="ivp-section-heading" style="margin-top:0.35rem;">Every document.<br />One place to start.</h2>
+            <p class="section-subtitle" style="margin-bottom:1.75rem;">
+              Digital arrival cards (Singapore SGAC, Thailand TDAC, Indonesia Bali e-VOA) and Electronic Travel Authorizations (US ESTA, UK ETA, Canada eTA) can be separate requirements. Keep all of your travel paperwork organized in one place.
+            </p>
+            <a href="services.html" class="btn btn-primary btn-lg">
+              <span>Explore Travel Documents / ETAs</span>
+            </a>
+          </div>
+          <div style="position:relative;min-height:280px;height:100%;">
+            <img src="https://images.unsplash.com/photo-1525625293386-3f8f99389edd?auto=format&fit=crop&w=900&q=80" alt="Singapore Jewel Changi and Marina Bay skyline" loading="lazy" style="width:100%;height:100%;object-fit:cover;" />
+            <span class="photo-credit">Photo: <a href="https://unsplash.com/photos/d6ebY-faOO0" target="_blank" rel="noopener noreferrer">Hu Chen / Unsplash</a></span>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
 
   <!-- Country Requirement Detail Modal -->
   <div class="modal-backdrop" id="countryDetailModal" role="dialog" aria-modal="true" aria-labelledby="countryModalTitle">
     <div class="modal-dialog">
       <div class="modal-header">
-        <h3 id="countryModalTitle" style="font-size:1.1rem;font-weight:700;">Visa &amp; Travel Document Details</h3>
+        <h3 id="countryModalTitle" style="font-size:1.15rem;font-weight:700;">Visa &amp; Travel Document Details</h3>
         <button type="button" class="btn btn-outline btn-sm" onclick="window.opvCloseCountryModal()">Close</button>
       </div>
       <div class="modal-body" id="countryModalBody"></div>
     </div>
   </div>
 
-  <!-- Cookie Consent Banner (Required for Google Ads Compliance) -->
+  <!-- Cookie Consent Banner -->
   <div class="cookie-banner" id="cookieConsentBanner" role="region" aria-label="Cookie Consent">
     <div style="max-width:680px;">
-      <strong>Privacy &amp; Cookie Notice:</strong> We use essential cookies to remember your selected currency, secure your application session, and comply with Google Ads &amp; GDPR transparency standards. See our <a href="policies.html#cookies" style="color:var(--blue-100);text-decoration:underline;">Cookie Policy</a>.
+      <strong>Privacy &amp; Cookie Notice:</strong> We use essential cookies to remember your selected currency, secure your application session, and comply with Google Ads &amp; GDPR transparency standards. See our <a href="policies.html#cookies" style="color:var(--text-forest-mint);text-decoration:underline;">Cookie Policy</a>.
     </div>
-    <div style="display:flex;gap:0.6rem;">
-      <a href="policies.html#cookies" class="btn btn-outline btn-sm" style="background:transparent;color:var(--white);border-color:rgba(255,255,255,0.3);">Manage Settings</a>
+    <div style="display:flex;gap:0.6rem;flex-wrap:wrap;">
+      <a href="policies.html#cookies" class="btn btn-outline btn-sm" style="background:transparent;color:var(--white);border-color:rgba(255,255,255,0.3);">Cookie Settings</a>
       <button type="button" id="acceptCookiesBtn" class="btn btn-primary btn-sm">Accept All</button>
     </div>
   </div>
 
-  <!-- Google Ads Compliant Global Footer -->
+  <!-- Dark Charcoal Footer (Exact iVisaPortal #1A1D20 Footer) -->
   <footer class="site-footer">
     <div class="container">
       <div class="footer-grid">
         <div>
-          <a href="index.html" class="brand-logo" style="margin-bottom:0.85rem;">
-            <div class="brand-mark">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <rect x="4" y="2" width="16" height="20" rx="2.5"></rect>
-                <circle cx="12" cy="10" r="3.5"></circle>
-                <path d="M8.5 17.5h7"></path>
-              </svg>
-            </div>
+          <a href="index.html" class="brand-logo" style="margin-bottom:1rem;">
+            <svg viewBox="0 0 68 96" width="26" height="36" aria-hidden="true" class="brand-mark-svg">
+              <polyline points="16,24 28,36 52,12" fill="none" stroke="#00A859" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"></polyline>
+              <line x1="34" y1="56" x2="34" y2="84" stroke="#00A859" stroke-width="12" stroke-linecap="round"></line>
+            </svg>
             <div class="brand-wordmark">
-              <div class="brand-title" style="color:var(--white);">OnePass<span>Visa</span></div>
-              <div class="brand-subtitle" style="color:var(--gray-400);">onepassvisa.com</div>
+              <div class="brand-title" style="color:var(--text-footer);">OnePass<span style="color:var(--text-footer);font-weight:400;">Visa</span></div>
+              <div class="brand-subtitle" style="color:var(--text-footer-muted);">Private travel-document assistance</div>
             </div>
           </a>
-          <p style="font-size:0.84rem;color:var(--gray-400);margin-bottom:0.85rem;line-height:1.6;">
-            Private online visa and travel document application assistance for international travelers.
+          <p class="font-display" style="font-size:1.35rem;font-weight:600;color:var(--text-footer);line-height:1.25;margin:1rem 0 0.75rem;">
+            Visas and documents.<br />Ready for your next trip.
           </p>
-          <div style="font-size:0.78rem;color:var(--gray-400);line-height:1.55;">
-            <strong>Registered Office:</strong><br />
-            OnePassVisa.com Inc.<br />
-            540 Madison Avenue, Suite 2100, New York, NY 10022, USA<br />
-            Tel: +1 (800) 555-0199 • Email: support@onepassvisa.com
-          </div>
+          <p style="font-size:0.86rem;color:var(--text-footer-muted);margin-bottom:0.85rem;line-height:1.6;">
+            Visa requirements, travel document checklists and support for your questions. We are a private service, not a government agency.
+          </p>
+          <a href="mailto:support@onepassvisa.com" style="font-size:0.86rem;color:var(--text-footer-muted);text-decoration:underline;">support@onepassvisa.com ↗</a>
         </div>
 
         <div>
-          <h4 class="footer-col-title">Popular Visas</h4>
+          <h4 class="footer-col-title">Visa destinations</h4>
           <ul class="footer-links">
+            <li><a href="destinations.html?country=vietnam">Vietnam visas</a></li>
+            <li><a href="destinations.html?country=thailand">Thailand visas</a></li>
+            <li><a href="destinations.html?country=indonesia">Indonesia visas</a></li>
+            <li><a href="destinations.html?country=egypt">Egypt visas</a></li>
+            <li><a href="destinations.html?country=turkey">Türkiye visas</a></li>
             <li><a href="destinations.html?country=uae">UAE Tourist eVisa</a></li>
-            <li><a href="destinations.html?country=schengen">Schengen Visitor Visa</a></li>
-            <li><a href="destinations.html?country=usa">United States ESTA &amp; Visa</a></li>
-            <li><a href="destinations.html?country=uk">United Kingdom ETA</a></li>
-            <li><a href="destinations.html?country=saudi">Saudi Arabia eVisa</a></li>
-            <li><a href="destinations.html?country=india">India Tourist e-Visa</a></li>
+            <li><a href="destinations.html">All 18 visa destinations</a></li>
           </ul>
         </div>
 
         <div>
-          <h4 class="footer-col-title">Travel Documents</h4>
+          <h4 class="footer-col-title">Travel documents</h4>
           <ul class="footer-links">
-            <li><a href="services.html#evisas">Tourist eVisas</a></li>
-            <li><a href="services.html#eta">Electronic Travel Auth (ETA)</a></li>
-            <li><a href="services.html#business">Business &amp; Transit Visas</a></li>
-            <li><a href="services.html#arrival-cards">Digital Arrival Cards</a></li>
+            <li><a href="services.html#eta">United States ESTA</a></li>
+            <li><a href="services.html#eta">United Kingdom ETA</a></li>
+            <li><a href="services.html#eta">Canada eTA</a></li>
+            <li><a href="services.html#arrival-cards">Thailand TDAC</a></li>
+            <li><a href="services.html#arrival-cards">Singapore SGAC</a></li>
+            <li><a href="services.html#arrival-cards">Indonesia Bali e-VOA</a></li>
           </ul>
         </div>
 
         <div>
-          <h4 class="footer-col-title">Help &amp; Directory</h4>
+          <h4 class="footer-col-title">Here to help</h4>
           <ul class="footer-links">
-            <li><a href="apply.html">Online Application</a></li>
-            <li><a href="track.html">Track Application Status</a></li>
-            <li><a href="faq.html">Frequently Asked Questions</a></li>
-            <li><a href="faq.html#gov-directory">Official Government Links</a></li>
-            <li><a href="about.html">About &amp; Contact Us</a></li>
+            <li><a href="services.html">Travel Documents/ETAs</a></li>
+            <li><a href="destinations.html">Destination directory</a></li>
+            <li><a href="apply.html">Apply online</a></li>
+            <li><a href="track.html">Track application</a></li>
+            <li><a href="faq.html">FAQs</a></li>
+            <li><a href="faq.html#gov-directory">Official Gov Portals</a></li>
+            <li><a href="about.html">About &amp; Contact support</a></li>
           </ul>
         </div>
 
         <div>
-          <h4 class="footer-col-title">Legal &amp; Policies</h4>
+          <h4 class="footer-col-title">Policies</h4>
           <ul class="footer-links">
-            <li><a href="policies.html#terms">Terms &amp; Conditions</a></li>
-            <li><a href="policies.html#privacy">Privacy Policy</a></li>
-            <li><a href="policies.html#refund">Refund &amp; Cancellation</a></li>
-            <li><a href="policies.html#cookies">Cookie Policy</a></li>
-            <li><a href="policies.html#disclaimer">Government Disclaimer</a></li>
-            <li><a href="policies.html#credits">Photo Credits &amp; Attribution</a></li>
+            <li><a href="policies.html#privacy">Privacy policy</a></li>
+            <li><a href="policies.html#terms">Terms of service</a></li>
+            <li><a href="policies.html#refund">Refund policy</a></li>
+            <li><a href="policies.html#cookies">Cookie policy</a></li>
+            <li><a href="policies.html#disclaimer">Disclaimer</a></li>
+            <li><a href="policies.html#credits">Photo Credits</a></li>
           </ul>
         </div>
       </div>
 
       <div class="gov-disclaimer-box">
-        <strong>Important Google Ads &amp; Consumer Disclosure:</strong> OnePassVisa.com is a private, third-party visa and travel document processing agency and is NOT affiliated with, endorsed by, or operated by any government, embassy, or consulate. We provide application review, photo formatting, and customer support services for a transparent service fee in addition to statutory government fees. You may apply directly on official government websites for a lower fee (the government fee alone) without using our service by visiting our <a href="faq.html#gov-directory" style="color:var(--white);text-decoration:underline;">Official Government Portals Directory</a>.
+        <strong>Service &amp; Non-Affiliation Disclosure:</strong> OnePassVisa.com is a private visa and travel document assistance agency and is not affiliated with any government or embassy. We charge a transparent service fee in addition to statutory government fees. You may apply directly through the relevant official government website for a lower fee by visiting our <a href="faq.html#gov-directory" style="color:var(--white);text-decoration:underline;">Official Government Portals Directory</a>.
       </div>
 
       <div class="footer-bottom">
-        <div>© 2026 OnePassVisa.com Inc. All rights reserved. Photography licensed via Unsplash (credits displayed on all images).</div>
-        <div style="display:flex;gap:1.25rem;">
-          <a href="policies.html#privacy">Privacy</a>
-          <a href="policies.html#terms">Terms</a>
-          <a href="policies.html#refund">Refunds</a>
-          <a href="policies.html#disclaimer">Disclaimer</a>
-          <a href="policies.html#credits">Image Credits</a>
+        <div>OnePassVisa.com is operated by OnePassVisa Inc., 540 Madison Avenue, Suite 2100, New York, NY 10022, USA.</div>
+        <div style="display:flex;gap:1.25rem;flex-wrap:wrap;">
+          <span>© 2026 OnePassVisa. All rights reserved.</span>
+          <span>You may apply directly through the relevant government website.</span>
         </div>
       </div>
     </div>
   </footer>
 
-  <script src="assets/js/data.js?v=3"></script>
-  <script src="assets/js/app.js?v=3"></script>
+  <script src="assets/js/data.js?v=4"></script>
+  <script src="assets/js/app.js?v=4"></script>
 </body>
 </html>

@@ -58,7 +58,14 @@
     const navLinks = document.getElementById('mainNavLinks');
     if (menuBtn && navLinks) {
       menuBtn.addEventListener('click', () => {
-        navLinks.classList.toggle('mobile-open');
+        const isOpen = navLinks.classList.toggle('mobile-open');
+        menuBtn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+      });
+      navLinks.querySelectorAll('a').forEach((link) => {
+        link.addEventListener('click', () => {
+          navLinks.classList.remove('mobile-open');
+          menuBtn.setAttribute('aria-expanded', 'false');
+        });
       });
     }
 
@@ -206,14 +213,20 @@
         .map((d) => {
           const totalUSD = d.govFeeUSD + d.serviceFeeUSD;
           return `
-            <article class="dest-card">
+            <article class="dest-card ivp-card">
               <div class="dest-card-visual" style="background-image:url('${d.image}')" role="img" aria-label="${d.name} landmark photo by ${d.photoCredit}">
                 <div class="dest-visual-top">
-                  <span class="badge badge-dark">${d.categoryBadge}</span>
                   <span class="badge badge-dark">${d.region}</span>
+                  <span class="badge badge-dark">${d.categoryBadge}</span>
                 </div>
                 <div class="dest-visual-bottom">
-                  <h3 class="dest-country-title">${d.name}</h3>
+                  <span style="color:var(--white);font-size:0.78rem;font-weight:500;display:inline-flex;align-items:center;gap:0.3rem;">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></svg>
+                    ${d.shortName}
+                  </span>
+                  <button type="button" class="dest-circle-arrow" onclick="window.opvOpenCountryModal('${d.id}')" aria-label="Explore ${d.name} visa options">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg>
+                  </button>
                 </div>
               </div>
               <div class="dest-credit-bar">
@@ -222,6 +235,7 @@
               </div>
               <div class="dest-card-body">
                 <div>
+                  <h3 style="font-family:var(--font-display);font-size:1.35rem;font-weight:700;color:var(--foreground);margin-bottom:0.2rem;">${d.name}</h3>
                   <div class="dest-doc-type">${d.visaType}</div>
                   <div class="dest-specs">
                     <div>
@@ -244,12 +258,12 @@
                 </div>
                 <div class="dest-card-footer">
                   <div>
-                    <div class="dest-price-label">Total Per Person</div>
+                    <div class="dest-price-label">Total Per Traveler</div>
                     <div class="dest-price-val">${formatMoney(totalUSD)} <span>incl. fees</span></div>
                   </div>
                   <div style="display:flex;gap:0.45rem;">
                     <button type="button" class="btn btn-outline btn-sm" onclick="window.opvOpenCountryModal('${d.id}')">
-                      Details
+                      Options
                     </button>
                     <a href="apply.html?country=${d.id}" class="btn btn-primary btn-sm">
                       <span>Apply</span> ${SVG_ARROW}

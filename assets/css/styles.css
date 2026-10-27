@@ -1,96 +1,161 @@
 /* ==========================================================================
-   OnePassVisa.com — Clean, Visual, Google Ads Compliant Design System
-   Simple Text Format • High-Resolution Photography with Credits • Easy UI/UX
+   OnePassVisa.com — Crafted in the Exact Theme, Colors & Style of iVisaPortal.com
+   Palette: Warm Off-White (#FAFBF8) • Forest Emerald (#007A42 / #00A859) •
+            Soft Sage (#ECF3ED) • Deep Botanical (#103E30) • Near-Black (#1A1D20)
+   Typography: Plus Jakarta Sans (Display) + Inter (UI & Body)
+   Mobile Optimized for iOS Safari & Android Chrome (44px+ Touch Targets, 16px Inputs)
    ========================================================================== */
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap');
 
 :root {
-  /* Clean Professional Palette */
-  --navy-950: #09111E;
-  --navy-900: #0F172A;
-  --navy-800: #1E293B;
-  --navy-700: #334155;
+  color-scheme: light;
 
-  --blue-700: #1D4ED8;
-  --blue-600: #2563EB;
-  --blue-500: #3B82F6;
-  --blue-100: #DBEAFE;
-  --blue-50: #EFF6FF;
+  /* Exact iVisaPortal.com Color System */
+  --bg-page: #FAFBF8;            /* hsl(80 27.27% 97.84%) */
+  --bg-card: #FFFFFF;            /* Pure white card surface */
+  --bg-secondary: #ECF3ED;       /* hsl(130 20% 94%) soft sage */
+  --bg-secondary-hover: #E5E1D8; /* hsl(42 17% 88%) warm sand hover */
+  --bg-forest-dark: #103E30;     /* Deep botanical forest banner */
+  --text-forest-mint: #BBEBCF;   /* Mint accent on dark forest */
+  --bg-footer: #1A1D20;          /* Brand near-black footer */
+  --text-footer: #F7F6F2;        /* Brand off-white footer text */
+  --text-footer-muted: #C3C8C3;  /* Muted footer links */
 
-  --emerald-700: #047857;
-  --emerald-600: #059669;
-  --emerald-100: #D1FAE5;
-  --emerald-50: #ECFDF5;
+  /* Brand Emerald Accents */
+  --brand-emerald: #00A859;      /* Logo mark vibrant emerald */
+  --primary: #007A42;            /* hsl(153 100% 23.92%) primary action emerald */
+  --primary-hover: #006335;      /* hsl(153.33 100% 19.41%) */
+  --primary-active: #004F2A;     /* hsl(153.42 100% 15.49%) */
+  --primary-light: #EDF7F0;      /* Soft emerald tint */
+  --primary-border: rgba(0, 122, 66, 0.16);
 
-  --amber-700: #B45309;
-  --amber-600: #D97706;
-  --amber-100: #FEF3C7;
-  --amber-50: #FFFBEB;
+  /* Text & Border Tokens */
+  --foreground: #1A1D20;         /* hsl(210 10% 11.37%) */
+  --muted-foreground: #626662;   /* hsl(120 2.49% 39.41%) */
+  --border: #DAE2DB;             /* hsl(128 12% 87%) */
+  --input-border: #8B968D;       /* Accessible input border */
+  --warning: #975A0C;
+  --warning-bg: #FEF6E7;
+  --danger: #9D2A2A;
 
-  --red-600: #DC2626;
-
-  /* Neutral Grays & Clean Surfaces */
-  --gray-900: #0F172A;
-  --gray-800: #1E293B;
-  --gray-700: #334155;
-  --gray-600: #475569;
-  --gray-500: #64748B;
-  --gray-400: #94A3B8;
-  --gray-300: #CBD5E1;
-  --gray-200: #E2E8F0;
-  --gray-100: #F1F5F9;
-  --gray-50: #F8FAFC;
+  /* Compatibility aliases for existing dynamic templates */
+  --navy-950: #103E30;
+  --navy-900: #1A1D20;
+  --navy-800: #262A2E;
+  --navy-700: #3A3F44;
+  --blue-700: #006335;
+  --blue-600: #007A42;
+  --blue-500: #00A859;
+  --blue-100: #D3ECDC;
+  --blue-50: #EDF7F0;
+  --emerald-700: #006335;
+  --emerald-600: #007A42;
+  --emerald-100: #D3ECDC;
+  --emerald-50: #EDF7F0;
+  --amber-700: #975A0C;
+  --amber-600: #B4690E;
+  --amber-100: #FDE8C4;
+  --amber-50: #FEF6E7;
+  --gray-900: #1A1D20;
+  --gray-800: #2A2E2B;
+  --gray-700: #3E433F;
+  --gray-600: #626662;
+  --gray-500: #626662;
+  --gray-400: #8B928B;
+  --gray-300: #C5CEC6;
+  --gray-200: #DAE2DB;
+  --gray-100: #ECF3ED;
+  --gray-50: #F4F7F3;
   --white: #FFFFFF;
 
-  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  /* Typography */
+  --font-sans: 'Inter', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-display: 'Plus Jakarta Sans', 'Inter', ui-sans-serif, system-ui, sans-serif;
   --font-mono: 'JetBrains Mono', monospace;
 
-  /* Clean Shadows */
-  --shadow-xs: 0 1px 2px rgba(15, 23, 42, 0.04);
-  --shadow-sm: 0 4px 12px rgba(15, 23, 42, 0.05);
-  --shadow-md: 0 10px 25px -5px rgba(15, 23, 42, 0.07), 0 4px 10px -2px rgba(15, 23, 42, 0.04);
-  --shadow-lg: 0 20px 40px -12px rgba(15, 23, 42, 0.10);
-  --shadow-blue: 0 6px 16px rgba(37, 99, 235, 0.22);
+  /* Layout & Touch Sizing */
+  --content-max: 80rem;          /* 1280px */
+  --page-gutter: 1.25rem;        /* 20px on mobile */
+  --section-padding: 3.75rem;    /* 60px on mobile */
+  --nav-height: 4.5rem;          /* 72px on mobile */
+  --touch-target: 2.75rem;       /* 44px minimum for iOS/Android */
 
-  /* Radii */
-  --radius-xs: 6px;
-  --radius-sm: 8px;
-  --radius-md: 12px;
-  --radius-lg: 16px;
+  /* Radii (Matching iVisaPortal rounded-2xl / rounded-3xl / rounded-full) */
+  --radius-xs: 0.625rem;         /* 10px */
+  --radius-sm: 0.875rem;         /* 14px */
+  --radius-md: 1.25rem;          /* 20px */
+  --radius-lg: 1.5rem;           /* 24px (.ivp-card) */
+  --radius-xl: 2rem;             /* 32px (banners & collages) */
+  --radius-hero: 2.5rem;         /* 40px (.hero-panel desktop) */
   --radius-full: 9999px;
 
-  --container-max: 1240px;
-  --transition: all 0.18s ease;
+  /* Shadows */
+  --shadow-xs: 0 1px 2px rgba(26, 29, 32, 0.03);
+  --shadow-sm: 0 1px 2px rgba(26, 29, 32, 0.03), 0 4px 12px rgba(26, 29, 32, 0.04);
+  --shadow-md: 0 2px 4px rgba(26, 29, 32, 0.04), 0 12px 32px rgba(26, 29, 32, 0.07);
+  --shadow-lg: 0 4px 8px rgba(26, 29, 32, 0.05), 0 24px 64px rgba(26, 29, 32, 0.10);
+  --shadow-form: 0 16px 50px -28px rgba(25, 68, 48, 0.30);
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@media (min-width: 768px) {
+  :root {
+    --page-gutter: 2rem;
+    --section-padding: 5.25rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  :root {
+    --page-gutter: 3rem;
+    --section-padding: 6.5rem;
+    --nav-height: 5rem; /* 80px */
+  }
 }
 
 /* ==========================================================================
-   Reset & Base Typography
+   Reset & Mobile-First Base Rules (iOS & Android Optimized)
    ========================================================================== */
 *, *::before, *::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  -webkit-tap-highlight-color: transparent;
 }
 
 html {
   scroll-behavior: smooth;
   font-size: 16px;
   -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  overflow-x: hidden;
 }
 
 body {
   font-family: var(--font-sans);
-  color: var(--gray-800);
-  background-color: var(--white);
-  line-height: 1.65;
+  color: var(--foreground);
+  background-color: var(--bg-page);
+  line-height: 1.6;
   overflow-x: hidden;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+h1, h2, h3, h4, .font-display {
+  font-family: var(--font-display);
+  color: var(--foreground);
+  letter-spacing: -0.035em;
 }
 
 a {
   color: inherit;
   text-decoration: none;
-  transition: var(--transition);
+  transition: color 0.2s var(--ease-out), background-color 0.2s var(--ease-out), border-color 0.2s var(--ease-out), box-shadow 0.2s var(--ease-out);
 }
 
 img, svg {
@@ -100,7 +165,7 @@ img, svg {
 
 button, input, select, textarea {
   font-family: inherit;
-  font-size: inherit;
+  font-size: 1rem; /* Prevents iOS Safari zoom-on-focus */
   color: inherit;
   border: none;
   outline: none;
@@ -115,191 +180,167 @@ ul, ol {
   list-style: none;
 }
 
-.container {
-  width: 100%;
-  max-width: var(--container-max);
-  margin: 0 auto;
-  padding: 0 1.5rem;
+.container, .ivp-container {
+  width: calc(100% - 2 * var(--page-gutter));
+  max-width: var(--content-max);
+  margin-inline: auto;
 }
 
 .mono {
   font-family: var(--font-mono);
 }
 
-.section {
-  padding: 4.5rem 0;
+.section, .ivp-section {
+  padding-block: var(--section-padding);
 }
 
 .section-sm {
-  padding: 3rem 0;
+  padding-block: 3rem;
 }
 
-.bg-subtle {
-  background-color: var(--gray-50);
-  border-top: 1px solid var(--gray-200);
-  border-bottom: 1px solid var(--gray-200);
+.bg-subtle, .bg-card-section {
+  background-color: var(--bg-card);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
 }
 
+/* ==========================================================================
+   Section Headers & Eyebrows (iVisaPortal Style)
+   ========================================================================== */
 .section-header {
-  max-width: 680px;
+  max-width: 44rem;
   margin: 0 auto 2.75rem;
   text-align: center;
 }
 
-.section-eyebrow {
+.section-header-split {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 1.25rem;
+  margin-bottom: 2.25rem;
+}
+
+@media (min-width: 640px) {
+  .section-header-split {
+    flex-direction: row;
+    align-items: flex-end;
+  }
+}
+
+.section-eyebrow, .ivp-eyebrow {
   display: inline-flex;
   align-items: center;
-  gap: 0.4rem;
-  font-size: 0.75rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-  color: var(--blue-600);
-  background: var(--blue-50);
-  border: 1px solid var(--blue-100);
-  padding: 0.3rem 0.8rem;
+  gap: 0.45rem;
+  font-family: var(--font-sans);
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  font-weight: 600;
+  color: var(--primary);
+  margin-bottom: 0.5rem;
+}
+
+.hero-pill-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
   border-radius: var(--radius-full);
+  border: 1px solid var(--primary-border);
+  background: rgba(255, 255, 255, 0.92);
+  padding: 0.5rem 1rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--primary);
+  margin-bottom: 1.25rem;
+}
+
+.section-title, .ivp-section-heading {
+  font-family: var(--font-display);
+  font-size: clamp(1.85rem, 3.4vw, 2.85rem);
+  font-weight: 700;
+  color: var(--foreground);
+  line-height: 1.14;
+  letter-spacing: -0.04em;
   margin-bottom: 0.75rem;
 }
 
-.section-title {
-  font-size: clamp(1.7rem, 2.8vw, 2.25rem);
-  font-weight: 800;
-  color: var(--navy-900);
-  line-height: 1.22;
-  letter-spacing: -0.02em;
-  margin-bottom: 0.65rem;
-}
-
 .section-subtitle {
-  font-size: 1rem;
-  color: var(--gray-600);
-  line-height: 1.6;
+  font-size: 1.05rem;
+  color: var(--muted-foreground);
+  line-height: 1.65;
 }
 
 /* ==========================================================================
-   Google Ads Compliance Top Disclosure Bar (Above the Fold on Every Page)
-   ========================================================================== */
-.compliance-bar {
-  background: var(--navy-900);
-  color: var(--gray-200);
-  font-size: 0.78rem;
-  padding: 0.55rem 0;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.compliance-bar-inner {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1rem;
-  flex-wrap: wrap;
-}
-
-.compliance-notice {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  line-height: 1.4;
-}
-
-.compliance-tag {
-  background: rgba(255, 255, 255, 0.14);
-  color: var(--white);
-  font-weight: 700;
-  font-size: 0.68rem;
-  padding: 0.15rem 0.5rem;
-  border-radius: 4px;
-  text-transform: uppercase;
-  letter-spacing: 0.04em;
-  white-space: nowrap;
-}
-
-.top-bar-right {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-}
-
-.currency-select {
-  background: rgba(255, 255, 255, 0.12);
-  color: var(--white);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  padding: 0.2rem 0.55rem;
-  border-radius: 4px;
-  font-size: 0.76rem;
-  font-weight: 600;
-  cursor: pointer;
-}
-
-.currency-select option {
-  background: var(--navy-900);
-  color: var(--white);
-}
-
-/* ==========================================================================
-   Navigation Header & Brand Mark
+   Fixed Header & Mobile Navigation Drawer (Exact iVisaPortal Header)
    ========================================================================== */
 .site-header {
   position: sticky;
   top: 0;
   z-index: 1000;
-  background: rgba(255, 255, 255, 0.97);
+  height: var(--nav-height);
+  background: rgba(250, 251, 248, 0.96);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  border-bottom: 1px solid var(--gray-200);
+  border-bottom: 1px solid rgba(218, 226, 219, 0.8);
 }
 
 .header-inner {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 72px;
-  gap: 1.25rem;
+  height: 100%;
+  gap: 1rem;
 }
 
 .brand-logo {
   display: inline-flex;
   align-items: center;
   gap: 0.65rem;
+  flex-shrink: 0;
+}
+
+.brand-mark-svg {
+  width: 26px;
+  height: 36px;
+  flex-shrink: 0;
 }
 
 .brand-mark {
-  width: 40px;
-  height: 40px;
+  width: 38px;
+  height: 38px;
   border-radius: 10px;
-  background: var(--blue-600);
+  background: var(--primary-light);
+  border: 1px solid var(--primary-border);
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--white);
+  color: var(--brand-emerald);
   flex-shrink: 0;
-  box-shadow: 0 2px 8px rgba(37, 99, 235, 0.25);
 }
 
 .brand-wordmark {
   display: flex;
   flex-direction: column;
-  line-height: 1.08;
+  line-height: 1;
 }
 
 .brand-title {
-  font-size: 1.22rem;
-  font-weight: 800;
-  color: var(--navy-900);
-  letter-spacing: -0.025em;
+  font-family: var(--font-display);
+  font-size: 1.45rem;
+  font-weight: 700;
+  color: var(--foreground);
+  letter-spacing: -0.04em;
 }
 
 .brand-title span {
-  color: var(--blue-600);
+  font-weight: 400;
+  color: var(--foreground);
 }
 
 .brand-subtitle {
-  font-size: 0.65rem;
-  font-weight: 600;
-  color: var(--gray-500);
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
+  font-size: 0.68rem;
+  font-weight: 500;
+  color: var(--muted-foreground);
   margin-top: 2px;
 }
 
@@ -310,81 +351,157 @@ ul, ol {
 }
 
 .nav-link {
-  padding: 0.5rem 0.85rem;
-  border-radius: var(--radius-xs);
-  font-size: 0.9rem;
-  font-weight: 600;
-  color: var(--gray-600);
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 0 0.85rem;
+  border-radius: var(--radius-full);
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--foreground);
 }
 
-.nav-link:hover {
-  color: var(--navy-900);
-  background: var(--gray-50);
-}
-
-.nav-link.active {
-  color: var(--blue-600);
-  background: var(--blue-50);
+.nav-link:hover, .nav-link.active {
+  color: var(--primary);
+  background: var(--bg-secondary);
 }
 
 .header-actions {
   display: flex;
   align-items: center;
-  gap: 0.65rem;
+  gap: 0.6rem;
+}
+
+.currency-select {
+  min-height: 38px;
+  background: var(--bg-card);
+  color: var(--foreground);
+  border: 1px solid var(--border);
+  padding: 0 0.65rem;
+  border-radius: var(--radius-full);
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
 }
 
 .mobile-menu-btn {
   display: none;
-  width: 38px;
-  height: 38px;
-  border-radius: var(--radius-xs);
-  border: 1px solid var(--gray-200);
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-full);
+  border: 1px solid var(--border);
+  background: var(--bg-page);
   align-items: center;
   justify-content: center;
-  color: var(--navy-900);
+  color: var(--foreground);
+  flex-shrink: 0;
 }
 
 /* ==========================================================================
-   Buttons & Badges
+   Service Disclosure Bar (Exact iVisaPortal Above-the-Fold Bar)
+   ========================================================================== */
+.compliance-bar {
+  width: 100%;
+  background: rgba(236, 243, 237, 0.72); /* bg-secondary/65 */
+  border-bottom: 1px solid var(--border);
+  color: var(--muted-foreground);
+  font-size: 0.78rem;
+  padding: 0.55rem 0;
+}
+
+.compliance-bar-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.compliance-notice {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  line-height: 1.45;
+}
+
+.compliance-tag {
+  font-weight: 600;
+  color: var(--foreground);
+}
+
+.compliance-divider {
+  color: var(--border);
+}
+
+.compliance-link {
+  font-weight: 600;
+  color: var(--primary);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.top-bar-right {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+/* Breadcrumb Navigation on Inner Pages */
+.breadcrumb-bar {
+  padding-top: 1.25rem;
+  padding-bottom: 0.25rem;
+  font-size: 0.85rem;
+  color: var(--muted-foreground);
+}
+
+.breadcrumb-list {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+}
+
+.breadcrumb-list a:hover {
+  color: var(--foreground);
+  text-decoration: underline;
+}
+
+/* ==========================================================================
+   Buttons & Badges (Exact iVisaPortal Pill Buttons)
    ========================================================================== */
 .badge {
   display: inline-flex;
   align-items: center;
   gap: 0.35rem;
-  padding: 0.25rem 0.65rem;
+  padding: 0.3rem 0.75rem;
   border-radius: var(--radius-full);
-  font-size: 0.72rem;
+  font-size: 0.75rem;
   font-weight: 600;
 }
 
-.badge-blue {
-  background: var(--blue-50);
-  color: var(--blue-700);
-  border: 1px solid var(--blue-100);
-}
-
-.badge-emerald {
-  background: var(--emerald-50);
-  color: var(--emerald-700);
-  border: 1px solid var(--emerald-100);
+.badge-blue, .badge-emerald {
+  background: var(--primary-light);
+  color: var(--primary);
+  border: 1px solid var(--primary-border);
 }
 
 .badge-amber {
-  background: var(--amber-50);
-  color: var(--amber-700);
-  border: 1px solid var(--amber-100);
+  background: var(--warning-bg);
+  color: var(--warning);
+  border: 1px solid #F5D9A6;
 }
 
 .badge-neutral {
-  background: var(--gray-100);
-  color: var(--gray-700);
-  border: 1px solid var(--gray-200);
+  background: var(--bg-secondary);
+  color: var(--foreground);
+  border: 1px solid var(--border);
 }
 
 .badge-dark {
-  background: rgba(15, 23, 42, 0.82);
-  color: var(--white);
-  backdrop-filter: blur(4px);
+  background: rgba(255, 255, 255, 0.95);
+  color: var(--foreground);
+  box-shadow: var(--shadow-xs);
 }
 
 .btn {
@@ -392,11 +509,11 @@ ul, ol {
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
-  height: 44px;
-  padding: 0 1.25rem;
-  border-radius: var(--radius-sm);
+  min-height: 48px;
+  padding: 0 1.45rem;
+  border-radius: var(--radius-full);
   font-weight: 600;
-  font-size: 0.9rem;
+  font-size: 0.92rem;
   line-height: 1;
   transition: var(--transition);
   white-space: nowrap;
@@ -406,59 +523,58 @@ ul, ol {
   width: 16px;
   height: 16px;
   flex-shrink: 0;
-  transition: transform 0.18s ease;
+  transition: transform 0.2s var(--ease-out);
 }
 
 .btn:hover svg.icon-arrow {
-  transform: translateX(2px);
+  transform: translateX(3px);
 }
 
 .btn-primary {
-  background: var(--blue-600);
+  background: var(--primary);
   color: var(--white);
-  border: 1px solid var(--blue-600);
+  box-shadow: var(--shadow-xs);
 }
 
 .btn-primary:hover {
-  background: var(--blue-700);
-  border-color: var(--blue-700);
-  box-shadow: var(--shadow-blue);
+  background: var(--primary-hover);
+  color: var(--white);
+}
+
+.btn-primary:active {
+  background: var(--primary-active);
 }
 
 .btn-navy {
-  background: var(--navy-900);
+  background: var(--foreground);
   color: var(--white);
-  border: 1px solid var(--navy-900);
 }
 
 .btn-navy:hover {
-  background: var(--navy-800);
+  background: #2C3136;
 }
 
 .btn-outline {
-  background: var(--white);
-  color: var(--gray-700);
-  border: 1px solid var(--gray-300);
+  background: var(--bg-page);
+  color: var(--foreground);
+  border: 1px solid var(--input-border);
 }
 
 .btn-outline:hover {
-  background: var(--gray-50);
-  color: var(--navy-900);
-  border-color: var(--gray-400);
+  background: var(--bg-secondary-hover);
+  border-color: var(--foreground);
 }
 
 .btn-sm {
-  height: 36px;
-  padding: 0 0.9rem;
-  font-size: 0.82rem;
-  border-radius: var(--radius-xs);
+  min-height: 42px;
+  padding: 0 1.1rem;
+  font-size: 0.85rem;
 }
 
 .btn-lg {
-  height: 48px;
-  padding: 0 1.5rem;
-  font-size: 0.95rem;
-  border-radius: var(--radius-sm);
+  min-height: 54px;
+  padding: 0 1.85rem;
+  font-size: 1rem;
 }
 
 .btn-block {
@@ -466,64 +582,147 @@ ul, ol {
 }
 
 /* ==========================================================================
-   Hero Section & Visual Photo Grid with Credits
+   Hero Section & .hero-panel (Exact iVisaPortal Rounded Sage Container)
    ========================================================================== */
 .hero {
-  background: linear-gradient(180deg, var(--gray-50) 0%, var(--white) 100%);
-  border-bottom: 1px solid var(--gray-200);
-  padding: 3.5rem 0 4rem;
+  padding: 1.25rem 0 2.75rem;
 }
 
 .hero-narrow {
-  padding: 2.75rem 0 3rem;
+  padding: 1.5rem 0 2.25rem;
+}
+
+.hero-panel {
+  padding: clamp(1.35rem, 3vw, 3rem);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-hero);
+  background: linear-gradient(135deg, #EDF7EF 0%, #F6F8F1 62%, #EEF4E9 100%);
 }
 
 .hero-split {
   display: grid;
-  grid-template-columns: 1.1fr 0.9fr;
+  grid-template-columns: 1fr 1fr;
   gap: 2.5rem;
   align-items: center;
-  margin-bottom: 2.5rem;
 }
 
 .hero-center {
-  max-width: 780px;
-  margin: 0 auto 2rem;
+  max-width: 48rem;
+  margin: 0 auto 1.75rem;
   text-align: center;
 }
 
-.hero-title {
-  font-size: clamp(2rem, 3.6vw, 2.95rem);
-  font-weight: 800;
-  color: var(--navy-900);
-  line-height: 1.16;
-  letter-spacing: -0.025em;
-  margin-bottom: 0.9rem;
+.hero-title, .hero-heading {
+  font-family: var(--font-display);
+  font-size: clamp(2.35rem, 4.6vw, 4rem);
+  font-weight: 700;
+  color: var(--foreground);
+  line-height: 1.07;
+  letter-spacing: -0.045em;
+  margin-bottom: 1.1rem;
 }
 
-.hero-title span {
-  color: var(--blue-600);
+.hero-title span, .hero-heading span {
+  color: var(--primary);
 }
 
 .hero-description {
-  font-size: 1.04rem;
-  color: var(--gray-600);
+  font-size: 1.08rem;
+  color: var(--muted-foreground);
   line-height: 1.65;
-  margin-bottom: 1.25rem;
+  margin-bottom: 1.5rem;
+  max-width: 34rem;
+}
+
+.hero-center .hero-description {
+  margin-inline: auto;
+}
+
+/* Hero Form Box inside Left Column (or Standalone) */
+.hero-form-box, .checker-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 1.75rem;
+  padding: 1.5rem;
+  box-shadow: var(--shadow-form);
+}
+
+.checker-form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr auto;
+  gap: 1rem;
+  align-items: end;
+}
+
+.hero-form-2col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.field-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+  text-align: left;
+  min-width: 0;
+}
+
+.field-label {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--foreground);
+}
+
+.field-label svg {
+  color: var(--primary);
+  flex-shrink: 0;
+}
+
+.field-control {
+  width: 100%;
+  height: 52px;
+  padding: 0 1rem;
+  border-radius: 1rem; /* 16px rounded-2xl */
+  border: 1px solid var(--input-border);
+  background: var(--bg-page);
+  font-weight: 500;
+  font-size: 1rem; /* 16px prevents iOS zoom */
+  color: var(--foreground);
+  transition: border-color 0.18s ease, box-shadow 0.18s ease;
+}
+
+.field-control:hover {
+  border-color: rgba(0, 122, 66, 0.5);
+}
+
+.field-control:focus {
+  border-color: var(--primary);
+  outline: 2px solid var(--primary);
+  outline-offset: 1px;
+  box-shadow: 0 0 0 5px rgba(0, 122, 66, 0.08);
+}
+
+textarea.field-control {
+  height: auto;
+  padding: 0.85rem 1rem;
 }
 
 .hero-bullet-list {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 0.6rem 1rem;
-  margin-top: 1rem;
-  font-size: 0.9rem;
-  color: var(--gray-700);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem 1.35rem;
+  margin-top: 1.15rem;
+  font-size: 0.875rem;
+  color: var(--muted-foreground);
   font-weight: 500;
 }
 
 .hero-bullet-item {
-  display: flex;
+  display: inline-flex;
   align-items: center;
   gap: 0.45rem;
 }
@@ -531,53 +730,132 @@ ul, ol {
 .hero-bullet-item svg {
   width: 16px;
   height: 16px;
-  color: var(--emerald-600);
+  color: var(--primary);
   flex-shrink: 0;
 }
 
-/* Hero Photo Collage with Visible Photo Credits */
+/* Right Hero Collage (Exact iVisaPortal Collage with Photo Credits) */
+.hero-collage {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  min-width: 0;
+}
+
+.hero-main-photo-card {
+  position: relative;
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  height: 350px;
+  background: var(--bg-secondary);
+}
+
+.hero-main-photo-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.85s cubic-bezier(0.2, 0.65, 0.3, 1);
+}
+
+.hero-main-photo-card:hover img {
+  transform: scale(1.035);
+}
+
+.hero-main-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.68) 0%, rgba(0, 0, 0, 0.15) 55%, transparent 100%);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 1.5rem;
+  color: var(--white);
+}
+
+.hero-sub-collage {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.hero-sub-photo-card {
+  position: relative;
+  min-height: 156px;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  background: var(--bg-secondary);
+}
+
+.hero-sub-photo-card img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.85s cubic-bezier(0.2, 0.65, 0.3, 1);
+}
+
+.hero-sub-photo-card:hover img {
+  transform: scale(1.035);
+}
+
+.hero-sub-info-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--primary-border);
+  background: var(--bg-card);
+  padding: 1.25rem;
+  transition: var(--transition);
+}
+
+.hero-sub-info-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-md);
+}
+
+/* Legacy 3-photo grid support */
 .hero-photo-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 0.85rem;
+  gap: 0.9rem;
 }
 
 .photo-card {
   position: relative;
-  border-radius: var(--radius-md);
+  border-radius: var(--radius-lg);
   overflow: hidden;
-  border: 1px solid var(--gray-200);
-  background: var(--gray-100);
-  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--border);
+  background: var(--bg-secondary);
 }
 
 .photo-card img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  display: block;
 }
 
 .photo-card-tall {
   grid-row: span 2;
-  height: 310px;
+  height: 320px;
 }
 
 .photo-card-short {
-  height: 148px;
+  height: 152px;
 }
 
 .photo-credit {
   position: absolute;
-  bottom: 6px;
-  right: 6px;
-  z-index: 3;
-  background: rgba(15, 23, 42, 0.76);
-  color: rgba(255, 255, 255, 0.92);
+  top: 10px;
+  right: 10px;
+  z-index: 4;
+  background: rgba(26, 29, 32, 0.72);
+  color: rgba(255, 255, 255, 0.94);
   font-size: 0.65rem;
   font-weight: 500;
-  padding: 0.18rem 0.5rem;
-  border-radius: 4px;
+  padding: 0.2rem 0.55rem;
+  border-radius: var(--radius-full);
   backdrop-filter: blur(4px);
   line-height: 1.2;
 }
@@ -587,78 +865,42 @@ ul, ol {
   color: var(--white);
 }
 
-.photo-caption-bar {
+/* 3-Pillar Value Bar below Hero (Exact iVisaPortal Section) */
+.value-pillars-bar {
+  padding-bottom: 2.75rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.value-pillars-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.75rem;
+}
+
+.value-pillar-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.value-pillar-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 0.875rem;
+  background: var(--bg-secondary);
+  color: var(--primary);
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  padding: 0.45rem 0.75rem;
-  background: var(--gray-50);
-  border-top: 1px solid var(--gray-200);
-  font-size: 0.72rem;
-  color: var(--gray-500);
+  justify-content: center;
+  flex-shrink: 0;
 }
 
-/* ==========================================================================
-   Eligibility Checker Card
-   ========================================================================== */
-.checker-card {
-  background: var(--white);
-  border: 1px solid var(--gray-200);
-  border-radius: var(--radius-lg);
-  padding: 1.5rem;
-  box-shadow: var(--shadow-md);
-}
-
-.checker-form-grid {
-  display: grid;
-  grid-template-columns: 1.15fr 1.15fr 1fr auto;
-  gap: 1rem;
-  align-items: end;
-}
-
-.field-group {
-  display: flex;
-  flex-direction: column;
-  gap: 0.35rem;
-  text-align: left;
-}
-
-.field-label {
-  font-size: 0.75rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.04em;
-  color: var(--gray-600);
-}
-
-.field-control {
-  width: 100%;
-  height: 46px;
-  padding: 0 0.9rem;
-  border-radius: var(--radius-sm);
-  border: 1px solid var(--gray-300);
-  background: var(--white);
-  font-weight: 500;
-  font-size: 0.92rem;
-  color: var(--navy-900);
-  transition: var(--transition);
-}
-
-.field-control:focus {
-  border-color: var(--blue-600);
-  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
-}
-
-textarea.field-control {
-  height: auto;
-  padding: 0.75rem 0.9rem;
-}
-
+/* Eligibility Result Drawer */
 .checker-result-drawer {
   display: none;
   margin-top: 1.25rem;
   padding-top: 1.25rem;
-  border-top: 1px solid var(--gray-200);
+  border-top: 1px solid var(--border);
 }
 
 .checker-result-drawer.active {
@@ -666,13 +908,13 @@ textarea.field-control {
 }
 
 .result-banner {
-  background: var(--gray-50);
-  border: 1px solid var(--gray-200);
-  border-radius: var(--radius-md);
+  background: var(--bg-page);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
   padding: 1.35rem;
   display: grid;
   grid-template-columns: 1.35fr 1fr auto;
-  gap: 1.5rem;
+  gap: 1.25rem;
   align-items: center;
 }
 
@@ -680,14 +922,14 @@ textarea.field-control {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 0.75rem;
-  background: var(--white);
+  background: var(--bg-card);
   padding: 0.85rem 1rem;
   border-radius: var(--radius-sm);
-  border: 1px solid var(--gray-200);
+  border: 1px solid var(--border);
 }
 
 /* ==========================================================================
-   Destination Cards Grid (With Visible Photo Credits)
+   Destination Cards Grid (Exact iVisaPortal .ivp-card .ivp-lift Design)
    ========================================================================== */
 .filter-bar {
   display: flex;
@@ -701,97 +943,108 @@ textarea.field-control {
 .region-pills {
   display: flex;
   align-items: center;
-  gap: 0.4rem;
+  gap: 0.45rem;
   flex-wrap: wrap;
 }
 
 .region-pill {
-  height: 36px;
-  padding: 0 1rem;
+  min-height: 42px;
+  padding: 0 1.1rem;
   border-radius: var(--radius-full);
-  font-size: 0.84rem;
+  font-size: 0.86rem;
   font-weight: 600;
-  color: var(--gray-600);
-  background: var(--white);
-  border: 1px solid var(--gray-300);
+  color: var(--foreground);
+  background: var(--bg-card);
+  border: 1px solid var(--border);
   transition: var(--transition);
 }
 
 .region-pill:hover {
-  border-color: var(--gray-400);
-  color: var(--navy-900);
+  background: var(--bg-secondary);
+  border-color: var(--input-border);
 }
 
 .region-pill.active {
-  background: var(--navy-900);
+  background: var(--primary);
   color: var(--white);
-  border-color: var(--navy-900);
+  border-color: var(--primary);
 }
 
 .search-input-wrap {
   position: relative;
   min-width: 270px;
+  flex: 1;
+  max-width: 340px;
 }
 
 .search-input {
   width: 100%;
-  height: 38px;
-  padding: 0 0.95rem 0 2.35rem;
+  height: 44px;
+  padding: 0 1rem 0 2.5rem;
   border-radius: var(--radius-full);
-  background: var(--white);
-  border: 1px solid var(--gray-300);
-  font-size: 0.86rem;
+  background: var(--bg-card);
+  border: 1px solid var(--input-border);
+  font-size: 0.92rem;
+}
+
+.search-input:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 4px rgba(0, 122, 66, 0.08);
 }
 
 .search-icon {
   position: absolute;
-  left: 0.85rem;
+  left: 0.95rem;
   top: 50%;
   transform: translateY(-50%);
-  color: var(--gray-400);
+  color: var(--muted-foreground);
   pointer-events: none;
   display: flex;
 }
 
 .destinations-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-  gap: 1.5rem;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.35rem;
 }
 
-.dest-card {
-  background: var(--white);
-  border-radius: var(--radius-md);
-  border: 1px solid var(--gray-200);
+.dest-card, .ivp-card {
+  background: var(--bg-card);
+  border-radius: var(--radius-lg); /* 24px */
+  border: 1px solid var(--border);
   overflow: hidden;
-  transition: var(--transition);
+  transition: transform 0.25s var(--ease-out), box-shadow 0.25s var(--ease-out), border-color 0.25s var(--ease-out);
   display: flex;
   flex-direction: column;
-  box-shadow: var(--shadow-xs);
+  box-shadow: var(--shadow-sm);
 }
 
-.dest-card:hover {
-  transform: translateY(-3px);
+.dest-card:hover, .ivp-card:hover {
+  transform: translateY(-4px);
   box-shadow: var(--shadow-md);
-  border-color: var(--gray-300);
+  border-color: var(--input-border);
 }
 
 .dest-card-visual {
-  height: 185px;
+  aspect-ratio: 16 / 10;
+  height: auto;
+  min-height: 205px;
   position: relative;
   background-size: cover;
   background-position: center;
+  background-color: var(--bg-secondary);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  padding: 0.9rem 1rem;
+  padding: 1rem;
+  overflow: hidden;
 }
 
 .dest-card-visual::before {
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, rgba(15, 23, 42, 0.3) 0%, rgba(15, 23, 42, 0.05) 40%, rgba(15, 23, 42, 0.82) 100%);
+  background: linear-gradient(180deg, rgba(16, 62, 48, 0.22) 0%, rgba(16, 62, 48, 0.02) 45%, rgba(16, 24, 20, 0.68) 100%);
   z-index: 1;
 }
 
@@ -803,25 +1056,40 @@ textarea.field-control {
   justify-content: space-between;
 }
 
+.dest-circle-arrow {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.95);
+  color: var(--primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--shadow-xs);
+  flex-shrink: 0;
+}
+
 .dest-country-title {
   color: var(--white);
-  font-size: 1.2rem;
+  font-family: var(--font-display);
+  font-size: 1.35rem;
   font-weight: 700;
+  letter-spacing: -0.02em;
 }
 
 .dest-credit-bar {
-  background: var(--gray-50);
-  border-bottom: 1px solid var(--gray-100);
-  padding: 0.35rem 1rem;
-  font-size: 0.68rem;
-  color: var(--gray-500);
+  background: var(--bg-page);
+  border-bottom: 1px solid var(--border);
+  padding: 0.4rem 1.15rem;
+  font-size: 0.7rem;
+  color: var(--muted-foreground);
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 
 .dest-card-body {
-  padding: 1.15rem;
+  padding: 1.25rem 1.35rem 1.35rem;
   flex: 1;
   display: flex;
   flex-direction: column;
@@ -830,33 +1098,31 @@ textarea.field-control {
 }
 
 .dest-doc-type {
-  font-size: 0.88rem;
-  font-weight: 700;
-  color: var(--blue-600);
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--primary);
   margin-bottom: 0.65rem;
 }
 
 .dest-specs {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 0.6rem;
-  padding-bottom: 0.9rem;
-  border-bottom: 1px solid var(--gray-100);
+  gap: 0.65rem;
+  padding-bottom: 0.95rem;
+  border-bottom: 1px solid var(--border);
 }
 
 .dest-spec-label {
-  font-size: 0.7rem;
-  text-transform: uppercase;
-  letter-spacing: 0.04em;
-  color: var(--gray-500);
-  font-weight: 600;
+  font-size: 0.72rem;
+  color: var(--muted-foreground);
+  font-weight: 500;
 }
 
 .dest-spec-val {
-  font-size: 0.85rem;
+  font-size: 0.88rem;
   font-weight: 600;
-  color: var(--navy-900);
-  margin-top: 1px;
+  color: var(--foreground);
+  margin-top: 2px;
 }
 
 .dest-card-footer {
@@ -867,25 +1133,27 @@ textarea.field-control {
 }
 
 .dest-price-label {
-  font-size: 0.7rem;
-  color: var(--gray-500);
+  font-size: 0.72rem;
+  color: var(--muted-foreground);
   font-weight: 500;
 }
 
 .dest-price-val {
-  font-size: 1.2rem;
-  font-weight: 800;
-  color: var(--navy-900);
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--foreground);
 }
 
 .dest-price-val span {
+  font-family: var(--font-sans);
   font-size: 0.74rem;
   font-weight: 500;
-  color: var(--gray-500);
+  color: var(--muted-foreground);
 }
 
 /* ==========================================================================
-   Visual Feature & Step Cards with Images & Credits
+   3-Step Cards, Deep Forest Cost Banner (#103E30) & Editorial Split
    ========================================================================== */
 .steps-grid {
   display: grid;
@@ -896,108 +1164,195 @@ textarea.field-control {
 .steps-grid-3 {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 1.5rem;
+  gap: 1.35rem;
 }
 
-.step-card {
-  background: var(--white);
-  border: 1px solid var(--gray-200);
+.step-card, .ivp-step-card {
+  background: var(--bg-page);
+  border: 1px solid var(--border);
   border-radius: var(--radius-md);
-  padding: 1.5rem;
+  padding: 1.75rem;
   transition: var(--transition);
 }
 
 .step-card-visual {
-  background: var(--white);
-  border: 1px solid var(--gray-200);
-  border-radius: var(--radius-md);
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  box-shadow: var(--shadow-xs);
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition);
+}
+
+.step-card-visual:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
 }
 
 .step-card-img-wrap {
-  height: 170px;
+  height: 180px;
   position: relative;
   overflow: hidden;
-  background: var(--gray-100);
+  background: var(--bg-secondary);
 }
 
 .step-card-img-wrap img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  transition: transform 0.85s cubic-bezier(0.2, 0.65, 0.3, 1);
+}
+
+.step-card-visual:hover .step-card-img-wrap img {
+  transform: scale(1.035);
 }
 
 .step-card-content {
-  padding: 1.35rem;
+  padding: 1.45rem;
   flex: 1;
 }
 
+.step-header-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
 .step-icon-box {
-  width: 36px;
-  height: 36px;
-  border-radius: var(--radius-xs);
-  background: var(--blue-50);
-  color: var(--blue-600);
-  border: 1px solid var(--blue-100);
+  width: 48px;
+  height: 48px;
+  border-radius: 0.875rem;
+  background: var(--bg-secondary);
+  color: var(--primary);
   display: flex;
   align-items: center;
   justify-content: center;
   font-weight: 700;
   font-size: 0.85rem;
-  margin-bottom: 0.9rem;
+}
+
+.step-num-watermark {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  font-weight: 700;
+  color: rgba(0, 122, 66, 0.22);
 }
 
 .step-title {
-  font-size: 1.05rem;
+  font-family: var(--font-display);
+  font-size: 1.25rem;
   font-weight: 700;
-  color: var(--navy-900);
-  margin-bottom: 0.45rem;
+  color: var(--foreground);
+  margin-bottom: 0.5rem;
 }
 
 .step-desc {
-  font-size: 0.88rem;
-  color: var(--gray-600);
-  line-height: 1.6;
+  font-size: 0.92rem;
+  color: var(--muted-foreground);
+  line-height: 1.65;
+}
+
+/* Deep Forest Cost Banner (Exact iVisaPortal #103e30 Banner) */
+.forest-cost-banner {
+  background: var(--bg-forest-dark);
+  color: var(--white);
+  border-radius: var(--radius-xl);
+  padding: clamp(1.75rem, 4vw, 3.25rem);
+  display: grid;
+  grid-template-columns: 1fr 1.15fr;
+  gap: 2.5rem;
+  align-items: center;
+}
+
+.forest-cost-eyebrow {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--text-forest-mint);
+}
+
+.forest-cost-title {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 3.6vw, 3rem);
+  color: var(--white);
+  line-height: 1.1;
+  margin-top: 0.75rem;
+}
+
+/* Editorial Split Section with Overlapping Card */
+.editorial-split-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: center;
+}
+
+.editorial-photo-frame {
+  position: relative;
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  height: 430px;
+  background: var(--bg-secondary);
+}
+
+.editorial-photo-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.editorial-floating-card {
+  position: relative;
+  margin: -4.5rem 1.5rem 0;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 1.35rem;
+  box-shadow: var(--shadow-md);
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  z-index: 3;
 }
 
 /* ==========================================================================
    Tables, Application Wizard & Tracker
    ========================================================================== */
 .comparison-table-wrap {
-  background: var(--white);
-  border-radius: var(--radius-md);
-  border: 1px solid var(--gray-200);
-  box-shadow: var(--shadow-xs);
+  background: var(--bg-card);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-sm);
   overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
 }
 
 .comparison-table {
   width: 100%;
   border-collapse: collapse;
   text-align: left;
-  font-size: 0.9rem;
+  font-size: 0.92rem;
 }
 
 .comparison-table th, .comparison-table td {
-  padding: 0.95rem 1.25rem;
-  border-bottom: 1px solid var(--gray-200);
+  padding: 1rem 1.25rem;
+  border-bottom: 1px solid var(--border);
 }
 
 .comparison-table thead th {
-  background: var(--gray-50);
-  color: var(--navy-900);
+  background: var(--bg-secondary);
+  color: var(--foreground);
   font-weight: 700;
-  font-size: 0.82rem;
+  font-size: 0.8rem;
   text-transform: uppercase;
   letter-spacing: 0.04em;
 }
 
 .wizard-layout {
   display: grid;
-  grid-template-columns: 1fr 360px;
+  grid-template-columns: 1fr 370px;
   gap: 1.75rem;
   align-items: start;
 }
@@ -1007,65 +1362,62 @@ textarea.field-control {
   grid-template-columns: repeat(4, 1fr);
   gap: 0.5rem;
   margin-bottom: 1.75rem;
-  background: var(--gray-50);
-  padding: 0.6rem;
-  border-radius: var(--radius-md);
-  border: 1px solid var(--gray-200);
+  background: var(--bg-secondary);
+  padding: 0.55rem;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border);
 }
 
 .wizard-step-indicator {
   display: flex;
   align-items: center;
   gap: 0.55rem;
-  padding: 0.55rem 0.75rem;
+  min-height: 44px;
+  padding: 0.5rem 0.75rem;
   border-radius: var(--radius-sm);
-  font-size: 0.82rem;
+  font-size: 0.84rem;
   font-weight: 600;
-  color: var(--gray-500);
+  color: var(--muted-foreground);
   cursor: pointer;
 }
 
 .wizard-step-indicator.active {
-  background: var(--white);
-  color: var(--navy-900);
+  background: var(--bg-card);
+  color: var(--foreground);
   box-shadow: var(--shadow-xs);
-  border: 1px solid var(--gray-200);
+  border: 1px solid var(--border);
 }
 
 .wizard-step-indicator.completed {
-  color: var(--emerald-700);
+  color: var(--primary);
 }
 
 .wizard-step-circle {
-  width: 24px;
-  height: 24px;
+  width: 26px;
+  height: 26px;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 0.75rem;
+  font-size: 0.76rem;
   font-weight: 700;
-  background: var(--gray-200);
-  color: var(--gray-700);
+  background: var(--border);
+  color: var(--foreground);
   flex-shrink: 0;
 }
 
-.wizard-step-indicator.active .wizard-step-circle {
-  background: var(--blue-600);
-  color: var(--white);
-}
-
+.wizard-step-indicator.active .wizard-step-circle,
 .wizard-step-indicator.completed .wizard-step-circle {
-  background: var(--emerald-600);
+  background: var(--primary);
   color: var(--white);
 }
 
 .wizard-card {
-  background: var(--white);
-  border: 1px solid var(--gray-200);
+  background: var(--bg-card);
+  border: 1px solid var(--border);
   border-radius: var(--radius-lg);
   padding: 1.85rem;
-  box-shadow: var(--shadow-xs);
+  box-shadow: var(--shadow-sm);
 }
 
 .wizard-pane {
@@ -1084,21 +1436,22 @@ textarea.field-control {
 }
 
 .tier-option {
-  border: 1.5px solid var(--gray-200);
-  border-radius: var(--radius-sm);
-  padding: 1.05rem;
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 1.1rem;
   cursor: pointer;
-  background: var(--white);
+  background: var(--bg-page);
+  transition: var(--transition);
 }
 
 .tier-option.selected {
-  border-color: var(--blue-600);
-  background: var(--blue-50);
+  border-color: var(--primary);
+  background: var(--primary-light);
 }
 
 .ocr-box {
-  border: 1px dashed var(--gray-300);
-  background: var(--gray-50);
+  border: 1.5px dashed var(--input-border);
+  background: var(--bg-page);
   border-radius: var(--radius-md);
   padding: 1.25rem;
   display: flex;
@@ -1110,12 +1463,12 @@ textarea.field-control {
 }
 
 .order-summary-card {
-  background: var(--white);
-  border: 1px solid var(--gray-200);
+  background: var(--bg-card);
+  border: 1px solid var(--border);
   border-radius: var(--radius-lg);
-  padding: 1.5rem;
+  padding: 1.6rem;
   position: sticky;
-  top: 92px;
+  top: 96px;
   box-shadow: var(--shadow-sm);
 }
 
@@ -1123,24 +1476,25 @@ textarea.field-control {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0.55rem 0;
-  font-size: 0.88rem;
-  border-bottom: 1px solid var(--gray-100);
+  padding: 0.6rem 0;
+  font-size: 0.9rem;
+  border-bottom: 1px solid var(--border);
 }
 
 .summary-total {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding-top: 0.85rem;
+  padding-top: 0.9rem;
   margin-top: 0.4rem;
-  font-size: 1.15rem;
-  font-weight: 800;
-  color: var(--navy-900);
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--foreground);
 }
 
 /* ==========================================================================
-   Tracking Timeline, FAQ & Legal Policies
+   Tracking Timeline, 2-Column FAQ & Legal Policies
    ========================================================================== */
 .timeline-list {
   position: relative;
@@ -1155,7 +1509,7 @@ textarea.field-control {
   top: 6px;
   bottom: 6px;
   width: 2px;
-  background: var(--gray-200);
+  background: var(--border);
 }
 
 .timeline-item {
@@ -1170,19 +1524,23 @@ textarea.field-control {
   width: 20px;
   height: 20px;
   border-radius: 50%;
-  background: var(--gray-200);
-  border: 4px solid var(--white);
-  box-shadow: 0 0 0 1px var(--gray-300);
+  background: var(--border);
+  border: 4px solid var(--bg-card);
+  box-shadow: 0 0 0 1px var(--input-border);
 }
 
-.timeline-item.done .timeline-dot {
-  background: var(--emerald-600);
-  box-shadow: 0 0 0 1px var(--emerald-600);
-}
-
+.timeline-item.done .timeline-dot,
 .timeline-item.current .timeline-dot {
-  background: var(--blue-600);
-  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.2);
+  background: var(--primary);
+  box-shadow: 0 0 0 3px rgba(0, 122, 66, 0.2);
+}
+
+/* 2-Column FAQ Layout (Exact iVisaPortal FAQ Section) */
+.faq-split-grid {
+  display: grid;
+  grid-template-columns: 5fr 7fr;
+  gap: 2.5rem;
+  align-items: start;
 }
 
 .faq-list {
@@ -1191,34 +1549,36 @@ textarea.field-control {
   gap: 0.75rem;
   max-width: 840px;
   margin: 0 auto;
+  width: 100%;
 }
 
 .faq-item {
-  background: var(--white);
-  border: 1px solid var(--gray-200);
-  border-radius: var(--radius-sm);
+  background: var(--bg-page);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
   overflow: hidden;
 }
 
 .faq-question {
   width: 100%;
-  padding: 1.05rem 1.35rem;
+  min-height: 60px;
+  padding: 1.1rem 1.35rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 1rem;
   text-align: left;
   font-weight: 600;
-  font-size: 0.95rem;
-  color: var(--navy-900);
+  font-size: 1rem;
+  color: var(--foreground);
 }
 
 .faq-answer {
   display: none;
-  padding: 0 1.35rem 1.15rem;
-  color: var(--gray-600);
-  font-size: 0.9rem;
-  line-height: 1.65;
+  padding: 0 1.35rem 1.25rem;
+  color: var(--muted-foreground);
+  font-size: 0.94rem;
+  line-height: 1.7;
 }
 
 .faq-item.open .faq-answer {
@@ -1233,40 +1593,41 @@ textarea.field-control {
 }
 
 .policy-nav {
-  background: var(--white);
-  border: 1px solid var(--gray-200);
-  border-radius: var(--radius-md);
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
   padding: 0.65rem;
   position: sticky;
-  top: 92px;
+  top: 96px;
 }
 
 .policy-nav-btn {
   width: 100%;
+  min-height: 44px;
   text-align: left;
-  padding: 0.65rem 0.85rem;
-  border-radius: var(--radius-xs);
-  font-size: 0.85rem;
+  padding: 0.65rem 0.95rem;
+  border-radius: var(--radius-sm);
+  font-size: 0.88rem;
   font-weight: 600;
-  color: var(--gray-600);
+  color: var(--muted-foreground);
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 
 .policy-nav-btn:hover {
-  background: var(--gray-50);
-  color: var(--navy-900);
+  background: var(--bg-secondary);
+  color: var(--foreground);
 }
 
 .policy-nav-btn.active {
-  background: var(--navy-900);
+  background: var(--primary);
   color: var(--white);
 }
 
 .policy-content-card {
-  background: var(--white);
-  border: 1px solid var(--gray-200);
+  background: var(--bg-card);
+  border: 1px solid var(--border);
   border-radius: var(--radius-lg);
   padding: 2.25rem;
 }
@@ -1280,22 +1641,22 @@ textarea.field-control {
 }
 
 .policy-prose h2 {
-  font-size: 1.5rem;
-  color: var(--navy-900);
-  margin-bottom: 0.5rem;
+  font-size: 1.55rem;
+  color: var(--foreground);
+  margin-bottom: 0.55rem;
 }
 
 .policy-prose h3 {
-  font-size: 1.05rem;
-  color: var(--navy-900);
-  margin: 1.35rem 0 0.45rem;
+  font-size: 1.1rem;
+  color: var(--foreground);
+  margin: 1.4rem 0 0.45rem;
 }
 
 .policy-prose p, .policy-prose li {
-  color: var(--gray-600);
-  font-size: 0.92rem;
-  margin-bottom: 0.7rem;
-  line-height: 1.68;
+  color: var(--muted-foreground);
+  font-size: 0.95rem;
+  margin-bottom: 0.75rem;
+  line-height: 1.7;
 }
 
 .policy-prose ul {
@@ -1305,18 +1666,18 @@ textarea.field-control {
 }
 
 /* ==========================================================================
-   Modal Dialog & Cookie Consent Bar (Google Ads Requirement)
+   Modal Dialog & Cookie Consent Bar
    ========================================================================== */
 .modal-backdrop {
   position: fixed;
   inset: 0;
-  background: rgba(15, 23, 42, 0.6);
+  background: rgba(26, 29, 32, 0.62);
   backdrop-filter: blur(4px);
   z-index: 2000;
   display: none;
   align-items: center;
   justify-content: center;
-  padding: 1.25rem;
+  padding: 1rem;
 }
 
 .modal-backdrop.open {
@@ -1324,21 +1685,22 @@ textarea.field-control {
 }
 
 .modal-dialog {
-  background: var(--white);
+  background: var(--bg-card);
   border-radius: var(--radius-lg);
   width: 100%;
   max-width: 780px;
   max-height: 88vh;
   overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
   box-shadow: var(--shadow-lg);
-  border: 1px solid var(--gray-200);
+  border: 1px solid var(--border);
 }
 
 .modal-header {
   padding: 1.15rem 1.5rem;
-  background: var(--white);
-  border-bottom: 1px solid var(--gray-200);
-  color: var(--navy-900);
+  background: var(--bg-card);
+  border-bottom: 1px solid var(--border);
+  color: var(--foreground);
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -1353,15 +1715,15 @@ textarea.field-control {
 
 .cookie-banner {
   position: fixed;
-  bottom: 16px;
+  bottom: calc(env(safe-area-inset-bottom, 0px) + 16px);
   left: 16px;
   right: 16px;
   max-width: 960px;
   margin: 0 auto;
-  background: var(--navy-900);
-  color: var(--white);
-  padding: 1rem 1.35rem;
-  border-radius: var(--radius-md);
+  background: var(--bg-footer);
+  color: var(--text-footer);
+  padding: 1.1rem 1.4rem;
+  border-radius: var(--radius-lg);
   box-shadow: var(--shadow-lg);
   border: 1px solid rgba(255, 255, 255, 0.14);
   z-index: 1900;
@@ -1370,7 +1732,7 @@ textarea.field-control {
   justify-content: space-between;
   gap: 1.25rem;
   flex-wrap: wrap;
-  font-size: 0.84rem;
+  font-size: 0.85rem;
 }
 
 .cookie-banner.show {
@@ -1378,50 +1740,57 @@ textarea.field-control {
 }
 
 /* ==========================================================================
-   Footer
+   Footer (Exact iVisaPortal #1A1D20 Charcoal Footer with 44px Touch Links)
    ========================================================================== */
 .site-footer {
-  background: var(--navy-900);
-  color: var(--gray-400);
-  padding: 4rem 0 2.25rem;
+  background: var(--bg-footer);
+  color: var(--text-footer);
+  padding: 4rem 0 calc(2.5rem + env(safe-area-inset-bottom, 0px));
+  margin-top: auto;
 }
 
 .footer-grid {
   display: grid;
-  grid-template-columns: 1.5fr repeat(4, 1fr);
-  gap: 2rem;
-  margin-bottom: 2.5rem;
+  grid-template-columns: 1.4fr repeat(4, 1fr);
+  gap: 2.25rem;
+  margin-bottom: 2.75rem;
 }
 
 .footer-col-title {
-  color: var(--white);
-  font-size: 0.78rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-  margin-bottom: 0.9rem;
+  color: var(--text-footer-muted);
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin-bottom: 0.85rem;
 }
 
 .footer-links {
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
-  font-size: 0.85rem;
+  gap: 0.15rem;
+  font-size: 0.875rem;
+}
+
+.footer-links a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 40px;
+  color: var(--text-footer-muted);
 }
 
 .footer-links a:hover {
   color: var(--white);
+  text-decoration: underline;
 }
 
 .gov-disclaimer-box {
-  background: rgba(255, 255, 255, 0.04);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: var(--radius-sm);
-  padding: 1.1rem 1.35rem;
-  font-size: 0.78rem;
-  color: var(--gray-300);
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: var(--radius-md);
+  padding: 1.15rem 1.35rem;
+  font-size: 0.8rem;
+  color: var(--text-footer-muted);
   margin-bottom: 1.5rem;
-  line-height: 1.6;
+  line-height: 1.65;
 }
 
 .footer-bottom {
@@ -1429,67 +1798,189 @@ textarea.field-control {
   align-items: center;
   justify-content: space-between;
   padding-top: 1.5rem;
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  border-top: 1px solid rgba(255, 255, 255, 0.16);
   font-size: 0.8rem;
-  color: var(--gray-400);
+  color: var(--text-footer-muted);
   flex-wrap: wrap;
   gap: 1rem;
 }
 
 /* ==========================================================================
-   Responsive Breakpoints
+   Android & iOS Responsive Breakpoints (Tablet & Mobile Optimization)
    ========================================================================== */
 @media (max-width: 1024px) {
-  .hero-split {
+  .hero-split,
+  .editorial-split-grid,
+  .forest-cost-banner,
+  .faq-split-grid,
+  .wizard-layout,
+  .policy-layout {
     grid-template-columns: 1fr;
+    gap: 2rem;
   }
+
+  .destinations-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
   .checker-form-grid {
     grid-template-columns: 1fr 1fr;
   }
+
   .steps-grid {
     grid-template-columns: repeat(2, 1fr);
   }
-  .steps-grid-3 {
+
+  .steps-grid-3,
+  .value-pillars-grid {
     grid-template-columns: 1fr;
+    gap: 1.25rem;
   }
-  .wizard-layout, .policy-layout {
-    grid-template-columns: 1fr;
-  }
+
   .policy-nav {
     position: static;
     display: flex;
     overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
     gap: 0.4rem;
+    padding: 0.5rem;
   }
+
   .policy-nav-btn {
     white-space: nowrap;
     width: auto;
+    flex-shrink: 0;
   }
+
   .footer-grid {
     grid-template-columns: 1fr 1fr;
+    gap: 2rem;
   }
 }
 
-@media (max-width: 780px) {
+@media (max-width: 767px) {
+  /* Mobile Navigation Drawer for iOS & Android */
   .nav-links {
     display: none;
-    position: absolute;
-    top: 72px;
+    position: fixed;
+    top: var(--nav-height);
     left: 0;
     right: 0;
-    background: var(--white);
+    background: var(--bg-page);
     flex-direction: column;
-    padding: 1rem 1.5rem;
-    border-bottom: 1px solid var(--gray-200);
-    box-shadow: var(--shadow-md);
+    align-items: stretch;
+    padding: 1rem 1.25rem 1.5rem;
+    border-bottom: 1px solid var(--border);
+    box-shadow: var(--shadow-lg);
+    z-index: 1100;
+    max-height: calc(100vh - var(--nav-height));
+    overflow-y: auto;
   }
+
   .nav-links.mobile-open {
     display: flex;
   }
+
+  .nav-link {
+    min-height: 48px;
+    padding: 0 1rem;
+    font-size: 1rem;
+    border-radius: var(--radius-sm);
+  }
+
   .mobile-menu-btn {
     display: inline-flex;
   }
-  .checker-form-grid, .result-banner, .steps-grid, .tier-selector-grid, .wizard-stepper, .footer-grid, .hero-bullet-list {
+
+  .header-actions .btn-outline {
+    display: none;
+  }
+
+  .header-actions .btn-primary {
+    min-height: 40px;
+    padding: 0 0.95rem;
+    font-size: 0.82rem;
+  }
+
+  /* Hero Panel Mobile Refinements (Matching ivisaportal.com) */
+  .hero {
+    padding: 0.85rem 0 2rem;
+  }
+
+  .hero-panel {
+    border-radius: 1.75rem;
+    padding: 1.25rem;
+  }
+
+  .hero-title, .hero-heading {
+    font-size: clamp(2.05rem, 8.2vw, 2.85rem);
+    line-height: 1.08;
+  }
+
+  .hero-description {
+    font-size: 0.98rem;
+  }
+
+  .hero-form-box, .checker-card {
+    padding: 1.15rem;
+    border-radius: 1.35rem;
+  }
+
+  .hero-form-2col,
+  .checker-form-grid,
+  .result-banner,
+  .result-metrics,
+  .destinations-grid,
+  .steps-grid,
+  .tier-selector-grid,
+  .wizard-stepper,
+  .hero-photo-grid,
+  .hero-sub-collage {
     grid-template-columns: 1fr;
+  }
+
+  .hero-main-photo-card,
+  .photo-card-tall,
+  .editorial-photo-frame {
+    height: 280px;
+  }
+
+  .editorial-floating-card {
+    margin: -2.5rem 0.85rem 0;
+    padding: 1.1rem;
+  }
+
+  .search-input-wrap {
+    min-width: 100%;
+    max-width: 100%;
+  }
+
+  .region-pills {
+    width: 100%;
+    overflow-x: auto;
+    flex-wrap: nowrap;
+    padding-bottom: 0.35rem;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .region-pill {
+    flex-shrink: 0;
+  }
+
+  .wizard-card,
+  .policy-content-card {
+    padding: 1.25rem;
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 1.75rem;
+  }
+
+  .cookie-banner {
+    left: 12px;
+    right: 12px;
+    bottom: calc(env(safe-area-inset-bottom, 0px) + 12px);
+    padding: 1rem;
   }
 }

@@ -2,27 +2,41 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#FAFBF8" />
   <title>Legal Policies, Terms, Privacy, Refunds & Photo Credits — OnePassVisa.com</title>
   <meta name="description" content="Complete legal policies for OnePassVisa.com including Terms & Conditions, Privacy Policy, Refund Policy, Cookie Policy, GDPR Compliance, Government Disclaimer, and Image Credits." />
-  <link rel="stylesheet" href="assets/css/styles.css?v=3" />
+  <link rel="stylesheet" href="assets/css/styles.css?v=4" />
 </head>
 <body>
 
-  <!-- Above-the-Fold Google Ads Compliance Disclosure Bar -->
-  <div class="compliance-bar">
-    <div class="container compliance-bar-inner">
-      <div class="compliance-notice">
-        <span class="compliance-tag">Independent Service</span>
-        <span>
-          OnePassVisa.com is a private visa and travel document assistance agency and is not affiliated with any government. Service fees apply in addition to government fees, or you can apply directly via <a href="faq.html#gov-directory" style="color:var(--white);text-decoration:underline;">official government portals</a>.
-        </span>
-      </div>
-      <div class="top-bar-right">
-        <a href="faq.html#gov-directory" style="color:var(--white);font-weight:600;">Government Directory</a>
-        <label style="display:inline-flex;align-items:center;gap:0.35rem;">
-          <span>Currency:</span>
-          <select class="currency-select js-currency-select" aria-label="Select Currency">
+    <!-- Main Header (Exact iVisaPortal Clean Header) -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="brand-logo" aria-label="OnePassVisa home">
+        <svg viewBox="0 0 68 96" width="26" height="36" aria-hidden="true" class="brand-mark-svg">
+          <polyline points="16,24 28,36 52,12" fill="none" stroke="#00A859" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"></polyline>
+          <line x1="34" y1="56" x2="34" y2="84" stroke="#00A859" stroke-width="12" stroke-linecap="round"></line>
+        </svg>
+        <div class="brand-wordmark">
+          <div class="brand-title">OnePass<span>Visa</span></div>
+          <div class="brand-subtitle">Visas &amp; Travel Documents</div>
+        </div>
+      </a>
+
+      <nav class="nav-links" id="mainNavLinks" aria-label="Primary navigation">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="destinations.html" class="nav-link">Visas</a>
+        <a href="services.html" class="nav-link">Travel Documents/ETAs</a>
+        <a href="index.html#how-it-works" class="nav-link">How it works</a>
+        <a href="index.html#calculator" class="nav-link">Pricing</a>
+        <a href="faq.html" class="nav-link">FAQs</a>
+        <a href="about.html" class="nav-link">Support</a>
+      </nav>
+
+      <div class="header-actions">
+        <label style="display:inline-flex;align-items:center;" aria-label="Select Currency">
+          <select class="currency-select js-currency-select">
             <option value="USD">USD ($)</option>
             <option value="EUR">EUR (€)</option>
             <option value="GBP">GBP (£)</option>
@@ -32,57 +46,51 @@
             <option value="AUD">AUD ($)</option>
           </select>
         </label>
-      </div>
-    </div>
-  </div>
-
-  <!-- Main Header -->
-  <header class="site-header">
-    <div class="container header-inner">
-      <a href="index.html" class="brand-logo">
-        <div class="brand-mark">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <rect x="4" y="2" width="16" height="20" rx="2.5"></rect>
-            <circle cx="12" cy="10" r="3.5"></circle>
-            <path d="M8.5 17.5h7"></path>
-          </svg>
-        </div>
-        <div class="brand-wordmark">
-          <div class="brand-title">OnePass<span>Visa</span></div>
-          <div class="brand-subtitle">Visas &amp; Travel Documents</div>
-        </div>
-      </a>
-
-      <nav class="nav-links" id="mainNavLinks" aria-label="Main Navigation">
-        <a href="index.html" class="nav-link">Home</a>
-        <a href="destinations.html" class="nav-link">Destinations</a>
-        <a href="services.html" class="nav-link">Visas &amp; Documents</a>
-        <a href="track.html" class="nav-link">Track Status</a>
-        <a href="faq.html" class="nav-link">FAQ</a>
-        <a href="about.html" class="nav-link">About</a>
-        <a href="policies.html" class="nav-link active">Policies</a>
-      </nav>
-
-      <div class="header-actions">
-        <button type="button" class="btn btn-outline btn-sm" onclick="window.print()">Print Policy</button>
+        <a href="track.html" class="btn btn-outline btn-sm">Track application</a>
         <a href="apply.html" class="btn btn-primary btn-sm">
-          <span>Apply Online</span>
-          <svg width="16" height="16" class="icon-arrow" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 10h12M11 5l5 5-5 5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <span>Check visa options</span>
         </a>
-        <button type="button" class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle Menu">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <line x1="3" y1="6" x2="21" y2="6"></line>
-            <line x1="3" y1="12" x2="21" y2="12"></line>
-            <line x1="3" y1="18" x2="21" y2="18"></line>
+        <button type="button" class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Open menu" aria-expanded="false">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="4" y1="12" x2="20" y2="12"></line>
+            <line x1="4" y1="6" x2="20" y2="6"></line>
+            <line x1="4" y1="18" x2="20" y2="18"></line>
           </svg>
         </button>
       </div>
     </div>
   </header>
 
+  <!-- Service Disclosure Bar -->
+  <div role="note" aria-label="Service disclosure" class="compliance-bar">
+    <div class="container compliance-bar-inner" style="justify-content:center;">
+      <div class="compliance-notice">
+        <span class="compliance-tag">Private assistance service</span>
+        <span class="compliance-divider" aria-hidden="true">|</span>
+        <span>Independent of government. Clear requirements and listed fees.</span>
+        <a href="policies.html#disclaimer" class="compliance-link">Service disclosure</a>
+        <span class="compliance-divider" aria-hidden="true">•</span>
+        <a href="faq.html#gov-directory" class="compliance-link">Official government portals</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Breadcrumb -->
+  <div class="container breadcrumb-bar">
+    <nav aria-label="Breadcrumb">
+      <ol class="breadcrumb-list">
+        <li><a href="index.html">Home</a></li>
+        <li aria-hidden="true">›</li>
+        <li style="color:var(--foreground);font-weight:500;">Policies & Disclosures</li>
+      </ol>
+    </nav>
+  </div>
+
   <!-- Hero Banner -->
-  <section class="hero hero-narrow">
-    <div class="container hero-center" style="margin-bottom:0;">
+  <section class=\"hero hero-narrow\">
+    <div class=\"container\">
+      <div class=\"hero-panel\">
+        <div class=\"hero-center\" style="margin-bottom:0;">
       <span class="section-eyebrow">Legal, Compliance &amp; Attribution</span>
       <h1 class="hero-title" style="font-size:clamp(1.85rem,3.3vw,2.65rem);">
         Policies, Terms &amp; <span>Disclosures</span>
@@ -90,6 +98,8 @@
       <p class="hero-description" style="margin-bottom:0;">
         Simple, transparent policies governing visa and travel document assistance, data privacy, refunds, Google Ads disclosures, and photography credits at OnePassVisa.com.
       </p>
+    </div>
+      </div>
     </div>
   </section>
 
@@ -305,7 +315,7 @@
     </div>
   </footer>
 
-  <script src="assets/js/data.js?v=3"></script>
-  <script src="assets/js/app.js?v=3"></script>
+  <script src="assets/js/data.js?v=4"></script>
+  <script src="assets/js/app.js?v=4"></script>
 </body>
 </html>
