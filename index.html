@@ -19,7 +19,7 @@
   <link rel="apple-touch-icon" href="assets/images/apple-touch-icon.png" />
   <link rel="preload" href="assets/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="preload" href="assets/fonts/plus-jakarta-700.woff2" as="font" type="font/woff2" crossorigin />
-  <link rel="stylesheet" href="assets/css/onepass-v6.css?v=9" />
+  <link rel="stylesheet" href="assets/css/onepass-v6.css?v=10" />
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"OnePassVisa","legalName":"OnePassVisa Digital Travel Services LLC","url":"https://onepassvisa.com/","logo":"https://onepassvisa.com/assets/images/onepassvisa-logo-master.png","description":"Independent private visa and travel document assistance service helping travelers apply for eVisas, ETAs, and digital arrival cards.","contactPoint":{"@type":"ContactPoint","email":"support@onepassvisa.com","contactType":"customer support","availableLanguage":["English"]}}</script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Is OnePassVisa affiliated with any government?","acceptedAnswer":{"@type":"Answer","text":"No. OnePassVisa is an independent private travel document service. You can always apply directly on the official government website for the government fee only. Travelers use OnePassVisa for simplified forms, manual passport and photo review, and email support."}},{"@type":"Question","name":"How are your prices calculated?","acceptedAnswer":{"@type":"Answer","text":"Every price follows one formula: Government fee + OnePassVisa service fee + optional priority review (if chosen) = Total per traveler. Official government fees are verified against each government portal and shown beside our service fee."}},{"@type":"Question","name":"Why use OnePassVisa for a free arrival card like Thailand TDAC or Singapore SGAC?","acceptedAnswer":{"@type":"Answer","text":"Official digital arrival cards for Thailand, Singapore, and Malaysia have a US$0 government fee when filed within 3 days before arrival. Our optional US$29 service lets you enter your trip details anytime after booking your flight; we check your details and submit when the official window opens."}},{"@type":"Question","name":"What is your refund policy?","acceptedAnswer":{"@type":"Answer","text":"Cancel before we submit your application to the government portal for a 100% full refund of all fees. Once submitted to the government, statutory fees are non-refundable, but if immigration declines your application, we refund 100% of our service fee."}}]}</script>
 </head>
@@ -28,10 +28,8 @@
 
   <div class="disclosure-bar" role="region" aria-label="Private Service Disclosure">
     <div class="container disclosure-bar-inner">
-      <span class="disclosure-shield" aria-hidden="true">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L4 5v6.09c0 5.05 3.41 9.76 8 10.91 4.59-1.15 8-5.86 8-10.91V5l-8-3zm-1.06 13.54L7.4 12l1.41-1.41 2.12 2.12 4.24-4.24 1.41 1.41-5.64 5.66z"/></svg>
-      </span>
-      <span><strong>Private Service Notice:</strong> OnePassVisa is an independent assistance agency, not a government website. You can apply directly on official portals for government fees only. <a href="faq.html#official-portals">Official links</a></span>
+      <span class="disclosure-shield" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 11v6M12 7v1"/></svg></span>
+      <span>Independent travel document assistance. Not a government website. Apply directly for government fees only. <a href="faq.html#official-portals">Official government links</a></span>
     </div>
   </div>
 
@@ -45,7 +43,7 @@
         <a href="destinations.html" class="nav-link ">Destinations</a>
         <a href="index.html#how-it-works" class="nav-link">How it works</a>
         <a href="faq.html" class="nav-link ">Help</a>
-        <a href="track.html" class="nav-link hide-desktop-nav " style="display:none;">Track application</a>
+        <a href="track.html" class="nav-link hide-desktop-nav ">Track application</a>
       </nav>
 
       <div class="header-actions">
@@ -113,7 +111,7 @@
 
         <a href="index.html#checker" class="btn btn-primary btn-sm header-cta-btn">
           <span class="cta-text-full">Check requirements</span>
-          <span class="cta-text-short">Check</span>
+          <span class="cta-text-short">Check requirements</span>
         </a>
 
         <button type="button" class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mainNavLinks">
@@ -136,10 +134,11 @@
     <!-- 1. Hero and requirements checker -->
     <section class="hero" id="checker">
       <div class="container hero-grid">
-        <div>
-          <h1 class="hero-title">Travel documents,<br/>made simple.</h1>
+        <div class="hero-copy">
+          <p class="hero-eyebrow">eVisas · Travel authorizations · Arrival cards</p>
+          <h1 class="hero-title">Travel documents, <span>made simple.</span></h1>
           <p class="hero-lead">
-            Find your visa, ETA or arrival card—with expert help applying.
+            Find the documents for your trip, understand the fees, and get help preparing your application.
           </p>
 
           
@@ -191,7 +190,7 @@
     </div>
 
     <div class="checker-reassurance-line">
-      Document review · Clear fees · Application support
+      Start with the country that issued your passport.
     </div>
 
     <div id="checkerResultDrawer" class="checker-result" role="region" aria-live="polite"></div>
@@ -202,23 +201,14 @@
           <img
             src="assets/images/hero-halong-800.webp"
             srcset="assets/images/hero-halong-800.webp 800w, assets/images/hero-halong-1200.webp 1200w"
-            sizes="(min-width: 1024px) 460px, 95vw"
+            sizes="(min-width: 1024px) 520px, 95vw"
             width="800"
             height="533"
             fetchpriority="high"
             alt="Limestone islands in Ha Long Bay, Vietnam"
             class="hero-photo-img"
           />
-          <div class="hero-review-overlay">
-            <div class="hero-review-overlay-title">
-              <span style="color:var(--emerald);">✓</span>
-              <span>Expert document review</span>
-            </div>
-            <div class="hero-review-overlay-list">
-              <div>• Passport details checked</div>
-              <div>• Photo requirements reviewed</div>
-            </div>
-          </div>
+          <p class="hero-photo-caption"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="2.5"/></svg>Ha Long Bay, Vietnam</p>
         </div>
       </div>
     </section>
@@ -231,28 +221,28 @@
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12l2 2 4-4"/><rect x="3" y="4" width="18" height="16" rx="3"/></svg>
           </div>
           <div>
-            <h2 class="benefit-open-title">Document review</h2>
-            <p class="benefit-open-desc">We check passport details, dates, and photo formatting before submission.</p>
+            <h2 class="benefit-open-title">A clearer starting point</h2>
+            <p class="benefit-open-desc">Understand the documents and information needed for your selected trip.</p>
           </div>
         </div>
 
         <div class="benefit-open-item">
           <div class="benefit-open-icon" aria-hidden="true">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8Z"/><path d="M14 2v6h6M8 15l2 2 5-5"/></svg>
           </div>
           <div>
-            <h2 class="benefit-open-title">Clear pricing</h2>
-            <p class="benefit-open-desc">Government fees and our service fee are always shown separately.</p>
+            <h2 class="benefit-open-title">Careful document review</h2>
+            <p class="benefit-open-desc">Get help checking passport details and photo requirements before submission.</p>
           </div>
         </div>
 
         <div class="benefit-open-item">
           <div class="benefit-open-icon" aria-hidden="true">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="15" rx="2"/><path d="M3 10h18M7 15h4"/></svg>
           </div>
           <div>
-            <h2 class="benefit-open-title">Application support</h2>
-            <p class="benefit-open-desc">Get help by email if anything needs attention.</p>
+            <h2 class="benefit-open-title">Fees you can understand</h2>
+            <p class="benefit-open-desc">See government fees and our assistance fee separately.</p>
           </div>
         </div>
       </div>
@@ -262,8 +252,8 @@
     <section class="section">
       <div class="container">
         <div class="section-header">
-          <h2 class="section-title">Explore destinations</h2>
-          <p class="section-subtitle">View requirements, government fees, and our service fee for popular travel documents.</p>
+          <h2 class="section-title">Where will you go next?</h2>
+          <p class="section-subtitle">Explore travel documents, requirements, and fees for your next destination.</p>
         </div>
 
         <div class="dest-grid" id="destinationsGrid" data-limit="6">
@@ -470,82 +460,92 @@
       </div>
     </section>
 
-    <!-- 4. How it works (3 simple steps) -->
+    <!-- 4. A simple, conditional journey -->
     <section class="section bg-subtle" id="how-it-works">
       <div class="container">
         <div class="section-header">
+          <p class="eyebrow">From plans to paperwork</p>
           <h2 class="section-title">How it works</h2>
-          <p class="section-subtitle">Three straightforward steps from checking eligibility to receiving your travel document.</p>
+          <p class="section-subtitle">A clear next step, from your first question to your travel document.</p>
         </div>
-
-        <div class="grid-3">
-          <div class="card">
-            <span class="badge badge-emerald" style="margin-bottom:0.6rem;">Step 1</span>
-            <h3 style="font-size:1.15rem;margin-bottom:0.4rem;">Enter trip and traveler details</h3>
-            <p style="font-size:0.95rem;color:var(--text-body);">Complete a guided online form tailored to your specific visa, ETA, or arrival card.</p>
-          </div>
-
-          <div class="card">
-            <span class="badge badge-emerald" style="margin-bottom:0.6rem;">Step 2</span>
-            <h3 style="font-size:1.15rem;margin-bottom:0.4rem;">Specialist review and submission</h3>
-            <p style="font-size:0.95rem;color:var(--text-body);">We check your passport details, format any required photos, and submit to the official portal.</p>
-          </div>
-
-          <div class="card">
-            <span class="badge badge-emerald" style="margin-bottom:0.6rem;">Step 3</span>
-            <h3 style="font-size:1.15rem;margin-bottom:0.4rem;">Receive your confirmation by email</h3>
-            <p style="font-size:0.95rem;color:var(--text-body);">As soon as your document is issued, we email your confirmation PDF ready for travel.</p>
-          </div>
-        </div>
+        <ol class="process-grid">
+          <li class="process-step">
+            <span class="process-number" aria-hidden="true">01</span>
+            <div class="process-copy">
+              <h3>Tell us about your trip</h3>
+              <p>Choose your destination and enter the required traveler details.</p>
+            </div>
+          </li>
+          <li class="process-step">
+            <span class="process-number" aria-hidden="true">02</span>
+            <div class="process-copy">
+              <h3>We help prepare your application</h3>
+              <p>Our team reviews your information and required documents, then submits to the official portal.</p>
+            </div>
+          </li>
+          <li class="process-step">
+            <span class="process-number" aria-hidden="true">03</span>
+            <div class="process-copy">
+              <h3>Receive your document by email</h3>
+              <p>We email your confirmation when your document is issued. Final approval rests with the issuing authority.</p>
+            </div>
+          </li>
+        </ol>
       </div>
     </section>
 
-    <!-- 5. What your service includes -->
+    <!-- 5. Explain the assistance and its cost -->
     <section class="section">
-      <div class="container" style="max-width:52rem;">
-        <div class="card">
-          <h2 style="font-size:1.45rem;margin-bottom:0.6rem;">What your service includes</h2>
-          <p style="font-size:1rem;color:var(--text-body);margin-bottom:1rem;">
-            OnePassVisa is a private assistance service, not a government website. Every price on our site separates the official government fee (from US$0 for free arrival cards up to statutory visa fees) from our service fee (US$29–US$44).
-          </p>
-          <div class="grid-2" style="margin-bottom:1.25rem;gap:1rem;">
-            <div style="font-size:0.92rem;color:var(--text-body);">
-              <strong style="color:var(--navy);">Included with every application:</strong>
-              <ul style="margin-top:0.4rem;display:flex;flex-direction:column;gap:0.3rem;">
-                <li>✓ Passport number, validity, and date verification</li>
-                <li>✓ Photo and passport scan formatting where required</li>
-                <li>✓ Scheduled window submission for arrival cards</li>
-              </ul>
-            </div>
-            <div style="font-size:0.92rem;color:var(--text-body);">
-              <strong style="color:var(--navy);">Your choice and refund protection:</strong>
-              <ul style="margin-top:0.4rem;display:flex;flex-direction:column;gap:0.3rem;">
-                <li>✓ Direct links to apply on official portals for the government fee only</li>
-                <li>✓ 100% full refund if cancelled before government submission</li>
-                <li>✓ 100% service fee refund if declined by immigration</li>
-              </ul>
-            </div>
+      <div class="container fee-story">
+        <div class="fee-story-copy">
+          <p class="eyebrow">Your trip. Your choice.</p>
+          <h2 class="section-title">Clear fees.<br/>A little less paperwork.</h2>
+          <p class="section-subtitle">Apply directly through the official government portal, or choose OnePassVisa for help preparing and submitting your application. Our assistance fee is shown separately, so you can decide what works for you.</p>
+          <ul class="fee-checklist">
+            <li>Passport number, validity, and date verification</li>
+            <li>Photo and passport scan formatting where required</li>
+            <li>Scheduled window submission for arrival cards</li>
+          </ul>
+          <div class="fee-links">
+            <a href="faq.html#pricing">Compare fees &amp; use calculator <span aria-hidden="true">↗</span></a>
+            <a href="faq.html#official-portals">Official government links <span aria-hidden="true">↗</span></a>
           </div>
-          <div style="display:flex;gap:0.75rem;flex-wrap:wrap;">
-            <a href="faq.html#pricing" class="btn btn-outline btn-sm">Compare fees &amp; use calculator</a>
-            <a href="faq.html#official-portals" class="btn btn-outline btn-sm">Official government links</a>
+        </div>
+        <div class="fee-anatomy">
+          <h3>What makes up your total?</h3>
+          <div class="fee-anatomy-row">
+            <div><strong>Government fee</strong><p>Paid for the official document. From US$0 for free arrival cards to statutory visa fees.</p></div>
+          </div>
+          <div class="fee-anatomy-row">
+            <span class="fee-operator" aria-hidden="true">+</span>
+            <div><strong>OnePassVisa service fee</strong><p>US$29–US$44 for application assistance.</p></div>
+          </div>
+          <div class="fee-anatomy-row">
+            <span class="fee-operator" aria-hidden="true">+</span>
+            <div><strong>Optional priority review</strong><p>Only if you choose it. Faster service review, not faster government processing.</p></div>
+          </div>
+          <div class="fee-anatomy-total"><span aria-hidden="true">=</span><strong>Total per traveler</strong></div>
+          <div class="fee-notes">
+            <p>Cancel before government submission for a 100% full refund of all fees. If immigration declines your application, we refund 100% of our service fee.</p>
+            <a href="policies.html#refund">Read the refund policy</a>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- 6. Common questions (4 useful FAQs) -->
-    <section class="section bg-subtle">
+    <!-- 6. Common questions -->
+    <section class="section home-faq">
       <div class="container">
         <div class="section-header">
-          <h2 class="section-title">Common questions</h2>
+          <h2 class="section-title">A few things you might be wondering</h2>
+          <p class="section-subtitle">Clear answers before you start.</p>
         </div>
 
         <div class="faq-list">
           
             <div class="faq-item">
               <button type="button" class="faq-trigger" aria-expanded="true" aria-controls="homeFaq_0">
-                <span>Is OnePassVisa affiliated with any government?</span>
+                <span>Is OnePassVisa a government website?</span>
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"></polyline></svg>
               </button>
               <div id="homeFaq_0" class="faq-panel" >
@@ -565,7 +565,7 @@
           
             <div class="faq-item">
               <button type="button" class="faq-trigger" aria-expanded="false" aria-controls="homeFaq_2">
-                <span>Why use OnePassVisa for a free arrival card like Thailand TDAC or Singapore SGAC?</span>
+                <span>Why pay for assistance with a free arrival card?</span>
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"></polyline></svg>
               </button>
               <div id="homeFaq_2" class="faq-panel" hidden>
@@ -583,66 +583,63 @@
               </div>
             </div>
           
+            <div class="faq-item">
+              <button type="button" class="faq-trigger" aria-expanded="false" aria-controls="homeFaq_4">
+                <span>How long does the process take?</span>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"></polyline></svg>
+              </button>
+              <div id="homeFaq_4" class="faq-panel" hidden>
+                <p>Our review time covers checking your details, preparing your documents, and submitting your application. Government processing begins after submission and is separate from our review time. Check the <a href="faq.html#pricing">fees and timing guide</a> for your destination.</p>
+              </div>
+            </div>
         </div>
       </div>
     </section>
   
+    <!-- 7. Return to the existing requirements checker -->
+    <section class="closing-cta">
+      <div class="container closing-cta-inner">
+        <div>
+          <h2>Ready for your next journey?</h2>
+          <p>Start by checking the travel documents for your destination.</p>
+        </div>
+        <a href="#checker" class="btn btn-primary">Check requirements <span class="arrow-icon" aria-hidden="true">→</span></a>
+      </div>
+    </section>
   </main>
 
   <footer class="site-footer">
     <div class="container">
       <div class="footer-grid">
-        <div>
-          <a href="index.html" aria-label="onepassvisa Home" style="display:inline-block;margin-bottom:0.85rem;">
-            <img src="assets/images/onepassvisa-logo-white-master.png?v=9" alt="onepassvisa" width="194" height="34" class="brand-logo-img-footer" loading="lazy" />
-          </a>
-          <p style="font-size:0.875rem;color:#CBD5E1;margin-bottom:0.85rem;max-width:22rem;">
-            Private travel document and eVisa filing assistance. Specialist passport &amp; photo review, clear fee breakdowns, and direct links to official government portals.
-          </p>
-          <div style="font-size:0.8125rem;color:#94A3B8;">
-            <div>Email: <a href="mailto:support@onepassvisa.com" style="color:#FFFFFF;text-decoration:underline;">support@onepassvisa.com</a></div>
-            <div style="margin-top:0.2rem;">Support Hours: Mon–Sun, 00:00–23:59 UTC</div>
-          </div>
+        <div class="footer-brand">
+          <a href="index.html" class="footer-logo" aria-label="onepassvisa Home"><img src="assets/images/onepassvisa-logo-white-master.png?v=9" alt="onepassvisa" width="194" height="34" class="brand-logo-img-footer" loading="lazy" /></a>
+          <p>Private travel document and eVisa filing assistance. Passport and photo review, clear fees, and access to official government portals.</p>
+          <p class="footer-contact">Email: <a href="mailto:support@onepassvisa.com">support@onepassvisa.com</a><br/>Support Hours: Mon–Sun, 00:00–23:59 UTC</p>
         </div>
-
         <div>
-          <div class="footer-heading">Popular eVisas</div>
+          <h2 class="footer-heading">Explore</h2>
           <div class="footer-links">
-            <a href="vietnam-evisa.html">Vietnam tourist eVisa</a>
-            <a href="thailand-evisa.html">Thailand tourist eVisa</a>
-            <a href="indonesia-evoa.html">Indonesia (Bali) e-VOA</a>
-            <a href="india-evisa.html">India tourist eVisa</a>
-            <a href="cambodia-evisa.html">Cambodia tourist eVisa</a>
-            <a href="uae-evisa.html">UAE tourist eVisa</a>
-          </div>
-        </div>
-
-        <div>
-          <div class="footer-heading">ETAs &amp; Arrival Cards</div>
-          <div class="footer-links">
+            <a href="destinations.html">View all destinations</a>
+            <a href="services.html">Travel document types</a>
+            <a href="vietnam-evisa.html">Vietnam eVisa</a>
+            <a href="indonesia-evoa.html">Indonesia e-VOA</a>
             <a href="uk-eta.html">United Kingdom ETA</a>
-            <a href="us-esta.html">United States ESTA</a>
-            <a href="canada-eta.html">Canada eTA</a>
-            <a href="australia-eta.html">Australia eVisitor / ETA</a>
-            <a href="thailand-arrival-card.html">Thailand arrival card (TDAC)</a>
-            <a href="singapore-arrival-card.html">Singapore arrival card (SGAC)</a>
+            <a href="thailand-arrival-card.html">Thailand arrival card</a>
           </div>
         </div>
-
         <div>
-          <div class="footer-heading">Traveler Tools</div>
+          <h2 class="footer-heading">Help</h2>
           <div class="footer-links">
             <a href="index.html#checker">Check requirements</a>
-            <a href="destinations.html">Explore destinations</a>
-            <a href="services.html">Document types</a>
+            <a href="index.html#how-it-works">How it works</a>
             <a href="track.html">Track application</a>
+            <a href="faq.html">Common questions</a>
             <a href="faq.html#pricing">Fees and calculator</a>
             <a href="faq.html#official-portals">Official government links</a>
           </div>
         </div>
-
         <div>
-          <div class="footer-heading">Company &amp; Legal</div>
+          <h2 class="footer-heading">Company &amp; policies</h2>
           <div class="footer-links">
             <a href="about.html">About &amp; contact</a>
             <a href="policies.html#terms">Terms of service</a>
@@ -673,15 +670,15 @@
 
   <div class="cookie-banner" id="cookieConsentBanner" role="region" aria-label="Cookie Consent">
     <div style="max-width:40rem;">
-      <strong>Privacy &amp; Analytics Consent:</strong> We use essential storage to save your application progress and optional analytics cookies (Google Consent Mode v2) to improve site performance. See our <a href="policies.html#cookies" style="color:var(--emerald-bright);text-decoration:underline;">Cookie Policy</a>.
+      <strong>Your privacy choices</strong> We use essential storage to save your application progress. With your permission, optional analytics help us improve the website. See our <a href="policies.html#cookies" class="cookie-policy-link">Cookie Policy</a>.
     </div>
-    <div style="display:flex;gap:0.6rem;flex-wrap:wrap;">
-      <button type="button" class="btn btn-outline btn-sm" id="essentialCookiesBtn" style="background:transparent;color:#FFFFFF;border-color:rgba(255,255,255,0.4);">Essential Only</button>
+    <div class="cookie-banner-actions">
+      <button type="button" class="btn btn-outline btn-sm" id="essentialCookiesBtn">Essential Only</button>
       <button type="button" class="btn btn-primary btn-sm" id="acceptCookiesBtn">Accept All</button>
     </div>
   </div>
 
   <script src="assets/js/data-v6.js?v=9" defer></script>
-  <script src="assets/js/app-v6.js?v=9" defer></script>
+  <script src="assets/js/app-v6.js?v=10" defer></script>
 </body>
 </html>

@@ -227,7 +227,7 @@
         saveNationality(n.code);
         const flag = n.flag || '';
         if (natLabel) {
-          natLabel.innerHTML = `<span style="display:inline-flex;align-items:center;gap:0.45rem;overflow:hidden;text-overflow:ellipsis;"><span class="combo-flag">${flag}</span><span>${n.name}</span></span><span style="color:var(--text-muted);font-size:0.75rem;">▾</span>`;
+          natLabel.innerHTML = `<span class="combo-value-text"><span class="combo-flag">${flag}</span><span>${n.name}</span></span><span style="color:var(--text-muted);font-size:0.75rem;">▾</span>`;
         }
         document.querySelectorAll('.js-carry-nationality').forEach((link) => {
           try {
@@ -246,7 +246,7 @@
       destSelect.value = d.id;
       const flag = d.flag || '';
       if (destLabel) {
-        destLabel.innerHTML = `<span style="display:inline-flex;align-items:center;gap:0.45rem;overflow:hidden;text-overflow:ellipsis;"><span class="combo-flag">${flag}</span><span>${d.name} (${d.shortDocName || d.categoryBadge})</span></span><span style="color:var(--text-muted);font-size:0.75rem;">▾</span>`;
+        destLabel.innerHTML = `<span class="combo-value-text"><span class="combo-flag">${flag}</span><span>${d.name} (${d.shortDocName || d.categoryBadge})</span></span><span style="color:var(--text-muted);font-size:0.75rem;">▾</span>`;
       }
       destWrap.classList.remove('open');
       if (destTrigger) destTrigger.setAttribute('aria-expanded', 'false');
@@ -584,7 +584,7 @@
         list = list.slice(0, limit);
       }
       if (list.length === 0) {
-        grid.innerHTML = `<div class="card" style="grid-column:1/-1;text-align:center;"><p>No destinations match your search. Try selecting "All".</p></div>`;
+        grid.innerHTML = `<div class="card" style="grid-column:1/-1;text-align:center;"><p>No destinations match your search. Try another country name or adjust the filters.</p></div>`;
         return;
       }
       grid.innerHTML = list.map(renderCard).join('');
@@ -766,7 +766,7 @@
 
         blocks.push(`
           <div class="applicant-block" data-applicant-index="${i + 1}" data-collapsed="${showCollapsed ? 'true' : 'false'}">
-            <div class="js-traveler-summary-bar" style="display:${showCollapsed ? 'flex' : 'none'};align-items:center;justify-content:space-between;gap:0.75rem;">
+            <div class="js-traveler-summary-bar traveler-summary" style="display:${showCollapsed ? 'flex' : 'none'};">
               <div>
                 <strong style="color:var(--navy);">Traveler ${i + 1}: ${prev.givenName} ${prev.surname}</strong>
                 <div style="font-size:0.82rem;color:var(--text-muted);">Passport ${prev.passportNumber} • Nationality: ${prev.nationality}</div>
@@ -774,8 +774,8 @@
               <button type="button" class="btn btn-outline btn-sm js-expand-traveler">Edit</button>
             </div>
             <div class="js-traveler-fields-wrap" style="display:${showCollapsed ? 'none' : 'block'};">
-              <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:0.85rem;">
-                <h3 style="font-size:1.05rem;color:var(--navy);">Traveler ${i + 1} (as shown on passport)</h3>
+              <div class="traveler-heading">
+                <h3 class="traveler-title">Traveler ${i + 1} (as shown on passport)</h3>
                 <span class="badge badge-emerald">Traveler ${i + 1} of ${count}</span>
               </div>
               <div class="form-grid-2">
@@ -879,7 +879,7 @@
 
         blocks.push(`
           <div class="applicant-block" data-doc-traveler="${i + 1}">
-            <h3 style="font-size:1.05rem;color:var(--navy);margin-bottom:0.35rem;">Traveler ${i + 1} Documents</h3>
+            <h3 class="traveler-title">Traveler ${i + 1} documents</h3>
             <p style="font-size:0.84rem;color:var(--text-muted);margin-bottom:1rem;">
               Accepted formats: JPG, PNG, WEBP, or PDF (up to 10 MB per file). Our specialists check and format your photo and passport scan to meet official requirements.
             </p>
@@ -943,25 +943,25 @@
         const s = (blk.querySelector('.js-app-surname') || {}).value || '';
         const n = (blk.querySelector('.js-app-nat') || {}).value || '';
         const p = (blk.querySelector('.js-app-passnum') || {}).value || '';
-        travelerLines.push(`<div style="font-size:0.88rem;color:var(--text-body);">• <strong>Traveler ${idx + 1}:</strong> ${g || '—'} ${s || ''} (${n || '—'}, Passport ${p || '—'})</div>`);
+        travelerLines.push(`<div class="review-traveler"><strong>Traveler ${idx + 1}:</strong> ${g || '—'} ${s || ''} (${n || '—'}, Passport ${p || '—'})</div>`);
       });
 
       let extraTripHtml = '';
       if (dest.requiresFlightAndHotel) {
         const fl = (flightInput || {}).value || '—';
         const ht = (hotelInput || {}).value || '—';
-        extraTripHtml = `<div style="font-size:0.86rem;color:var(--text-muted);margin-top:0.25rem;">Flight/Vessel: <strong>${fl}</strong> • Accommodation: <strong>${ht}</strong></div>`;
+        extraTripHtml = `<div class="review-trip-extra">Flight/Vessel: <strong>${fl}</strong> • Accommodation: <strong>${ht}</strong></div>`;
       }
 
       stage4ReviewSummary.innerHTML = `
-        <div style="background:var(--bg-page);border:1px solid var(--border);border-radius:var(--radius-md);padding:1rem;margin-bottom:1.25rem;">
-          <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:0.4rem;">
+        <div class="review-summary">
+          <div class="review-heading">
             <strong style="color:var(--navy);">${dest.flag} ${dest.cleanTitle || dest.visaType}</strong>
-            <button type="button" class="btn btn-outline btn-sm" data-goto-stage="1" style="min-height:32px;padding:0 0.65rem;font-size:0.78rem;">Edit trip</button>
+            <button type="button" class="btn btn-outline btn-sm" data-goto-stage="1">Edit trip</button>
           </div>
-          <div style="font-size:0.86rem;color:var(--text-muted);">Planned arrival: <strong>${arrival}</strong> • Delivery email: <strong>${email}</strong></div>
+          <dl class="review-trip"><div><dt>Planned arrival</dt><dd>${arrival}</dd></div><div><dt>Delivery email</dt><dd>${email}</dd></div></dl>
           ${extraTripHtml}
-          <div style="margin-top:0.75rem;padding-top:0.75rem;border-top:1px solid var(--border);display:flex;flex-direction:column;gap:0.25rem;">
+          <div class="review-travelers">
             ${travelerLines.join('')}
           </div>
         </div>
@@ -1215,7 +1215,7 @@
         };
         localStorage.setItem('opv_saved_draft', JSON.stringify(draft));
         if (saveStatus) {
-          saveStatus.textContent = 'Saved in this browser. Return anytime via /apply?resume=1 on this device (uploaded files are not stored in browser storage for your privacy).';
+          saveStatus.textContent = 'Saved in this browser. Return to your application on this device when you’re ready. Traveler details and uploaded files are not saved.';
           saveStatus.style.display = 'block';
         }
       });
@@ -1400,8 +1400,8 @@
 
     if (!order) {
       checkoutBox.innerHTML = `
-        <div class="card" style="text-align:center;">
-          <h2>No active checkout session found</h2>
+        <div class="card empty-state">
+          <h1 class="page-title">No active checkout session found</h1>
           <p style="margin:0.75rem 0 1.25rem;color:var(--text-muted);">Please start your travel document application first.</p>
           <a href="apply.html" class="btn btn-primary">Start application</a>
         </div>
@@ -1467,13 +1467,13 @@
       if (paymentFormWrap) paymentFormWrap.style.display = 'none';
       if (receiptWrap) {
         receiptWrap.innerHTML = `
-          <div class="card" style="border-color:var(--emerald-border);background:#FFFFFF;">
+          <div class="card receipt-card">
             <span class="badge badge-emerald" style="margin-bottom:0.75rem;">✓ Payment Confirmed • In Review</span>
-            <h2 style="font-size:1.55rem;margin-bottom:0.5rem;">Thank you. Your application is now in specialist review.</h2>
+            <h1 class="page-title">Thank you. Your application is now in specialist review.</h1>
             <p style="color:var(--text-body);margin-bottom:1.25rem;">
               A confirmation email and itemized receipt have been sent to <strong>${confirmedOrder.email}</strong>. Save your reference number below to track your status at any time.
             </p>
-            <div style="background:var(--bg-page);border:1px solid var(--border);border-radius:var(--radius-md);padding:1.25rem;margin-bottom:1.25rem;">
+            <div class="receipt-summary">
               <div class="summary-row"><span>Application Reference</span><strong style="font-family:var(--font-mono);color:var(--emerald);">${confirmedOrder.reference}</strong></div>
               <div class="summary-row"><span>Receipt Number</span><strong style="font-family:var(--font-mono);">${confirmedOrder.receiptNumber || 'RCP-' + confirmedOrder.reference}</strong></div>
               <div class="summary-row"><span>Document</span><strong>${confirmedOrder.cleanTitle || confirmedOrder.visaType}</strong></div>
@@ -1534,7 +1534,7 @@
       const email = (emailInput ? emailInput.value : '').trim().toLowerCase();
 
       if (!reference || !email) {
-        out.innerHTML = `<div class="card" style="border-color:var(--danger);"><p style="color:var(--danger);font-weight:600;">Please enter both your application reference and the email address used on your application.</p></div>`;
+        out.innerHTML = `<div class="card feedback-error"><p>Please enter both your application reference and the email address used on your application.</p></div>`;
         out.style.display = 'block';
         return;
       }
@@ -1558,7 +1558,7 @@
 
       if (!matchedOrder) {
         out.innerHTML = `
-          <div class="card" style="border-color:var(--border-input);">
+          <div class="card tracking-result empty-state">
             <span class="badge badge-amber" style="margin-bottom:0.5rem;">Application Not Found</span>
             <h3 style="font-size:1.15rem;margin-bottom:0.35rem;">No application matches reference "${reference}" and email "${email}".</h3>
             <p style="font-size:0.92rem;color:var(--text-body);margin-bottom:0.75rem;">
@@ -1586,52 +1586,52 @@
       }
 
       out.innerHTML = `
-        <div class="card">
-          <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:0.75rem;margin-bottom:1rem;">
+        <div class="card tracking-result">
+          <div class="tracking-result-heading">
             <div>
               <span class="badge badge-emerald">✓ In review</span>
               <h3 style="font-size:1.3rem;margin-top:0.4rem;">${matchedOrder.cleanTitle || matchedOrder.visaType}</h3>
             </div>
-            <div style="font-family:var(--font-mono);font-weight:700;color:var(--emerald);">${matchedOrder.reference}</div>
+            <div class="application-reference">${matchedOrder.reference}</div>
           </div>
 
-          <div class="status-timeline" aria-label="Application status timeline">
-            <div class="status-step done">
+          <ol class="status-timeline" aria-label="Application status timeline">
+            <li class="status-step done">
               <span class="status-dot">✓</span>
               <div>
                 <strong style="color:var(--navy);font-size:0.92rem;">1. Awaiting documents</strong>
                 <div style="font-size:0.82rem;color:var(--text-muted);">Application and traveler details received.</div>
               </div>
-            </div>
-            <div class="status-step current">
+            </li>
+            <li class="status-step current">
               <span class="status-dot">2</span>
               <div>
                 <strong style="color:var(--navy);font-size:0.92rem;">2. In review (${matchedOrder.ourHandlingTime})</strong>
                 <div style="font-size:0.82rem;color:var(--text-body);">Our specialists are verifying your passport details and formatting requirements.</div>
               </div>
-            </div>
-            <div class="status-step">
+            </li>
+            <li class="status-step">
               <span class="status-dot">3</span>
               <div>
                 <strong style="color:var(--navy);font-size:0.92rem;">3. Scheduled for submission</strong>
                 <div style="font-size:0.82rem;color:var(--text-muted);">${scheduledNote}</div>
               </div>
-            </div>
-            <div class="status-step">
+            </li>
+            <li class="status-step">
               <span class="status-dot">4</span>
               <div>
                 <strong style="color:var(--navy);font-size:0.92rem;">4. Submitted (${matchedOrder.govProcessingTime})</strong>
                 <div style="font-size:0.82rem;color:var(--text-muted);">Filed with ${matchedOrder.govPortalName}.</div>
               </div>
-            </div>
-            <div class="status-step">
+            </li>
+            <li class="status-step">
               <span class="status-dot">5</span>
               <div>
                 <strong style="color:var(--navy);font-size:0.92rem;">5. Outcome received</strong>
                 <div style="font-size:0.82rem;color:var(--text-muted);">Confirmation delivered by email to ${matchedOrder.email}.</div>
               </div>
-            </div>
-          </div>
+            </li>
+          </ol>
 
           <div class="summary-row"><span>Applicant Email</span><strong>${matchedOrder.email}</strong></div>
           <div class="summary-row"><span>Travelers</span><strong>${matchedOrder.travelersCount}</strong></div>
