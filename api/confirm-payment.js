@@ -46,6 +46,12 @@ module.exports = async function handler(req, res) {
     let emailDispatched = false;
     if (process.env.RESEND_API_KEY) {
       try {
+        const hasFeeBreakdown = Number.isFinite(order.baseServiceTotalUSD) && Number.isFinite(order.priorityTotalUSD);
+        const baseServiceTotal = hasFeeBreakdown ? order.baseServiceTotalUSD : order.serviceTotalUSD;
+        const serviceLabel = hasFeeBreakdown ? 'OnePassVisa base service fee' : 'Service and selected options';
+        const priorityLine = hasFeeBreakdown && order.priorityTotalUSD > 0
+          ? `<strong>Optional priority review:</strong> $${order.priorityTotalUSD.toFixed(2)} USD<br/>`
+          : '';
         const emailHtml = `
           <div style="font-family:Inter,Arial,sans-serif;max-width:600px;margin:0 auto;color:#0F172A;">
             <h2 style="color:#0E5C9E;">OnePassVisa.com — Application Confirmation &amp; Receipt</h2>
@@ -55,7 +61,8 @@ module.exports = async function handler(req, res) {
                <strong>Document:</strong> ${order.visaType}<br/>
                <strong>Travelers:</strong> ${order.travelersCount}<br/>
                <strong>Statutory Government Fee:</strong> $${order.govTotalUSD} USD<br/>
-               <strong>OnePassVisa Service Fee:</strong> $${order.serviceTotalUSD} USD<br/>
+               <strong>${serviceLabel}:</strong> $${Number(baseServiceTotal).toFixed(2)} USD<br/>
+               ${priorityLine}
                <strong>Total Paid:</strong> $${order.grandTotalUSD} USD</p>
             <p><strong>Next Steps:</strong> Our team will verify your passport scan and photo (${order.ourHandlingTime}) before submitting to ${order.govPortalName}.</p>
             <p style="font-size:12px;color:#475569;">OnePassVisa.com is a private assistance service not affiliated with any government.</p>

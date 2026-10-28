@@ -1,6 +1,8 @@
 (function (root) {
   'use strict';
 
+  const BASE_SERVICE_FEE_USD = 59.99;
+
   const CURRENCIES = {
     USD: { code: 'USD', symbol: 'US$', rate: 1, name: 'US Dollar' },
     EUR: { code: 'EUR', symbol: '€', rate: 0.92, name: 'Euro' },
@@ -148,7 +150,7 @@
       categoryBadge: 'eVisa',
       govFeeUSD: 25,
       govFeeNative: 'US$25 statutory government fee',
-      serviceFeeUSD: 34,
+      serviceFeeUSD: BASE_SERVICE_FEE_USD,
       priorityFeeUSD: 20,
       standardReviewTime: 'Within 6–12 hours',
       priorityReviewTime: 'Within 2 hours',
@@ -196,7 +198,7 @@
       categoryBadge: 'Arrival Card',
       govFeeUSD: 0,
       govFeeNative: 'Free (US$0 on official government portal)',
-      serviceFeeUSD: 29,
+      serviceFeeUSD: BASE_SERVICE_FEE_USD,
       priorityFeeUSD: 15,
       standardReviewTime: 'Within 4–6 hours',
       priorityReviewTime: 'Within 1 hour',
@@ -223,7 +225,7 @@
       faqs: [
         {
           q: 'Is the Thailand Digital Arrival Card (TDAC) free on the government website?',
-          a: 'Yes. The Thailand Immigration Bureau does not charge a government fee (US$0) at tdac.immigration.go.th. Our US$29 service fee is optional and covers early intake before the 72-hour window opens, specialist review of your passport and flight details, and scheduled filing.'
+          a: 'Yes. The Thailand Immigration Bureau does not charge a government fee (US$0) at tdac.immigration.go.th. Our US$59.99 service fee is optional and covers early intake before the 72-hour window opens, specialist review of your passport and flight details, and scheduled filing.'
         },
         {
           q: 'When will my TDAC be submitted if I apply weeks before my trip?',
@@ -244,7 +246,7 @@
       categoryBadge: 'eVisa',
       govFeeUSD: 35,
       govFeeNative: 'IDR 500,000 + portal fee (approx. US$35 converted)',
-      serviceFeeUSD: 34,
+      serviceFeeUSD: BASE_SERVICE_FEE_USD,
       priorityFeeUSD: 20,
       standardReviewTime: 'Within 6–12 hours',
       priorityReviewTime: 'Within 2 hours',
@@ -288,7 +290,7 @@
       categoryBadge: 'ETA',
       govFeeUSD: 26,
       govFeeNative: '£20 GBP statutory fee (approx. US$26 converted)',
-      serviceFeeUSD: 34,
+      serviceFeeUSD: BASE_SERVICE_FEE_USD,
       priorityFeeUSD: 20,
       standardReviewTime: 'Within 6–12 hours',
       priorityReviewTime: 'Within 2 hours',
@@ -314,7 +316,7 @@
       faqs: [
         {
           q: 'What is the official UK government fee for the ETA?',
-          a: 'GOV.UK charges £20 GBP (displayed as approximately US$26 at current exchange rates). Our US$34 service fee covers document and photo compliance review and guided submission.'
+          a: 'GOV.UK charges £20 GBP (displayed as approximately US$26 at current exchange rates). Our US$59.99 service fee covers document and photo compliance review and guided submission.'
         },
         {
           q: 'Who is eligible for the UK ETA vs. a UK Standard Visitor Visa?',
@@ -336,7 +338,7 @@
       categoryBadge: 'ETA',
       govFeeUSD: 40.62,
       govFeeNative: 'US$40.62 statutory CBP fee (effective 16 Oct 2026)',
-      serviceFeeUSD: 38,
+      serviceFeeUSD: BASE_SERVICE_FEE_USD,
       priorityFeeUSD: 20,
       standardReviewTime: 'Within 6–12 hours',
       priorityReviewTime: 'Within 2 hours',
@@ -362,7 +364,7 @@
       faqs: [
         {
           q: 'Why is the official U.S. ESTA government fee US$40.62?',
-          a: 'Effective 16 October 2026, U.S. Customs and Border Protection updated the statutory ESTA total fee to US$40.62. Our US$38 service fee is added separately for specialist review and guided filing.'
+          a: 'Effective 16 October 2026, U.S. Customs and Border Protection updated the statutory ESTA total fee to US$40.62. Our US$59.99 service fee is added separately for specialist review and guided filing.'
         },
         {
           q: 'What if my passport country is not in the U.S. Visa Waiver Program?',
@@ -384,7 +386,7 @@
       categoryBadge: 'eVisa',
       govFeeUSD: 25,
       govFeeNative: 'US$25 statutory government fee',
-      serviceFeeUSD: 39,
+      serviceFeeUSD: BASE_SERVICE_FEE_USD,
       priorityFeeUSD: 20,
       standardReviewTime: 'Within 6–12 hours',
       priorityReviewTime: 'Within 2 hours',
@@ -429,7 +431,7 @@
       categoryBadge: 'Arrival Card',
       govFeeUSD: 0,
       govFeeNative: 'Free (US$0 on official ICA portal)',
-      serviceFeeUSD: 29,
+      serviceFeeUSD: BASE_SERVICE_FEE_USD,
       priorityFeeUSD: 15,
       standardReviewTime: 'Within 4–6 hours',
       priorityReviewTime: 'Within 1 hour',
@@ -456,7 +458,7 @@
       faqs: [
         {
           q: 'Is the Singapore Arrival Card (SGAC) a visa?',
-          a: 'No. The SGAC is a mandatory pre-arrival declaration, not a visa. Official submission at eservices.ica.gov.sg is free (US$0). Our US$29 fee is for optional early scheduling and document review.'
+          a: 'No. The SGAC is a mandatory pre-arrival declaration, not a visa. Official submission at eservices.ica.gov.sg is free (US$0). Our US$59.99 fee is for optional early scheduling and document review.'
         }
       ],
       visaFreeShortStayFor: ['SG']
@@ -473,7 +475,7 @@
       categoryBadge: 'eVisa',
       govFeeUSD: 30,
       govFeeNative: 'US$30 statutory government fee',
-      serviceFeeUSD: 34,
+      serviceFeeUSD: BASE_SERVICE_FEE_USD,
       priorityFeeUSD: 20,
       standardReviewTime: 'Within 6–12 hours',
       priorityReviewTime: 'Within 2 hours',
@@ -517,7 +519,7 @@
       categoryBadge: 'eVisa',
       govFeeUSD: 95,
       govFeeNative: 'AED 350 (approx. US$95 converted) statutory fee',
-      serviceFeeUSD: 44,
+      serviceFeeUSD: BASE_SERVICE_FEE_USD,
       priorityFeeUSD: 25,
       standardReviewTime: 'Within 6–12 hours',
       priorityReviewTime: 'Within 2 hours',
@@ -561,7 +563,7 @@
       categoryBadge: 'eVisa',
       govFeeUSD: 108,
       govFeeNative: 'SAR 395 incl. mandatory health insurance (approx. US$108 converted)',
-      serviceFeeUSD: 44,
+      serviceFeeUSD: BASE_SERVICE_FEE_USD,
       priorityFeeUSD: 25,
       standardReviewTime: 'Within 6–12 hours',
       priorityReviewTime: 'Within 2 hours',
@@ -605,7 +607,7 @@
       categoryBadge: 'eVisa',
       govFeeUSD: 52,
       govFeeNative: 'US$51.50 statutory government fee',
-      serviceFeeUSD: 34,
+      serviceFeeUSD: BASE_SERVICE_FEE_USD,
       priorityFeeUSD: 20,
       standardReviewTime: 'Within 6–12 hours',
       priorityReviewTime: 'Within 2 hours',
@@ -648,7 +650,7 @@
       categoryBadge: 'eVisa',
       govFeeUSD: 25,
       govFeeNative: 'US$25 statutory government fee',
-      serviceFeeUSD: 34,
+      serviceFeeUSD: BASE_SERVICE_FEE_USD,
       priorityFeeUSD: 20,
       standardReviewTime: 'Within 6–12 hours',
       priorityReviewTime: 'Within 2 hours',
@@ -691,7 +693,7 @@
       categoryBadge: 'ETA',
       govFeeUSD: 34,
       govFeeNative: 'US$32.50 + portal processing fee (approx. US$34)',
-      serviceFeeUSD: 35,
+      serviceFeeUSD: BASE_SERVICE_FEE_USD,
       priorityFeeUSD: 20,
       standardReviewTime: 'Within 6–12 hours',
       priorityReviewTime: 'Within 2 hours',
@@ -735,7 +737,7 @@
       categoryBadge: 'ETA',
       govFeeUSD: 5,
       govFeeNative: 'CAD $7 statutory fee (approx. US$5 converted)',
-      serviceFeeUSD: 34,
+      serviceFeeUSD: BASE_SERVICE_FEE_USD,
       priorityFeeUSD: 20,
       standardReviewTime: 'Within 6–12 hours',
       priorityReviewTime: 'Within 2 hours',
@@ -779,7 +781,7 @@
       categoryBadge: 'ETA',
       govFeeUSD: 14,
       govFeeNative: 'AUD $20 service charge (approx. US$14 converted)',
-      serviceFeeUSD: 35,
+      serviceFeeUSD: BASE_SERVICE_FEE_USD,
       priorityFeeUSD: 20,
       standardReviewTime: 'Within 6–12 hours',
       priorityReviewTime: 'Within 2 hours',
@@ -823,7 +825,7 @@
       categoryBadge: 'Arrival Card',
       govFeeUSD: 0,
       govFeeNative: 'Free (US$0 on official Immigration portal)',
-      serviceFeeUSD: 29,
+      serviceFeeUSD: BASE_SERVICE_FEE_USD,
       priorityFeeUSD: 15,
       standardReviewTime: 'Within 4–6 hours',
       priorityReviewTime: 'Within 1 hour',
@@ -849,7 +851,7 @@
       faqs: [
         {
           q: 'Is there a government fee for the Malaysia Digital Arrival Card?',
-          a: 'No. Filing directly at imigresen-online.imi.gov.my/mdac/main is free (US$0). Our US$29 fee covers optional early queuing, document review, and support.'
+          a: 'No. Filing directly at imigresen-online.imi.gov.my/mdac/main is free (US$0). Our US$59.99 fee covers optional early queuing, document review, and support.'
         }
       ],
       visaFreeShortStayFor: ['MY', 'SG']
@@ -866,7 +868,7 @@
       categoryBadge: 'eVisa',
       govFeeUSD: 40,
       govFeeNative: 'US$40 statutory embassy fee',
-      serviceFeeUSD: 39,
+      serviceFeeUSD: BASE_SERVICE_FEE_USD,
       priorityFeeUSD: 20,
       standardReviewTime: 'Within 6–12 hours',
       priorityReviewTime: 'Within 2 hours',
@@ -910,7 +912,7 @@
       categoryBadge: 'eVisa',
       govFeeUSD: 77,
       govFeeNative: 'MAD 770 statutory fee (approx. US$77 converted)',
-      serviceFeeUSD: 39,
+      serviceFeeUSD: BASE_SERVICE_FEE_USD,
       priorityFeeUSD: 20,
       standardReviewTime: 'Within 6–12 hours',
       priorityReviewTime: 'Within 2 hours',
@@ -1033,7 +1035,7 @@
           badgeText: 'Visa-Free up to 60 Days (Only Free Arrival Card Needed)',
           badgeClass: 'badge-emerald',
           headline: `${nat.name} passport holders enter Thailand visa-free for up to 60 days.`,
-          explanation: `You do not need a Thailand tourist eVisa for stays up to 60 days. You only need the mandatory Thailand Digital Arrival Card (TDAC), which is US$0 (free) on the official site or US$29 with our review service.`,
+          explanation: `You do not need a Thailand tourist eVisa for stays up to 60 days. You only need the mandatory Thailand Digital Arrival Card (TDAC), which is US$0 (free) on the official site or US$${BASE_SERVICE_FEE_USD.toFixed(2)} with our review service.`,
           dest: tdac,
           nat
         };
@@ -1083,6 +1085,8 @@
       totalServicePerPersonUSD: servicePerPerson,
       totalPerPersonUSD: totalPerPerson,
       govTotalUSD: roundMoney(govPerPerson * count),
+      baseServiceTotalUSD: roundMoney(dest.serviceFeeUSD * count),
+      priorityTotalUSD: roundMoney(speedFeePerPerson * count),
       serviceTotalUSD: roundMoney(servicePerPerson * count),
       grandTotalUSD: roundMoney(totalPerPerson * count)
     };
@@ -1128,6 +1132,7 @@
   });
 
   const EXPORT_DATA = {
+    baseServiceFeeUSD: BASE_SERVICE_FEE_USD,
     currencies: CURRENCIES,
     nationalities: NATIONALITIES,
     destinations: DESTINATIONS,
