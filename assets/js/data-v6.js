@@ -606,7 +606,7 @@
       visaType: 'Electronic entry visa for tourism or business',
       categoryBadge: 'eVisa',
       govFeeUSD: 52,
-      govFeeNative: 'US$51.50 statutory government fee',
+      govFeeNative: 'US$52 estimated government fee; varies by passport',
       serviceFeeUSD: BASE_SERVICE_FEE_USD,
       priorityFeeUSD: 20,
       standardReviewTime: 'Within 6–12 hours',

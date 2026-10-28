@@ -19,7 +19,7 @@
   <link rel="apple-touch-icon" href="assets/images/apple-touch-icon.png" />
   <link rel="preload" href="assets/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="preload" href="assets/fonts/plus-jakarta-700.woff2" as="font" type="font/woff2" crossorigin />
-  <link rel="stylesheet" href="assets/css/onepass-v6.css?v=10" />
+  <link rel="stylesheet" href="assets/css/onepass-v6.css?v=12" />
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"OnePassVisa","legalName":"OnePassVisa Digital Travel Services LLC","url":"https://onepassvisa.com/","logo":"https://onepassvisa.com/assets/images/onepassvisa-logo-master.png","description":"Independent private visa and travel document assistance service helping travelers apply for eVisas, ETAs, and digital arrival cards.","contactPoint":{"@type":"ContactPoint","email":"support@onepassvisa.com","contactType":"customer support","availableLanguage":["English"]}}</script>
 </head>
 <body>
@@ -32,22 +32,15 @@
     </div>
   </div>
 
-  <header class="site-header">
-    <div class="container header-inner">
+  <header class="site-header application-header">
+    <div class="container application-header-inner">
       <a href="index.html" class="brand-logo" aria-label="onepassvisa Home">
         <img src="assets/images/onepassvisa-logo-master.png?v=9" alt="onepassvisa" width="188" height="33" class="brand-logo-img" />
       </a>
-
-      <nav class="nav-links" id="mainNavLinks" aria-label="Primary Navigation">
-        <a href="destinations.html" class="nav-link ">Destinations</a>
-        <a href="index.html#how-it-works" class="nav-link">How it works</a>
-        <a href="faq.html" class="nav-link ">Help</a>
-        <a href="track.html" class="nav-link hide-desktop-nav ">Track application</a>
+      <nav class="application-header-links" id="mainNavLinks" aria-label="Application navigation">
+        <a href="destinations.html" class="application-return-link"><span aria-hidden="true">←</span> <span class="application-return-full">Back to destinations</span><span class="application-return-short">Back</span></a>
+        <a href="faq.html" class="application-help-link">Help</a>
       </nav>
-
-      <div class="header-actions">
-        <a href="track.html" class="header-utility-link ">Track application</a>
-
         <div class="currency-dropdown-wrap" id="currencyDropdownWrap">
           <button type="button" class="currency-trigger" id="currencyTriggerBtn" aria-haspopup="true" aria-expanded="false" aria-label="Select display currency">
             <span id="currencyTriggerLabel">USD</span>
@@ -107,20 +100,6 @@
             <option value="INR">INR</option>
           </select>
         </div>
-
-        <a href="index.html#checker" class="btn btn-primary btn-sm header-cta-btn">
-          <span class="cta-text-full">Check requirements</span>
-          <span class="cta-text-short">Check requirements</span>
-        </a>
-
-        <button type="button" class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mainNavLinks">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true">
-            <line x1="3" y1="6" x2="21" y2="6"></line>
-            <line x1="3" y1="12" x2="21" y2="12"></line>
-            <line x1="3" y1="18" x2="21" y2="18"></line>
-          </svg>
-        </button>
-      </div>
     </div>
   </header>
 
@@ -134,7 +113,7 @@
       <div class="container checkout-container" id="hostedCheckoutContainer">
         <div id="checkoutPaymentStage" class="apply-layout">
           <div class="card transaction-form">
-            <p class="summary-eyebrow">Encrypted checkout</p>
+            <p class="summary-eyebrow">Review &amp; pay</p>
             <h1 class="page-title">Complete your payment</h1>
             <p class="form-section-intro">
               Pay with Apple Pay, Google Pay, or card to submit your application for specialist review. All payments are processed in USD (US$).
@@ -283,7 +262,7 @@
     </div>
   </div>
 
-  <script src="assets/js/data-v6.js?v=11" defer></script>
-  <script src="assets/js/app-v6.js?v=11" defer></script>
+  <script src="assets/js/data-v6.js?v=12" defer></script>
+  <script src="assets/js/app-v6.js?v=12" defer></script>
 </body>
 </html>

@@ -200,8 +200,9 @@
     });
 
     document.querySelectorAll('.js-destination-select').forEach((select) => {
-      const def = select.getAttribute('data-default') || 'vietnam';
-      select.innerHTML = DATA.destinations
+      const def = select.hasAttribute('data-default') ? select.getAttribute('data-default') : 'vietnam';
+      const placeholder = def === '' ? '<option value="" selected>Choose destination</option>' : '';
+      select.innerHTML = placeholder + DATA.destinations
         .map((d) => `<option value="${d.id}" ${d.id === def ? 'selected' : ''}>${d.flag} ${d.name} — ${d.shortDocName || d.categoryBadge}</option>`)
         .join('');
     });
@@ -224,7 +225,7 @@
     const destSearch = document.getElementById('comboDestinationSearch');
     const destList = document.getElementById('comboDestinationList');
 
-    function setNationality(code) {
+    function setNationality(code, restoreFocus = false) {
       const n = DATA.nationalities.find((x) => x.code === code) || null;
       if (!n) {
         natSelect.value = '';
@@ -248,17 +249,22 @@
       }
       natWrap.classList.remove('open');
       if (natTrigger) natTrigger.setAttribute('aria-expanded', 'false');
+      if (n) { natSelect.removeAttribute('aria-invalid'); if (natTrigger) natTrigger.removeAttribute('aria-invalid'); }
+      if (restoreFocus && natTrigger) natTrigger.focus();
     }
 
-    function setDestination(id) {
-      const d = DATA.destinations.find((x) => x.id === id) || DATA.destinations[0];
-      destSelect.value = d.id;
-      const flag = d.flag || '';
+    function setDestination(id, restoreFocus = false) {
+      const d = DATA.destinations.find((x) => x.id === id);
+      destSelect.value = d ? d.id : '';
       if (destLabel) {
-        destLabel.innerHTML = `<span class="combo-value-text"><span class="combo-flag">${flag}</span><span>${d.name} (${d.shortDocName || d.categoryBadge})</span></span><span style="color:var(--text-muted);font-size:0.75rem;">▾</span>`;
+        destLabel.innerHTML = d
+          ? `<span class="combo-value-text"><span class="combo-flag">${d.flag || ''}</span><span>${d.name} (${d.shortDocName || d.categoryBadge})</span></span><span style="color:var(--text-muted);font-size:0.75rem;">▾</span>`
+          : `<span class="combo-value-text">Choose destination</span><span style="color:var(--text-muted);font-size:0.75rem;">▾</span>`;
       }
       destWrap.classList.remove('open');
       if (destTrigger) destTrigger.setAttribute('aria-expanded', 'false');
+      if (d) { destSelect.removeAttribute('aria-invalid'); if (destTrigger) destTrigger.removeAttribute('aria-invalid'); }
+      if (restoreFocus && destTrigger) destTrigger.focus();
     }
 
     function renderNatItems(q = '') {
@@ -273,7 +279,7 @@
       natList.innerHTML = filtered
         .map(
           (n) => `
-          <button type="button" class="combo-item ${n.code === natSelect.value ? 'selected' : ''}" data-code="${n.code}">
+          <button type="button" class="combo-item ${n.code === natSelect.value ? 'selected' : ''}" data-code="${n.code}" role="option" aria-selected="${n.code === natSelect.value}" tabindex="-1">
             <span style="display:inline-flex;align-items:center;gap:0.5rem;"><span>${n.flag}</span><span>${n.name}</span></span>
             <span style="font-size:0.72rem;color:var(--text-muted);">${n.code}</span>
           </button>
@@ -281,7 +287,7 @@
         )
         .join('');
       natList.querySelectorAll('.combo-item').forEach((btn) => {
-        btn.addEventListener('click', () => setNationality(btn.getAttribute('data-code')));
+        btn.addEventListener('click', () => setNationality(btn.getAttribute('data-code'), true));
       });
     }
 
@@ -303,7 +309,7 @@
         .map((d) => {
           const p = DATA.calculatePrice(d.id, 1, 'standard');
           return `
-            <button type="button" class="combo-item ${d.id === destSelect.value ? 'selected' : ''}" data-id="${d.id}">
+            <button type="button" class="combo-item ${d.id === destSelect.value ? 'selected' : ''}" data-id="${d.id}" role="option" aria-selected="${d.id === destSelect.value}" tabindex="-1">
               <span style="display:inline-flex;align-items:center;gap:0.5rem;"><span>${d.flag}</span><span>${d.name} — ${d.shortDocName || d.categoryBadge}</span></span>
               <span class="badge badge-emerald" style="font-size:0.68rem;padding:0.15rem 0.45rem;">${formatMoney(p.totalPerPersonUSD)}</span>
             </button>
@@ -311,7 +317,7 @@
         })
         .join('');
       destList.querySelectorAll('.combo-item').forEach((btn) => {
-        btn.addEventListener('click', () => setDestination(btn.getAttribute('data-id')));
+        btn.addEventListener('click', () => setDestination(btn.getAttribute('data-id'), true));
       });
     }
 
@@ -319,72 +325,92 @@
       renderDestItems(destSearch ? destSearch.value : '');
     };
 
-    natTrigger.addEventListener('click', (e) => {
-      e.stopPropagation();
-      destWrap.classList.remove('open');
-      const isOpen = natWrap.classList.toggle('open');
-      natTrigger.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
-      if (isOpen) {
-        renderNatItems('');
-        if (natSearch) {
-          natSearch.value = '';
-          setTimeout(() => natSearch.focus(), 20);
-        }
-      }
-    });
+    function closeCombo(wrap, trigger, restoreFocus = false) {
+      wrap.classList.remove('open');
+      trigger.setAttribute('aria-expanded', 'false');
+      if (restoreFocus) trigger.focus();
+    }
 
-    destTrigger.addEventListener('click', (e) => {
-      e.stopPropagation();
-      natWrap.classList.remove('open');
-      const isOpen = destWrap.classList.toggle('open');
-      destTrigger.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
-      if (isOpen) {
-        renderDestItems('');
-        if (destSearch) {
-          destSearch.value = '';
-          setTimeout(() => destSearch.focus(), 20);
+    function configurePicker(wrap, trigger, search, list, render, select, otherWrap, otherTrigger) {
+      const popover = list.parentElement;
+      const listLabel = popover.getAttribute('aria-label');
+      popover.removeAttribute('role');
+      list.setAttribute('role', 'listbox');
+      if (listLabel) list.setAttribute('aria-label', listLabel);
+      trigger.setAttribute('aria-controls', list.id);
+      trigger.addEventListener('click', (e) => {
+        e.stopPropagation();
+        closeCombo(otherWrap, otherTrigger);
+        if (wrap.classList.contains('open')) {
+          closeCombo(wrap, trigger);
+          return;
         }
-      }
-    });
-
-    if (natSearch) {
-      natSearch.addEventListener('input', (e) => renderNatItems(e.target.value));
-      natSearch.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape') natWrap.classList.remove('open');
-        if (e.key === 'Enter') {
+        wrap.classList.add('open');
+        trigger.setAttribute('aria-expanded', 'true');
+        render('');
+        if (search) {
+          search.value = '';
+          search.focus();
+        }
+      });
+      trigger.addEventListener('keydown', (e) => {
+        if (e.key === 'ArrowDown' || e.key === 'ArrowUp') {
           e.preventDefault();
-          const first = natList.querySelector('.combo-item');
-          if (first) setNationality(first.getAttribute('data-code'));
+          if (!wrap.classList.contains('open')) trigger.click();
+          const options = [...list.querySelectorAll('.combo-item')];
+          const option = e.key === 'ArrowUp' ? options[options.length - 1] : options[0];
+          if (option) option.focus();
         }
+      });
+      if (search) {
+        search.addEventListener('input', (e) => render(e.target.value));
+        search.addEventListener('keydown', (e) => {
+          if (e.key === 'Escape') {
+            e.preventDefault();
+            closeCombo(wrap, trigger, true);
+          } else if (e.key === 'Enter') {
+            e.preventDefault();
+            const first = list.querySelector('.combo-item');
+            if (first) select(first);
+          } else if (e.key === 'ArrowDown') {
+            e.preventDefault();
+            const first = list.querySelector('.combo-item');
+            if (first) first.focus();
+          }
+        });
+      }
+      list.addEventListener('keydown', (e) => {
+        const options = [...list.querySelectorAll('.combo-item')];
+        const index = options.indexOf(document.activeElement);
+        let next = index;
+        if (e.key === 'ArrowDown') next = Math.min(index + 1, options.length - 1);
+        else if (e.key === 'ArrowUp') next = Math.max(index - 1, 0);
+        else if (e.key === 'Home') next = 0;
+        else if (e.key === 'End') next = options.length - 1;
+        else if (e.key === 'Escape') {
+          e.preventDefault();
+          closeCombo(wrap, trigger, true);
+          return;
+        } else return;
+        e.preventDefault();
+        if (options[next]) options[next].focus();
+      });
+      document.addEventListener('click', (e) => {
+        if (!wrap.contains(e.target)) closeCombo(wrap, trigger);
+      });
+      wrap.addEventListener('focusout', () => {
+        requestAnimationFrame(() => { if (!wrap.contains(document.activeElement)) closeCombo(wrap, trigger); });
       });
     }
 
-    if (destSearch) {
-      destSearch.addEventListener('input', (e) => renderDestItems(e.target.value));
-      destSearch.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape') destWrap.classList.remove('open');
-        if (e.key === 'Enter') {
-          e.preventDefault();
-          const first = destList.querySelector('.combo-item');
-          if (first) setDestination(first.getAttribute('data-id'));
-        }
-      });
-    }
-
-    document.addEventListener('click', (e) => {
-      if (!natWrap.contains(e.target)) {
-        natWrap.classList.remove('open');
-        natTrigger.setAttribute('aria-expanded', 'false');
-      }
-      if (!destWrap.contains(e.target)) {
-        destWrap.classList.remove('open');
-        destTrigger.setAttribute('aria-expanded', 'false');
-      }
-    });
+    configurePicker(natWrap, natTrigger, natSearch, natList, renderNatItems,
+      (option) => setNationality(option.getAttribute('data-code'), true), destWrap, destTrigger);
+    configurePicker(destWrap, destTrigger, destSearch, destList, renderDestItems,
+      (option) => setDestination(option.getAttribute('data-id'), true), natWrap, natTrigger);
 
     const initialNat = getSavedNationality() || natSelect.getAttribute('data-default') || '';
     setNationality(initialNat);
-    setDestination(destSelect.getAttribute('data-default') || 'vietnam');
+    setDestination(destSelect.hasAttribute('data-default') ? destSelect.getAttribute('data-default') : 'vietnam');
   }
 
   function initRequirementsChecker() {
@@ -424,13 +450,18 @@
 
     function runEvaluation(animate) {
       const natCode = natEl ? natEl.value : '';
-      const destId = destEl ? destEl.value : 'vietnam';
+      const destId = destEl ? destEl.value : '';
+
+      if (animate) trackEvent('requirements_check_start', { destination: destId || 'unselected' });
 
       if (!natCode) {
         if (natEl) {
           natEl.setAttribute('aria-invalid', 'true');
           const comboTrig = document.getElementById('comboNationalityTrigger');
-          if (comboTrig) comboTrig.click();
+          if (comboTrig) {
+            comboTrig.setAttribute('aria-invalid', 'true');
+            if (comboTrig.getAttribute('aria-expanded') !== 'true') comboTrig.click();
+          }
           else natEl.focus();
         }
         if (drawer) {
@@ -446,6 +477,18 @@
         return;
       }
       if (natEl) natEl.removeAttribute('aria-invalid');
+      if (!destId || !DATA.destinations.some((d) => d.id === destId)) {
+        if (destEl) destEl.setAttribute('aria-invalid', 'true');
+        drawer.innerHTML = `<div class="checker-choice-error" role="alert"><h3>Choose your destination</h3><p>Select where you are traveling to check the right document and fees.</p></div>`;
+        drawer.classList.add('active');
+        const trigger = document.getElementById('comboDestinationTrigger');
+        if (trigger) {
+          trigger.setAttribute('aria-invalid', 'true');
+          if (trigger.getAttribute('aria-expanded') !== 'true') trigger.click();
+        } else if (destEl) destEl.focus();
+        return;
+      }
+      if (destEl) destEl.removeAttribute('aria-invalid');
       saveNationality(natCode);
 
       const capsule = form.closest('.checker-capsule') || form;
@@ -455,6 +498,7 @@
       setTimeout(() => {
         capsule.classList.remove('checker-loading-pulse');
         const res = DATA.evaluateRequirement(natCode, destId);
+        if (animate) trackEvent('requirements_check_complete', { destination: destId, result: res.status });
         const d = res.dest;
         const pricing = DATA.calculatePrice(d.id, 1, 'standard');
         const govLabel = pricing.govPerPersonUSD === 0 ? `${formatMoney(0)} (Free official form)` : formatMoney(pricing.govPerPersonUSD);
@@ -486,7 +530,7 @@
               </div>
             </div>
             <p style="font-size:0.78rem;color:var(--text-muted);margin-top:0.75rem;">
-              OnePassVisa is a private assistance service not affiliated with any government; you can apply directly at <a href="${d.govPortal}" target="_blank" rel="noopener noreferrer" style="color:var(--emerald);font-weight:600;text-decoration:underline;">${d.govPortalName}</a> for the ${pricing.govPerPersonUSD === 0 ? formatMoney(0) + ' government fee' : formatMoney(pricing.govPerPersonUSD) + ' government fee'} only.
+              OnePassVisa is a private assistance service not affiliated with any government; you can apply directly at <a href="${d.govPortal}" target="_blank" rel="noopener noreferrer" style="color:var(--emerald);font-weight:600;text-decoration:underline;">${d.govPortalName}</a> ${d.id === 'turkey' ? governmentFeeExplanation(pricing) : `for the ${formatMoney(pricing.govPerPersonUSD)} government fee only.`}
             </p>
           `;
         } else {
@@ -523,7 +567,7 @@
 
     // If on a destination page and nationality was carried over, auto-run the evaluation
     const params = new URLSearchParams(window.location.search);
-    if (params.get('nationality') && natEl && natEl.value) {
+    if (params.get('nationality') && natEl && natEl.value && destEl && destEl.value) {
       runEvaluation(false);
     }
   }
@@ -533,90 +577,123 @@
     if (!grid) return;
 
     const limit = parseInt(grid.getAttribute('data-limit') || '0', 10);
+    const searchInput = document.getElementById('destSearchInput');
+    const typeSelect = document.getElementById('documentTypeFilter');
+    const countLabel = document.getElementById('destinationResultsCount');
+    const resetButton = document.getElementById('resetDestinationFilters');
+    const filterDetails = document.querySelector('.directory-filters');
     let activeRegion = 'all';
+    let activeType = 'all';
     let searchQuery = '';
 
+    const shortTitles = {
+      vietnam: 'Tourist eVisa', 'thailand-tdac': 'Digital arrival card (TDAC)',
+      indonesia: 'e-VOA', uk: 'ETA', usa: 'ESTA', india: 'Tourist eVisa (30-day)',
+      singapore: 'Digital arrival card (SGAC)', cambodia: 'Tourist eVisa',
+      uae: 'Tourist eVisa (30-day)', saudi: 'Tourist eVisa', turkey: 'e-Visa',
+      egypt: 'Tourist eVisa', kenya: 'eTA', canada: 'eTA', australia: 'ETA',
+      malaysia: 'Digital arrival card (MDAC)', 'thailand-evisa': 'Tourist eVisa (60-day)',
+      morocco: 'Tourist eVisa'
+    };
+    function documentType(d) {
+      if (d.categoryBadge === 'Arrival Card') return 'arrival';
+      if (d.categoryBadge === 'ETA') return 'authorization';
+      return 'evisa';
+    }
+    function categoryLabel(d) {
+      return { arrival: 'Arrival card', authorization: 'Travel authorization', evisa: 'eVisa' }[documentType(d)];
+    }
     function renderCard(d) {
       const pricing = DATA.calculatePrice(d.id, 1, 'standard');
       const savedNat = getSavedNationality();
       const detailHref = savedNat ? `${d.slug}.html?nationality=${encodeURIComponent(savedNat)}` : `${d.slug}.html`;
       const govText = pricing.govPerPersonUSD === 0 ? `Government ${formatMoney(0)} (Free)` : `Government ${formatMoney(pricing.govPerPersonUSD)}`;
       const breakdownText = `${govText} + base service ${formatMoney(pricing.servicePerPersonUSD)}`;
-
       return `
         <article class="dest-card">
           <a href="${detailHref}" class="dest-card-media" aria-label="${d.name} — ${d.shortDocName || d.visaType}">
-            <img
-              src="${d.image}"
-              srcset="${d.imageSmall} 480w, ${d.image} 800w"
-              sizes="(min-width: 1024px) 360px, (min-width: 640px) 45vw, 92vw"
-              width="640"
-              height="400"
-              loading="lazy"
-              decoding="async"
-              alt="${d.name}"
-              class="dest-card-img"
-            />
+            <img src="${d.image}" srcset="${d.imageSmall} 480w, ${d.image} 800w" sizes="(min-width: 1024px) 360px, (min-width: 640px) 45vw, 92vw" width="640" height="400" loading="lazy" decoding="async" alt="${d.name}" class="dest-card-img" />
             <span class="dest-flag-badge" aria-hidden="true">${d.flag}</span>
           </a>
           <div class="dest-card-body">
             <div>
               <h3 class="dest-card-title"><a href="${detailHref}">${d.name}</a></h3>
-              <div class="dest-card-doc">${d.shortDocName || d.visaType}</div>
+              <div class="dest-card-category">${categoryLabel(d)}</div>
+              <div class="dest-card-doc">${shortTitles[d.id] || d.shortDocName || d.visaType}</div>
             </div>
             <div class="dest-card-footer">
               <div>
-                <div class="dest-total-price tabular-nums">${formatMoney(pricing.totalPerPersonUSD)} <span style="font-size:0.8rem;font-weight:500;color:var(--text-muted);">/ traveler</span></div>
+                <div class="dest-total-price tabular-nums">${formatMoney(pricing.totalPerPersonUSD)} <span class="dest-price-unit">/ traveler</span></div>
                 <div class="dest-fee-summary tabular-nums">${breakdownText}</div>
               </div>
-              <a href="${detailHref}" class="dest-card-cta">
-                <span>View requirements</span>
-              </a>
+              <a href="${detailHref}" class="dest-card-cta"><span>View requirements</span></a>
             </div>
           </div>
-        </article>
-      `;
+        </article>`;
     }
-
     function refresh() {
       let list = DATA.destinations.filter((d) => {
-        const matchReg = activeRegion === 'all' || d.region.toLowerCase() === activeRegion.toLowerCase();
-        const matchQ =
-          !searchQuery ||
-          d.name.toLowerCase().includes(searchQuery) ||
-          d.shortName.toLowerCase().includes(searchQuery) ||
-          (d.shortDocName || '').toLowerCase().includes(searchQuery) ||
-          d.visaType.toLowerCase().includes(searchQuery);
-        return matchReg && matchQ;
+        const matchRegion = activeRegion === 'all' || d.region.toLowerCase() === activeRegion.toLowerCase();
+        const matchType = activeType === 'all' || documentType(d) === activeType;
+        const haystack = `${d.name} ${d.shortName} ${d.shortDocName || ''} ${d.visaType} ${categoryLabel(d)}`.toLowerCase();
+        return matchRegion && matchType && (!searchQuery || haystack.includes(searchQuery));
       });
-      if (limit > 0 && activeRegion === 'all' && !searchQuery) {
-        list = list.slice(0, limit);
-      }
-      if (list.length === 0) {
-        grid.innerHTML = `<div class="card" style="grid-column:1/-1;text-align:center;"><p>No destinations match your search. Try another country name or adjust the filters.</p></div>`;
-        return;
-      }
-      grid.innerHTML = list.map(renderCard).join('');
+      if (limit > 0 && activeRegion === 'all' && activeType === 'all' && !searchQuery) list = list.slice(0, limit);
+      if (countLabel) countLabel.textContent = `${list.length} ${list.length === 1 ? 'document' : 'documents'}`;
+      if (resetButton) resetButton.disabled = activeRegion === 'all' && activeType === 'all' && !searchQuery;
+      grid.innerHTML = list.length ? list.map(renderCard).join('')
+        : `<div class="card directory-empty" style="grid-column:1/-1;"><h2>No matching documents</h2><p>Try another country name or reset the filters to see all destinations.</p></div>`;
     }
-
     window.opvRefreshDestinations = refresh;
-
     document.querySelectorAll('.js-region-pill').forEach((btn) => {
       btn.addEventListener('click', () => {
-        document.querySelectorAll('.js-region-pill').forEach((b) => b.classList.remove('active'));
-        btn.classList.add('active');
+        document.querySelectorAll('.js-region-pill').forEach((b) => {
+          const selected = b === btn;
+          b.classList.toggle('active', selected);
+          b.setAttribute('aria-pressed', String(selected));
+        });
         activeRegion = btn.getAttribute('data-region') || 'all';
         refresh();
       });
     });
-
-    const searchInput = document.getElementById('destSearchInput');
-    if (searchInput) {
-      searchInput.addEventListener('input', (e) => {
-        searchQuery = e.target.value.trim().toLowerCase();
-        refresh();
+    if (searchInput) searchInput.addEventListener('input', (e) => {
+      searchQuery = e.target.value.trim().toLowerCase();
+      refresh();
+    });
+    if (typeSelect) typeSelect.addEventListener('change', () => {
+      activeType = typeSelect.value;
+      refresh();
+    });
+    if (resetButton) resetButton.addEventListener('click', () => {
+      activeRegion = 'all'; activeType = 'all'; searchQuery = '';
+      if (searchInput) searchInput.value = '';
+      if (typeSelect) typeSelect.value = 'all';
+      document.querySelectorAll('.js-region-pill').forEach((btn) => {
+        const selected = btn.getAttribute('data-region') === 'all';
+        btn.classList.toggle('active', selected);
+        btn.setAttribute('aria-pressed', String(selected));
       });
+      refresh();
+      if (searchInput) searchInput.focus();
+    });
+    if (filterDetails) {
+      const wideScreen = window.matchMedia('(min-width: 768px)');
+      const syncFilters = () => {
+        filterDetails.open = wideScreen.matches;
+        filterDetails.toggleAttribute('data-desktop-expanded', wideScreen.matches);
+      };
+      syncFilters();
+      if (wideScreen.addEventListener) wideScreen.addEventListener('change', syncFilters);
+      else if (wideScreen.addListener) wideScreen.addListener(syncFilters);
     }
+    refresh();
+  }
+
+  function governmentFeeExplanation(price) {
+    if (price.dest.id === 'turkey') {
+      return `for the applicable government fee. Our displayed total uses an estimate of ${formatMoney(price.govPerPersonUSD)} per traveler; the official fee varies by passport.`;
+    }
+    return `for the ${formatMoney(price.govPerPersonUSD)} government fee only. (Verified ${price.dest.verifiedDate})`;
   }
 
   function initCalculator() {
@@ -681,7 +758,7 @@
         linkEl.href = `apply.html?country=${encodeURIComponent(p.dest.id)}&travelers=${p.travelers}&speed=${speedTier}${natParam}`;
       }
       if (govLinkEl) {
-        govLinkEl.innerHTML = `OnePassVisa is a private service not affiliated with any government; you can apply directly at <a href="${p.dest.govPortal}" target="_blank" rel="noopener noreferrer" style="color:var(--emerald);font-weight:600;text-decoration:underline;">${p.dest.govPortalName}</a> for the ${p.govPerPersonUSD === 0 ? formatMoney(0) + ' government fee' : formatMoney(p.govPerPersonUSD) + ' government fee'} only. (Verified ${p.dest.verifiedDate})`;
+        govLinkEl.innerHTML = `OnePassVisa is a private service not affiliated with any government; you can apply directly at <a href="${p.dest.govPortal}" target="_blank" rel="noopener noreferrer" style="color:var(--emerald);font-weight:600;text-decoration:underline;">${p.dest.govPortalName}</a> ${governmentFeeExplanation(p)}`;
       }
     }
 
@@ -1049,6 +1126,7 @@
             }
             blk.setAttribute('data-collapsed', 'false');
             renderApplicants();
+            if (errBox) { errBox.tabIndex = -1; errBox.focus(); errBox.scrollIntoView({ block: 'center' }); }
             return false;
           }
         }
@@ -1065,6 +1143,9 @@
             if (errBox) {
               errBox.textContent = `Please upload both the passport bio-page scan and portrait photo for Traveler ${i + 1}.`;
               errBox.style.display = 'block';
+              errBox.tabIndex = -1;
+              errBox.focus();
+              errBox.scrollIntoView({ block: 'center' });
             }
             return false;
           }
@@ -1080,7 +1161,9 @@
           if (!validateStage(s)) return;
         }
       }
+      const previousStage = currentStage;
       currentStage = Math.max(1, Math.min(4, targetStage));
+      if (currentStage !== previousStage) trackEvent('application_step_view', { step: currentStage, from_step: previousStage, destination: getSelectedDest().id });
 
       if (currentStage === 3) renderDocumentsStage();
       if (currentStage === 4) renderStage4Review();
@@ -1175,7 +1258,7 @@
       if (totEl) totEl.textContent = formatMoney(p.grandTotalUSD);
       if (stickyTotEl) stickyTotEl.textContent = formatMoney(p.grandTotalUSD);
       if (disclosureEl) {
-        disclosureEl.innerHTML = `OnePassVisa is a private assistance service, not a government website. You can apply directly at <a href="${p.dest.govPortal}" target="_blank" rel="noopener noreferrer" style="color:var(--emerald);font-weight:600;text-decoration:underline;">${p.dest.govPortalName}</a> for the ${p.govPerPersonUSD === 0 ? formatMoney(0) + ' government fee' : formatMoney(p.govPerPersonUSD) + ' government fee'} only. (Verified ${p.dest.verifiedDate})`;
+        disclosureEl.innerHTML = `OnePassVisa is a private assistance service, not a government website. You can apply directly at <a href="${p.dest.govPortal}" target="_blank" rel="noopener noreferrer" style="color:var(--emerald);font-weight:600;text-decoration:underline;">${p.dest.govPortalName}</a> ${governmentFeeExplanation(p)}`;
       }
 
       updateDocumentSpecificVisibility();
@@ -1184,6 +1267,13 @@
     window.opvRefreshApplySummary = updateSummary;
 
     const savedDraftRaw = localStorage.getItem('opv_saved_draft');
+    const resumeLink = document.getElementById('resumeDraftLink');
+    if (resumeLink && savedDraftRaw && params.get('resume') !== '1') {
+      try {
+        const saved = JSON.parse(savedDraftRaw);
+        if (saved && DATA.destinations.some((d) => d.id === saved.destinationId)) resumeLink.style.display = 'inline-flex';
+      } catch (e) {}
+    }
     if (savedDraftRaw && (params.get('resume') === '1' || !params.get('country'))) {
       try {
         const draft = JSON.parse(savedDraftRaw);
@@ -1202,6 +1292,7 @@
     renderApplicants();
     renderDocumentsStage();
     updateSummary();
+    trackEvent('application_step_view', { step: 1, destination: getSelectedDest().id });
 
     destSelect.addEventListener('change', () => {
       updateDocumentSpecificVisibility();
@@ -1231,6 +1322,7 @@
           phone: (document.getElementById('applyPhone') || {}).value || ''
         };
         localStorage.setItem('opv_saved_draft', JSON.stringify(draft));
+        if (resumeLink) resumeLink.style.display = 'inline-flex';
         if (saveStatus) {
           saveStatus.textContent = 'Saved in this browser. Return to your application on this device when you’re ready. Traveler details and uploaded files are not saved.';
           saveStatus.style.display = 'block';
@@ -1710,6 +1802,79 @@
     });
   }
 
+  function initHelpTopics() {
+    const tabs = [...document.querySelectorAll('[data-help-target]')];
+    if (!tabs.length) return;
+    const panels = tabs.map((tab) => document.getElementById(tab.getAttribute('data-help-target')));
+    if (panels.some((panel) => !panel)) return;
+    const tablist = tabs[0].parentElement;
+    tablist.setAttribute('role', 'tablist');
+    tablist.setAttribute('aria-label', 'Help topics');
+    function targetFromHash() {
+      const hashTarget = document.getElementById(window.location.hash.slice(1));
+      const index = panels.findIndex((panel) => panel === hashTarget || (hashTarget && panel.contains(hashTarget)));
+      return index >= 0 ? index : 0;
+    }
+    function activate(index, focus = false, updateHash = false, measure = false) {
+      tabs.forEach((tab, i) => {
+        const selected = i === index;
+        tab.setAttribute('role', 'tab');
+        tab.setAttribute('aria-controls', panels[i].id);
+        tab.setAttribute('aria-selected', String(selected));
+        tab.tabIndex = selected ? 0 : -1;
+        tab.classList.toggle('active', selected);
+        panels[i].setAttribute('role', 'tabpanel');
+        panels[i].setAttribute('aria-labelledby', tab.id);
+        panels[i].hidden = !selected;
+      });
+      if (focus) tabs[index].focus();
+      if (updateHash && window.location.hash !== '#' + panels[index].id) history.pushState(null, '', '#' + panels[index].id);
+      if (measure) trackEvent('help_topic_view', { topic: panels[index].id });
+    }
+    tabs.forEach((tab, index) => {
+      tab.addEventListener('click', (e) => {
+        e.preventDefault();
+        activate(index, false, true, true);
+      });
+      tab.addEventListener('keydown', (e) => {
+        let next = index;
+        if (e.key === 'ArrowRight' || e.key === 'ArrowDown') next = (index + 1) % tabs.length;
+        else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') next = (index + tabs.length - 1) % tabs.length;
+        else if (e.key === 'Home') next = 0;
+        else if (e.key === 'End') next = tabs.length - 1;
+        else return;
+        e.preventDefault();
+        activate(next, true, true, true);
+      });
+    });
+    function followHash() {
+      activate(targetFromHash());
+      const target = document.getElementById(window.location.hash.slice(1));
+      if (target && panels.some((panel) => panel === target || panel.contains(target))) {
+        requestAnimationFrame(() => target.scrollIntoView({ block: 'start' }));
+      }
+    }
+    activate(targetFromHash());
+    if (window.location.hash) followHash();
+    window.addEventListener('hashchange', followHash);
+    window.addEventListener('popstate', followHash);
+  }
+
+  function initJourneyMeasurements() {
+    document.addEventListener('click', (e) => {
+      const link = e.target.closest('a[href]');
+      if (!link) return;
+      try {
+        const target = new URL(link.href, window.location.href);
+        if (target.origin === window.location.origin && /\/apply(?:\.html)?$/.test(target.pathname)) {
+          trackEvent('application_start', { destination: target.searchParams.get('country') || 'unselected', source_page: window.location.pathname });
+        }
+      } catch (err) {}
+    });
+    const contact = document.getElementById('contactSupportForm');
+    if (contact) contact.addEventListener('focusin', () => trackEvent('support_contact_start', { source_page: window.location.pathname }), { once: true });
+  }
+
   function initAccordionsAndPolicies() {
     document.querySelectorAll('.faq-trigger').forEach((btn) => {
       btn.addEventListener('click', () => {
@@ -1727,10 +1892,21 @@
     const policyBtns = document.querySelectorAll('.policy-nav-btn');
     const policySecs = document.querySelectorAll('.policy-section');
     if (policyBtns.length > 0 && policySecs.length > 0) {
+      const categorySelect = document.getElementById('policyCategorySelect');
       function activatePolicy(id) {
-        policyBtns.forEach((b) => b.classList.toggle('active', b.getAttribute('data-policy') === id));
-        policySecs.forEach((s) => s.classList.toggle('active', s.id === id));
+        if (![...policySecs].some((section) => section.id === id)) return;
+        policyBtns.forEach((b) => {
+          const selected = b.getAttribute('data-policy') === id;
+          b.classList.toggle('active', selected);
+          b.setAttribute('aria-pressed', String(selected));
+        });
+        policySecs.forEach((section) => section.classList.toggle('active', section.id === id));
+        if (categorySelect) categorySelect.value = id;
       }
+      if (categorySelect) categorySelect.addEventListener('change', () => {
+        activatePolicy(categorySelect.value);
+        history.replaceState(null, '', '#' + categorySelect.value);
+      });
       policyBtns.forEach((btn) => {
         btn.addEventListener('click', () => {
           const id = btn.getAttribute('data-policy');
@@ -1739,9 +1915,7 @@
         });
       });
       const hash = window.location.hash.replace('#', '');
-      if (hash && document.getElementById(hash)) {
-        activatePolicy(hash);
-      }
+      activatePolicy(hash || (policyBtns[0] && policyBtns[0].getAttribute('data-policy')));
       window.addEventListener('hashchange', () => {
         const h = window.location.hash.replace('#', '');
         if (h && document.getElementById(h)) activatePolicy(h);
@@ -1782,6 +1956,8 @@
     initTracker();
     initContactForm();
     initAccordionsAndPolicies();
+    initHelpTopics();
+    initJourneyMeasurements();
     initScrollReveal();
     updateAllCurrencyDisplays();
   });

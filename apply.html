@@ -19,7 +19,7 @@
   <link rel="apple-touch-icon" href="assets/images/apple-touch-icon.png" />
   <link rel="preload" href="assets/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="preload" href="assets/fonts/plus-jakarta-700.woff2" as="font" type="font/woff2" crossorigin />
-  <link rel="stylesheet" href="assets/css/onepass-v6.css?v=10" />
+  <link rel="stylesheet" href="assets/css/onepass-v6.css?v=12" />
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"OnePassVisa","legalName":"OnePassVisa Digital Travel Services LLC","url":"https://onepassvisa.com/","logo":"https://onepassvisa.com/assets/images/onepassvisa-logo-master.png","description":"Independent private visa and travel document assistance service helping travelers apply for eVisas, ETAs, and digital arrival cards.","contactPoint":{"@type":"ContactPoint","email":"support@onepassvisa.com","contactType":"customer support","availableLanguage":["English"]}}</script>
 </head>
 <body style="padding-bottom:4.5rem;">
@@ -32,22 +32,15 @@
     </div>
   </div>
 
-  <header class="site-header">
-    <div class="container header-inner">
+  <header class="site-header application-header">
+    <div class="container application-header-inner">
       <a href="index.html" class="brand-logo" aria-label="onepassvisa Home">
         <img src="assets/images/onepassvisa-logo-master.png?v=9" alt="onepassvisa" width="188" height="33" class="brand-logo-img" />
       </a>
-
-      <nav class="nav-links" id="mainNavLinks" aria-label="Primary Navigation">
-        <a href="destinations.html" class="nav-link ">Destinations</a>
-        <a href="index.html#how-it-works" class="nav-link">How it works</a>
-        <a href="faq.html" class="nav-link ">Help</a>
-        <a href="track.html" class="nav-link hide-desktop-nav ">Track application</a>
+      <nav class="application-header-links" id="mainNavLinks" aria-label="Application navigation">
+        <a href="destinations.html" class="application-return-link"><span aria-hidden="true">←</span> <span class="application-return-full">Back to destinations</span><span class="application-return-short">Back</span></a>
+        <a href="faq.html" class="application-help-link">Help</a>
       </nav>
-
-      <div class="header-actions">
-        <a href="track.html" class="header-utility-link ">Track application</a>
-
         <div class="currency-dropdown-wrap" id="currencyDropdownWrap">
           <button type="button" class="currency-trigger" id="currencyTriggerBtn" aria-haspopup="true" aria-expanded="false" aria-label="Select display currency">
             <span id="currencyTriggerLabel">USD</span>
@@ -107,20 +100,6 @@
             <option value="INR">INR</option>
           </select>
         </div>
-
-        <a href="index.html#checker" class="btn btn-primary btn-sm header-cta-btn">
-          <span class="cta-text-full">Check requirements</span>
-          <span class="cta-text-short">Check requirements</span>
-        </a>
-
-        <button type="button" class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mainNavLinks">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true">
-            <line x1="3" y1="6" x2="21" y2="6"></line>
-            <line x1="3" y1="12" x2="21" y2="12"></line>
-            <line x1="3" y1="18" x2="21" y2="18"></line>
-          </svg>
-        </button>
-      </div>
     </div>
   </header>
 
@@ -132,12 +111,18 @@
     
     <section class="section transaction-section">
       <div class="container">
-        <div class="transaction-heading">
+        <div class="transaction-heading application-heading">
           <div>
             <h1 class="page-title">Your application</h1>
-            <p class="page-lead">Tell us about your trip, add your travelers, and review your application in four steps.</p>
+            <p class="page-lead">Complete your trip details, travelers, documents, and review in four steps.</p>
           </div>
-          <button type="button" id="saveDraftBtn" class="btn btn-outline btn-sm">Save and resume later</button>
+          <div class="application-save">
+            <div class="application-save-actions">
+              <button type="button" id="saveDraftBtn" class="btn btn-outline btn-sm" aria-describedby="saveScopeNote">Save and resume later</button>
+              <a id="resumeDraftLink" href="apply.html?resume=1" class="btn btn-outline btn-sm application-resume-link" aria-describedby="saveScopeNote" style="display:none;">Resume saved trip</a>
+            </div>
+            <p class="save-scope-note" id="saveScopeNote">Saves trip and contact details on this device. Traveler details and uploads are not saved.</p>
+          </div>
         </div>
 
         <div id="saveDraftStatus" class="save-resume-bar" style="display:none;margin-bottom:1.25rem;"></div>
@@ -192,23 +177,23 @@
               </div>
 
               <!-- Document-specific fields for Arrival Cards (TDAC, SGAC, MDAC) -->
-              <div id="arrivalCardTripFields" style="display:none;background:var(--bg-page);border:1px solid var(--border);border-radius:var(--radius-md);padding:1rem;margin-bottom:1rem;">
-                <div style="font-size:0.85rem;font-weight:700;color:var(--emerald);margin-bottom:0.65rem;">
+              <div id="arrivalCardTripFields" class="trip-extra-fields" style="display:none;">
+                <div class="trip-extra-title">
                   Flight &amp; accommodation details
                 </div>
                 <div class="form-grid-2" style="margin-bottom:0.85rem;">
                   <div class="field-group">
                     <label class="field-label" for="applyFlightNumber">Arrival flight or vessel number *</label>
-                    <input type="text" id="applyFlightNumber" class="field-control" placeholder="e.g. TG911 or SQ321" autocapitalize="characters" />
+                    <input type="text" id="applyFlightNumber" class="field-control" placeholder="Enter flight or vessel number" autocapitalize="characters" />
                   </div>
                   <div class="field-group">
                     <label class="field-label" for="applyPortOfEntry">Port of entry / arrival airport <span class="optional-label">Optional</span></label>
-                    <input type="text" id="applyPortOfEntry" class="field-control" placeholder="e.g. Bangkok Suvarnabhumi (BKK)" />
+                    <input type="text" id="applyPortOfEntry" class="field-control" placeholder="Enter arrival airport or port" />
                   </div>
                 </div>
                 <div class="field-group">
                   <label class="field-label" for="applyAccommodation">Hotel name or accommodation address *</label>
-                  <input type="text" id="applyAccommodation" class="field-control" placeholder="Hotel name and city/address at destination" />
+                  <input type="text" id="applyAccommodation" class="field-control" placeholder="Enter hotel name and accommodation address" />
                 </div>
               </div>
 
@@ -341,9 +326,7 @@
               <div class="summary-row"><span>Our review time</span><strong id="sumHandlingTime">Within 6–12 hours</strong></div>
               <div class="summary-row"><span>Expected processing</span><strong id="sumGovTime">3–5 working days by Vietnam Immigration</strong></div>
 
-              <div class="save-resume-bar">
-                <strong>Save your progress on this browser and return when you’re ready.</strong> Use “Save and resume later” to keep your trip and contact details on this device. Traveler details and uploaded files are not saved.
-              </div>
+
             </div>
           </aside>
         </div>
@@ -432,7 +415,7 @@
     </div>
   </div>
 
-  <script src="assets/js/data-v6.js?v=11" defer></script>
-  <script src="assets/js/app-v6.js?v=11" defer></script>
+  <script src="assets/js/data-v6.js?v=12" defer></script>
+  <script src="assets/js/app-v6.js?v=12" defer></script>
 </body>
 </html>
