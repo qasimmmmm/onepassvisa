@@ -5,6 +5,9 @@
   if (!DATA) return;
 
   let currentCurrency = localStorage.getItem('opv_currency') || 'USD';
+  if (!DATA.currencies[currentCurrency]) {
+    currentCurrency = 'USD';
+  }
 
   window.dataLayer = window.dataLayer || [];
   function gtag() {
@@ -30,11 +33,29 @@
   window.opvTrackEvent = trackEvent;
 
   function formatMoney(amountUSD) {
-    const curr = DATA.currencies[currentCurrency] || DATA.currencies.USD;
-    const converted = Math.round(amountUSD * curr.rate);
-    return curr.symbol + converted.toLocaleString();
+    return DATA.formatMoney(amountUSD, currentCurrency);
   }
   window.opvFormatMoney = formatMoney;
+
+  function getSavedNationality() {
+    const params = new URLSearchParams(window.location.search);
+    const fromUrl = (params.get('nationality') || '').toUpperCase();
+    if (fromUrl && DATA.nationalities.some((n) => n.code === fromUrl)) {
+      localStorage.setItem('opv_selected_nationality', fromUrl);
+      return fromUrl;
+    }
+    const fromStorage = (localStorage.getItem('opv_selected_nationality') || '').toUpperCase();
+    if (fromStorage && DATA.nationalities.some((n) => n.code === fromStorage)) {
+      return fromStorage;
+    }
+    return '';
+  }
+
+  function saveNationality(code) {
+    if (code && DATA.nationalities.some((n) => n.code === code)) {
+      localStorage.setItem('opv_selected_nationality', code);
+    }
+  }
 
   function updateAllCurrencyDisplays() {
     document.querySelectorAll('[data-usd]').forEach((el) => {
@@ -43,7 +64,7 @@
         const prefix = el.getAttribute('data-prefix') || '';
         const suffix = el.getAttribute('data-suffix') || '';
         if (usdVal === 0 && el.hasAttribute('data-free-label')) {
-          el.textContent = prefix + '$0 (Free)' + suffix;
+          el.textContent = prefix + formatMoney(0) + ' (Free)' + suffix;
         } else {
           el.textContent = prefix + formatMoney(usdVal) + suffix;
         }
@@ -57,10 +78,20 @@
     const currObj = DATA.currencies[currentCurrency] || DATA.currencies.USD;
     const trigLabel = document.getElementById('currencyTriggerLabel');
     if (trigLabel) {
-      trigLabel.textContent = `${currObj.flag || '🇺🇸'} ${currObj.code} (${currObj.symbol})`;
+      trigLabel.textContent = `${currObj.code}`;
     }
     document.querySelectorAll('.js-currency-option').forEach((btn) => {
       btn.classList.toggle('active', btn.getAttribute('data-currency') === currentCurrency);
+    });
+
+    document.querySelectorAll('.js-currency-notice').forEach((noticeEl) => {
+      if (currentCurrency === 'USD') {
+        noticeEl.textContent = 'All prices are shown and charged in USD (US$).';
+        noticeEl.classList.remove('visible');
+      } else {
+        noticeEl.textContent = `Prices are displayed in ${currObj.code} as an approximate estimate; checkout is charged in USD (US$).`;
+        noticeEl.classList.add('visible');
+      }
     });
 
     if (typeof window.opvRefreshDestinations === 'function') window.opvRefreshDestinations();
@@ -147,13 +178,12 @@
   }
 
   function populateSelects() {
+    const savedNat = getSavedNationality();
+
     document.querySelectorAll('.js-nationality-select').forEach((select) => {
-      const def = select.getAttribute('data-default') || '';
-      const placeholder = select.getAttribute('data-placeholder') || '';
-      const opts = [];
-      if (placeholder) {
-        opts.push(`<option value="" ${!def ? 'selected' : ''}>${placeholder}</option>`);
-      }
+      const def = savedNat || select.getAttribute('data-default') || '';
+      const placeholder = select.getAttribute('data-placeholder') || 'Select passport country';
+      const opts = [`<option value="" ${!def ? 'selected' : ''}>${placeholder}</option>`];
       DATA.nationalities.forEach((n) => {
         opts.push(`<option value="${n.code}" ${n.code === def ? 'selected' : ''}>${n.flag} ${n.name}</option>`);
       });
@@ -163,7 +193,7 @@
     document.querySelectorAll('.js-destination-select').forEach((select) => {
       const def = select.getAttribute('data-default') || 'vietnam';
       select.innerHTML = DATA.destinations
-        .map((d) => `<option value="${d.id}" ${d.id === def ? 'selected' : ''}>${d.flag} ${d.name} — ${d.categoryBadge}</option>`)
+        .map((d) => `<option value="${d.id}" ${d.id === def ? 'selected' : ''}>${d.flag} ${d.name} — ${d.shortDocName || d.categoryBadge}</option>`)
         .join('');
     });
   }
@@ -186,10 +216,25 @@
     const destList = document.getElementById('comboDestinationList');
 
     function setNationality(code) {
-      const n = DATA.nationalities.find((x) => x.code === code) || DATA.nationalities[0];
-      natSelect.value = n.code;
-      if (natLabel) {
-        natLabel.innerHTML = `<span style="display:inline-flex;align-items:center;gap:0.45rem;overflow:hidden;text-overflow:ellipsis;"><span class="combo-flag">${n.flag}</span><span>${n.name} Passport</span></span><span style="color:var(--text-muted);font-size:0.75rem;">▾</span>`;
+      const n = DATA.nationalities.find((x) => x.code === code) || null;
+      if (!n) {
+        natSelect.value = '';
+        if (natLabel) {
+          natLabel.innerHTML = `<span style="color:var(--text-muted);font-weight:600;">Select passport country</span><span style="color:var(--text-muted);font-size:0.75rem;">▾</span>`;
+        }
+      } else {
+        natSelect.value = n.code;
+        saveNationality(n.code);
+        if (natLabel) {
+          natLabel.innerHTML = `<span style="display:inline-flex;align-items:center;gap:0.45rem;overflow:hidden;text-overflow:ellipsis;"><span class="combo-flag">${n.flag}</span><span>${n.name}</span></span><span style="color:var(--text-muted);font-size:0.75rem;">▾</span>`;
+        }
+        document.querySelectorAll('.js-carry-nationality').forEach((link) => {
+          try {
+            const url = new URL(link.getAttribute('href'), window.location.origin);
+            url.searchParams.set('nationality', n.code);
+            link.setAttribute('href', url.pathname.replace(/^\//, '') + url.search);
+          } catch (e) {}
+        });
       }
       natWrap.classList.remove('open');
       if (natTrigger) natTrigger.setAttribute('aria-expanded', 'false');
@@ -199,7 +244,7 @@
       const d = DATA.destinations.find((x) => x.id === id) || DATA.destinations[0];
       destSelect.value = d.id;
       if (destLabel) {
-        destLabel.innerHTML = `<span style="display:inline-flex;align-items:center;gap:0.45rem;overflow:hidden;text-overflow:ellipsis;"><span class="combo-flag">${d.flag}</span><span>${d.name} (${d.categoryBadge})</span></span><span style="color:var(--text-muted);font-size:0.75rem;">▾</span>`;
+        destLabel.innerHTML = `<span style="display:inline-flex;align-items:center;gap:0.45rem;overflow:hidden;text-overflow:ellipsis;"><span class="combo-flag">${d.flag}</span><span>${d.name} (${d.shortDocName || d.categoryBadge})</span></span><span style="color:var(--text-muted);font-size:0.75rem;">▾</span>`;
       }
       destWrap.classList.remove('open');
       if (destTrigger) destTrigger.setAttribute('aria-expanded', 'false');
@@ -211,7 +256,7 @@
         (n) => !query || n.name.toLowerCase().includes(query) || n.code.toLowerCase().includes(query)
       );
       if (!filtered.length) {
-        natList.innerHTML = `<div style="padding:0.65rem;font-size:0.82rem;color:var(--text-muted);">No matching passport found</div>`;
+        natList.innerHTML = `<div style="padding:0.65rem;font-size:0.82rem;color:var(--text-muted);">No matching passport country</div>`;
         return;
       }
       natList.innerHTML = filtered
@@ -236,6 +281,7 @@
           !query ||
           d.name.toLowerCase().includes(query) ||
           d.shortName.toLowerCase().includes(query) ||
+          (d.shortDocName || '').toLowerCase().includes(query) ||
           d.categoryBadge.toLowerCase().includes(query)
       );
       if (!filtered.length) {
@@ -247,8 +293,8 @@
           const p = DATA.calculatePrice(d.id, 1, 'standard');
           return `
             <button type="button" class="combo-item ${d.id === destSelect.value ? 'selected' : ''}" data-id="${d.id}">
-              <span style="display:inline-flex;align-items:center;gap:0.5rem;"><span>${d.flag}</span><span>${d.name}</span></span>
-              <span class="badge badge-emerald" style="font-size:0.68rem;padding:0.15rem 0.45rem;">${d.categoryBadge} • ${formatMoney(p.totalPerPersonUSD)}</span>
+              <span style="display:inline-flex;align-items:center;gap:0.5rem;"><span>${d.flag}</span><span>${d.name} — ${d.shortDocName || d.categoryBadge}</span></span>
+              <span class="badge badge-emerald" style="font-size:0.68rem;padding:0.15rem 0.45rem;">${formatMoney(p.totalPerPersonUSD)}</span>
             </button>
           `;
         })
@@ -325,7 +371,8 @@
       }
     });
 
-    setNationality(natSelect.getAttribute('data-default') || 'US');
+    const initialNat = getSavedNationality() || natSelect.getAttribute('data-default') || '';
+    setNationality(initialNat);
     setDestination(destSelect.getAttribute('data-default') || 'vietnam');
   }
 
@@ -334,29 +381,62 @@
     const drawer = document.getElementById('checkerResultDrawer');
     if (!form || !drawer) return;
 
-    form.addEventListener('submit', (e) => {
-      e.preventDefault();
-      const natEl = document.getElementById('checkerNationality');
-      const destEl = document.getElementById('checkerDestination');
-      const natCode = natEl ? natEl.value : 'US';
+    const natEl = document.getElementById('checkerNationality');
+    const destEl = document.getElementById('checkerDestination');
+
+    // Sync nationality selection to localStorage and page CTA links
+    if (natEl) {
+      const savedNat = getSavedNationality();
+      if (savedNat) {
+        natEl.value = savedNat;
+        document.querySelectorAll('.js-carry-nationality').forEach((link) => {
+          try {
+            const url = new URL(link.getAttribute('href'), window.location.origin);
+            url.searchParams.set('nationality', savedNat);
+            link.setAttribute('href', url.pathname.replace(/^\//, '') + url.search);
+          } catch (e) {}
+        });
+      }
+      natEl.addEventListener('change', () => {
+        if (natEl.value) {
+          saveNationality(natEl.value);
+          document.querySelectorAll('.js-carry-nationality').forEach((link) => {
+            try {
+              const url = new URL(link.getAttribute('href'), window.location.origin);
+              url.searchParams.set('nationality', natEl.value);
+              link.setAttribute('href', url.pathname.replace(/^\//, '') + url.search);
+            } catch (e) {}
+          });
+        }
+      });
+    }
+
+    function runEvaluation(animate) {
+      const natCode = natEl ? natEl.value : '';
       const destId = destEl ? destEl.value : 'vietnam';
 
       if (!natCode) {
-        natEl.setAttribute('aria-invalid', 'true');
-        natEl.focus();
+        if (natEl) {
+          natEl.setAttribute('aria-invalid', 'true');
+          const comboTrig = document.getElementById('comboNationalityTrigger');
+          if (comboTrig) comboTrig.click();
+          else natEl.focus();
+        }
         return;
       }
-      natEl.removeAttribute('aria-invalid');
+      if (natEl) natEl.removeAttribute('aria-invalid');
+      saveNationality(natCode);
 
       const capsule = form.closest('.checker-capsule') || form;
-      capsule.classList.add('checker-loading-pulse');
+      if (animate) capsule.classList.add('checker-loading-pulse');
 
+      const delay = animate ? 150 : 0;
       setTimeout(() => {
         capsule.classList.remove('checker-loading-pulse');
         const res = DATA.evaluateRequirement(natCode, destId);
         const d = res.dest;
         const pricing = DATA.calculatePrice(d.id, 1, 'standard');
-        const govLabel = pricing.govPerPersonUSD === 0 ? '$0 (Free official form)' : formatMoney(pricing.govPerPersonUSD);
+        const govLabel = pricing.govPerPersonUSD === 0 ? `${formatMoney(0)} (Free official form)` : formatMoney(pricing.govPerPersonUSD);
 
         trackEvent('generate_lead', {
           passport: natCode,
@@ -369,19 +449,15 @@
           actionHtml = `
             <div style="display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:1rem;margin-top:1rem;padding-top:1rem;border-top:1px solid var(--border);">
               <div>
-                <div class="tabular-nums" style="display:flex;align-items:center;flex-wrap:wrap;gap:0.35rem;font-size:0.85rem;color:var(--text-body);">
-                  <span class="fee-pill ${pricing.govPerPersonUSD === 0 ? 'fee-pill-free' : 'fee-pill-gov'}">Gov: ${govLabel}</span>
-                  <span>+</span>
-                  <span class="fee-pill fee-pill-service">Service: ${formatMoney(pricing.servicePerPersonUSD)}</span>
-                  <span>=</span>
-                  <strong style="color:var(--navy);font-size:1.05rem;">${formatMoney(pricing.totalPerPersonUSD)} total</strong>
+                <div class="tabular-nums" style="font-size:0.9rem;color:var(--text-body);">
+                  Government ${govLabel} + service ${formatMoney(pricing.servicePerPersonUSD)} = <strong style="color:var(--navy);font-size:1.05rem;">${formatMoney(pricing.totalPerPersonUSD)} / traveler</strong>
                 </div>
-                <div style="font-size:0.76rem;color:var(--text-muted);margin-top:0.3rem;">
-                  Our handling: ${d.ourHandlingTime} • Gov processing: ${d.govProcessingTime} (Verified ${d.verifiedDate})
+                <div style="font-size:0.8rem;color:var(--text-muted);margin-top:0.25rem;">
+                  Our review time: ${d.standardReviewTime} • Expected processing: ${d.govProcessingTime}
                 </div>
               </div>
               <div style="display:flex;gap:0.6rem;flex-wrap:wrap;">
-                <a href="${d.slug}.html" class="btn btn-outline btn-sm">Requirements &amp; Fees</a>
+                <a href="${d.slug}.html?nationality=${encodeURIComponent(natCode)}" class="btn btn-outline btn-sm">View requirements</a>
                 <a href="apply.html?country=${encodeURIComponent(d.id)}&nationality=${encodeURIComponent(natCode)}" class="btn btn-primary btn-sm">
                   <span>Start application</span>
                   <span class="arrow-icon">→</span>
@@ -389,15 +465,15 @@
               </div>
             </div>
             <p style="font-size:0.78rem;color:var(--text-muted);margin-top:0.75rem;">
-              OnePassVisa is a private assistance service not affiliated with any government; you can apply directly at <a href="${d.govPortal}" target="_blank" rel="noopener noreferrer" style="color:var(--emerald);font-weight:600;text-decoration:underline;">${d.govPortalName}</a> for the ${pricing.govPerPersonUSD === 0 ? '$0 government fee' : formatMoney(pricing.govPerPersonUSD) + ' government fee'} only.
+              OnePassVisa is a private assistance service not affiliated with any government; you can apply directly at <a href="${d.govPortal}" target="_blank" rel="noopener noreferrer" style="color:var(--emerald);font-weight:600;text-decoration:underline;">${d.govPortalName}</a> for the ${pricing.govPerPersonUSD === 0 ? formatMoney(0) + ' government fee' : formatMoney(pricing.govPerPersonUSD) + ' government fee'} only.
             </p>
           `;
         } else {
           actionHtml = `
             <div style="display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:1rem;margin-top:1rem;padding-top:1rem;border-top:1px solid var(--border);">
-              <div style="font-size:0.85rem;color:var(--text-body);">
+              <div style="font-size:0.88rem;color:var(--text-body);">
                 ${res.status === 'embassy'
-                  ? `Online eVisa/ETA processing is not available for this passport. Please apply directly through the official government portal:`
+                  ? `Online processing is not available for this passport. Please apply directly through the official government portal:`
                   : `No visa application is required before your trip. Verify entry conditions on the official government portal:`}
               </div>
               <a href="${d.govPortal}" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-sm">
@@ -416,8 +492,19 @@
           </div>
         `;
         drawer.classList.add('active');
-      }, 200);
+      }, delay);
+    }
+
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      runEvaluation(true);
     });
+
+    // If on a destination page and nationality was carried over, auto-run the evaluation
+    const params = new URLSearchParams(window.location.search);
+    if (params.get('nationality') && natEl && natEl.value) {
+      runEvaluation(false);
+    }
   }
 
   function initDestinationsFilter() {
@@ -430,15 +517,14 @@
 
     function renderCard(d) {
       const pricing = DATA.calculatePrice(d.id, 1, 'standard');
-      const govPill =
-        pricing.govPerPersonUSD === 0
-          ? `<span class="fee-pill fee-pill-free">Gov $0 (Free)</span>`
-          : `<span class="fee-pill fee-pill-gov">Gov ${formatMoney(pricing.govPerPersonUSD)}</span>`;
-      const srvPill = `<span class="fee-pill fee-pill-service">+ ${formatMoney(pricing.servicePerPersonUSD)} service</span>`;
+      const savedNat = getSavedNationality();
+      const detailHref = savedNat ? `${d.slug}.html?nationality=${encodeURIComponent(savedNat)}` : `${d.slug}.html`;
+      const govText = pricing.govPerPersonUSD === 0 ? `Government ${formatMoney(0)} (Free)` : `Government ${formatMoney(pricing.govPerPersonUSD)}`;
+      const breakdownText = `${govText} + service ${formatMoney(pricing.servicePerPersonUSD)}`;
 
       return `
         <article class="dest-card">
-          <a href="${d.slug}.html" class="dest-card-media" aria-label="${d.name} — ${d.visaType}">
+          <a href="${detailHref}" class="dest-card-media" aria-label="${d.name} — ${d.shortDocName || d.visaType}">
             <img
               src="${d.image}"
               srcset="${d.imageSmall} 480w, ${d.image} 800w"
@@ -447,30 +533,23 @@
               height="400"
               loading="lazy"
               decoding="async"
-              alt="${d.name} landmark"
+              alt="${d.name}"
               class="dest-card-img"
             />
             <span class="dest-flag-badge" aria-hidden="true">${d.flag}</span>
-            <span class="dest-duration-pill">${d.durationBadge}</span>
           </a>
           <div class="dest-card-body">
             <div>
-              <div style="display:flex;align-items:center;justify-content:space-between;gap:0.5rem;margin-bottom:0.4rem;">
-                <span class="badge ${d.govFeeUSD === 0 ? 'badge-emerald' : 'badge-primary'}">${d.categoryBadge}</span>
-                <span style="font-size:0.75rem;color:var(--text-muted);font-weight:600;">${d.region}</span>
-              </div>
-              <h3 class="dest-card-title"><a href="${d.slug}.html">${d.name}</a></h3>
-              <div class="dest-card-doc">${d.visaType}</div>
-              <div class="dest-card-meta">Stay: ${d.maxStay} • ${d.entryType}</div>
+              <h3 class="dest-card-title"><a href="${detailHref}">${d.name}</a></h3>
+              <div class="dest-card-doc">${d.shortDocName || d.visaType}</div>
             </div>
             <div class="dest-card-footer">
               <div>
-                <div class="dest-total-price tabular-nums">${formatMoney(pricing.totalPerPersonUSD)} <span style="font-size:0.75rem;font-weight:500;color:var(--text-muted);">total</span></div>
-                <div class="dest-fee-pills">${govPill}${srvPill}</div>
+                <div class="dest-total-price tabular-nums">${formatMoney(pricing.totalPerPersonUSD)} <span style="font-size:0.8rem;font-weight:500;color:var(--text-muted);">/ traveler</span></div>
+                <div class="dest-fee-summary tabular-nums">${breakdownText}</div>
               </div>
-              <a href="${d.slug}.html" class="dest-card-cta">
-                <span>View &amp; Apply</span>
-                <span class="arrow-icon">→</span>
+              <a href="${detailHref}" class="dest-card-cta">
+                <span>View requirements</span>
               </a>
             </div>
           </div>
@@ -485,15 +564,15 @@
           !searchQuery ||
           d.name.toLowerCase().includes(searchQuery) ||
           d.shortName.toLowerCase().includes(searchQuery) ||
-          d.visaType.toLowerCase().includes(searchQuery) ||
-          d.categoryBadge.toLowerCase().includes(searchQuery);
+          (d.shortDocName || '').toLowerCase().includes(searchQuery) ||
+          d.visaType.toLowerCase().includes(searchQuery);
         return matchReg && matchQ;
       });
       if (limit > 0 && activeRegion === 'all' && !searchQuery) {
         list = list.slice(0, limit);
       }
       if (list.length === 0) {
-        grid.innerHTML = `<div class="card" style="grid-column:1/-1;text-align:center;"><p>No destinations match your search. Try selecting "All Regions".</p></div>`;
+        grid.innerHTML = `<div class="card" style="grid-column:1/-1;text-align:center;"><p>No destinations match your search. Try selecting "All".</p></div>`;
         return;
       }
       grid.innerHTML = list.map(renderCard).join('');
@@ -543,21 +622,27 @@
       const totEl = document.getElementById('calcTotalOut');
       const linkEl = document.getElementById('calcApplyLink');
       const govLinkEl = document.getElementById('calcDirectGovLink');
+      const standardPriceEl = document.getElementById('calcStandardAddonPrice');
       const priorityPriceEl = document.getElementById('calcPriorityAddonPrice');
+      const standardTimeDescEl = document.getElementById('calcStandardTimeDesc');
+      const priorityTimeDescEl = document.getElementById('calcPriorityTimeDesc');
 
-      if (priorityPriceEl) priorityPriceEl.textContent = formatMoney(p.dest.priorityFeeUSD);
+      if (standardPriceEl) standardPriceEl.textContent = `+${formatMoney(0)}`;
+      if (priorityPriceEl) priorityPriceEl.textContent = `+${formatMoney(p.dest.priorityFeeUSD)}`;
+      if (standardTimeDescEl) standardTimeDescEl.textContent = p.dest.standardReviewTime;
+      if (priorityTimeDescEl) priorityTimeDescEl.textContent = p.dest.priorityReviewTime;
+
       if (govEl) {
         govEl.textContent =
           p.govPerPersonUSD === 0
-            ? `$0 (Free official form) × ${p.travelers}`
+            ? `${formatMoney(0)} (Free official form) × ${p.travelers}`
             : `${formatMoney(p.govPerPersonUSD)} × ${p.travelers} = ${formatMoney(p.govTotalUSD)}`;
       }
       if (srvEl) {
         srvEl.textContent = `${formatMoney(p.totalServicePerPersonUSD)} × ${p.travelers} = ${formatMoney(p.serviceTotalUSD)}`;
       }
       if (handlingEl) {
-        handlingEl.textContent =
-          speedTier === 'priority' ? 'Priority review within 2 hours' : p.dest.ourHandlingTime.split(' (')[0];
+        handlingEl.textContent = speedTier === 'priority' ? p.dest.priorityReviewTime : p.dest.standardReviewTime;
       }
       if (govTimeEl) {
         govTimeEl.textContent = p.dest.govProcessingTime;
@@ -566,10 +651,12 @@
         totEl.textContent = formatMoney(p.grandTotalUSD);
       }
       if (linkEl) {
-        linkEl.href = `apply.html?country=${encodeURIComponent(p.dest.id)}&travelers=${p.travelers}&speed=${speedTier}`;
+        const savedNat = getSavedNationality();
+        const natParam = savedNat ? `&nationality=${encodeURIComponent(savedNat)}` : '';
+        linkEl.href = `apply.html?country=${encodeURIComponent(p.dest.id)}&travelers=${p.travelers}&speed=${speedTier}${natParam}`;
       }
       if (govLinkEl) {
-        govLinkEl.innerHTML = `OnePassVisa is a private service not affiliated with any government; you can apply directly at <a href="${p.dest.govPortal}" target="_blank" rel="noopener noreferrer" style="color:var(--emerald);font-weight:600;text-decoration:underline;">${p.dest.govPortalName}</a> for the ${p.govPerPersonUSD === 0 ? '$0 government fee' : formatMoney(p.govPerPersonUSD) + ' government fee'} only. (Verified ${p.dest.verifiedDate})`;
+        govLinkEl.innerHTML = `OnePassVisa is a private service not affiliated with any government; you can apply directly at <a href="${p.dest.govPortal}" target="_blank" rel="noopener noreferrer" style="color:var(--emerald);font-weight:600;text-decoration:underline;">${p.dest.govPortalName}</a> for the ${p.govPerPersonUSD === 0 ? formatMoney(0) + ' government fee' : formatMoney(p.govPerPersonUSD) + ' government fee'} only. (Verified ${p.dest.verifiedDate})`;
       }
     }
 
@@ -588,10 +675,19 @@
     const destSelect = document.getElementById('applyDestination');
     const travInput = document.getElementById('applyTravelers');
     const arrivalInput = document.getElementById('applyArrivalDate');
+    const flightInput = document.getElementById('applyFlightNumber');
+    const portInput = document.getElementById('applyPortOfEntry');
+    const hotelInput = document.getElementById('applyAccommodation');
+    const arrivalCardTripFields = document.getElementById('arrivalCardTripFields');
     const applicantsContainer = document.getElementById('applicantsContainer');
+    const documentsContainer = document.getElementById('documentsStageContainer');
+    const stage4ReviewSummary = document.getElementById('stage4ReviewSummary');
+
+    let currentStage = 1;
+    const uploadedFilesMap = {};
 
     if (arrivalInput && !arrivalInput.value) {
-      const minDate = new Date(Date.now() + 86400000 * 2).toISOString().slice(0, 10);
+      const minDate = new Date(Date.now() + 86400000 * 1).toISOString().slice(0, 10);
       arrivalInput.min = minDate;
     }
 
@@ -607,7 +703,21 @@
       if (pr) pr.checked = true;
     }
 
-    const defaultNat = params.get('nationality') || '';
+    const defaultNat = getSavedNationality() || '';
+
+    function getSelectedDest() {
+      const destId = destSelect ? destSelect.value : 'vietnam';
+      return DATA.destinations.find((d) => d.id === destId) || DATA.destinations[0];
+    }
+
+    function updateDocumentSpecificVisibility() {
+      const dest = getSelectedDest();
+      if (arrivalCardTripFields) {
+        arrivalCardTripFields.style.display = dest.requiresFlightAndHotel ? 'block' : 'none';
+      }
+      if (flightInput) flightInput.required = Boolean(dest.requiresFlightAndHotel);
+      if (hotelInput) hotelInput.required = Boolean(dest.requiresFlightAndHotel);
+    }
 
     function renderApplicants() {
       const count = Math.max(1, Math.min(20, parseInt(travInput.value || '1', 10)));
@@ -619,11 +729,12 @@
           dob: (blk.querySelector('.js-app-dob') || {}).value || '',
           nationality: (blk.querySelector('.js-app-nat') || {}).value || defaultNat,
           passportNumber: (blk.querySelector('.js-app-passnum') || {}).value || '',
-          passportExpiry: (blk.querySelector('.js-app-passexp') || {}).value || ''
+          passportExpiry: (blk.querySelector('.js-app-passexp') || {}).value || '',
+          collapsed: blk.getAttribute('data-collapsed') === 'true'
         };
       });
 
-      const natOptions = ['<option value="">Select passport nationality</option>']
+      const natOptions = ['<option value="">Select passport country</option>']
         .concat(DATA.nationalities.map((n) => `<option value="${n.code}">${n.flag} ${n.name}</option>`))
         .join('');
 
@@ -635,59 +746,59 @@
           dob: '',
           nationality: defaultNat,
           passportNumber: '',
-          passportExpiry: ''
+          passportExpiry: '',
+          collapsed: false
         };
+        const isComplete = prev.givenName && prev.surname && prev.nationality && prev.dob && prev.passportNumber && prev.passportExpiry;
+        const showCollapsed = prev.collapsed && isComplete;
+
         blocks.push(`
-          <div class="applicant-block" data-applicant-index="${i + 1}">
-            <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:0.85rem;">
-              <h3 style="font-size:1.05rem;color:var(--navy);">Traveler ${i + 1} Details (As Shown on Passport)</h3>
-              <span class="badge badge-emerald">Applicant ${i + 1} of ${count}</span>
+          <div class="applicant-block" data-applicant-index="${i + 1}" data-collapsed="${showCollapsed ? 'true' : 'false'}">
+            <div class="js-traveler-summary-bar" style="display:${showCollapsed ? 'flex' : 'none'};align-items:center;justify-content:space-between;gap:0.75rem;">
+              <div>
+                <strong style="color:var(--navy);">Traveler ${i + 1}: ${prev.givenName} ${prev.surname}</strong>
+                <div style="font-size:0.82rem;color:var(--text-muted);">Passport ${prev.passportNumber} • Nationality: ${prev.nationality}</div>
+              </div>
+              <button type="button" class="btn btn-outline btn-sm js-expand-traveler">Edit</button>
             </div>
-            <div class="form-grid-2">
-              <div class="field-group">
-                <label class="field-label" for="appGiven_${i}">Given Name(s) *</label>
-                <input type="text" id="appGiven_${i}" class="field-control js-app-given" value="${prev.givenName}" autocomplete="given-name" required />
+            <div class="js-traveler-fields-wrap" style="display:${showCollapsed ? 'none' : 'block'};">
+              <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:0.85rem;">
+                <h3 style="font-size:1.05rem;color:var(--navy);">Traveler ${i + 1} (as shown on passport)</h3>
+                <span class="badge badge-emerald">Traveler ${i + 1} of ${count}</span>
               </div>
-              <div class="field-group">
-                <label class="field-label" for="appSurname_${i}">Surname / Family Name *</label>
-                <input type="text" id="appSurname_${i}" class="field-control js-app-surname" value="${prev.surname}" autocomplete="family-name" required />
-              </div>
-              <div class="field-group">
-                <label class="field-label" for="appNat_${i}">Passport Nationality *</label>
-                <select id="appNat_${i}" class="field-control js-app-nat" data-selected="${prev.nationality}" required>
-                  ${natOptions}
-                </select>
-              </div>
-              <div class="field-group">
-                <label class="field-label" for="appDob_${i}">Date of Birth *</label>
-                <input type="date" id="appDob_${i}" class="field-control js-app-dob" value="${prev.dob}" autocomplete="bday" required />
-              </div>
-              <div class="field-group">
-                <label class="field-label" for="appPassNum_${i}">Passport Number *</label>
-                <input type="text" id="appPassNum_${i}" class="field-control js-app-passnum" value="${prev.passportNumber}" autocapitalize="characters" spellcheck="false" required />
-              </div>
-              <div class="field-group">
-                <label class="field-label" for="appPassExp_${i}">Passport Expiration Date *</label>
-                <input type="date" id="appPassExp_${i}" class="field-control js-app-passexp" value="${prev.passportExpiry}" required />
-              </div>
-              <div class="field-group">
-                <label class="field-label" for="appPassFile_${i}">
-                  <span>Passport Bio-Page Scan (JPG/PNG/PDF) *</span>
-                  <span style="color:var(--emerald);font-size:0.75rem;">📷 MRZ Auto-Check</span>
-                </label>
-                <div class="upload-dropzone">
-                  <input type="file" id="appPassFile_${i}" class="field-control js-app-passfile" accept=".jpg,.jpeg,.png,.webp,.pdf" style="padding-top:0.55rem;border:none;background:transparent;" required />
+              <div class="form-grid-2">
+                <div class="field-group">
+                  <label class="field-label" for="appGiven_${i}">Given name(s) *</label>
+                  <input type="text" id="appGiven_${i}" class="field-control js-app-given" value="${prev.givenName}" autocomplete="given-name" required />
+                </div>
+                <div class="field-group">
+                  <label class="field-label" for="appSurname_${i}">Surname / family name *</label>
+                  <input type="text" id="appSurname_${i}" class="field-control js-app-surname" value="${prev.surname}" autocomplete="family-name" required />
+                </div>
+                <div class="field-group">
+                  <label class="field-label" for="appNat_${i}">Passport country *</label>
+                  <select id="appNat_${i}" class="field-control js-app-nat" data-selected="${prev.nationality}" required>
+                    ${natOptions}
+                  </select>
+                </div>
+                <div class="field-group">
+                  <label class="field-label" for="appDob_${i}">Date of birth *</label>
+                  <input type="date" id="appDob_${i}" class="field-control js-app-dob" value="${prev.dob}" autocomplete="bday" required />
+                </div>
+                <div class="field-group">
+                  <label class="field-label" for="appPassNum_${i}">Passport number *</label>
+                  <input type="text" id="appPassNum_${i}" class="field-control js-app-passnum" value="${prev.passportNumber}" autocapitalize="characters" spellcheck="false" required />
+                </div>
+                <div class="field-group">
+                  <label class="field-label" for="appPassExp_${i}">Passport expiry date *</label>
+                  <input type="date" id="appPassExp_${i}" class="field-control js-app-passexp" value="${prev.passportExpiry}" required />
                 </div>
               </div>
-              <div class="field-group">
-                <label class="field-label" for="appPhotoFile_${i}">
-                  <span>Traveler Portrait Photo (JPG/PNG) *</span>
-                  <span style="color:var(--emerald);font-size:0.75rem;">✓ Auto-Crop 400×600</span>
-                </label>
-                <div class="upload-dropzone">
-                  <input type="file" id="appPhotoFile_${i}" class="field-control js-app-photofile" accept=".jpg,.jpeg,.png,.webp" style="padding-top:0.55rem;border:none;background:transparent;" required />
+              ${count > 1 ? `
+                <div style="margin-top:0.85rem;text-align:right;">
+                  <button type="button" class="btn btn-outline btn-sm js-collapse-traveler">Save traveler ${i + 1}</button>
                 </div>
-              </div>
+              ` : ''}
             </div>
           </div>
         `);
@@ -697,8 +808,293 @@
       applicantsContainer.querySelectorAll('.js-app-nat').forEach((sel) => {
         const val = sel.getAttribute('data-selected');
         if (val) sel.value = val;
+        sel.addEventListener('change', () => {
+          if (sel.value) saveNationality(sel.value);
+        });
+      });
+
+      applicantsContainer.querySelectorAll('.js-collapse-traveler').forEach((btn) => {
+        btn.addEventListener('click', () => {
+          const blk = btn.closest('.applicant-block');
+          if (!blk) return;
+          const g = blk.querySelector('.js-app-given').value.trim();
+          const s = blk.querySelector('.js-app-surname').value.trim();
+          const n = blk.querySelector('.js-app-nat').value;
+          const d = blk.querySelector('.js-app-dob').value;
+          const p = blk.querySelector('.js-app-passnum').value.trim();
+          const e = blk.querySelector('.js-app-passexp').value;
+          if (g && s && n && d && p && e) {
+            blk.setAttribute('data-collapsed', 'true');
+            renderApplicants();
+          }
+        });
+      });
+
+      applicantsContainer.querySelectorAll('.js-expand-traveler').forEach((btn) => {
+        btn.addEventListener('click', () => {
+          const blk = btn.closest('.applicant-block');
+          if (!blk) return;
+          blk.setAttribute('data-collapsed', 'false');
+          renderApplicants();
+        });
       });
     }
+
+    function renderDocumentsStage() {
+      if (!documentsContainer) return;
+      const dest = getSelectedDest();
+      const count = Math.max(1, Math.min(20, parseInt(travInput.value || '1', 10)));
+
+      if (!dest.requiresUploads) {
+        documentsContainer.innerHTML = `
+          <div class="card" style="background:var(--emerald-tint);border-color:var(--emerald-border);">
+            <span class="badge badge-emerald" style="margin-bottom:0.5rem;">✓ No File Uploads Needed</span>
+            <h3 style="font-size:1.15rem;margin-bottom:0.4rem;">${dest.cleanTitle || dest.visaType} does not require passport scan or photo uploads</h3>
+            <p style="font-size:0.92rem;color:var(--text-body);">
+              This ${(dest.categoryBadge || 'document').toLowerCase()} is filed electronically using the passport numbers and trip details you entered in Steps 1 and 2. Our specialists will review your entry dates, passport validity, and ${dest.requiresFlightAndHotel ? 'flight and accommodation details' : 'eligibility answers'} before submission.
+            </p>
+          </div>
+        `;
+        return;
+      }
+
+      const blocks = [];
+      for (let i = 0; i < count; i++) {
+        const passKey = `pass_${i}`;
+        const photoKey = `photo_${i}`;
+        const savedPass = uploadedFilesMap[passKey] || null;
+        const savedPhoto = uploadedFilesMap[photoKey] || null;
+
+        blocks.push(`
+          <div class="applicant-block" data-doc-traveler="${i + 1}">
+            <h3 style="font-size:1.05rem;color:var(--navy);margin-bottom:0.35rem;">Traveler ${i + 1} Documents</h3>
+            <p style="font-size:0.84rem;color:var(--text-muted);margin-bottom:1rem;">
+              Accepted formats: JPG, PNG, WEBP, or PDF (up to 10 MB per file). Our specialists check and format your photo and passport scan to meet official requirements.
+            </p>
+            <div class="form-grid-2">
+              <div class="field-group">
+                <label class="field-label" for="appPassFile_${i}">Passport bio-page scan *</label>
+                <div class="accessible-upload-box">
+                  <input type="file" id="appPassFile_${i}" class="js-app-passfile" data-key="${passKey}" accept=".jpg,.jpeg,.png,.webp,.pdf" style="width:100%;font-size:0.88rem;" ${savedPass ? '' : 'required'} />
+                  <div class="field-hint" style="margin-top:0.35rem;">Clear image of the full passport information page, including the bottom machine-readable zone.</div>
+                  <div class="upload-file-meta ${savedPass ? 'visible' : ''}" id="meta_${passKey}">
+                    <span>${savedPass ? `✓ ${savedPass.name} (${savedPass.sizeLabel})` : ''}</span>
+                    <label for="appPassFile_${i}" style="color:var(--emerald);font-weight:700;cursor:pointer;text-decoration:underline;">Replace file</label>
+                  </div>
+                </div>
+              </div>
+              <div class="field-group">
+                <label class="field-label" for="appPhotoFile_${i}">Traveler portrait photo *</label>
+                <div class="accessible-upload-box">
+                  <input type="file" id="appPhotoFile_${i}" class="js-app-photofile" data-key="${photoKey}" accept=".jpg,.jpeg,.png,.webp" style="width:100%;font-size:0.88rem;" ${savedPhoto ? '' : 'required'} />
+                  <div class="field-hint" style="margin-top:0.35rem;">Front-facing photo against a plain light background (a clear phone photo works well).</div>
+                  <div class="upload-file-meta ${savedPhoto ? 'visible' : ''}" id="meta_${photoKey}">
+                    <span>${savedPhoto ? `✓ ${savedPhoto.name} (${savedPhoto.sizeLabel})` : ''}</span>
+                    <label for="appPhotoFile_${i}" style="color:var(--emerald);font-weight:700;cursor:pointer;text-decoration:underline;">Replace file</label>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        `);
+      }
+
+      documentsContainer.innerHTML = blocks.join('');
+
+      documentsContainer.querySelectorAll('input[type="file"]').forEach((inp) => {
+        inp.addEventListener('change', () => {
+          const f = inp.files && inp.files[0];
+          const key = inp.getAttribute('data-key');
+          const metaEl = document.getElementById(`meta_${key}`);
+          if (f && key) {
+            const kb = Math.max(1, Math.round(f.size / 1024));
+            const sizeLabel = kb > 1024 ? `${(kb / 1024).toFixed(1)} MB` : `${kb} KB`;
+            uploadedFilesMap[key] = { name: f.name, sizeLabel };
+            if (metaEl) {
+              metaEl.querySelector('span').textContent = `✓ ${f.name} (${sizeLabel})`;
+              metaEl.classList.add('visible');
+            }
+          }
+        });
+      });
+    }
+
+    function renderStage4Review() {
+      if (!stage4ReviewSummary) return;
+      const dest = getSelectedDest();
+      const email = (document.getElementById('applyEmail') || {}).value || 'Not entered';
+      const arrival = (arrivalInput || {}).value || 'Not selected';
+      const blocks = applicantsContainer.querySelectorAll('.applicant-block');
+      const travelerLines = [];
+      blocks.forEach((blk, idx) => {
+        const g = (blk.querySelector('.js-app-given') || {}).value || '';
+        const s = (blk.querySelector('.js-app-surname') || {}).value || '';
+        const n = (blk.querySelector('.js-app-nat') || {}).value || '';
+        const p = (blk.querySelector('.js-app-passnum') || {}).value || '';
+        travelerLines.push(`<div style="font-size:0.88rem;color:var(--text-body);">• <strong>Traveler ${idx + 1}:</strong> ${g || '—'} ${s || ''} (${n || '—'}, Passport ${p || '—'})</div>`);
+      });
+
+      let extraTripHtml = '';
+      if (dest.requiresFlightAndHotel) {
+        const fl = (flightInput || {}).value || '—';
+        const ht = (hotelInput || {}).value || '—';
+        extraTripHtml = `<div style="font-size:0.86rem;color:var(--text-muted);margin-top:0.25rem;">Flight/Vessel: <strong>${fl}</strong> • Accommodation: <strong>${ht}</strong></div>`;
+      }
+
+      stage4ReviewSummary.innerHTML = `
+        <div style="background:var(--bg-page);border:1px solid var(--border);border-radius:var(--radius-md);padding:1rem;margin-bottom:1.25rem;">
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:0.4rem;">
+            <strong style="color:var(--navy);">${dest.flag} ${dest.cleanTitle || dest.visaType}</strong>
+            <button type="button" class="btn btn-outline btn-sm" data-goto-stage="1" style="min-height:32px;padding:0 0.65rem;font-size:0.78rem;">Edit trip</button>
+          </div>
+          <div style="font-size:0.86rem;color:var(--text-muted);">Planned arrival: <strong>${arrival}</strong> • Delivery email: <strong>${email}</strong></div>
+          ${extraTripHtml}
+          <div style="margin-top:0.75rem;padding-top:0.75rem;border-top:1px solid var(--border);display:flex;flex-direction:column;gap:0.25rem;">
+            ${travelerLines.join('')}
+          </div>
+        </div>
+      `;
+
+      stage4ReviewSummary.querySelectorAll('[data-goto-stage]').forEach((btn) => {
+        btn.addEventListener('click', () => goToStage(parseInt(btn.getAttribute('data-goto-stage'), 10)));
+      });
+    }
+
+    function validateStage(stageNum) {
+      const errBox = document.getElementById('applyFormError');
+      if (errBox) errBox.style.display = 'none';
+      const dest = getSelectedDest();
+
+      if (stageNum === 1) {
+        const email = ((document.getElementById('applyEmail') || {}).value || '').trim();
+        const arrival = (arrivalInput || {}).value || '';
+        if (!arrival) {
+          if (errBox) {
+            errBox.textContent = 'Please select your planned arrival date.';
+            errBox.style.display = 'block';
+          }
+          if (arrivalInput) arrivalInput.focus();
+          return false;
+        }
+        if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+          if (errBox) {
+            errBox.textContent = 'Please enter a valid email address for document delivery.';
+            errBox.style.display = 'block';
+          }
+          const emEl = document.getElementById('applyEmail');
+          if (emEl) emEl.focus();
+          return false;
+        }
+        if (dest.requiresFlightAndHotel) {
+          const fl = ((flightInput || {}).value || '').trim();
+          const ht = ((hotelInput || {}).value || '').trim();
+          if (fl.length < 2) {
+            if (errBox) {
+              errBox.textContent = 'Please enter your arrival flight or vessel number for this arrival card.';
+              errBox.style.display = 'block';
+            }
+            if (flightInput) flightInput.focus();
+            return false;
+          }
+          if (ht.length < 3) {
+            if (errBox) {
+              errBox.textContent = 'Please enter your hotel name or accommodation address for this arrival card.';
+              errBox.style.display = 'block';
+            }
+            if (hotelInput) hotelInput.focus();
+            return false;
+          }
+        }
+      }
+
+      if (stageNum === 2) {
+        const blocks = applicantsContainer.querySelectorAll('.applicant-block');
+        for (let i = 0; i < blocks.length; i++) {
+          const blk = blocks[i];
+          const givenName = blk.querySelector('.js-app-given').value.trim();
+          const surname = blk.querySelector('.js-app-surname').value.trim();
+          const nationality = blk.querySelector('.js-app-nat').value;
+          const dob = blk.querySelector('.js-app-dob').value;
+          const passportNumber = blk.querySelector('.js-app-passnum').value.trim();
+          const passportExpiry = blk.querySelector('.js-app-passexp').value;
+          if (!givenName || !surname || !nationality || !dob || !passportNumber || !passportExpiry) {
+            if (errBox) {
+              errBox.textContent = `Please complete all passport fields for Traveler ${i + 1}.`;
+              errBox.style.display = 'block';
+            }
+            blk.setAttribute('data-collapsed', 'false');
+            renderApplicants();
+            return false;
+          }
+        }
+      }
+
+      if (stageNum === 3 && dest.requiresUploads) {
+        const count = Math.max(1, Math.min(20, parseInt(travInput.value || '1', 10)));
+        for (let i = 0; i < count; i++) {
+          const passInp = document.getElementById(`appPassFile_${i}`);
+          const photoInp = document.getElementById(`appPhotoFile_${i}`);
+          const hasPass = (passInp && passInp.files && passInp.files[0]) || uploadedFilesMap[`pass_${i}`];
+          const hasPhoto = (photoInp && photoInp.files && photoInp.files[0]) || uploadedFilesMap[`photo_${i}`];
+          if (!hasPass || !hasPhoto) {
+            if (errBox) {
+              errBox.textContent = `Please upload both the passport bio-page scan and portrait photo for Traveler ${i + 1}.`;
+              errBox.style.display = 'block';
+            }
+            return false;
+          }
+        }
+      }
+
+      return true;
+    }
+
+    function goToStage(targetStage) {
+      if (targetStage > currentStage) {
+        for (let s = currentStage; s < targetStage; s++) {
+          if (!validateStage(s)) return;
+        }
+      }
+      currentStage = Math.max(1, Math.min(4, targetStage));
+
+      if (currentStage === 3) renderDocumentsStage();
+      if (currentStage === 4) renderStage4Review();
+
+      document.querySelectorAll('.stage-panel').forEach((panel) => {
+        const s = parseInt(panel.getAttribute('data-stage'), 10);
+        panel.classList.toggle('active', s === currentStage);
+      });
+
+      document.querySelectorAll('.stage-step-btn').forEach((btn) => {
+        const s = parseInt(btn.getAttribute('data-stage-target'), 10);
+        btn.classList.toggle('active', s === currentStage);
+        btn.classList.toggle('completed', s < currentStage);
+        btn.setAttribute('aria-current', s === currentStage ? 'step' : 'false');
+      });
+
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    document.querySelectorAll('.stage-step-btn').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const target = parseInt(btn.getAttribute('data-stage-target'), 10);
+        goToStage(target);
+      });
+    });
+
+    document.querySelectorAll('.js-next-stage').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const next = parseInt(btn.getAttribute('data-next'), 10);
+        goToStage(next);
+      });
+    });
+
+    document.querySelectorAll('.js-prev-stage').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const prev = parseInt(btn.getAttribute('data-prev'), 10);
+        goToStage(prev);
+      });
+    });
 
     function updateSummary() {
       const destId = destSelect ? destSelect.value : 'vietnam';
@@ -720,23 +1116,29 @@
       const govTimeRowEl = document.getElementById('sumGovTime');
       const totEl = document.getElementById('sumGrandTotal');
       const stickyTotEl = document.getElementById('stickyMobileTotal');
+      const stdPriceEl = document.getElementById('applyStandardPrice');
       const prioPriceEl = document.getElementById('applyPriorityPrice');
+      const stdDescEl = document.getElementById('applyStandardTimeDesc');
+      const prioDescEl = document.getElementById('applyPriorityTimeDesc');
       const disclosureEl = document.getElementById('applyOfficialDisclosure');
 
-      if (prioPriceEl) prioPriceEl.textContent = formatMoney(p.dest.priorityFeeUSD);
-      if (docTitleEl) docTitleEl.textContent = p.dest.visaType;
+      if (stdPriceEl) stdPriceEl.textContent = `+${formatMoney(0)}`;
+      if (prioPriceEl) prioPriceEl.textContent = `+${formatMoney(p.dest.priorityFeeUSD)}`;
+      if (stdDescEl) stdDescEl.textContent = `Specialist check (${p.dest.standardReviewTime.toLowerCase()})`;
+      if (prioDescEl) prioDescEl.textContent = `Front-of-queue review (${p.dest.priorityReviewTime.toLowerCase()})`;
+
+      if (docTitleEl) docTitleEl.textContent = p.dest.cleanTitle || p.dest.visaType;
       if (govRowEl) {
         govRowEl.textContent =
           p.govPerPersonUSD === 0
-            ? `$0 (Free official form) × ${p.travelers}`
+            ? `${formatMoney(0)} (Free official form) × ${p.travelers}`
             : `${formatMoney(p.govPerPersonUSD)} × ${p.travelers} = ${formatMoney(p.govTotalUSD)}`;
       }
       if (srvRowEl) {
         srvRowEl.textContent = `${formatMoney(p.totalServicePerPersonUSD)} × ${p.travelers} = ${formatMoney(p.serviceTotalUSD)}`;
       }
       if (handRowEl) {
-        handRowEl.textContent =
-          speedTier === 'priority' ? 'Priority review within 2 hours' : p.dest.ourHandlingTime.split(' (')[0];
+        handRowEl.textContent = speedTier === 'priority' ? p.dest.priorityReviewTime : p.dest.standardReviewTime;
       }
       if (govTimeRowEl) {
         govTimeRowEl.textContent = p.dest.govProcessingTime;
@@ -744,8 +1146,10 @@
       if (totEl) totEl.textContent = formatMoney(p.grandTotalUSD);
       if (stickyTotEl) stickyTotEl.textContent = formatMoney(p.grandTotalUSD);
       if (disclosureEl) {
-        disclosureEl.innerHTML = `OnePassVisa is a private assistance service, not a government website. You can apply directly at <a href="${p.dest.govPortal}" target="_blank" rel="noopener noreferrer" style="color:var(--emerald);font-weight:600;text-decoration:underline;">${p.dest.govPortalName}</a> for the ${p.govPerPersonUSD === 0 ? '$0 government fee' : formatMoney(p.govPerPersonUSD) + ' government fee'} only. (Verified ${p.dest.verifiedDate})`;
+        disclosureEl.innerHTML = `OnePassVisa is a private assistance service, not a government website. You can apply directly at <a href="${p.dest.govPortal}" target="_blank" rel="noopener noreferrer" style="color:var(--emerald);font-weight:600;text-decoration:underline;">${p.dest.govPortalName}</a> for the ${p.govPerPersonUSD === 0 ? formatMoney(0) + ' government fee' : formatMoney(p.govPerPersonUSD) + ' government fee'} only. (Verified ${p.dest.verifiedDate})`;
       }
+
+      updateDocumentSpecificVisibility();
     }
 
     window.opvRefreshApplySummary = updateSummary;
@@ -757,17 +1161,27 @@
         if (draft.destinationId && destSelect) destSelect.value = draft.destinationId;
         if (draft.travelers && travInput) travInput.value = draft.travelers;
         if (draft.arrivalDate && arrivalInput) arrivalInput.value = draft.arrivalDate;
+        if (draft.flightNumber && flightInput) flightInput.value = draft.flightNumber;
+        if (draft.portOfEntry && portInput) portInput.value = draft.portOfEntry;
+        if (draft.accommodationAddress && hotelInput) hotelInput.value = draft.accommodationAddress;
         if (draft.email && document.getElementById('applyEmail')) document.getElementById('applyEmail').value = draft.email;
         if (draft.phone && document.getElementById('applyPhone')) document.getElementById('applyPhone').value = draft.phone;
       } catch (e) {}
     }
 
+    updateDocumentSpecificVisibility();
     renderApplicants();
+    renderDocumentsStage();
     updateSummary();
 
-    destSelect.addEventListener('change', updateSummary);
+    destSelect.addEventListener('change', () => {
+      updateDocumentSpecificVisibility();
+      renderDocumentsStage();
+      updateSummary();
+    });
     travInput.addEventListener('change', () => {
       renderApplicants();
+      renderDocumentsStage();
       updateSummary();
     });
     document.querySelectorAll('input[name="applySpeed"]').forEach((r) => r.addEventListener('change', updateSummary));
@@ -781,12 +1195,15 @@
           destinationId: destSelect.value,
           travelers: travInput.value,
           arrivalDate: arrivalInput ? arrivalInput.value : '',
+          flightNumber: flightInput ? flightInput.value : '',
+          portOfEntry: portInput ? portInput.value : '',
+          accommodationAddress: hotelInput ? hotelInput.value : '',
           email: (document.getElementById('applyEmail') || {}).value || '',
           phone: (document.getElementById('applyPhone') || {}).value || ''
         };
         localStorage.setItem('opv_saved_draft', JSON.stringify(draft));
         if (saveStatus) {
-          saveStatus.textContent = 'Progress saved on this device. You can return to /apply?resume=1 anytime.';
+          saveStatus.textContent = 'Saved in this browser. Return anytime via /apply?resume=1 on this device (uploaded files are not stored in browser storage for your privacy).';
           saveStatus.style.display = 'block';
         }
       });
@@ -794,13 +1211,21 @@
 
     form.addEventListener('submit', async (e) => {
       e.preventDefault();
+      if (!validateStage(1) || !validateStage(2) || !validateStage(3)) {
+        return;
+      }
+
       const errBox = document.getElementById('applyFormError');
       const submitBtn = document.getElementById('applySubmitBtn');
       if (errBox) errBox.style.display = 'none';
 
+      const dest = getSelectedDest();
       const email = (document.getElementById('applyEmail') || {}).value.trim();
-      const phone = (document.getElementById('applyPhone') || {}).value.trim();
+      const phone = ((document.getElementById('applyPhone') || {}).value || '').trim();
       const arrivalDate = (document.getElementById('applyArrivalDate') || {}).value;
+      const flightNumber = flightInput ? flightInput.value.trim() : '';
+      const portOfEntry = portInput ? portInput.value.trim() : '';
+      const accommodationAddress = hotelInput ? hotelInput.value.trim() : '';
       const termsChecked = (document.getElementById('applyTermsConsent') || {}).checked;
       const speedRadio = document.querySelector('input[name="applySpeed"]:checked');
       const speedTier = speedRadio ? speedRadio.value : 'standard';
@@ -824,24 +1249,24 @@
         const dob = blk.querySelector('.js-app-dob').value;
         const passportNumber = blk.querySelector('.js-app-passnum').value.trim();
         const passportExpiry = blk.querySelector('.js-app-passexp').value;
-        const passFile = blk.querySelector('.js-app-passfile').files[0];
-        const photoFile = blk.querySelector('.js-app-photofile').files[0];
 
-        if (
-          !givenName ||
-          !surname ||
-          !nationality ||
-          !dob ||
-          !passportNumber ||
-          !passportExpiry ||
-          !passFile ||
-          !photoFile
-        ) {
-          if (errBox) {
-            errBox.textContent = `Please complete all required fields and document uploads for Traveler ${i + 1}.`;
-            errBox.style.display = 'block';
+        let passportFileName = null;
+        let photoFileName = null;
+        if (dest.requiresUploads) {
+          const passInp = document.getElementById(`appPassFile_${i}`);
+          const photoInp = document.getElementById(`appPhotoFile_${i}`);
+          const passFile = (passInp && passInp.files && passInp.files[0]) || uploadedFilesMap[`pass_${i}`];
+          const photoFile = (photoInp && photoInp.files && photoInp.files[0]) || uploadedFilesMap[`photo_${i}`];
+          if (!passFile || !photoFile) {
+            if (errBox) {
+              errBox.textContent = `Please upload both the passport scan and portrait photo for Traveler ${i + 1}.`;
+              errBox.style.display = 'block';
+            }
+            goToStage(3);
+            return;
           }
-          return;
+          passportFileName = passFile.name;
+          photoFileName = photoFile.name;
         }
 
         applicants.push({
@@ -851,8 +1276,8 @@
           dob,
           passportNumber,
           passportExpiry,
-          passportFileName: passFile.name,
-          photoFileName: photoFile.name
+          passportFileName,
+          photoFileName
         });
       }
 
@@ -867,6 +1292,9 @@
         email,
         phone,
         arrivalDate,
+        flightNumber,
+        portOfEntry,
+        accommodationAddress,
         currency: currentCurrency,
         applicants
       };
@@ -906,16 +1334,21 @@
             status: 'Pending Payment',
             destinationId: pricing.dest.id,
             destinationName: pricing.dest.name,
+            category: pricing.dest.category,
+            cleanTitle: pricing.dest.cleanTitle || pricing.dest.visaType,
             visaType: pricing.dest.visaType,
             govPortal: pricing.dest.govPortal,
             govPortalName: pricing.dest.govPortalName,
-            ourHandlingTime: pricing.dest.ourHandlingTime,
+            ourHandlingTime: speedTier === 'priority' ? pricing.dest.priorityReviewTime : pricing.dest.standardReviewTime,
             govProcessingTime: pricing.dest.govProcessingTime,
             speedTier: pricing.speedTier,
             travelersCount: pricing.travelers,
             email: email.toLowerCase(),
             phone,
             arrivalDate,
+            flightNumber,
+            portOfEntry,
+            accommodationAddress,
             govTotalUSD: pricing.govTotalUSD,
             serviceTotalUSD: pricing.serviceTotalUSD,
             grandTotalUSD: pricing.grandTotalUSD,
@@ -931,7 +1364,7 @@
         }
         if (submitBtn) {
           submitBtn.disabled = false;
-          submitBtn.textContent = 'Continue to Secure Checkout →';
+          submitBtn.textContent = 'Continue to secure checkout →';
         }
       }
     });
@@ -957,8 +1390,8 @@
       checkoutBox.innerHTML = `
         <div class="card" style="text-align:center;">
           <h2>No active checkout session found</h2>
-          <p style="margin:0.75rem 0 1.25rem;color:var(--text-muted);">Please start your visa or travel document application first.</p>
-          <a href="apply.html" class="btn btn-primary">Start Application</a>
+          <p style="margin:0.75rem 0 1.25rem;color:var(--text-muted);">Please start your travel document application first.</p>
+          <a href="apply.html" class="btn btn-primary">Start application</a>
         </div>
       `;
       return;
@@ -974,14 +1407,14 @@
     const discEl = document.getElementById('chkDisclosure');
 
     if (refEl) refEl.textContent = order.reference;
-    if (docEl) docEl.textContent = order.visaType;
+    if (docEl) docEl.textContent = order.cleanTitle || order.visaType;
     if (emailEl) emailEl.textContent = order.email;
     if (travEl) travEl.textContent = `${order.travelersCount} Traveler(s)`;
-    if (govEl) govEl.textContent = order.govTotalUSD === 0 ? '$0 (Free official form)' : formatMoney(order.govTotalUSD);
+    if (govEl) govEl.textContent = order.govTotalUSD === 0 ? `${formatMoney(0)} (Free official form)` : formatMoney(order.govTotalUSD);
     if (srvEl) srvEl.textContent = formatMoney(order.serviceTotalUSD);
-    if (totEl) totEl.textContent = formatMoney(order.grandTotalUSD);
+    if (totEl) totEl.textContent = `${DATA.formatMoney(order.grandTotalUSD, 'USD')} USD`;
     if (discEl) {
-      discEl.innerHTML = `OnePassVisa is a private assistance service, not a government site. You can apply directly at <a href="${order.govPortal}" target="_blank" rel="noopener noreferrer" style="color:var(--emerald);font-weight:600;text-decoration:underline;">${order.govPortalName}</a> for the ${order.govTotalUSD === 0 ? '$0 government fee' : formatMoney(order.govTotalUSD) + ' government fee'} only.`;
+      discEl.innerHTML = `OnePassVisa is a private assistance service, not a government site. You can apply directly at <a href="${order.govPortal}" target="_blank" rel="noopener noreferrer" style="color:var(--emerald);font-weight:600;text-decoration:underline;">${order.govPortalName}</a> for the ${order.govTotalUSD === 0 ? formatMoney(0) + ' government fee' : formatMoney(order.govTotalUSD) + ' government fee'} only.`;
     }
 
     async function completePayment(methodLabel) {
@@ -1003,7 +1436,7 @@
           localStorage.setItem('opv_order_tokens', JSON.stringify(tokens.slice(0, 20)));
         }
       } catch (e) {
-        confirmedOrder.status = 'Received — Under Document Review';
+        confirmedOrder.status = 'In review';
         confirmedOrder.paidAt = new Date().toISOString();
         confirmedOrder.receiptNumber = 'RCP-' + confirmedOrder.reference.replace('OPV-', '');
       }
@@ -1023,29 +1456,23 @@
       if (receiptWrap) {
         receiptWrap.innerHTML = `
           <div class="card" style="border-color:var(--emerald-border);background:#FFFFFF;">
-            <span class="badge badge-emerald" style="margin-bottom:0.75rem;">✓ Payment Confirmed • Application Queued</span>
-            <h2 style="font-size:1.6rem;margin-bottom:0.5rem;">Thank you. Your application is now under specialist review.</h2>
+            <span class="badge badge-emerald" style="margin-bottom:0.75rem;">✓ Payment Confirmed • In Review</span>
+            <h2 style="font-size:1.55rem;margin-bottom:0.5rem;">Thank you. Your application is now in specialist review.</h2>
             <p style="color:var(--text-body);margin-bottom:1.25rem;">
               A confirmation email and itemized receipt have been sent to <strong>${confirmedOrder.email}</strong>. Save your reference number below to track your status at any time.
             </p>
-            <div style="background:var(--bg-subtle);border:1px solid var(--border);border-radius:var(--radius-md);padding:1.25rem;margin-bottom:1.25rem;">
+            <div style="background:var(--bg-page);border:1px solid var(--border);border-radius:var(--radius-md);padding:1.25rem;margin-bottom:1.25rem;">
               <div class="summary-row"><span>Application Reference</span><strong style="font-family:var(--font-mono);color:var(--emerald);">${confirmedOrder.reference}</strong></div>
               <div class="summary-row"><span>Receipt Number</span><strong style="font-family:var(--font-mono);">${confirmedOrder.receiptNumber || 'RCP-' + confirmedOrder.reference}</strong></div>
-              <div class="summary-row"><span>Document</span><strong>${confirmedOrder.visaType}</strong></div>
+              <div class="summary-row"><span>Document</span><strong>${confirmedOrder.cleanTitle || confirmedOrder.visaType}</strong></div>
               <div class="summary-row"><span>Current Status</span><strong style="color:var(--emerald);">${confirmedOrder.status}</strong></div>
-              <div class="summary-row"><span>Statutory Government Fee</span><strong>${confirmedOrder.govTotalUSD === 0 ? '$0 (Free)' : formatMoney(confirmedOrder.govTotalUSD)}</strong></div>
-              <div class="summary-row"><span>OnePassVisa Service Fee</span><strong>${formatMoney(confirmedOrder.serviceTotalUSD)}</strong></div>
-              <div class="summary-total"><span>Total Paid (${methodLabel})</span><span>${formatMoney(confirmedOrder.grandTotalUSD)}</span></div>
+              <div class="summary-row"><span>Government Fee</span><strong>${confirmedOrder.govTotalUSD === 0 ? DATA.formatMoney(0, 'USD') + ' (Free)' : DATA.formatMoney(confirmedOrder.govTotalUSD, 'USD')}</strong></div>
+              <div class="summary-row"><span>OnePassVisa Service</span><strong>${DATA.formatMoney(confirmedOrder.serviceTotalUSD, 'USD')}</strong></div>
+              <div class="summary-total"><span>Total Charged (${methodLabel})</span><span>${DATA.formatMoney(confirmedOrder.grandTotalUSD, 'USD')} USD</span></div>
             </div>
-            <h3 style="font-size:1.05rem;margin-bottom:0.5rem;">Next Steps</h3>
-            <ol style="list-style:decimal;padding-left:1.25rem;color:var(--text-body);font-size:0.92rem;margin-bottom:1.5rem;">
-              <li><strong>Specialist Verification (${confirmedOrder.ourHandlingTime}):</strong> Our team checks your passport scan and formats your portrait photo to official specifications.</li>
-              <li><strong>Government Filing (${confirmedOrder.govProcessingTime}):</strong> Once verified, your application is submitted to ${confirmedOrder.govPortalName}.</li>
-              <li><strong>PDF Delivery:</strong> Your approved document is emailed directly to <strong>${confirmedOrder.email}</strong>.</li>
-            </ol>
             <div style="display:flex;gap:0.75rem;flex-wrap:wrap;">
-              <a href="track.html?ref=${encodeURIComponent(confirmedOrder.reference)}&email=${encodeURIComponent(confirmedOrder.email)}" class="btn btn-primary">Track Application Status →</a>
-              <button type="button" class="btn btn-outline" onclick="window.print()">Print Itemized Receipt</button>
+              <a href="track.html?ref=${encodeURIComponent(confirmedOrder.reference)}&email=${encodeURIComponent(confirmedOrder.email)}" class="btn btn-primary">Track application →</a>
+              <button type="button" class="btn btn-outline" onclick="window.print()">Print receipt</button>
             </div>
           </div>
         `;
@@ -1080,13 +1507,22 @@
     if (params.get('ref') && refInput) refInput.value = params.get('ref');
     if (params.get('email') && emailInput) emailInput.value = params.get('email');
 
+    const recoverBtn = document.getElementById('recoverReferenceBtn');
+    const recoverBox = document.getElementById('recoverReferenceBox');
+    if (recoverBtn && recoverBox) {
+      recoverBtn.addEventListener('click', () => {
+        const isHidden = recoverBox.style.display === 'none' || !recoverBox.style.display;
+        recoverBox.style.display = isHidden ? 'block' : 'none';
+      });
+    }
+
     form.addEventListener('submit', async (e) => {
       e.preventDefault();
       const reference = (refInput ? refInput.value : '').trim().toUpperCase();
       const email = (emailInput ? emailInput.value : '').trim().toLowerCase();
 
       if (!reference || !email) {
-        out.innerHTML = `<div class="card" style="border-color:var(--danger);"><p style="color:var(--danger);font-weight:600;">Please enter both your Application Reference and the email address used on your application.</p></div>`;
+        out.innerHTML = `<div class="card" style="border-color:var(--danger);"><p style="color:var(--danger);font-weight:600;">Please enter both your application reference and the email address used on your application.</p></div>`;
         out.style.display = 'block';
         return;
       }
@@ -1113,30 +1549,82 @@
           <div class="card" style="border-color:var(--border-input);">
             <span class="badge badge-amber" style="margin-bottom:0.5rem;">Application Not Found</span>
             <h3 style="font-size:1.15rem;margin-bottom:0.35rem;">No application matches reference "${reference}" and email "${email}".</h3>
-            <p style="font-size:0.92rem;color:var(--text-body);">
-              Please verify the reference code sent in your confirmation email (format: <code style="font-family:var(--font-mono);">OPV-YYYYMMDD-XXXXXX</code>) and ensure you entered the exact email address used during checkout. If you need assistance, email <a href="mailto:support@onepassvisa.com" style="color:var(--emerald);font-weight:600;text-decoration:underline;">support@onepassvisa.com</a>.
+            <p style="font-size:0.92rem;color:var(--text-body);margin-bottom:0.75rem;">
+              <strong>What to do next:</strong>
             </p>
+            <ul style="list-style:disc;padding-left:1.25rem;font-size:0.88rem;color:var(--text-body);display:flex;flex-direction:column;gap:0.35rem;">
+              <li>Check your email inbox (and spam folder) for a message from <strong>support@onepassvisa.com</strong> containing your reference code (format: <code style="font-family:var(--font-mono);">OPV-YYYYMMDD-XXXXXX</code>).</li>
+              <li>Make sure you entered the exact email address used when submitting your application.</li>
+              <li>Need help recovering your reference? Email <a href="mailto:support@onepassvisa.com?subject=Reference%20Lookup" style="color:var(--emerald);font-weight:600;text-decoration:underline;">support@onepassvisa.com</a> with your full name and planned arrival date.</li>
+            </ul>
           </div>
         `;
         out.style.display = 'block';
         return;
       }
 
+      // Compute scheduled submission date if this is an arrival card with an arrival window
+      let scheduledNote = 'Queued for official portal filing immediately after review.';
+      if (matchedOrder.category === 'Arrival Card' && matchedOrder.arrivalDate) {
+        const arrTime = new Date(matchedOrder.arrivalDate + 'T00:00:00Z').getTime();
+        if (!isNaN(arrTime)) {
+          const windowOpenDate = new Date(arrTime - 3 * 86400000).toISOString().slice(0, 10);
+          scheduledNote = `Official submission window opens 3 days before arrival (scheduled for ${windowOpenDate}).`;
+        }
+      }
+
       out.innerHTML = `
         <div class="card">
           <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:0.75rem;margin-bottom:1rem;">
             <div>
-              <span class="badge badge-emerald">✓ ${matchedOrder.status}</span>
-              <h3 style="font-size:1.3rem;margin-top:0.4rem;">${matchedOrder.visaType}</h3>
+              <span class="badge badge-emerald">✓ In review</span>
+              <h3 style="font-size:1.3rem;margin-top:0.4rem;">${matchedOrder.cleanTitle || matchedOrder.visaType}</h3>
             </div>
             <div style="font-family:var(--font-mono);font-weight:700;color:var(--emerald);">${matchedOrder.reference}</div>
           </div>
+
+          <div class="status-timeline" aria-label="Application status timeline">
+            <div class="status-step done">
+              <span class="status-dot">✓</span>
+              <div>
+                <strong style="color:var(--navy);font-size:0.92rem;">1. Awaiting documents</strong>
+                <div style="font-size:0.82rem;color:var(--text-muted);">Application and traveler details received.</div>
+              </div>
+            </div>
+            <div class="status-step current">
+              <span class="status-dot">2</span>
+              <div>
+                <strong style="color:var(--navy);font-size:0.92rem;">2. In review (${matchedOrder.ourHandlingTime})</strong>
+                <div style="font-size:0.82rem;color:var(--text-body);">Our specialists are verifying your passport details and formatting requirements.</div>
+              </div>
+            </div>
+            <div class="status-step">
+              <span class="status-dot">3</span>
+              <div>
+                <strong style="color:var(--navy);font-size:0.92rem;">3. Scheduled for submission</strong>
+                <div style="font-size:0.82rem;color:var(--text-muted);">${scheduledNote}</div>
+              </div>
+            </div>
+            <div class="status-step">
+              <span class="status-dot">4</span>
+              <div>
+                <strong style="color:var(--navy);font-size:0.92rem;">4. Submitted (${matchedOrder.govProcessingTime})</strong>
+                <div style="font-size:0.82rem;color:var(--text-muted);">Filed with ${matchedOrder.govPortalName}.</div>
+              </div>
+            </div>
+            <div class="status-step">
+              <span class="status-dot">5</span>
+              <div>
+                <strong style="color:var(--navy);font-size:0.92rem;">5. Outcome received</strong>
+                <div style="font-size:0.82rem;color:var(--text-muted);">Confirmation delivered by email to ${matchedOrder.email}.</div>
+              </div>
+            </div>
+          </div>
+
           <div class="summary-row"><span>Applicant Email</span><strong>${matchedOrder.email}</strong></div>
           <div class="summary-row"><span>Travelers</span><strong>${matchedOrder.travelersCount}</strong></div>
           <div class="summary-row"><span>Planned Arrival Date</span><strong>${matchedOrder.arrivalDate}</strong></div>
-          <div class="summary-row"><span>Our Handling Time</span><strong>${matchedOrder.ourHandlingTime}</strong></div>
-          <div class="summary-row"><span>Government Processing Time</span><strong>${matchedOrder.govProcessingTime}</strong></div>
-          <div class="summary-row"><span>Total Paid</span><strong>${formatMoney(matchedOrder.grandTotalUSD)} (Gov $${matchedOrder.govTotalUSD} + Service $${matchedOrder.serviceTotalUSD})</strong></div>
+          <div class="summary-row"><span>Total Paid</span><strong>${formatMoney(matchedOrder.grandTotalUSD)} (Government ${formatMoney(matchedOrder.govTotalUSD)} + service ${formatMoney(matchedOrder.serviceTotalUSD)})</strong></div>
         </div>
       `;
       out.style.display = 'block';

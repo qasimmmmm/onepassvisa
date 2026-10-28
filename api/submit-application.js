@@ -24,21 +24,33 @@ module.exports = async function handler(req, res) {
       email,
       phone,
       arrivalDate,
+      flightNumber,
+      portOfEntry,
+      accommodationAddress,
       applicants,
       currency
     } = body;
 
-    if (!destinationId || !DATA.destinations.some((d) => d.id === destinationId)) {
+    const selectedDest = DATA.destinations.find((d) => d.id === destinationId);
+    if (!destinationId || !selectedDest) {
       return res.status(400).json({ ok: false, error: 'Please select a valid destination.' });
     }
     if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(String(email).trim())) {
       return res.status(400).json({ ok: false, error: 'Please enter a valid email address for delivery.' });
     }
-    if (!phone || String(phone).trim().length < 6) {
-      return res.status(400).json({ ok: false, error: 'Please enter a valid contact phone number.' });
+    if (phone && String(phone).trim().length > 0 && String(phone).trim().length < 6) {
+      return res.status(400).json({ ok: false, error: 'Please enter a valid contact phone number or leave it blank.' });
     }
     if (!arrivalDate) {
       return res.status(400).json({ ok: false, error: 'Please select your planned arrival date.' });
+    }
+    if (selectedDest.requiresFlightAndHotel) {
+      if (!flightNumber || String(flightNumber).trim().length < 2) {
+        return res.status(400).json({ ok: false, error: 'Please enter your arrival flight or vessel number for this arrival card.' });
+      }
+      if (!accommodationAddress || String(accommodationAddress).trim().length < 3) {
+        return res.status(400).json({ ok: false, error: 'Please enter your hotel name or accommodation address for this arrival card.' });
+      }
     }
     if (!Array.isArray(applicants) || applicants.length < 1 || applicants.length > 20) {
       return res.status(400).json({ ok: false, error: 'Please provide details for at least one traveler.' });
@@ -75,8 +87,8 @@ module.exports = async function handler(req, res) {
         nationality: nationality || 'US',
         passportNumberMasked: passportNumber.slice(0, 2) + '***' + passportNumber.slice(-2),
         passportExpiry,
-        passportFileName: a.passportFileName || 'passport-bio.jpg',
-        photoFileName: a.photoFileName || 'portrait-photo.jpg'
+        passportFileName: selectedDest.requiresUploads ? (a.passportFileName || 'passport-bio.jpg') : null,
+        photoFileName: selectedDest.requiresUploads ? (a.photoFileName || 'portrait-photo.jpg') : null
       });
     }
 
@@ -91,16 +103,21 @@ module.exports = async function handler(req, res) {
       status: 'Pending Payment',
       destinationId: pricing.dest.id,
       destinationName: pricing.dest.name,
+      category: pricing.dest.categoryBadge,
+      cleanTitle: pricing.dest.cleanTitle || pricing.dest.visaType,
       visaType: pricing.dest.visaType,
       govPortal: pricing.dest.govPortal,
       govPortalName: pricing.dest.govPortalName,
-      ourHandlingTime: pricing.dest.ourHandlingTime,
+      ourHandlingTime: pricing.speedTier === 'priority' ? pricing.dest.priorityReviewTime : pricing.dest.standardReviewTime,
       govProcessingTime: pricing.dest.govProcessingTime,
       speedTier: pricing.speedTier,
       travelersCount: pricing.travelers,
       email: String(email).trim().toLowerCase(),
-      phone: String(phone).trim(),
+      phone: phone ? String(phone).trim() : '',
       arrivalDate,
+      flightNumber: flightNumber ? String(flightNumber).trim() : '',
+      portOfEntry: portOfEntry ? String(portOfEntry).trim() : '',
+      accommodationAddress: accommodationAddress ? String(accommodationAddress).trim() : '',
       currency: currency || 'USD',
       govTotalUSD: pricing.govTotalUSD,
       serviceTotalUSD: pricing.serviceTotalUSD,

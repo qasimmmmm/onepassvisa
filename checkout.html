@@ -3,22 +3,22 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Secure Hosted Checkout | Private Visa Assistance Service — OnePassVisa</title>
-  <meta name="description" content="Complete your payment securely via Apple Pay, Google Pay, or card with OnePassVisa, a private travel document assistance service." />
+  <title>Secure Checkout | OnePassVisa</title>
+  <meta name="description" content="Complete your payment securely via Apple Pay, Google Pay, or card with OnePassVisa." />
   <link rel="canonical" href="https://onepassvisa.com/checkout" />
-  <meta name="theme-color" content="#059669" />
+  <meta name="theme-color" content="#047857" />
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="OnePassVisa" />
-  <meta property="og:title" content="Secure Hosted Checkout | Private Visa Assistance Service — OnePassVisa" />
-  <meta property="og:description" content="Complete your payment securely via Apple Pay, Google Pay, or card with OnePassVisa, a private travel document assistance service." />
+  <meta property="og:title" content="Secure Checkout | OnePassVisa" />
+  <meta property="og:description" content="Complete your payment securely via Apple Pay, Google Pay, or card with OnePassVisa." />
   <meta property="og:url" content="https://onepassvisa.com/checkout" />
   <meta property="og:image" content="https://onepassvisa.com/assets/images/logo-horizontal.png" />
-  <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg?v=7" />
-  <link rel="icon" type="image/png" href="assets/images/favicon.png?v=7" />
-  <link rel="apple-touch-icon" href="assets/images/apple-touch-icon.png?v=7" />
+  <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg?v=8" />
+  <link rel="icon" type="image/png" href="assets/images/favicon.png?v=8" />
+  <link rel="apple-touch-icon" href="assets/images/apple-touch-icon.png?v=8" />
   <link rel="preload" href="assets/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="preload" href="assets/fonts/plus-jakarta-700.woff2" as="font" type="font/woff2" crossorigin />
-  <link rel="stylesheet" href="assets/css/onepass-v6.css?v=7" />
+  <link rel="stylesheet" href="assets/css/onepass-v6.css?v=8" />
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"OnePassVisa","legalName":"OnePassVisa Digital Travel Services LLC","url":"https://onepassvisa.com/","logo":"https://onepassvisa.com/assets/images/logo.svg","description":"Independent private visa and travel document assistance service helping travelers apply for eVisas, ETAs, and digital arrival cards.","contactPoint":{"@type":"ContactPoint","email":"support@onepassvisa.com","contactType":"customer support","availableLanguage":["English"]}}</script>
 </head>
 <body>
@@ -29,66 +29,71 @@
       <span class="disclosure-shield" aria-hidden="true">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L4 5v6.09c0 5.05 3.41 9.76 8 10.91 4.59-1.15 8-5.86 8-10.91V5l-8-3zm-1.06 13.54L7.4 12l1.41-1.41 2.12 2.12 4.24-4.24 1.41 1.41-5.64 5.66z"/></svg>
       </span>
-      <span><strong>✓ Private Service Notice:</strong> OnePassVisa is an independent assistance agency, not affiliated with any government. Apply directly on official portals for statutory fees only. <a href="faq.html#official-portals">[Learn More]</a></span>
+      <span><strong>Private Service Notice:</strong> OnePassVisa is an independent assistance agency, not a government website. You can apply directly on official portals for government fees only. <a href="faq.html#official-portals">Official links</a></span>
     </div>
   </div>
 
   <header class="site-header">
     <div class="container header-inner">
       <a href="index.html" class="brand-logo" aria-label="onepassvisa Home">
-        <img src="assets/images/logo.svg?v=7" alt="onepassvisa" width="184" height="37" class="brand-logo-img" />
+        <img src="assets/images/logo.svg?v=8" alt="onepassvisa" width="180" height="36" class="brand-logo-img" />
       </a>
 
       <nav class="nav-links" id="mainNavLinks" aria-label="Primary Navigation">
-        <a href="index.html" class="nav-link ">Home</a>
         <a href="destinations.html" class="nav-link ">Destinations</a>
-        <a href="services.html" class="nav-link ">Document Types</a>
-        <a href="track.html" class="nav-link ">Track Order</a>
-        <a href="faq.html" class="nav-link ">FAQ</a>
-        <a href="about.html" class="nav-link ">About &amp; Contact</a>
+        <a href="index.html#how-it-works" class="nav-link">How it works</a>
+        <a href="faq.html" class="nav-link ">Help</a>
+        <a href="track.html" class="nav-link hide-desktop-nav " style="display:none;">Track application</a>
       </nav>
 
       <div class="header-actions">
-        <div class="currency-dropdown-wrap hide-mobile" id="currencyDropdownWrap">
-          <button type="button" class="currency-trigger" id="currencyTriggerBtn" aria-haspopup="true" aria-expanded="false" aria-label="Select currency">
-            <span id="currencyTriggerLabel">🇺🇸 USD ($)</span>
+        <a href="track.html" class="header-utility-link ">Track application</a>
+
+        <div class="currency-dropdown-wrap" id="currencyDropdownWrap">
+          <button type="button" class="currency-trigger" id="currencyTriggerBtn" aria-haspopup="true" aria-expanded="false" aria-label="Select display currency">
+            <span id="currencyTriggerLabel">USD</span>
             <span style="font-size:0.7rem;color:var(--text-muted);">▾</span>
           </button>
           <div class="currency-menu" id="currencyMenu" role="menu">
             
       <button type="button" class="currency-option js-currency-option active" data-currency="USD">
-        <span>🇺🇸 USD</span>
-        <span style="color:var(--text-muted);">$</span>
+        <span>USD</span>
+        <span style="color:var(--text-muted);">US$</span>
       </button>
     
       <button type="button" class="currency-option js-currency-option " data-currency="EUR">
-        <span>🇪🇺 EUR</span>
+        <span>EUR</span>
         <span style="color:var(--text-muted);">€</span>
       </button>
     
       <button type="button" class="currency-option js-currency-option " data-currency="GBP">
-        <span>🇬🇧 GBP</span>
+        <span>GBP</span>
         <span style="color:var(--text-muted);">£</span>
       </button>
     
-      <button type="button" class="currency-option js-currency-option " data-currency="AED">
-        <span>🇦🇪 AED</span>
-        <span style="color:var(--text-muted);">AED </span>
-      </button>
-    
-      <button type="button" class="currency-option js-currency-option " data-currency="INR">
-        <span>🇺🇸 INR</span>
-        <span style="color:var(--text-muted);">₹</span>
-      </button>
-    
       <button type="button" class="currency-option js-currency-option " data-currency="CAD">
-        <span>🇨🇦 CAD</span>
+        <span>CAD</span>
         <span style="color:var(--text-muted);">CA$</span>
       </button>
     
       <button type="button" class="currency-option js-currency-option " data-currency="AUD">
-        <span>🇦🇺 AUD</span>
+        <span>AUD</span>
         <span style="color:var(--text-muted);">A$</span>
+      </button>
+    
+      <button type="button" class="currency-option js-currency-option " data-currency="AED">
+        <span>AED</span>
+        <span style="color:var(--text-muted);">AED</span>
+      </button>
+    
+      <button type="button" class="currency-option js-currency-option " data-currency="SGD">
+        <span>SGD</span>
+        <span style="color:var(--text-muted);">S$</span>
+      </button>
+    
+      <button type="button" class="currency-option js-currency-option " data-currency="INR">
+        <span>INR</span>
+        <span style="color:var(--text-muted);">₹</span>
       </button>
     
           </div>
@@ -100,12 +105,12 @@
             <option value="AUD">AUD</option>
             <option value="AED">AED</option>
             <option value="SGD">SGD</option>
+            <option value="INR">INR</option>
           </select>
         </div>
 
-        <a href="apply.html" class="btn btn-primary btn-sm">
-          <span>Apply Now</span>
-          <span class="arrow-icon">→</span>
+        <a href="index.html#checker" class="btn btn-primary btn-sm">
+          <span>Check requirements</span>
         </a>
 
         <button type="button" class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mainNavLinks">
@@ -119,26 +124,20 @@
     </div>
   </header>
 
+  <div class="container">
+    <div class="currency-estimate-notice js-currency-notice" role="status" aria-live="polite"></div>
+  </div>
+
   <main id="main-content">
     
     <section class="section" style="padding-top:1.5rem;">
       <div class="container" style="max-width:58rem;" id="hostedCheckoutContainer">
-        <div class="progress-bar-wrap">
-          <div class="progress-steps-header">
-            <span>Step 1: Application Validated ✓</span>
-            <span style="color:var(--emerald);font-weight:700;">Step 2 of 2: Secure Hosted Checkout</span>
-          </div>
-          <div class="progress-track" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" aria-label="Checkout Progress">
-            <div class="progress-fill" style="width:100%;"></div>
-          </div>
-        </div>
-
         <div id="checkoutPaymentStage" class="apply-layout">
           <div class="card">
-            <span class="badge badge-emerald" style="margin-bottom:0.5rem;">✓ 256-Bit TLS Encrypted Checkout</span>
-            <h1 style="font-size:1.5rem;margin-bottom:0.35rem;">Complete Your Payment</h1>
+            <span class="badge badge-emerald" style="margin-bottom:0.5rem;">✓ Encrypted Checkout</span>
+            <h1 style="font-size:1.5rem;margin-bottom:0.35rem;">Complete your payment</h1>
             <p style="font-size:0.9rem;color:var(--text-muted);margin-bottom:1.25rem;">
-              Pay securely with Apple Pay, Google Pay, or debit/credit card to queue your application for immediate specialist review.
+              Pay with Apple Pay, Google Pay, or card to submit your application for specialist review. All payments are processed in USD (US$).
             </p>
 
             <div style="margin-bottom:1.25rem;">
@@ -159,11 +158,11 @@
 
             <form id="hostedCardPaymentForm" style="margin-top:1.25rem;">
               <div class="field-group" style="margin-bottom:1rem;">
-                <label class="field-label" for="cardHolderName">Name on Card *</label>
+                <label class="field-label" for="cardHolderName">Name on card *</label>
                 <input type="text" id="cardHolderName" class="field-control" autocomplete="cc-name" required />
               </div>
               <div class="field-group" style="margin-bottom:1rem;">
-                <label class="field-label" for="cardNumberInput">Card Number *</label>
+                <label class="field-label" for="cardNumberInput">Card number *</label>
                 <input type="text" id="cardNumberInput" class="field-control" inputmode="numeric" autocomplete="cc-number" placeholder="•••• •••• •••• ••••" minlength="12" maxlength="19" required />
               </div>
               <div class="form-grid-2" style="margin-bottom:1.25rem;">
@@ -172,13 +171,13 @@
                   <input type="text" id="cardExpInput" class="field-control" placeholder="MM/YY" autocomplete="cc-exp" maxlength="7" required />
                 </div>
                 <div class="field-group">
-                  <label class="field-label" for="cardCvcInput">Security Code (CVC) *</label>
+                  <label class="field-label" for="cardCvcInput">Security code (CVC) *</label>
                   <input type="text" id="cardCvcInput" class="field-control" inputmode="numeric" autocomplete="cc-csc" placeholder="CVC" maxlength="4" required />
                 </div>
               </div>
 
               <button type="submit" class="btn btn-primary btn-lg btn-block">
-                <span>Authorize Payment &amp; Submit Application</span>
+                <span>Pay &amp; submit application</span>
                 <span class="arrow-icon">→</span>
               </button>
 
@@ -187,7 +186,7 @@
                   OnePassVisa is a private assistance service, not a government site. You can apply directly on the official government portal for the government fee only.
                 </p>
                 <p>
-                  <strong>Refund Summary Beside Pay Button:</strong> Cancel before government submission for a 100% full refund of all fees. Once submitted to the government, statutory fees are non-refundable, but we refund 100% of our service fee if your visa is declined.
+                  <strong>Refund summary:</strong> Cancel before government submission for a 100% full refund of all fees. Once submitted to the government, statutory fees are non-refundable, but we refund 100% of our service fee if your application is declined.
                 </p>
               </div>
             </form>
@@ -195,14 +194,14 @@
 
           <aside>
             <div class="card" style="border-color:var(--emerald-border);">
-              <span class="badge badge-emerald" style="margin-bottom:0.5rem;">Order Breakdown</span>
-              <h2 id="chkDoc" style="font-size:1.15rem;margin-bottom:0.75rem;">Vietnam Tourist e-Visa (Single Entry)</h2>
+              <span class="badge badge-emerald" style="margin-bottom:0.5rem;">Order breakdown</span>
+              <h2 id="chkDoc" style="font-size:1.15rem;margin-bottom:0.75rem;">Vietnam tourist eVisa</h2>
               <div class="summary-row"><span>Reference</span><strong id="chkRef" style="font-family:var(--font-mono);color:var(--emerald);">OPV-PENDING</strong></div>
               <div class="summary-row"><span>Email</span><strong id="chkEmail">—</strong></div>
-              <div class="summary-row"><span>Applicants</span><strong id="chkTravelers">1 Traveler(s)</strong></div>
-              <div class="summary-row"><span>Statutory Government Fee</span><strong id="chkGovFee">$25</strong></div>
-              <div class="summary-row"><span>OnePassVisa Service Fee</span><strong id="chkServiceFee">$34</strong></div>
-              <div class="summary-total"><span>Total Due</span><span id="chkTotal">$59</span></div>
+              <div class="summary-row"><span>Travelers</span><strong id="chkTravelers">1 Traveler(s)</strong></div>
+              <div class="summary-row"><span>Government fee</span><strong id="chkGovFee">US$25</strong></div>
+              <div class="summary-row"><span>OnePassVisa service</span><strong id="chkServiceFee">US$34</strong></div>
+              <div class="summary-total"><span>Total charged (USD)</span><span id="chkTotal">US$59 USD</span></div>
             </div>
           </aside>
         </div>
@@ -218,7 +217,7 @@
       <div class="footer-grid">
         <div>
           <a href="index.html" aria-label="onepassvisa Home" style="display:inline-block;margin-bottom:0.85rem;">
-            <img src="assets/images/logo-white.svg?v=7" alt="onepassvisa" width="184" height="37" loading="lazy" />
+            <img src="assets/images/logo-white.svg?v=8" alt="onepassvisa" width="180" height="36" loading="lazy" />
           </a>
           <p style="font-size:0.875rem;color:#CBD5E1;margin-bottom:0.85rem;max-width:22rem;">
             Private travel document and eVisa filing assistance. Specialist passport &amp; photo review, clear fee breakdowns, and direct links to official government portals.
@@ -232,12 +231,12 @@
         <div>
           <div class="footer-heading">Popular eVisas</div>
           <div class="footer-links">
-            <a href="vietnam-evisa.html">Vietnam Tourist eVisa</a>
-            <a href="thailand-evisa.html">Thailand Tourist eVisa</a>
+            <a href="vietnam-evisa.html">Vietnam tourist eVisa</a>
+            <a href="thailand-evisa.html">Thailand tourist eVisa</a>
             <a href="indonesia-evoa.html">Indonesia (Bali) e-VOA</a>
-            <a href="india-evisa.html">India Tourist eVisa</a>
-            <a href="cambodia-evisa.html">Cambodia Tourist eVisa</a>
-            <a href="uae-evisa.html">UAE (Dubai) Tourist eVisa</a>
+            <a href="india-evisa.html">India tourist eVisa</a>
+            <a href="cambodia-evisa.html">Cambodia tourist eVisa</a>
+            <a href="uae-evisa.html">UAE tourist eVisa</a>
           </div>
         </div>
 
@@ -248,38 +247,38 @@
             <a href="us-esta.html">United States ESTA</a>
             <a href="canada-eta.html">Canada eTA</a>
             <a href="australia-eta.html">Australia eVisitor / ETA</a>
-            <a href="thailand-arrival-card.html">Thailand Arrival Card (TDAC)</a>
-            <a href="singapore-arrival-card.html">Singapore Arrival Card (SGAC)</a>
+            <a href="thailand-arrival-card.html">Thailand arrival card (TDAC)</a>
+            <a href="singapore-arrival-card.html">Singapore arrival card (SGAC)</a>
           </div>
         </div>
 
         <div>
           <div class="footer-heading">Traveler Tools</div>
           <div class="footer-links">
-            <a href="index.html#checker">Visa Requirements Checker</a>
-            <a href="index.html#calculator">Fee Calculator</a>
-            <a href="destinations.html">All 18 Destinations</a>
-            <a href="services.html">Document Categories</a>
-            <a href="track.html">Track Application</a>
-            <a href="faq.html#official-portals">Official Government Links</a>
+            <a href="index.html#checker">Check requirements</a>
+            <a href="destinations.html">Explore destinations</a>
+            <a href="services.html">Document types</a>
+            <a href="track.html">Track application</a>
+            <a href="faq.html#pricing">Fees and calculator</a>
+            <a href="faq.html#official-portals">Official government links</a>
           </div>
         </div>
 
         <div>
           <div class="footer-heading">Company &amp; Legal</div>
           <div class="footer-links">
-            <a href="about.html">About &amp; Contact Us</a>
-            <a href="policies.html#terms">Terms of Service</a>
-            <a href="policies.html#privacy">Privacy Policy</a>
-            <a href="policies.html#refund">Refund Policy</a>
-            <a href="policies.html#disclaimer">Non-Affiliation Notice</a>
-            <a href="policies.html#credits">Photography Credits</a>
+            <a href="about.html">About &amp; contact</a>
+            <a href="policies.html#terms">Terms of service</a>
+            <a href="policies.html#privacy">Privacy policy</a>
+            <a href="policies.html#refund">Refund policy</a>
+            <a href="policies.html#disclaimer">Non-affiliation notice</a>
+            <a href="policies.html#credits">Photography credits</a>
           </div>
         </div>
       </div>
 
       <div class="footer-disclaimer">
-        <strong>Important Legal Disclosure:</strong> OnePassVisa.com is operated by OnePassVisa Digital Travel Services LLC (Registered in Delaware, USA), a private non-government travel document checking and filing service. We are not affiliated with any embassy, consulate, or immigration authority. Every destination page provides a direct link to the official government portal where travelers can apply independently for the statutory government fee only (including $0 for free official digital arrival cards). Final approval and processing timelines rest solely with the issuing government authority.
+        <strong>Important Legal Disclosure:</strong> OnePassVisa.com is operated by OnePassVisa Digital Travel Services LLC (Registered in Delaware, USA), a private non-government travel document checking and filing service. We are not affiliated with any embassy, consulate, or immigration authority. Every destination page provides a direct link to the official government portal where travelers can apply independently for the statutory government fee only (including US$0 for free official digital arrival cards). Final approval and processing timelines rest solely with the issuing government authority.
       </div>
 
       <div class="footer-bottom">
@@ -297,7 +296,7 @@
 
   <div class="cookie-banner" id="cookieConsentBanner" role="region" aria-label="Cookie Consent">
     <div style="max-width:40rem;">
-      <strong>Privacy &amp; Analytics Consent:</strong> We use essential cookies to save your application progress and optional analytics cookies (Google Consent Mode v2) to improve site performance. See our <a href="policies.html#cookies" style="color:var(--emerald-bright);text-decoration:underline;">Cookie Policy</a>.
+      <strong>Privacy &amp; Analytics Consent:</strong> We use essential storage to save your application progress and optional analytics cookies (Google Consent Mode v2) to improve site performance. See our <a href="policies.html#cookies" style="color:var(--emerald-bright);text-decoration:underline;">Cookie Policy</a>.
     </div>
     <div style="display:flex;gap:0.6rem;flex-wrap:wrap;">
       <button type="button" class="btn btn-outline btn-sm" id="essentialCookiesBtn" style="background:transparent;color:#FFFFFF;border-color:rgba(255,255,255,0.4);">Essential Only</button>
@@ -305,7 +304,7 @@
     </div>
   </div>
 
-  <script src="assets/js/data-v6.js?v=7" defer></script>
-  <script src="assets/js/app-v6.js?v=7" defer></script>
+  <script src="assets/js/data-v6.js?v=8" defer></script>
+  <script src="assets/js/app-v6.js?v=8" defer></script>
 </body>
 </html>
