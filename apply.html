@@ -27,10 +27,8 @@
 
   <div class="disclosure-bar" role="region" aria-label="Private Service Disclosure">
     <div class="container disclosure-bar-inner">
-      <span class="disclosure-shield" aria-hidden="true">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L4 5v6.09c0 5.05 3.41 9.76 8 10.91 4.59-1.15 8-5.86 8-10.91V5l-8-3zm-1.06 13.54L7.4 12l1.41-1.41 2.12 2.12 4.24-4.24 1.41 1.41-5.64 5.66z"/></svg>
-      </span>
-      <span><strong>Private Service Notice:</strong> OnePassVisa is an independent assistance agency, not a government website. You can apply directly on official portals for government fees only. <a href="faq.html#official-portals">Official links</a></span>
+      <span class="disclosure-shield" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 11v6M12 7v1"/></svg></span>
+      <span>Independent travel document assistance. Not a government website. Apply directly for government fees only. <a href="faq.html#official-portals">Official government links</a></span>
     </div>
   </div>
 
@@ -44,7 +42,7 @@
         <a href="destinations.html" class="nav-link ">Destinations</a>
         <a href="index.html#how-it-works" class="nav-link">How it works</a>
         <a href="faq.html" class="nav-link ">Help</a>
-        <a href="track.html" class="nav-link hide-desktop-nav " style="display:none;">Track application</a>
+        <a href="track.html" class="nav-link hide-desktop-nav ">Track application</a>
       </nav>
 
       <div class="header-actions">
@@ -112,7 +110,7 @@
 
         <a href="index.html#checker" class="btn btn-primary btn-sm header-cta-btn">
           <span class="cta-text-full">Check requirements</span>
-          <span class="cta-text-short">Check</span>
+          <span class="cta-text-short">Check requirements</span>
         </a>
 
         <button type="button" class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mainNavLinks">
@@ -130,14 +128,14 @@
     <div class="currency-estimate-notice js-currency-notice" role="status" aria-live="polite"></div>
   </div>
 
-  <main id="main-content">
+  <main id="main-content" class="transaction-page application-page">
     
-    <section class="section" style="padding-top:1.5rem;">
+    <section class="section transaction-section">
       <div class="container">
-        <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:0.75rem;margin-bottom:1.25rem;">
+        <div class="transaction-heading">
           <div>
-            <h1 style="font-size:clamp(1.6rem,3vw,2.1rem);">Your application</h1>
-            <p style="font-size:0.95rem;color:var(--text-muted);">Complete the 4 guided steps below. Your fee breakdown updates automatically.</p>
+            <h1 class="page-title">Your application</h1>
+            <p class="page-lead">Tell us about your trip, add your travelers, and review your application in four steps.</p>
           </div>
           <button type="button" id="saveDraftBtn" class="btn btn-outline btn-sm">Save and resume later</button>
         </div>
@@ -145,33 +143,35 @@
         <div id="saveDraftStatus" class="save-resume-bar" style="display:none;margin-bottom:1.25rem;"></div>
 
         <!-- 4-Stage Guided Stepper -->
-        <nav aria-label="Application stages" class="stage-stepper">
-          <button type="button" class="stage-step-btn active" data-stage-target="1" aria-current="step">
+        <nav aria-label="Application stages">
+          <ol class="stage-stepper">
+          <li><button type="button" class="stage-step-btn active" data-stage-target="1" aria-current="step">
             <span class="stage-step-num">Step 1</span>
             <span class="stage-step-label">Trip</span>
-          </button>
-          <button type="button" class="stage-step-btn" data-stage-target="2">
+          </button></li>
+          <li><button type="button" class="stage-step-btn" data-stage-target="2">
             <span class="stage-step-num">Step 2</span>
             <span class="stage-step-label">Travelers</span>
-          </button>
-          <button type="button" class="stage-step-btn" data-stage-target="3">
+          </button></li>
+          <li><button type="button" class="stage-step-btn" data-stage-target="3">
             <span class="stage-step-num">Step 3</span>
             <span class="stage-step-label">Documents</span>
-          </button>
-          <button type="button" class="stage-step-btn" data-stage-target="4">
+          </button></li>
+          <li><button type="button" class="stage-step-btn" data-stage-target="4">
             <span class="stage-step-num">Step 4</span>
             <span class="stage-step-label">Review &amp; pay</span>
-          </button>
+          </button></li>
+          </ol>
         </nav>
 
         <div class="apply-layout">
-          <form id="applyWizardForm" class="card" novalidate>
+          <form id="applyWizardForm" class="card transaction-form" novalidate>
             <div id="applyFormError" role="alert" style="display:none;background:var(--danger-tint);border:1px solid var(--danger);color:var(--danger);padding:0.85rem 1rem;border-radius:var(--radius-md);font-size:0.9rem;font-weight:600;margin-bottom:1rem;"></div>
 
             <!-- STAGE 1: TRIP -->
             <div class="stage-panel active" id="stagePanel1" data-stage="1">
-              <h2 style="font-size:1.3rem;margin-bottom:0.35rem;">1. Trip details</h2>
-              <p style="font-size:0.9rem;color:var(--text-muted);margin-bottom:1.25rem;">Confirm your destination, travel date, and where we should send your completed document.</p>
+              <h2 class="form-section-title">1. Trip details</h2>
+              <p class="form-section-intro">Confirm your destination, travel date, and where we should send your completed document.</p>
 
               <div class="field-group" style="margin-bottom:1rem;">
                 <label class="field-label" for="applyDestination">Destination and document *</label>
@@ -194,7 +194,7 @@
               <!-- Document-specific fields for Arrival Cards (TDAC, SGAC, MDAC) -->
               <div id="arrivalCardTripFields" style="display:none;background:var(--bg-page);border:1px solid var(--border);border-radius:var(--radius-md);padding:1rem;margin-bottom:1rem;">
                 <div style="font-size:0.85rem;font-weight:700;color:var(--emerald);margin-bottom:0.65rem;">
-                  Arrival card flight &amp; accommodation details
+                  Flight &amp; accommodation details
                 </div>
                 <div class="form-grid-2" style="margin-bottom:0.85rem;">
                   <div class="field-group">
@@ -202,7 +202,7 @@
                     <input type="text" id="applyFlightNumber" class="field-control" placeholder="e.g. TG911 or SQ321" autocapitalize="characters" />
                   </div>
                   <div class="field-group">
-                    <label class="field-label" for="applyPortOfEntry">Port of entry / arrival airport</label>
+                    <label class="field-label" for="applyPortOfEntry">Port of entry / arrival airport <span class="optional-label">Optional</span></label>
                     <input type="text" id="applyPortOfEntry" class="field-control" placeholder="e.g. Bangkok Suvarnabhumi (BKK)" />
                   </div>
                 </div>
@@ -238,8 +238,8 @@
 
             <!-- STAGE 2: TRAVELERS -->
             <div class="stage-panel" id="stagePanel2" data-stage="2">
-              <h2 style="font-size:1.3rem;margin-bottom:0.35rem;">2. Traveler details</h2>
-              <p style="font-size:0.9rem;color:var(--text-muted);margin-bottom:1.25rem;">Enter each traveler's name and passport details exactly as shown on their passport.</p>
+              <h2 class="form-section-title">2. Traveler details</h2>
+              <p class="form-section-intro">Enter each traveler's name and passport details exactly as shown on their passport.</p>
 
               <div id="applicantsContainer"></div>
 
@@ -254,8 +254,8 @@
 
             <!-- STAGE 3: DOCUMENTS -->
             <div class="stage-panel" id="stagePanel3" data-stage="3">
-              <h2 style="font-size:1.3rem;margin-bottom:0.35rem;">3. Document uploads</h2>
-              <p style="font-size:0.9rem;color:var(--text-muted);margin-bottom:1.25rem;">Upload the documents required for your selected service, or continue if no uploads are required.</p>
+              <h2 class="form-section-title">3. Document uploads</h2>
+              <p class="form-section-intro">Upload the documents required for your selected service, or continue if no uploads are required.</p>
 
               <div id="documentsStageContainer"></div>
 
@@ -270,8 +270,8 @@
 
             <!-- STAGE 4: REVIEW AND PAYMENT -->
             <div class="stage-panel" id="stagePanel4" data-stage="4">
-              <h2 style="font-size:1.3rem;margin-bottom:0.35rem;">4. Review and payment</h2>
-              <p style="font-size:0.9rem;color:var(--text-muted);margin-bottom:1.25rem;">Check your details, choose your review speed, and continue to secure checkout.</p>
+              <h2 class="form-section-title">4. Review and payment</h2>
+              <p class="form-section-intro">Check your details, choose your review speed, and continue to secure checkout.</p>
 
               <div id="stage4ReviewSummary"></div>
 
@@ -312,7 +312,7 @@
                 </button>
               </div>
 
-              <div style="margin-top:1rem;font-size:0.8rem;color:var(--text-muted);line-height:1.5;">
+              <div class="material-disclosure">
                 <p id="applyOfficialDisclosure" style="margin-bottom:0.35rem;">
                   OnePassVisa is a private assistance service, not a government website. You can apply directly at <a href="https://evisa.gov.vn" target="_blank" rel="noopener noreferrer" style="color:var(--emerald);font-weight:600;text-decoration:underline;">Vietnam National Portal on Immigration</a> for the US$25 government fee only. (Verified 27 Oct 2026)
                 </p>
@@ -324,21 +324,23 @@
           </form>
 
           <aside class="sticky-sidebar">
-            <div class="card" style="border-color:var(--emerald-border);">
-              <span class="badge badge-emerald" style="margin-bottom:0.5rem;">Order summary</span>
-              <h2 id="sumDocTitle" style="font-size:1.2rem;margin-bottom:0.75rem;">Vietnam tourist eVisa</h2>
+            <div class="card application-summary">
+              <p class="summary-eyebrow">Your application</p>
+              <h2 id="sumDocTitle" class="summary-title">Vietnam tourist eVisa</h2>
 
+              <h3 class="summary-group-title">Fees</h3>
               <div class="summary-row"><span>Government fee</span><strong id="sumGovFee">US$25 × 1 = US$25</strong></div>
               <div class="summary-row"><span>OnePassVisa service</span><strong id="sumServiceFee">US$34 × 1 = US$34</strong></div>
-              <div class="summary-row"><span>Our review time</span><strong id="sumHandlingTime">Within 6–12 hours</strong></div>
-              <div class="summary-row"><span>Expected processing</span><strong id="sumGovTime">3–5 working days by Vietnam Immigration</strong></div>
               <div class="summary-total">
                 <span>Total</span>
                 <span id="sumGrandTotal">US$59</span>
               </div>
+              <h3 class="summary-group-title">Timing</h3>
+              <div class="summary-row"><span>Our review time</span><strong id="sumHandlingTime">Within 6–12 hours</strong></div>
+              <div class="summary-row"><span>Expected processing</span><strong id="sumGovTime">3–5 working days by Vietnam Immigration</strong></div>
 
               <div class="save-resume-bar">
-                <strong>Save and resume:</strong> Clicking "Save and resume later" stores your trip and contact fields in this browser so you can return via <code>/apply?resume=1</code>.
+                <strong>Save your progress on this browser and return when you’re ready.</strong> Use “Save and resume later” to keep your trip and contact details on this device. Traveler details and uploaded files are not saved.
               </div>
             </div>
           </aside>
@@ -361,57 +363,35 @@
   <footer class="site-footer">
     <div class="container">
       <div class="footer-grid">
-        <div>
-          <a href="index.html" aria-label="onepassvisa Home" style="display:inline-block;margin-bottom:0.85rem;">
-            <img src="assets/images/onepassvisa-logo-white-master.png?v=9" alt="onepassvisa" width="194" height="34" class="brand-logo-img-footer" loading="lazy" />
-          </a>
-          <p style="font-size:0.875rem;color:#CBD5E1;margin-bottom:0.85rem;max-width:22rem;">
-            Private travel document and eVisa filing assistance. Specialist passport &amp; photo review, clear fee breakdowns, and direct links to official government portals.
-          </p>
-          <div style="font-size:0.8125rem;color:#94A3B8;">
-            <div>Email: <a href="mailto:support@onepassvisa.com" style="color:#FFFFFF;text-decoration:underline;">support@onepassvisa.com</a></div>
-            <div style="margin-top:0.2rem;">Support Hours: Mon–Sun, 00:00–23:59 UTC</div>
-          </div>
+        <div class="footer-brand">
+          <a href="index.html" class="footer-logo" aria-label="onepassvisa Home"><img src="assets/images/onepassvisa-logo-white-master.png?v=9" alt="onepassvisa" width="194" height="34" class="brand-logo-img-footer" loading="lazy" /></a>
+          <p>Private travel document and eVisa filing assistance. Passport and photo review, clear fees, and access to official government portals.</p>
+          <p class="footer-contact">Email: <a href="mailto:support@onepassvisa.com">support@onepassvisa.com</a><br/>Support Hours: Mon–Sun, 00:00–23:59 UTC</p>
         </div>
-
         <div>
-          <div class="footer-heading">Popular eVisas</div>
+          <h2 class="footer-heading">Explore</h2>
           <div class="footer-links">
-            <a href="vietnam-evisa.html">Vietnam tourist eVisa</a>
-            <a href="thailand-evisa.html">Thailand tourist eVisa</a>
-            <a href="indonesia-evoa.html">Indonesia (Bali) e-VOA</a>
-            <a href="india-evisa.html">India tourist eVisa</a>
-            <a href="cambodia-evisa.html">Cambodia tourist eVisa</a>
-            <a href="uae-evisa.html">UAE tourist eVisa</a>
-          </div>
-        </div>
-
-        <div>
-          <div class="footer-heading">ETAs &amp; Arrival Cards</div>
-          <div class="footer-links">
+            <a href="destinations.html">View all destinations</a>
+            <a href="services.html">Travel document types</a>
+            <a href="vietnam-evisa.html">Vietnam eVisa</a>
+            <a href="indonesia-evoa.html">Indonesia e-VOA</a>
             <a href="uk-eta.html">United Kingdom ETA</a>
-            <a href="us-esta.html">United States ESTA</a>
-            <a href="canada-eta.html">Canada eTA</a>
-            <a href="australia-eta.html">Australia eVisitor / ETA</a>
-            <a href="thailand-arrival-card.html">Thailand arrival card (TDAC)</a>
-            <a href="singapore-arrival-card.html">Singapore arrival card (SGAC)</a>
+            <a href="thailand-arrival-card.html">Thailand arrival card</a>
           </div>
         </div>
-
         <div>
-          <div class="footer-heading">Traveler Tools</div>
+          <h2 class="footer-heading">Help</h2>
           <div class="footer-links">
             <a href="index.html#checker">Check requirements</a>
-            <a href="destinations.html">Explore destinations</a>
-            <a href="services.html">Document types</a>
+            <a href="index.html#how-it-works">How it works</a>
             <a href="track.html">Track application</a>
+            <a href="faq.html">Common questions</a>
             <a href="faq.html#pricing">Fees and calculator</a>
             <a href="faq.html#official-portals">Official government links</a>
           </div>
         </div>
-
         <div>
-          <div class="footer-heading">Company &amp; Legal</div>
+          <h2 class="footer-heading">Company &amp; policies</h2>
           <div class="footer-links">
             <a href="about.html">About &amp; contact</a>
             <a href="policies.html#terms">Terms of service</a>
@@ -442,10 +422,10 @@
 
   <div class="cookie-banner" id="cookieConsentBanner" role="region" aria-label="Cookie Consent">
     <div style="max-width:40rem;">
-      <strong>Privacy &amp; Analytics Consent:</strong> We use essential storage to save your application progress and optional analytics cookies (Google Consent Mode v2) to improve site performance. See our <a href="policies.html#cookies" style="color:var(--emerald-bright);text-decoration:underline;">Cookie Policy</a>.
+      <strong>Your privacy choices</strong> We use essential storage to save your application progress. With your permission, optional analytics help us improve the website. See our <a href="policies.html#cookies" class="cookie-policy-link">Cookie Policy</a>.
     </div>
-    <div style="display:flex;gap:0.6rem;flex-wrap:wrap;">
-      <button type="button" class="btn btn-outline btn-sm" id="essentialCookiesBtn" style="background:transparent;color:#FFFFFF;border-color:rgba(255,255,255,0.4);">Essential Only</button>
+    <div class="cookie-banner-actions">
+      <button type="button" class="btn btn-outline btn-sm" id="essentialCookiesBtn">Essential Only</button>
       <button type="button" class="btn btn-primary btn-sm" id="acceptCookiesBtn">Accept All</button>
     </div>
   </div>
