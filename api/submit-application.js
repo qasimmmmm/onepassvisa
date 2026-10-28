@@ -121,6 +121,9 @@ module.exports = async function handler(req, res) {
       currency: currency || 'USD',
       govTotalUSD: pricing.govTotalUSD,
       serviceTotalUSD: pricing.serviceTotalUSD,
+      baseServiceTotalUSD: pricing.baseServiceTotalUSD,
+      priorityTotalUSD: pricing.priorityTotalUSD,
+      baseServicePerPersonUSD: pricing.servicePerPersonUSD,
       grandTotalUSD: pricing.grandTotalUSD,
       govPerPersonUSD: pricing.govPerPersonUSD,
       servicePerPersonUSD: pricing.totalServicePerPersonUSD,
@@ -140,8 +143,8 @@ module.exports = async function handler(req, res) {
       params.append('cancel_url', `${origin}/apply?country=${encodeURIComponent(destinationId)}`);
 
       params.append('line_items[0][price_data][currency]', 'usd');
-      params.append('line_items[0][price_data][product_data][name]', `${pricing.dest.visaType} — OnePassVisa Service Fee`);
-      params.append('line_items[0][price_data][unit_amount]', String(Math.round(pricing.totalServicePerPersonUSD * 100)));
+      params.append('line_items[0][price_data][product_data][name]', `${pricing.dest.visaType} — OnePassVisa base service fee`);
+      params.append('line_items[0][price_data][unit_amount]', String(Math.round(pricing.servicePerPersonUSD * 100)));
       params.append('line_items[0][quantity]', String(pricing.travelers));
 
       if (pricing.govPerPersonUSD > 0) {
@@ -149,6 +152,14 @@ module.exports = async function handler(req, res) {
         params.append('line_items[1][price_data][product_data][name]', `${pricing.dest.name} Statutory Government Fee`);
         params.append('line_items[1][price_data][unit_amount]', String(Math.round(pricing.govPerPersonUSD * 100)));
         params.append('line_items[1][quantity]', String(pricing.travelers));
+      }
+
+      if (pricing.speedPerPersonUSD > 0) {
+        const priorityIndex = pricing.govPerPersonUSD > 0 ? 2 : 1;
+        params.append(`line_items[${priorityIndex}][price_data][currency]`, 'usd');
+        params.append(`line_items[${priorityIndex}][price_data][product_data][name]`, 'Optional priority review');
+        params.append(`line_items[${priorityIndex}][price_data][unit_amount]`, String(Math.round(pricing.speedPerPersonUSD * 100)));
+        params.append(`line_items[${priorityIndex}][quantity]`, String(pricing.travelers));
       }
 
       const stripeRes = await fetch('https://api.stripe.com/v1/checkout/sessions', {

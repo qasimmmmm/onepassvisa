@@ -37,6 +37,15 @@
   }
   window.opvFormatMoney = formatMoney;
 
+  function getOrderFeeBreakdown(order) {
+    const hasSeparateFees = Number.isFinite(order.baseServiceTotalUSD) && Number.isFinite(order.priorityTotalUSD);
+    return {
+      serviceLabel: hasSeparateFees ? 'OnePassVisa base service' : 'Service and selected options',
+      baseServiceTotalUSD: hasSeparateFees ? order.baseServiceTotalUSD : order.serviceTotalUSD,
+      priorityTotalUSD: hasSeparateFees ? order.priorityTotalUSD : 0
+    };
+  }
+
   function getSavedNationality() {
     const params = new URLSearchParams(window.location.search);
     const fromUrl = (params.get('nationality') || '').toUpperCase();
@@ -462,7 +471,7 @@
             <div style="display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:1rem;margin-top:1rem;padding-top:1rem;border-top:1px solid var(--border);">
               <div>
                 <div class="tabular-nums" style="font-size:0.9rem;color:var(--text-body);">
-                  Government ${govLabel} + service ${formatMoney(pricing.servicePerPersonUSD)} = <strong style="color:var(--navy);font-size:1.05rem;">${formatMoney(pricing.totalPerPersonUSD)} / traveler</strong>
+                  Government ${govLabel} + base service ${formatMoney(pricing.servicePerPersonUSD)} = <strong style="color:var(--navy);font-size:1.05rem;">${formatMoney(pricing.totalPerPersonUSD)} / traveler</strong>
                 </div>
                 <div style="font-size:0.8rem;color:var(--text-muted);margin-top:0.25rem;">
                   Our review time: ${d.standardReviewTime} • Expected processing: ${d.govProcessingTime}
@@ -532,7 +541,7 @@
       const savedNat = getSavedNationality();
       const detailHref = savedNat ? `${d.slug}.html?nationality=${encodeURIComponent(savedNat)}` : `${d.slug}.html`;
       const govText = pricing.govPerPersonUSD === 0 ? `Government ${formatMoney(0)} (Free)` : `Government ${formatMoney(pricing.govPerPersonUSD)}`;
-      const breakdownText = `${govText} + service ${formatMoney(pricing.servicePerPersonUSD)}`;
+      const breakdownText = `${govText} + base service ${formatMoney(pricing.servicePerPersonUSD)}`;
 
       return `
         <article class="dest-card">
@@ -629,6 +638,8 @@
       const p = DATA.calculatePrice(destId, count, speedTier);
       const govEl = document.getElementById('calcGovFee');
       const srvEl = document.getElementById('calcServiceFee');
+      const priorityRowEl = document.getElementById('calcPriorityRow');
+      const priorityFeeEl = document.getElementById('calcPriorityFee');
       const handlingEl = document.getElementById('calcHandlingOut');
       const govTimeEl = document.getElementById('calcGovTimeOut');
       const totEl = document.getElementById('calcTotalOut');
@@ -651,8 +662,10 @@
             : `${formatMoney(p.govPerPersonUSD)} × ${p.travelers} = ${formatMoney(p.govTotalUSD)}`;
       }
       if (srvEl) {
-        srvEl.textContent = `${formatMoney(p.totalServicePerPersonUSD)} × ${p.travelers} = ${formatMoney(p.serviceTotalUSD)}`;
+        srvEl.textContent = `${formatMoney(p.servicePerPersonUSD)} × ${p.travelers} = ${formatMoney(p.baseServiceTotalUSD)}`;
       }
+      if (priorityFeeEl) priorityFeeEl.textContent = `${formatMoney(p.speedPerPersonUSD)} × ${p.travelers} = ${formatMoney(p.priorityTotalUSD)}`;
+      if (priorityRowEl) priorityRowEl.style.display = p.priorityTotalUSD > 0 ? 'flex' : 'none';
       if (handlingEl) {
         handlingEl.textContent = speedTier === 'priority' ? p.dest.priorityReviewTime : p.dest.standardReviewTime;
       }
@@ -1124,6 +1137,8 @@
       const docTitleEl = document.getElementById('sumDocTitle');
       const govRowEl = document.getElementById('sumGovFee');
       const srvRowEl = document.getElementById('sumServiceFee');
+      const priorityRowEl = document.getElementById('sumPriorityRow');
+      const priorityFeeEl = document.getElementById('sumPriorityFee');
       const handRowEl = document.getElementById('sumHandlingTime');
       const govTimeRowEl = document.getElementById('sumGovTime');
       const totEl = document.getElementById('sumGrandTotal');
@@ -1147,8 +1162,10 @@
             : `${formatMoney(p.govPerPersonUSD)} × ${p.travelers} = ${formatMoney(p.govTotalUSD)}`;
       }
       if (srvRowEl) {
-        srvRowEl.textContent = `${formatMoney(p.totalServicePerPersonUSD)} × ${p.travelers} = ${formatMoney(p.serviceTotalUSD)}`;
+        srvRowEl.textContent = `${formatMoney(p.servicePerPersonUSD)} × ${p.travelers} = ${formatMoney(p.baseServiceTotalUSD)}`;
       }
+      if (priorityFeeEl) priorityFeeEl.textContent = `${formatMoney(p.speedPerPersonUSD)} × ${p.travelers} = ${formatMoney(p.priorityTotalUSD)}`;
+      if (priorityRowEl) priorityRowEl.style.display = p.priorityTotalUSD > 0 ? 'flex' : 'none';
       if (handRowEl) {
         handRowEl.textContent = speedTier === 'priority' ? p.dest.priorityReviewTime : p.dest.standardReviewTime;
       }
@@ -1363,6 +1380,9 @@
             accommodationAddress,
             govTotalUSD: pricing.govTotalUSD,
             serviceTotalUSD: pricing.serviceTotalUSD,
+            baseServiceTotalUSD: pricing.baseServiceTotalUSD,
+            priorityTotalUSD: pricing.priorityTotalUSD,
+            baseServicePerPersonUSD: pricing.servicePerPersonUSD,
             grandTotalUSD: pricing.grandTotalUSD,
             applicants
           };
@@ -1415,6 +1435,10 @@
     const travEl = document.getElementById('chkTravelers');
     const govEl = document.getElementById('chkGovFee');
     const srvEl = document.getElementById('chkServiceFee');
+    const serviceLabelEl = document.getElementById('chkServiceLabel');
+    const priorityRowEl = document.getElementById('chkPriorityRow');
+    const priorityFeeEl = document.getElementById('chkPriorityFee');
+    const orderFees = getOrderFeeBreakdown(order);
     const totEl = document.getElementById('chkTotal');
     const discEl = document.getElementById('chkDisclosure');
 
@@ -1423,7 +1447,10 @@
     if (emailEl) emailEl.textContent = order.email;
     if (travEl) travEl.textContent = `${order.travelersCount} Traveler(s)`;
     if (govEl) govEl.textContent = order.govTotalUSD === 0 ? `${formatMoney(0)} (Free official form)` : formatMoney(order.govTotalUSD);
-    if (srvEl) srvEl.textContent = formatMoney(order.serviceTotalUSD);
+    if (srvEl) srvEl.textContent = formatMoney(orderFees.baseServiceTotalUSD);
+    if (serviceLabelEl) serviceLabelEl.textContent = orderFees.serviceLabel;
+    if (priorityFeeEl) priorityFeeEl.textContent = formatMoney(orderFees.priorityTotalUSD);
+    if (priorityRowEl) priorityRowEl.style.display = orderFees.priorityTotalUSD > 0 ? 'flex' : 'none';
     if (totEl) totEl.textContent = `${DATA.formatMoney(order.grandTotalUSD, 'USD')} USD`;
     if (discEl) {
       discEl.innerHTML = `OnePassVisa is a private assistance service, not a government site. You can apply directly at <a href="${order.govPortal}" target="_blank" rel="noopener noreferrer" style="color:var(--emerald);font-weight:600;text-decoration:underline;">${order.govPortalName}</a> for the ${order.govTotalUSD === 0 ? formatMoney(0) + ' government fee' : formatMoney(order.govTotalUSD) + ' government fee'} only.`;
@@ -1466,6 +1493,7 @@
 
       if (paymentFormWrap) paymentFormWrap.style.display = 'none';
       if (receiptWrap) {
+        const confirmedFees = getOrderFeeBreakdown(confirmedOrder);
         receiptWrap.innerHTML = `
           <div class="card receipt-card">
             <span class="badge badge-emerald" style="margin-bottom:0.75rem;">✓ Payment Confirmed • In Review</span>
@@ -1479,7 +1507,8 @@
               <div class="summary-row"><span>Document</span><strong>${confirmedOrder.cleanTitle || confirmedOrder.visaType}</strong></div>
               <div class="summary-row"><span>Current Status</span><strong style="color:var(--emerald);">${confirmedOrder.status}</strong></div>
               <div class="summary-row"><span>Government Fee</span><strong>${confirmedOrder.govTotalUSD === 0 ? DATA.formatMoney(0, 'USD') + ' (Free)' : DATA.formatMoney(confirmedOrder.govTotalUSD, 'USD')}</strong></div>
-              <div class="summary-row"><span>OnePassVisa Service</span><strong>${DATA.formatMoney(confirmedOrder.serviceTotalUSD, 'USD')}</strong></div>
+              <div class="summary-row"><span>${confirmedFees.serviceLabel}</span><strong>${DATA.formatMoney(confirmedFees.baseServiceTotalUSD, 'USD')}</strong></div>
+              ${confirmedFees.priorityTotalUSD > 0 ? `<div class="summary-row"><span>Optional priority review</span><strong>${DATA.formatMoney(confirmedFees.priorityTotalUSD, 'USD')}</strong></div>` : ''}
               <div class="summary-total"><span>Total Charged (${methodLabel})</span><span>${DATA.formatMoney(confirmedOrder.grandTotalUSD, 'USD')} USD</span></div>
             </div>
             <div style="display:flex;gap:0.75rem;flex-wrap:wrap;">
@@ -1585,6 +1614,7 @@
         }
       }
 
+      const orderFees = getOrderFeeBreakdown(matchedOrder);
       out.innerHTML = `
         <div class="card tracking-result">
           <div class="tracking-result-heading">
@@ -1636,7 +1666,10 @@
           <div class="summary-row"><span>Applicant Email</span><strong>${matchedOrder.email}</strong></div>
           <div class="summary-row"><span>Travelers</span><strong>${matchedOrder.travelersCount}</strong></div>
           <div class="summary-row"><span>Planned Arrival Date</span><strong>${matchedOrder.arrivalDate}</strong></div>
-          <div class="summary-row"><span>Total Paid</span><strong>${formatMoney(matchedOrder.grandTotalUSD)} (Government ${formatMoney(matchedOrder.govTotalUSD)} + service ${formatMoney(matchedOrder.serviceTotalUSD)})</strong></div>
+          <div class="summary-row"><span>Government fee</span><strong>${formatMoney(matchedOrder.govTotalUSD)}</strong></div>
+          <div class="summary-row"><span>${orderFees.serviceLabel}</span><strong>${formatMoney(orderFees.baseServiceTotalUSD)}</strong></div>
+          ${orderFees.priorityTotalUSD > 0 ? `<div class="summary-row"><span>Optional priority review</span><strong>${formatMoney(orderFees.priorityTotalUSD)}</strong></div>` : ''}
+          <div class="summary-row"><span>Total Paid</span><strong>${formatMoney(matchedOrder.grandTotalUSD)}</strong></div>
         </div>
       `;
       out.style.display = 'block';
