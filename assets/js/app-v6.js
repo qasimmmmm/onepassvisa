@@ -225,8 +225,9 @@
       } else {
         natSelect.value = n.code;
         saveNationality(n.code);
+        const flag = n.flag || '';
         if (natLabel) {
-          natLabel.innerHTML = `<span style="display:inline-flex;align-items:center;gap:0.45rem;overflow:hidden;text-overflow:ellipsis;"><span class="combo-flag">${n.flag}</span><span>${n.name}</span></span><span style="color:var(--text-muted);font-size:0.75rem;">▾</span>`;
+          natLabel.innerHTML = `<span style="display:inline-flex;align-items:center;gap:0.45rem;overflow:hidden;text-overflow:ellipsis;"><span class="combo-flag">${flag}</span><span>${n.name}</span></span><span style="color:var(--text-muted);font-size:0.75rem;">▾</span>`;
         }
         document.querySelectorAll('.js-carry-nationality').forEach((link) => {
           try {
@@ -243,8 +244,9 @@
     function setDestination(id) {
       const d = DATA.destinations.find((x) => x.id === id) || DATA.destinations[0];
       destSelect.value = d.id;
+      const flag = d.flag || '';
       if (destLabel) {
-        destLabel.innerHTML = `<span style="display:inline-flex;align-items:center;gap:0.45rem;overflow:hidden;text-overflow:ellipsis;"><span class="combo-flag">${d.flag}</span><span>${d.name} (${d.shortDocName || d.categoryBadge})</span></span><span style="color:var(--text-muted);font-size:0.75rem;">▾</span>`;
+        destLabel.innerHTML = `<span style="display:inline-flex;align-items:center;gap:0.45rem;overflow:hidden;text-overflow:ellipsis;"><span class="combo-flag">${flag}</span><span>${d.name} (${d.shortDocName || d.categoryBadge})</span></span><span style="color:var(--text-muted);font-size:0.75rem;">▾</span>`;
       }
       destWrap.classList.remove('open');
       if (destTrigger) destTrigger.setAttribute('aria-expanded', 'false');
@@ -421,6 +423,16 @@
           const comboTrig = document.getElementById('comboNationalityTrigger');
           if (comboTrig) comboTrig.click();
           else natEl.focus();
+        }
+        if (drawer) {
+          drawer.innerHTML = `
+            <div style="padding:0.75rem 0.5rem;text-align:center;">
+              <span class="badge badge-emerald" style="margin-bottom:0.5rem;">Passport Selection Required</span>
+              <h3 style="font-size:1.1rem;color:var(--navy);margin-bottom:0.35rem;">Please select your passport country</h3>
+              <p style="font-size:0.88rem;color:var(--text-muted);margin:0;">Visa, ETA, and arrival card rules depend on the passport you travel with. Select your nationality from the dropdown above to view eligibility and pricing.</p>
+            </div>
+          `;
+          drawer.classList.add('active');
         }
         return;
       }

@@ -12,14 +12,15 @@
   <meta property="og:title" content="Help, Fees &amp; Official Government Portals | OnePassVisa" />
   <meta property="og:description" content="Read common questions, calculate your exact total, and view official government portal links and statutory fees across all 18 supported travel documents." />
   <meta property="og:url" content="https://onepassvisa.com/faq" />
-  <meta property="og:image" content="https://onepassvisa.com/assets/images/logo-horizontal.png" />
-  <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg?v=8" />
-  <link rel="icon" type="image/png" href="assets/images/favicon.png?v=8" />
-  <link rel="apple-touch-icon" href="assets/images/apple-touch-icon.png?v=8" />
+  <meta property="og:image" content="https://onepassvisa.com/assets/images/onepassvisa-logo-master.png" />
+  <link rel="icon" type="image/x-icon" href="assets/images/favicon.ico" />
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="192x192" href="assets/images/favicon-192x192.png" />
+  <link rel="apple-touch-icon" href="assets/images/apple-touch-icon.png" />
   <link rel="preload" href="assets/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="preload" href="assets/fonts/plus-jakarta-700.woff2" as="font" type="font/woff2" crossorigin />
-  <link rel="stylesheet" href="assets/css/onepass-v6.css?v=8" />
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"OnePassVisa","legalName":"OnePassVisa Digital Travel Services LLC","url":"https://onepassvisa.com/","logo":"https://onepassvisa.com/assets/images/logo.svg","description":"Independent private visa and travel document assistance service helping travelers apply for eVisas, ETAs, and digital arrival cards.","contactPoint":{"@type":"ContactPoint","email":"support@onepassvisa.com","contactType":"customer support","availableLanguage":["English"]}}</script>
+  <link rel="stylesheet" href="assets/css/onepass-v6.css?v=9" />
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"OnePassVisa","legalName":"OnePassVisa Digital Travel Services LLC","url":"https://onepassvisa.com/","logo":"https://onepassvisa.com/assets/images/onepassvisa-logo-master.png","description":"Independent private visa and travel document assistance service helping travelers apply for eVisas, ETAs, and digital arrival cards.","contactPoint":{"@type":"ContactPoint","email":"support@onepassvisa.com","contactType":"customer support","availableLanguage":["English"]}}</script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Is OnePassVisa an official government website?","acceptedAnswer":{"@type":"Answer","text":"No. OnePassVisa.com is a private, non-government travel document assistance service operated by OnePassVisa Digital Travel Services LLC. You can always apply directly on the official government portals listed below for the government fee only."}},{"@type":"Question","name":"How are your prices calculated?","acceptedAnswer":{"@type":"Answer","text":"Every price across our website follows one formula: Government fee + OnePassVisa service fee + optional priority review (if selected) = Total. There are no hidden surcharges or pre-selected add-ons."}},{"@type":"Question","name":"Why would I use OnePassVisa for a free arrival card like Thailand TDAC, Singapore SGAC, or Malaysia MDAC?","acceptedAnswer":{"@type":"Answer","text":"Official digital arrival cards for Thailand, Singapore, and Malaysia are free (US$0 government fee) when submitted directly on the government portal within 3 days before arrival. Travelers choose our optional US$29 service so they can enter their trip details right after booking flights, have our specialists check passport and flight numbers, and automatically receive their confirmation as soon as the 3-day window opens."}},{"@type":"Question","name":"What is the difference between your review time and expected government processing?","acceptedAnswer":{"@type":"Answer","text":"Our review time is how long our specialists take to check your details, format your documents, and submit your application (within 6–12 hours for eVisas/ETAs, within 4–6 hours for arrival cards, or within 1–2 hours with Priority review). Expected processing is how long the government authority takes to issue the outcome after submission."}},{"@type":"Question","name":"How do refunds work?","acceptedAnswer":{"@type":"Answer","text":"If you cancel before our team submits your application to the government portal, you receive a 100% refund of both the government fee and our service fee. Once submitted to the government, statutory fees are non-refundable, but if immigration declines your application, we refund 100% of the OnePassVisa service fee."}}]}</script>
 </head>
 <body>
@@ -37,7 +38,7 @@
   <header class="site-header">
     <div class="container header-inner">
       <a href="index.html" class="brand-logo" aria-label="onepassvisa Home">
-        <img src="assets/images/logo.svg?v=8" alt="onepassvisa" width="180" height="36" class="brand-logo-img" />
+        <img src="assets/images/onepassvisa-logo-master.png?v=9" alt="onepassvisa" width="188" height="33" class="brand-logo-img" />
       </a>
 
       <nav class="nav-links" id="mainNavLinks" aria-label="Primary Navigation">
@@ -110,8 +111,9 @@
           </select>
         </div>
 
-        <a href="index.html#checker" class="btn btn-primary btn-sm">
-          <span>Check requirements</span>
+        <a href="index.html#checker" class="btn btn-primary btn-sm header-cta-btn">
+          <span class="cta-text-full">Check requirements</span>
+          <span class="cta-text-short">Check</span>
         </a>
 
         <button type="button" class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mainNavLinks">
@@ -249,7 +251,7 @@
                 <div class="field-group">
                   <label class="field-label" for="calcDestination">Destination &amp; document</label>
                   <select id="calcDestination" class="field-control js-destination-select" data-default="vietnam">
-                    <option value="vietnam" selected>undefined Vietnam — Tourist eVisa</option><option value="thailand-tdac" >undefined Thailand — Digital Arrival Card (TDAC)</option><option value="indonesia" >undefined Indonesia (Bali) — Electronic Visa on Arrival (e-VOA)</option><option value="uk" >undefined United Kingdom — Electronic Travel Authorisation (ETA)</option><option value="usa" >undefined United States — ESTA (Visa Waiver Program)</option><option value="india" >undefined India — Tourist eVisa (30-Day)</option><option value="singapore" >undefined Singapore — Digital Arrival Card (SGAC)</option><option value="cambodia" >undefined Cambodia — Tourist eVisa (Type T)</option><option value="uae" >undefined United Arab Emirates — Tourist eVisa (30-Day)</option><option value="saudi" >undefined Saudi Arabia — Tourist eVisa (1-Year Multiple Entry)</option><option value="turkey" >undefined Türkiye — Electronic Visa (e-Visa)</option><option value="egypt" >undefined Egypt — Tourist eVisa (Single Entry)</option><option value="kenya" >undefined Kenya — Electronic Travel Authorisation (eTA)</option><option value="canada" >undefined Canada — Electronic Travel Authorization (eTA)</option><option value="australia" >undefined Australia — Electronic Travel Authority (ETA)</option><option value="malaysia" >undefined Malaysia — Digital Arrival Card (MDAC)</option><option value="thailand-evisa" >undefined Thailand — Tourist eVisa (60-Day)</option><option value="morocco" >undefined Morocco — Tourist eVisa (30-Day)</option>
+                    <option value="vietnam" selected>🇻🇳 Vietnam — Tourist eVisa</option><option value="thailand-tdac" >🇹🇭 Thailand — Digital Arrival Card (TDAC)</option><option value="indonesia" >🇮🇩 Indonesia (Bali) — Electronic Visa on Arrival (e-VOA)</option><option value="uk" >🇬🇧 United Kingdom — Electronic Travel Authorisation (ETA)</option><option value="usa" >🇺🇸 United States — ESTA (Visa Waiver Program)</option><option value="india" >🇮🇳 India — Tourist eVisa (30-Day)</option><option value="singapore" >🇸🇬 Singapore — Digital Arrival Card (SGAC)</option><option value="cambodia" >🇰🇭 Cambodia — Tourist eVisa (Type T)</option><option value="uae" >🇦🇪 United Arab Emirates — Tourist eVisa (30-Day)</option><option value="saudi" >🇸🇦 Saudi Arabia — Tourist eVisa (1-Year Multiple Entry)</option><option value="turkey" >🇹🇷 Türkiye — Electronic Visa (e-Visa)</option><option value="egypt" >🇪🇬 Egypt — Tourist eVisa (Single Entry)</option><option value="kenya" >🇰🇪 Kenya — Electronic Travel Authorisation (eTA)</option><option value="canada" >🇨🇦 Canada — Electronic Travel Authorization (eTA)</option><option value="australia" >🇦🇺 Australia — Electronic Travel Authority (ETA)</option><option value="malaysia" >🇲🇾 Malaysia — Digital Arrival Card (MDAC)</option><option value="thailand-evisa" >🇹🇭 Thailand — Tourist eVisa (60-Day)</option><option value="morocco" >🇲🇦 Morocco — Tourist eVisa (30-Day)</option>
                   </select>
                 </div>
                 <div class="field-group">
@@ -317,7 +319,7 @@
               <tbody>
                 
         <tr>
-          <td><a href="vietnam-evisa.html" style="color:var(--emerald);font-weight:700;text-decoration:underline;">undefined Vietnam</a></td>
+          <td><a href="vietnam-evisa.html" style="color:var(--emerald);font-weight:700;text-decoration:underline;">🇻🇳 Vietnam</a></td>
           <td>Vietnam tourist eVisa</td>
           <td><strong>US$25 statutory government fee</strong></td>
           <td data-usd="34">US$34</td>
@@ -327,7 +329,7 @@
         </tr>
       
         <tr>
-          <td><a href="thailand-arrival-card.html" style="color:var(--emerald);font-weight:700;text-decoration:underline;">undefined Thailand</a></td>
+          <td><a href="thailand-arrival-card.html" style="color:var(--emerald);font-weight:700;text-decoration:underline;">🇹🇭 Thailand</a></td>
           <td>Thailand digital arrival card (TDAC)</td>
           <td><strong>Free (US$0 on official government portal)</strong></td>
           <td data-usd="29">US$29</td>
@@ -337,7 +339,7 @@
         </tr>
       
         <tr>
-          <td><a href="indonesia-evoa.html" style="color:var(--emerald);font-weight:700;text-decoration:underline;">undefined Indonesia (Bali)</a></td>
+          <td><a href="indonesia-evoa.html" style="color:var(--emerald);font-weight:700;text-decoration:underline;">🇮🇩 Indonesia (Bali)</a></td>
           <td>Indonesia &amp; Bali e-VOA</td>
           <td><strong>IDR 500,000 + portal fee (approx. US$35 converted)</strong></td>
           <td data-usd="34">US$34</td>
@@ -347,7 +349,7 @@
         </tr>
       
         <tr>
-          <td><a href="uk-eta.html" style="color:var(--emerald);font-weight:700;text-decoration:underline;">undefined United Kingdom</a></td>
+          <td><a href="uk-eta.html" style="color:var(--emerald);font-weight:700;text-decoration:underline;">🇬🇧 United Kingdom</a></td>
           <td>United Kingdom ETA</td>
           <td><strong>£20 GBP statutory fee (approx. US$26 converted)</strong></td>
           <td data-usd="34">US$34</td>
@@ -357,7 +359,7 @@
         </tr>
       
         <tr>
-          <td><a href="us-esta.html" style="color:var(--emerald);font-weight:700;text-decoration:underline;">undefined United States</a></td>
+          <td><a href="us-esta.html" style="color:var(--emerald);font-weight:700;text-decoration:underline;">🇺🇸 United States</a></td>
           <td>United States ESTA</td>
           <td><strong>US$40.62 statutory CBP fee (effective 16 Oct 2026)</strong></td>
           <td data-usd="38">US$38</td>
@@ -367,7 +369,7 @@
         </tr>
       
         <tr>
-          <td><a href="india-evisa.html" style="color:var(--emerald);font-weight:700;text-decoration:underline;">undefined India</a></td>
+          <td><a href="india-evisa.html" style="color:var(--emerald);font-weight:700;text-decoration:underline;">🇮🇳 India</a></td>
           <td>India tourist eVisa</td>
           <td><strong>US$25 statutory government fee</strong></td>
           <td data-usd="39">US$39</td>
@@ -377,7 +379,7 @@
         </tr>
       
         <tr>
-          <td><a href="singapore-arrival-card.html" style="color:var(--emerald);font-weight:700;text-decoration:underline;">undefined Singapore</a></td>
+          <td><a href="singapore-arrival-card.html" style="color:var(--emerald);font-weight:700;text-decoration:underline;">🇸🇬 Singapore</a></td>
           <td>Singapore digital arrival card (SGAC)</td>
           <td><strong>Free (US$0 on official ICA portal)</strong></td>
           <td data-usd="29">US$29</td>
@@ -387,7 +389,7 @@
         </tr>
       
         <tr>
-          <td><a href="cambodia-evisa.html" style="color:var(--emerald);font-weight:700;text-decoration:underline;">undefined Cambodia</a></td>
+          <td><a href="cambodia-evisa.html" style="color:var(--emerald);font-weight:700;text-decoration:underline;">🇰🇭 Cambodia</a></td>
           <td>Cambodia tourist eVisa</td>
           <td><strong>US$30 statutory government fee</strong></td>
           <td data-usd="34">US$34</td>
@@ -397,7 +399,7 @@
         </tr>
       
         <tr>
-          <td><a href="uae-evisa.html" style="color:var(--emerald);font-weight:700;text-decoration:underline;">undefined United Arab Emirates</a></td>
+          <td><a href="uae-evisa.html" style="color:var(--emerald);font-weight:700;text-decoration:underline;">🇦🇪 United Arab Emirates</a></td>
           <td>UAE tourist eVisa</td>
           <td><strong>AED 350 (approx. US$95 converted) statutory fee</strong></td>
           <td data-usd="44">US$44</td>
@@ -407,7 +409,7 @@
         </tr>
       
         <tr>
-          <td><a href="saudi-evisa.html" style="color:var(--emerald);font-weight:700;text-decoration:underline;">undefined Saudi Arabia</a></td>
+          <td><a href="saudi-evisa.html" style="color:var(--emerald);font-weight:700;text-decoration:underline;">🇸🇦 Saudi Arabia</a></td>
           <td>Saudi Arabia tourist eVisa</td>
           <td><strong>SAR 395 incl. mandatory health insurance (approx. US$108 converted)</strong></td>
           <td data-usd="44">US$44</td>
@@ -417,7 +419,7 @@
         </tr>
       
         <tr>
-          <td><a href="turkey-evisa.html" style="color:var(--emerald);font-weight:700;text-decoration:underline;">undefined Türkiye</a></td>
+          <td><a href="turkey-evisa.html" style="color:var(--emerald);font-weight:700;text-decoration:underline;">🇹🇷 Türkiye</a></td>
           <td>Türkiye electronic visa</td>
           <td><strong>US$51.50 statutory government fee</strong></td>
           <td data-usd="34">US$34</td>
@@ -427,7 +429,7 @@
         </tr>
       
         <tr>
-          <td><a href="egypt-evisa.html" style="color:var(--emerald);font-weight:700;text-decoration:underline;">undefined Egypt</a></td>
+          <td><a href="egypt-evisa.html" style="color:var(--emerald);font-weight:700;text-decoration:underline;">🇪🇬 Egypt</a></td>
           <td>Egypt tourist eVisa</td>
           <td><strong>US$25 statutory government fee</strong></td>
           <td data-usd="34">US$34</td>
@@ -437,7 +439,7 @@
         </tr>
       
         <tr>
-          <td><a href="kenya-eta.html" style="color:var(--emerald);font-weight:700;text-decoration:underline;">undefined Kenya</a></td>
+          <td><a href="kenya-eta.html" style="color:var(--emerald);font-weight:700;text-decoration:underline;">🇰🇪 Kenya</a></td>
           <td>Kenya electronic travel authorisation (eTA)</td>
           <td><strong>US$32.50 + portal processing fee (approx. US$34)</strong></td>
           <td data-usd="35">US$35</td>
@@ -447,7 +449,7 @@
         </tr>
       
         <tr>
-          <td><a href="canada-eta.html" style="color:var(--emerald);font-weight:700;text-decoration:underline;">undefined Canada</a></td>
+          <td><a href="canada-eta.html" style="color:var(--emerald);font-weight:700;text-decoration:underline;">🇨🇦 Canada</a></td>
           <td>Canada electronic travel authorization (eTA)</td>
           <td><strong>CAD $7 statutory fee (approx. US$5 converted)</strong></td>
           <td data-usd="34">US$34</td>
@@ -457,7 +459,7 @@
         </tr>
       
         <tr>
-          <td><a href="australia-eta.html" style="color:var(--emerald);font-weight:700;text-decoration:underline;">undefined Australia</a></td>
+          <td><a href="australia-eta.html" style="color:var(--emerald);font-weight:700;text-decoration:underline;">🇦🇺 Australia</a></td>
           <td>Australia electronic travel authority (ETA)</td>
           <td><strong>AUD $20 service charge (approx. US$14 converted)</strong></td>
           <td data-usd="35">US$35</td>
@@ -467,7 +469,7 @@
         </tr>
       
         <tr>
-          <td><a href="malaysia-arrival-card.html" style="color:var(--emerald);font-weight:700;text-decoration:underline;">undefined Malaysia</a></td>
+          <td><a href="malaysia-arrival-card.html" style="color:var(--emerald);font-weight:700;text-decoration:underline;">🇲🇾 Malaysia</a></td>
           <td>Malaysia digital arrival card (MDAC)</td>
           <td><strong>Free (US$0 on official Immigration portal)</strong></td>
           <td data-usd="29">US$29</td>
@@ -477,7 +479,7 @@
         </tr>
       
         <tr>
-          <td><a href="thailand-evisa.html" style="color:var(--emerald);font-weight:700;text-decoration:underline;">undefined Thailand</a></td>
+          <td><a href="thailand-evisa.html" style="color:var(--emerald);font-weight:700;text-decoration:underline;">🇹🇭 Thailand</a></td>
           <td>Thailand 60-day tourist eVisa</td>
           <td><strong>US$40 statutory embassy fee</strong></td>
           <td data-usd="39">US$39</td>
@@ -487,7 +489,7 @@
         </tr>
       
         <tr>
-          <td><a href="morocco-evisa.html" style="color:var(--emerald);font-weight:700;text-decoration:underline;">undefined Morocco</a></td>
+          <td><a href="morocco-evisa.html" style="color:var(--emerald);font-weight:700;text-decoration:underline;">🇲🇦 Morocco</a></td>
           <td>Morocco tourist eVisa</td>
           <td><strong>MAD 770 statutory fee (approx. US$77 converted)</strong></td>
           <td data-usd="39">US$39</td>
@@ -510,7 +512,7 @@
       <div class="footer-grid">
         <div>
           <a href="index.html" aria-label="onepassvisa Home" style="display:inline-block;margin-bottom:0.85rem;">
-            <img src="assets/images/logo-white.svg?v=8" alt="onepassvisa" width="180" height="36" loading="lazy" />
+            <img src="assets/images/onepassvisa-logo-white-master.png?v=9" alt="onepassvisa" width="194" height="34" class="brand-logo-img-footer" loading="lazy" />
           </a>
           <p style="font-size:0.875rem;color:#CBD5E1;margin-bottom:0.85rem;max-width:22rem;">
             Private travel document and eVisa filing assistance. Specialist passport &amp; photo review, clear fee breakdowns, and direct links to official government portals.
@@ -597,7 +599,7 @@
     </div>
   </div>
 
-  <script src="assets/js/data-v6.js?v=8" defer></script>
-  <script src="assets/js/app-v6.js?v=8" defer></script>
+  <script src="assets/js/data-v6.js?v=9" defer></script>
+  <script src="assets/js/app-v6.js?v=9" defer></script>
 </body>
 </html>

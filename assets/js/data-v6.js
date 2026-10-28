@@ -1088,6 +1088,45 @@
     };
   }
 
+  function getFlagEmoji(countryCode) {
+    if (!countryCode || countryCode.length !== 2) return '';
+    const codePoints = countryCode
+      .toUpperCase()
+      .split('')
+      .map((char) => 127397 + char.charCodeAt(0));
+    return String.fromCodePoint(...codePoints);
+  }
+
+  NATIONALITIES.forEach((n) => {
+    n.flag = getFlagEmoji(n.code);
+  });
+
+  const DEST_COUNTRY_CODES = {
+    'vietnam': 'VN',
+    'thailand-tdac': 'TH',
+    'indonesia': 'ID',
+    'uk': 'GB',
+    'usa': 'US',
+    'india': 'IN',
+    'singapore': 'SG',
+    'cambodia': 'KH',
+    'uae': 'AE',
+    'saudi': 'SA',
+    'turkey': 'TR',
+    'egypt': 'EG',
+    'kenya': 'KE',
+    'canada': 'CA',
+    'australia': 'AU',
+    'malaysia': 'MY',
+    'thailand-evisa': 'TH',
+    'morocco': 'MA'
+  };
+
+  DESTINATIONS.forEach((d) => {
+    d.countryCode = DEST_COUNTRY_CODES[d.id] || 'UN';
+    d.flag = getFlagEmoji(d.countryCode);
+  });
+
   const EXPORT_DATA = {
     currencies: CURRENCIES,
     nationalities: NATIONALITIES,
