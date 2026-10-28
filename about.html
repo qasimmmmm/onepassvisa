@@ -19,7 +19,7 @@
   <link rel="apple-touch-icon" href="assets/images/apple-touch-icon.png" />
   <link rel="preload" href="assets/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="preload" href="assets/fonts/plus-jakarta-700.woff2" as="font" type="font/woff2" crossorigin />
-  <link rel="stylesheet" href="assets/css/onepass-v6.css?v=10" />
+  <link rel="stylesheet" href="assets/css/onepass-v6.css?v=12" />
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"OnePassVisa","legalName":"OnePassVisa Digital Travel Services LLC","url":"https://onepassvisa.com/","logo":"https://onepassvisa.com/assets/images/onepassvisa-logo-master.png","description":"Independent private visa and travel document assistance service helping travelers apply for eVisas, ETAs, and digital arrival cards.","contactPoint":{"@type":"ContactPoint","email":"support@onepassvisa.com","contactType":"customer support","availableLanguage":["English"]}}</script>
 </head>
 <body>
@@ -128,86 +128,77 @@
     <div class="currency-estimate-notice js-currency-notice" role="status" aria-live="polite"></div>
   </div>
 
-  <main id="main-content">
-    
-    <section class="section page-section">
-      <div class="container">
-        <div class="section-header-left page-intro">
-          <span class="section-kicker">About OnePassVisa</span>
-          <h1 class="page-title">A little less paperwork. More confidence in your plans.</h1>
-          <p class="page-lead">Travel documents can involve unfamiliar forms, photo requirements, and submission windows. OnePassVisa helps travelers prepare their information and understand the next step.</p>
-        </div>
+  <main class="about-page" id="main-content">
+<section class="section page-section compact-page-section">
+<div class="container">
+<div class="page-intro compact-page-intro">
+<span class="section-kicker">About OnePassVisa</span>
+<h1 class="page-title">A little less paperwork.</h1>
+<p class="page-lead">Travel documents can involve unfamiliar forms, photo requirements, and submission windows. OnePassVisa helps travelers prepare their information and understand the next step.</p>
+</div>
+<div class="about-overview">
+<div class="about-story">
+<h2 class="section-title">Practical help, from the first detail.</h2>
+<p class="section-description">OnePassVisa Digital Travel Services LLC is an independent private agency helping travelers prepare and submit eVisas, ETAs, and digital arrival cards.</p>
+<p class="section-description">Official immigration portals vary in file-size rules, photo dimensions, and submission windows. A transposed passport number or unformatted photo can delay an application.</p>
+<div class="principles-list">
+<section>
+<span class="section-kicker">01</span>
+<h3>Clear information</h3>
+<p>Use a document-specific online form and understand what your application needs.</p>
+</section>
+<section>
+<span class="section-kicker">02</span>
+<h3>Careful preparation</h3>
+<p>We manually check passport details and travel dates, format required scans and photos, and submit your application on schedule.</p>
+</section>
+<section>
+<span class="section-kicker">03</span>
+<h3>Transparent fees</h3>
+<p>See the government fee separately and access the official portal, so you can choose whether to apply yourself or with our assistance.</p>
+</section>
+</div>
+</div>
 
-        <div class="about-layout">
-          <div class="about-story">
-            <h2 class="section-title">Practical help, from the first detail.</h2>
-            <p class="section-description">OnePassVisa Digital Travel Services LLC is an independent private agency helping travelers prepare and submit eVisas, ETAs, and digital arrival cards.</p>
-            <p class="section-description">Official immigration portals vary in file-size rules, photo dimensions, and submission windows. A transposed passport number or unformatted photo can delay an application.</p>
-            <div class="principles-list">
-              <section>
-                <span class="section-kicker">01</span>
-                <h3>Clear information</h3>
-                <p>Use a document-specific online form and understand what your application needs.</p>
-              </section>
-              <section>
-                <span class="section-kicker">02</span>
-                <h3>Careful preparation</h3>
-                <p>We manually check passport details and travel dates, format required scans and photos, and submit your application on schedule.</p>
-              </section>
-              <section>
-                <span class="section-kicker">03</span>
-                <h3>Transparent fees</h3>
-                <p>See the government fee separately and access the official portal, so you can choose whether to apply yourself or with our assistance.</p>
-              </section>
-            </div>
-          </div>
+<figure class="about-photo"><img alt="Limestone islands in Ha Long Bay, Vietnam" decoding="async" height="533" loading="lazy" sizes="(min-width: 900px) 440px, 100vw" src="assets/images/hero-halong-800.webp" srcset="assets/images/hero-halong-800.webp 800w, assets/images/hero-halong-1200.webp 1200w" width="800"/><figcaption>Ha Long Bay, Vietnam</figcaption></figure></div>
 
-          <div class="card contact-card" id="contact">
-            <h2 class="card-title">Contact support</h2>
-            <p class="card-copy">
-              Send us a message below or email <a href="mailto:support@onepassvisa.com" style="color:var(--emerald);text-decoration:underline;font-weight:700;">support@onepassvisa.com</a>. We reply within 4 hours, 7 days a week.
-            </p>
+<section aria-labelledby="contact-title" class="contact-section" id="contact"><div class="contact-intro"><h2 class="section-title" id="contact-title">Contact support</h2><p class="card-copy">Send us a message below or email <a href="mailto:support@onepassvisa.com">support@onepassvisa.com</a>. Include your application reference if you have one.</p></div><div class="card contact-card contact-form-card">
 
-            <form id="contactSupportForm" novalidate>
-              <div class="form-grid-2 contact-fields">
-                <div class="field-group">
-                  <label class="field-label" for="contactName">Your name *</label>
-                  <input type="text" id="contactName" class="field-control" autocomplete="name" required />
-                </div>
-                <div class="field-group">
-                  <label class="field-label" for="contactEmail">Email address *</label>
-                  <input type="email" id="contactEmail" class="field-control" autocomplete="email" inputmode="email" required />
-                </div>
-              </div>
-              <div class="field-group contact-field">
-                <label class="field-label" for="contactRef">Application reference (optional)</label>
-                <input type="text" id="contactRef" class="field-control" placeholder="e.g. OPV-20261028-XXXXXX" />
-              </div>
-              <div class="field-group contact-field">
-                <label class="field-label" for="contactMessage">Message *</label>
-                <textarea id="contactMessage" class="field-control" required></textarea>
-              </div>
-              <button type="submit" class="btn btn-primary btn-block">
-                <span>Send message</span>
-              </button>
-            </form>
 
-            <div id="contactFormStatus" role="status" aria-live="polite" style="display:none;margin-top:1rem;"></div>
-          </div>
-        </div>
-
-        <section class="company-details" aria-labelledby="company-details-title">
-          <h2 id="company-details-title" class="card-title">Company information</h2>
-          <dl class="company-information">
-            <div><dt>Legal entity</dt><dd>OnePassVisa Digital Travel Services LLC<span>Registered in Delaware, USA</span></dd></div>
-            <div><dt>Fee verification</dt><dd>Verified 27 Oct 2026<span>All 18 supported travel documents</span></dd></div>
-            <div><dt>Support email</dt><dd><a href="mailto:support@onepassvisa.com">support@onepassvisa.com</a><span>Mon–Sun, 00:00–23:59 UTC</span></dd></div>
-          </dl>
-        </section>
-      </div>
-    </section>
-  
-  </main>
+<form id="contactSupportForm" novalidate="">
+<div class="form-grid-2 contact-fields">
+<div class="field-group">
+<label class="field-label" for="contactName">Your name *</label>
+<input autocomplete="name" class="field-control" id="contactName" required="" type="text"/>
+</div>
+<div class="field-group">
+<label class="field-label" for="contactEmail">Email address *</label>
+<input autocomplete="email" class="field-control" id="contactEmail" inputmode="email" required="" type="email"/>
+</div>
+</div>
+<div class="field-group contact-field">
+<label class="field-label" for="contactRef">Application reference (optional)</label>
+<input class="field-control" id="contactRef" placeholder="e.g. OPV-20261028-XXXXXX" type="text"/>
+</div>
+<div class="field-group contact-field">
+<label class="field-label" for="contactMessage">Message *</label>
+<textarea class="field-control" id="contactMessage" required=""></textarea>
+</div>
+<button class="btn btn-primary btn-block" type="submit">
+<span>Send message</span>
+</button>
+</form>
+<div aria-live="polite" id="contactFormStatus" role="status" style="display:none;margin-top:1rem;"></div>
+</div></section><section aria-labelledby="company-details-title" class="company-details">
+<h2 class="card-title" id="company-details-title">Company information</h2>
+<dl class="company-information">
+<div><dt>Legal entity</dt><dd>OnePassVisa Digital Travel Services LLC<span>Registered in Delaware, USA</span></dd></div>
+<div><dt>Fee verification</dt><dd>Verified 27 Oct 2026<span>All 18 supported travel documents</span></dd></div>
+<div><dt>Support email</dt><dd><a href="mailto:support@onepassvisa.com">support@onepassvisa.com</a><span>Mon–Sun, 00:00–23:59 UTC</span></dd></div>
+</dl>
+</section></div>
+</section>
+</main>
 
   <footer class="site-footer">
     <div class="container">
@@ -279,7 +270,7 @@
     </div>
   </div>
 
-  <script src="assets/js/data-v6.js?v=11" defer></script>
-  <script src="assets/js/app-v6.js?v=11" defer></script>
+  <script src="assets/js/data-v6.js?v=12" defer></script>
+  <script src="assets/js/app-v6.js?v=12" defer></script>
 </body>
 </html>
