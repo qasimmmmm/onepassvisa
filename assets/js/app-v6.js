@@ -1046,7 +1046,7 @@
       }
 
       stage4ReviewSummary.innerHTML = `
-        <div class="review-summary">
+        <div class="review-summary review-card">
           <div class="review-heading">
             <strong class="review-doc-title"><span class="combo-flag">${dest.flag}</span> <span>${dest.cleanTitle || dest.visaType}</span></strong>
             <button type="button" class="btn btn-outline btn-sm" data-goto-stage="1">Edit trip</button>
@@ -1757,13 +1757,15 @@
             </li>
           </ol>
 
-          <div class="summary-row"><span>Applicant Email</span><strong>${matchedOrder.email}</strong></div>
-          <div class="summary-row"><span>Travelers</span><strong>${matchedOrder.travelersCount}</strong></div>
-          <div class="summary-row"><span>Planned Arrival Date</span><strong>${matchedOrder.arrivalDate}</strong></div>
-          <div class="summary-row"><span>Government fee</span><strong>${formatMoney(matchedOrder.govTotalUSD)}</strong></div>
-          <div class="summary-row"><span>${orderFees.serviceLabel}</span><strong>${formatMoney(orderFees.baseServiceTotalUSD)}</strong></div>
-          ${orderFees.priorityTotalUSD > 0 ? `<div class="summary-row"><span>Optional priority review</span><strong>${formatMoney(orderFees.priorityTotalUSD)}</strong></div>` : ''}
-          <div class="summary-row"><span>Total Paid</span><strong>${formatMoney(matchedOrder.grandTotalUSD)}</strong></div>
+          <div class="tracking-summary-box">
+            <div class="summary-row"><span>Applicant Email</span><strong>${matchedOrder.email}</strong></div>
+            <div class="summary-row"><span>Travelers</span><strong>${matchedOrder.travelersCount}</strong></div>
+            <div class="summary-row"><span>Planned Arrival Date</span><strong>${matchedOrder.arrivalDate}</strong></div>
+            <div class="summary-row"><span>Government fee</span><strong>${formatMoney(matchedOrder.govTotalUSD)}</strong></div>
+            <div class="summary-row"><span>${orderFees.serviceLabel}</span><strong>${formatMoney(orderFees.baseServiceTotalUSD)}</strong></div>
+            ${orderFees.priorityTotalUSD > 0 ? `<div class="summary-row"><span>Optional priority review</span><strong>${formatMoney(orderFees.priorityTotalUSD)}</strong></div>` : ''}
+            <div class="summary-row"><span>Total Paid</span><strong>${formatMoney(matchedOrder.grandTotalUSD)}</strong></div>
+          </div>
         </div>
       `;
       out.style.display = 'block';
