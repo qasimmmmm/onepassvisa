@@ -273,7 +273,7 @@
         (n) => !query || n.name.toLowerCase().includes(query) || n.code.toLowerCase().includes(query)
       );
       if (!filtered.length) {
-        natList.innerHTML = `<div class="combo-empty">No matching passport country</div>`;
+        natList.innerHTML = `<div class="combo-empty">No passport countries match that search.</div>`;
         return;
       }
       natList.innerHTML = filtered
@@ -302,7 +302,7 @@
           d.categoryBadge.toLowerCase().includes(query)
       );
       if (!filtered.length) {
-        destList.innerHTML = `<div class="combo-empty">No matching destination</div>`;
+        destList.innerHTML = `<div class="combo-empty">No destinations match that search.</div>`;
         return;
       }
       destList.innerHTML = filtered
@@ -467,9 +467,9 @@
         if (drawer) {
           drawer.innerHTML = `
             <div class="checker-prompt-box">
-              <span class="badge badge-emerald checker-drawer-badge">Passport Selection Required</span>
-              <h3 class="checker-drawer-title">Please select your passport country</h3>
-              <p class="checker-drawer-desc">Visa, ETA, and arrival card rules depend on the passport you travel with. Select your nationality from the dropdown above to view eligibility and pricing.</p>
+              <span class="badge badge-emerald checker-drawer-badge">Passport needed</span>
+              <h3 class="checker-drawer-title">Select your passport country first</h3>
+              <p class="checker-drawer-desc">Entry rules depend on the passport you travel with. Pick your passport country above to see requirements and fees.</p>
             </div>
           `;
           drawer.classList.add('active');
@@ -479,7 +479,7 @@
       if (natEl) natEl.removeAttribute('aria-invalid');
       if (!destId || !DATA.destinations.some((d) => d.id === destId)) {
         if (destEl) destEl.setAttribute('aria-invalid', 'true');
-        drawer.innerHTML = `<div class="checker-choice-error" role="alert"><h3>Choose your destination</h3><p>Select where you are traveling to check the right document and fees.</p></div>`;
+        drawer.innerHTML = `<div class="checker-choice-error" role="alert"><h3>Choose where you’re going</h3><p>Pick a destination above to see the required document and fees.</p></div>`;
         drawer.classList.add('active');
         const trigger = document.getElementById('comboDestinationTrigger');
         if (trigger) {
@@ -644,7 +644,7 @@
       if (countLabel) countLabel.textContent = `${list.length} ${list.length === 1 ? 'document' : 'documents'}`;
       if (resetButton) resetButton.disabled = activeRegion === 'all' && activeType === 'all' && !searchQuery;
       grid.innerHTML = list.length ? list.map(renderCard).join('')
-        : `<div class="card directory-empty"><h2>No matching documents</h2><p>Try another country name or reset the filters to see all destinations.</p></div>`;
+        : `<div class="card directory-empty"><h2>No destinations match your filters</h2><p>Try another country name, or reset the filters to browse all 18 documents.</p></div>`;
     }
     window.opvRefreshDestinations = refresh;
     document.querySelectorAll('.js-region-pill').forEach((btn) => {
@@ -952,7 +952,7 @@
       if (!dest.requiresUploads) {
         documentsContainer.innerHTML = `
           <div class="card card-tinted">
-            <span class="badge badge-emerald checker-drawer-badge">✓ No File Uploads Needed</span>
+            <span class="badge badge-emerald checker-drawer-badge">✓ No uploads needed</span>
             <h3 class="checker-drawer-title">${dest.cleanTitle || dest.visaType} does not require passport scan or photo uploads</h3>
             <p class="checker-drawer-desc">
               This ${(dest.categoryBadge || 'document').toLowerCase()} is filed electronically using the passport numbers and trip details you entered in Steps 1 and 2. Our specialists will review your entry dates, passport validity, and ${dest.requiresFlightAndHotel ? 'flight and accommodation details' : 'eligibility answers'} before submission.
@@ -1123,7 +1123,7 @@
           const passportExpiry = blk.querySelector('.js-app-passexp').value;
           if (!givenName || !surname || !nationality || !dob || !passportNumber || !passportExpiry) {
             if (errBox) {
-              errBox.textContent = `Please complete all passport fields for Traveler ${i + 1}.`;
+              errBox.textContent = `Complete every passport field for traveler ${i + 1} before continuing.`;
               errBox.style.display = 'block';
             }
             blk.setAttribute('data-collapsed', 'false');
@@ -1143,7 +1143,7 @@
           const hasPhoto = (photoInp && photoInp.files && photoInp.files[0]) || uploadedFilesMap[`photo_${i}`];
           if (!hasPass || !hasPhoto) {
             if (errBox) {
-              errBox.textContent = `Please upload both the passport bio-page scan and portrait photo for Traveler ${i + 1}.`;
+              errBox.textContent = `Upload both the passport bio-page scan and portrait photo for traveler ${i + 1}.`;
               errBox.style.display = 'block';
               errBox.tabIndex = -1;
               errBox.focus();
@@ -1590,20 +1590,20 @@
         const confirmedFees = getOrderFeeBreakdown(confirmedOrder);
         receiptWrap.innerHTML = `
           <div class="card receipt-card">
-            <span class="badge badge-emerald receipt-badge">✓ Payment Confirmed • In Review</span>
-            <h1 class="page-title">Thank you. Your application is now in specialist review.</h1>
+            <span class="badge badge-emerald receipt-badge">✓ Payment confirmed · In review</span>
+            <h1 class="page-title">Thank you — your application is in review.</h1>
             <p class="receipt-lead">
               A confirmation email and itemized receipt have been sent to <strong>${confirmedOrder.email}</strong>. Save your reference number below to track your status at any time.
             </p>
             <div class="receipt-summary">
-              <div class="summary-row"><span>Application Reference</span><strong class="text-mono-emerald">${confirmedOrder.reference}</strong></div>
-              <div class="summary-row"><span>Receipt Number</span><strong class="text-mono">${confirmedOrder.receiptNumber || 'RCP-' + confirmedOrder.reference}</strong></div>
+              <div class="summary-row"><span>Application reference</span><strong class="text-mono-emerald">${confirmedOrder.reference}</strong></div>
+              <div class="summary-row"><span>Receipt number</span><strong class="text-mono">${confirmedOrder.receiptNumber || 'RCP-' + confirmedOrder.reference}</strong></div>
               <div class="summary-row"><span>Document</span><strong>${confirmedOrder.cleanTitle || confirmedOrder.visaType}</strong></div>
-              <div class="summary-row"><span>Current Status</span><strong class="text-emerald">${confirmedOrder.status}</strong></div>
-              <div class="summary-row"><span>Government Fee</span><strong>${confirmedOrder.govTotalUSD === 0 ? DATA.formatMoney(0, 'USD') + ' (Free)' : DATA.formatMoney(confirmedOrder.govTotalUSD, 'USD')}</strong></div>
+              <div class="summary-row"><span>Current status</span><strong class="text-emerald">${confirmedOrder.status}</strong></div>
+              <div class="summary-row"><span>Government fee</span><strong>${confirmedOrder.govTotalUSD === 0 ? DATA.formatMoney(0, 'USD') + ' (Free)' : DATA.formatMoney(confirmedOrder.govTotalUSD, 'USD')}</strong></div>
               <div class="summary-row"><span>${confirmedFees.serviceLabel}</span><strong>${DATA.formatMoney(confirmedFees.baseServiceTotalUSD, 'USD')}</strong></div>
               ${confirmedFees.priorityTotalUSD > 0 ? `<div class="summary-row"><span>Optional priority review</span><strong>${DATA.formatMoney(confirmedFees.priorityTotalUSD, 'USD')}</strong></div>` : ''}
-              <div class="summary-total"><span>Total Charged (${methodLabel})</span><span>${DATA.formatMoney(confirmedOrder.grandTotalUSD, 'USD')} USD</span></div>
+              <div class="summary-total"><span>Total charged (${methodLabel})</span><span>${DATA.formatMoney(confirmedOrder.grandTotalUSD, 'USD')} USD</span></div>
             </div>
             <div class="receipt-actions">
               <a href="track.html?ref=${encodeURIComponent(confirmedOrder.reference)}&email=${encodeURIComponent(confirmedOrder.email)}" class="btn btn-primary">Track application →</a>
@@ -1657,7 +1657,7 @@
       const email = (emailInput ? emailInput.value : '').trim().toLowerCase();
 
       if (!reference || !email) {
-        out.innerHTML = `<div class="card feedback-error"><p>Please enter both your application reference and the email address used on your application.</p></div>`;
+        out.innerHTML = `<div class="card feedback-error"><p>Enter both your application reference and the email address used on your order.</p></div>`;
         out.style.display = 'block';
         return;
       }
@@ -1682,10 +1682,10 @@
       if (!matchedOrder) {
         out.innerHTML = `
           <div class="card tracking-result empty-state">
-            <span class="badge badge-amber checker-drawer-badge">Application Not Found</span>
-            <h3 class="tracking-not-found-title">No application matches reference "${reference}" and email "${email}".</h3>
+            <span class="badge badge-amber checker-drawer-badge">No match found</span>
+            <h3 class="tracking-not-found-title">We couldn’t find an order matching ${reference} and ${email}.</h3>
             <p class="tracking-not-found-lead">
-              <strong>What to do next:</strong>
+              <strong>Try these steps:</strong>
             </p>
             <ul class="tracking-not-found-list">
               <li>Check your email inbox (and spam folder) for a message from <strong>support@onepassvisa.com</strong> containing your reference code (format: <code class="text-mono">OPV-YYYYMMDD-XXXXXX</code>).</li>
@@ -1758,13 +1758,13 @@
           </ol>
 
           <div class="tracking-summary-box">
-            <div class="summary-row"><span>Applicant Email</span><strong>${matchedOrder.email}</strong></div>
+            <div class="summary-row"><span>Delivery email</span><strong>${matchedOrder.email}</strong></div>
             <div class="summary-row"><span>Travelers</span><strong>${matchedOrder.travelersCount}</strong></div>
-            <div class="summary-row"><span>Planned Arrival Date</span><strong>${matchedOrder.arrivalDate}</strong></div>
+            <div class="summary-row"><span>Planned arrival</span><strong>${matchedOrder.arrivalDate}</strong></div>
             <div class="summary-row"><span>Government fee</span><strong>${formatMoney(matchedOrder.govTotalUSD)}</strong></div>
             <div class="summary-row"><span>${orderFees.serviceLabel}</span><strong>${formatMoney(orderFees.baseServiceTotalUSD)}</strong></div>
             ${orderFees.priorityTotalUSD > 0 ? `<div class="summary-row"><span>Optional priority review</span><strong>${formatMoney(orderFees.priorityTotalUSD)}</strong></div>` : ''}
-            <div class="summary-row"><span>Total Paid</span><strong>${formatMoney(matchedOrder.grandTotalUSD)}</strong></div>
+            <div class="summary-row"><span>Total paid</span><strong>${formatMoney(matchedOrder.grandTotalUSD)}</strong></div>
           </div>
         </div>
       `;

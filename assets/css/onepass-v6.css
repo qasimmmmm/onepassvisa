@@ -863,6 +863,18 @@ ul, ol {
   text-decoration-thickness: 1px;
 }
 
+button.link-inline {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 0;
+  background: none;
+  border: 0;
+  font-family: inherit;
+  font-size: inherit;
+  cursor: pointer;
+}
+
 .link-inline:hover {
   color: var(--emerald-hover);
 }

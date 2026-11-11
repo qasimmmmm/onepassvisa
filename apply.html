@@ -23,7 +23,7 @@
   <link rel="apple-touch-icon" href="assets/images/apple-touch-icon.png" />
   <link rel="preload" href="assets/fonts/inter-variable-latin.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="preload" href="assets/fonts/plus-jakarta-variable-latin.woff2" as="font" type="font/woff2" crossorigin />
-  <link rel="stylesheet" href="assets/css/onepass-v6.css?v=12" />
+  <link rel="stylesheet" href="assets/css/onepass-v6.css?v=13" />
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"OnePassVisa","url":"https://onepassvisa.com/","logo":"https://onepassvisa.com/assets/images/onepassvisa-logo-master.png","description":"Independent private visa and travel document assistance service helping travelers apply for eVisas, ETAs, and digital arrival cards.","contactPoint":{"@type":"ContactPoint","email":"support@onepassvisa.com","contactType":"customer support","availableLanguage":["English"]}}</script>
 </head>
 <body class="has-mobile-sticky-cta">
@@ -117,12 +117,12 @@
       <div class="container">
         <div class="transaction-heading application-heading">
           <div>
-            <h1 class="page-title">Your application</h1>
-            <p class="page-lead">Complete your trip details, travelers, documents, and review in four steps.</p>
+            <h1 class="page-title">Start your application</h1>
+            <p class="page-lead">Four short steps — review every detail and fee before you pay.</p>
           </div>
           <div class="application-save">
             <div class="application-save-actions">
-              <button type="button" id="saveDraftBtn" class="btn btn-outline btn-sm" aria-describedby="saveScopeNote">Save and resume later</button>
+              <button type="button" id="saveDraftBtn" class="btn btn-outline btn-sm" aria-describedby="saveScopeNote">Save progress</button>
               <a id="resumeDraftLink" href="apply.html?resume=1" class="btn btn-outline btn-sm application-resume-link" aria-describedby="saveScopeNote" style="display:none;">Resume saved trip</a>
             </div>
             <p class="save-scope-note" id="saveScopeNote">Saves trip and contact details on this device. Traveler details and uploads are not saved.</p>
@@ -161,7 +161,7 @@
             <!-- STAGE 1: TRIP -->
             <div class="stage-panel active" id="stagePanel1" data-stage="1">
               <h2 class="form-section-title">1. Trip details</h2>
-              <p class="form-section-intro">Confirm your destination, travel date, and where we should send your completed document.</p>
+              <p class="form-section-intro">Choose your destination, planned arrival date, and delivery email.</p>
 
               <div class="field-group mb-4">
                 <label class="field-label" for="applyDestination">Destination and document *</label>
@@ -229,7 +229,7 @@
             <!-- STAGE 2: TRAVELERS -->
             <div class="stage-panel" id="stagePanel2" data-stage="2">
               <h2 class="form-section-title">2. Traveler details</h2>
-              <p class="form-section-intro">Enter each traveler's name and passport details exactly as shown on their passport.</p>
+              <p class="form-section-intro">Copy each traveler’s name and passport numbers directly from the bio-data page.</p>
 
               <div id="applicantsContainer"></div>
 
@@ -245,7 +245,7 @@
             <!-- STAGE 3: DOCUMENTS -->
             <div class="stage-panel" id="stagePanel3" data-stage="3">
               <h2 class="form-section-title">3. Document uploads</h2>
-              <p class="form-section-intro">Upload the documents required for your selected service, or continue if no uploads are required.</p>
+              <p class="form-section-intro">Upload clear scans or phone photos — we format them to official portal specifications.</p>
 
               <div id="documentsStageContainer"></div>
 
@@ -261,7 +261,7 @@
             <!-- STAGE 4: REVIEW AND PAYMENT -->
             <div class="stage-panel" id="stagePanel4" data-stage="4">
               <h2 class="form-section-title">4. Review and payment</h2>
-              <p class="form-section-intro">Check your details, choose your review speed, and continue to secure checkout.</p>
+              <p class="form-section-intro">Double-check your details, pick a review speed, and continue to payment.</p>
 
               <div id="stage4ReviewSummary"></div>
 
@@ -297,7 +297,7 @@
               <div class="stage-nav-bar compact-top">
                 <button type="button" class="btn btn-outline js-prev-stage" data-prev="3">← Back</button>
                 <button type="submit" id="applySubmitBtn" class="btn btn-primary btn-lg">
-                  <span>Continue to secure checkout</span>
+                  <span>Continue to payment</span>
                   <span class="arrow-icon">→</span>
                 </button>
               </div>
@@ -356,7 +356,7 @@
         <div class="footer-brand">
           <a href="index.html" class="footer-logo" aria-label="onepassvisa Home"><img src="assets/images/onepassvisa-logo-white.svg" alt="onepassvisa" width="194" height="34" class="brand-logo-img-footer" loading="lazy" /></a>
           <p>Private travel document and eVisa filing assistance. Passport and photo review, clear fees, and access to official government portals.</p>
-          <p class="footer-contact">Email: <a href="mailto:support@onepassvisa.com">support@onepassvisa.com</a><br/>Support Hours: Mon–Sun, 00:00–23:59 UTC</p>
+          <p class="footer-contact">Email: <a href="mailto:support@onepassvisa.com">support@onepassvisa.com</a><br/>Support hours: Mon–Sun, 00:00–23:59 UTC</p>
         </div>
         <div>
           <h2 class="footer-heading">Explore</h2>
@@ -412,16 +412,16 @@
 
   <div class="cookie-banner" id="cookieConsentBanner" role="region" aria-label="Cookie Consent">
     <div class="cookie-banner-copy">
-      <strong>Your privacy choices</strong> We use essential storage to save your application progress. With your permission, optional analytics help us improve the website. See our <a href="policies.html#cookies" class="cookie-policy-link">Cookie Policy</a>.
+      <strong>Cookies &amp; storage</strong> Essential storage saves your progress and preferences. Optional analytics help us improve the site. <a href="policies.html#cookies" class="cookie-policy-link">Cookie policy</a>
     </div>
     <div class="cookie-banner-actions">
-      <button type="button" class="btn btn-outline btn-sm" id="essentialCookiesBtn">Essential Only</button>
-      <button type="button" class="btn btn-primary btn-sm" id="acceptCookiesBtn">Accept All</button>
+      <button type="button" class="btn btn-outline btn-sm" id="essentialCookiesBtn">Essential only</button>
+      <button type="button" class="btn btn-primary btn-sm" id="acceptCookiesBtn">Accept all</button>
     </div>
   </div>
 
-  <script src="assets/js/data-v6.js?v=12" defer></script>
-  <script src="assets/js/app-v6.js?v=12" defer></script>
-  <script src="assets/js/motion-v6.js?v=12" defer></script>
+  <script src="assets/js/data-v6.js?v=13" defer></script>
+  <script src="assets/js/app-v6.js?v=13" defer></script>
+  <script src="assets/js/motion-v6.js?v=13" defer></script>
 </body>
 </html>
