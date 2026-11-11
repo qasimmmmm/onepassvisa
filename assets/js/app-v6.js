@@ -611,22 +611,24 @@
       const breakdownText = `${govText} + base service ${formatMoney(pricing.servicePerPersonUSD)}`;
       return `
         <article class="dest-card">
-          <a href="${detailHref}" class="dest-card-media" aria-label="${d.name} — ${d.shortDocName || d.visaType}">
+          <a href="${detailHref}" class="dest-card-media" aria-label="${d.name} — ${d.shortDocName || d.visaType}" tabindex="-1">
             <img src="${d.image}" srcset="${d.imageSmall} 480w, ${d.image} 800w" sizes="(min-width: 1024px) 360px, (min-width: 640px) 45vw, 92vw" width="640" height="400" loading="lazy" decoding="async" alt="${d.name}" class="dest-card-img" />
             <span class="dest-flag-badge" aria-hidden="true">${d.flag}</span>
           </a>
           <div class="dest-card-body">
-            <div>
-              <h3 class="dest-card-title"><a href="${detailHref}">${d.name}</a></h3>
-              <div class="dest-card-category">${categoryLabel(d)}</div>
+            <div class="dest-card-top">
+              <div class="dest-card-title-row">
+                <h3 class="dest-card-title"><a href="${detailHref}" class="dest-card-stretch">${d.name}</a></h3>
+                <span class="dest-card-category">${categoryLabel(d)}</span>
+              </div>
               <div class="dest-card-doc">${shortTitles[d.id] || d.shortDocName || d.visaType}</div>
             </div>
             <div class="dest-card-footer">
-              <div>
+              <div class="dest-card-pricing">
                 <div class="dest-total-price tabular-nums">${formatMoney(pricing.totalPerPersonUSD)} <span class="dest-price-unit">/ traveler</span></div>
                 <div class="dest-fee-summary tabular-nums">${breakdownText}</div>
               </div>
-              <a href="${detailHref}" class="dest-card-cta"><span>View requirements</span></a>
+              <a href="${detailHref}" class="dest-card-cta" tabindex="-1"><span>View requirements</span><span class="arrow-icon" aria-hidden="true">→</span></a>
             </div>
           </div>
         </article>`;

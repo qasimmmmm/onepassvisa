@@ -137,6 +137,16 @@
     
     <!-- 1. Hero and requirements checker -->
     <section class="hero" id="checker">
+      <div class="hero-backdrop" aria-hidden="true">
+        <svg class="hero-route-motif" viewBox="0 0 640 440" fill="none">
+          <path d="M84 378C198 258 342 184 584 146" stroke="currentColor" stroke-width="1.25" stroke-dasharray="5 6" opacity="0.55" />
+          <path d="M148 416C262 292 404 222 618 198" stroke="currentColor" stroke-width="1" opacity="0.32" />
+          <path d="M36 312C168 188 336 106 560 72" stroke="currentColor" stroke-width="1" opacity="0.24" />
+          <circle cx="246" cy="242" r="4" fill="currentColor" opacity="0.45" />
+          <circle cx="436" cy="178" r="4.5" fill="currentColor" opacity="0.6" />
+          <circle cx="436" cy="178" r="11" stroke="currentColor" stroke-width="1" opacity="0.28" />
+        </svg>
+      </div>
       <div class="container hero-grid">
         <div class="hero-copy">
           <p class="hero-eyebrow">eVisas · Travel authorizations · Arrival cards</p>
@@ -222,9 +232,17 @@
             height="533"
             fetchpriority="high"
             alt="Limestone islands in Ha Long Bay, Vietnam"
-            class="hero-photo-img"
+            class="hero-photo-img hero-photo-base"
           />
-          <p class="hero-photo-caption"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="2.5"/></svg>Ha Long Bay, Vietnam</p>
+          <img
+            src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+            alt=""
+            aria-hidden="true"
+            decoding="async"
+            class="hero-photo-img hero-photo-swap"
+          />
+          <span class="hero-photo-doc-pill" aria-hidden="true">Tourist eVisa</span>
+          <p class="hero-photo-caption"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="2.5"/></svg><span class="hero-photo-caption-text">Ha Long Bay, Vietnam</span></p>
         </div>
       </div>
     </section>
@@ -240,7 +258,7 @@
         <div class="dest-grid" id="destinationsGrid" data-limit="6">
           
     <article class="dest-card reveal-on-scroll">
-      <a href="vietnam-evisa.html" class="dest-card-media js-carry-nationality" aria-label="Vietnam — Tourist eVisa">
+      <a href="vietnam-evisa.html" class="dest-card-media js-carry-nationality" aria-label="Vietnam — Tourist eVisa" tabindex="-1">
         <img
           src="https://images.unsplash.com/photo-1528127269322-539801943592?auto=format&fit=crop&w=800&q=80&fm=webp"
           srcset="https://images.unsplash.com/photo-1528127269322-539801943592?auto=format&fit=crop&w=480&q=75&fm=webp 480w, https://images.unsplash.com/photo-1528127269322-539801943592?auto=format&fit=crop&w=800&q=80&fm=webp 800w"
@@ -254,17 +272,20 @@
         <span class="dest-flag-badge" aria-hidden="true"><img src="assets/images/flags/vn.svg" alt="" width="20" height="15" class="flag-svg" /></span>
       </a>
       <div class="dest-card-body">
-        <div>
-          <h3 class="dest-card-title"><a href="vietnam-evisa.html" class="js-carry-nationality">Vietnam</a></h3>
+        <div class="dest-card-top">
+          <div class="dest-card-title-row">
+            <h3 class="dest-card-title"><a href="vietnam-evisa.html" class="dest-card-stretch js-carry-nationality">Vietnam</a></h3>
+            <span class="dest-card-category">eVisa</span>
+          </div>
           <div class="dest-card-doc">Tourist eVisa</div>
         </div>
         <div class="dest-card-footer">
-          <div>
+          <div class="dest-card-pricing">
             <div class="dest-total-price tabular-nums"><span data-usd="84.99">US$84.99</span> <span class="dest-price-unit">/ traveler</span></div>
             <div class="dest-fee-summary tabular-nums"><span data-usd="25" data-prefix="Government ">Government US$25</span><span data-usd="59.99" data-prefix=" + base service "> + base service US$59.99</span></div>
           </div>
-          <a href="vietnam-evisa.html" class="dest-card-cta js-carry-nationality">
-            <span>View requirements</span>
+          <a href="vietnam-evisa.html" class="dest-card-cta js-carry-nationality" tabindex="-1">
+            <span>View requirements</span><span class="arrow-icon" aria-hidden="true">→</span>
           </a>
         </div>
       </div>
@@ -272,7 +293,7 @@
   
 
     <article class="dest-card reveal-on-scroll">
-      <a href="thailand-arrival-card.html" class="dest-card-media js-carry-nationality" aria-label="Thailand — Digital Arrival Card (TDAC)">
+      <a href="thailand-arrival-card.html" class="dest-card-media js-carry-nationality" aria-label="Thailand — Digital Arrival Card (TDAC)" tabindex="-1">
         <img
           src="https://images.unsplash.com/photo-1552465011-b4e21bf6e79a?auto=format&fit=crop&w=800&q=80&fm=webp"
           srcset="https://images.unsplash.com/photo-1552465011-b4e21bf6e79a?auto=format&fit=crop&w=480&q=75&fm=webp 480w, https://images.unsplash.com/photo-1552465011-b4e21bf6e79a?auto=format&fit=crop&w=800&q=80&fm=webp 800w"
@@ -286,17 +307,20 @@
         <span class="dest-flag-badge" aria-hidden="true"><img src="assets/images/flags/th.svg" alt="" width="20" height="15" class="flag-svg" /></span>
       </a>
       <div class="dest-card-body">
-        <div>
-          <h3 class="dest-card-title"><a href="thailand-arrival-card.html" class="js-carry-nationality">Thailand</a></h3>
+        <div class="dest-card-top">
+          <div class="dest-card-title-row">
+            <h3 class="dest-card-title"><a href="thailand-arrival-card.html" class="dest-card-stretch js-carry-nationality">Thailand</a></h3>
+            <span class="dest-card-category">Arrival card</span>
+          </div>
           <div class="dest-card-doc">Digital arrival card (TDAC)</div>
         </div>
         <div class="dest-card-footer">
-          <div>
+          <div class="dest-card-pricing">
             <div class="dest-total-price tabular-nums"><span data-usd="59.99">US$59.99</span> <span class="dest-price-unit">/ traveler</span></div>
             <div class="dest-fee-summary tabular-nums"><span data-usd="0" data-prefix="Government " data-free-label="true">Government US$0 (Free)</span><span data-usd="59.99" data-prefix=" + base service "> + base service US$59.99</span></div>
           </div>
-          <a href="thailand-arrival-card.html" class="dest-card-cta js-carry-nationality">
-            <span>View requirements</span>
+          <a href="thailand-arrival-card.html" class="dest-card-cta js-carry-nationality" tabindex="-1">
+            <span>View requirements</span><span class="arrow-icon" aria-hidden="true">→</span>
           </a>
         </div>
       </div>
@@ -304,7 +328,7 @@
   
 
     <article class="dest-card reveal-on-scroll">
-      <a href="indonesia-evoa.html" class="dest-card-media js-carry-nationality" aria-label="Indonesia (Bali) — Electronic Visa on Arrival (e-VOA)">
+      <a href="indonesia-evoa.html" class="dest-card-media js-carry-nationality" aria-label="Indonesia (Bali) — Electronic Visa on Arrival (e-VOA)" tabindex="-1">
         <img
           src="https://images.unsplash.com/photo-1537996194471-e657df975ab4?auto=format&fit=crop&w=800&q=80&fm=webp"
           srcset="https://images.unsplash.com/photo-1537996194471-e657df975ab4?auto=format&fit=crop&w=480&q=75&fm=webp 480w, https://images.unsplash.com/photo-1537996194471-e657df975ab4?auto=format&fit=crop&w=800&q=80&fm=webp 800w"
@@ -318,17 +342,20 @@
         <span class="dest-flag-badge" aria-hidden="true"><img src="assets/images/flags/id.svg" alt="" width="20" height="15" class="flag-svg" /></span>
       </a>
       <div class="dest-card-body">
-        <div>
-          <h3 class="dest-card-title"><a href="indonesia-evoa.html" class="js-carry-nationality">Indonesia (Bali)</a></h3>
+        <div class="dest-card-top">
+          <div class="dest-card-title-row">
+            <h3 class="dest-card-title"><a href="indonesia-evoa.html" class="dest-card-stretch js-carry-nationality">Indonesia (Bali)</a></h3>
+            <span class="dest-card-category">eVisa</span>
+          </div>
           <div class="dest-card-doc">e-VOA</div>
         </div>
         <div class="dest-card-footer">
-          <div>
+          <div class="dest-card-pricing">
             <div class="dest-total-price tabular-nums"><span data-usd="94.99">US$94.99</span> <span class="dest-price-unit">/ traveler</span></div>
             <div class="dest-fee-summary tabular-nums"><span data-usd="35" data-prefix="Government ">Government US$35</span><span data-usd="59.99" data-prefix=" + base service "> + base service US$59.99</span></div>
           </div>
-          <a href="indonesia-evoa.html" class="dest-card-cta js-carry-nationality">
-            <span>View requirements</span>
+          <a href="indonesia-evoa.html" class="dest-card-cta js-carry-nationality" tabindex="-1">
+            <span>View requirements</span><span class="arrow-icon" aria-hidden="true">→</span>
           </a>
         </div>
       </div>
@@ -336,7 +363,7 @@
   
 
     <article class="dest-card reveal-on-scroll">
-      <a href="uk-eta.html" class="dest-card-media js-carry-nationality" aria-label="United Kingdom — Electronic Travel Authorisation (ETA)">
+      <a href="uk-eta.html" class="dest-card-media js-carry-nationality" aria-label="United Kingdom — Electronic Travel Authorisation (ETA)" tabindex="-1">
         <img
           src="https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?auto=format&fit=crop&w=800&q=80&fm=webp"
           srcset="https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?auto=format&fit=crop&w=480&q=75&fm=webp 480w, https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?auto=format&fit=crop&w=800&q=80&fm=webp 800w"
@@ -350,17 +377,20 @@
         <span class="dest-flag-badge" aria-hidden="true"><img src="assets/images/flags/gb.svg" alt="" width="20" height="15" class="flag-svg" /></span>
       </a>
       <div class="dest-card-body">
-        <div>
-          <h3 class="dest-card-title"><a href="uk-eta.html" class="js-carry-nationality">United Kingdom</a></h3>
+        <div class="dest-card-top">
+          <div class="dest-card-title-row">
+            <h3 class="dest-card-title"><a href="uk-eta.html" class="dest-card-stretch js-carry-nationality">United Kingdom</a></h3>
+            <span class="dest-card-category">Travel authorization</span>
+          </div>
           <div class="dest-card-doc">ETA</div>
         </div>
         <div class="dest-card-footer">
-          <div>
+          <div class="dest-card-pricing">
             <div class="dest-total-price tabular-nums"><span data-usd="85.99">US$85.99</span> <span class="dest-price-unit">/ traveler</span></div>
             <div class="dest-fee-summary tabular-nums"><span data-usd="26" data-prefix="Government ">Government US$26</span><span data-usd="59.99" data-prefix=" + base service "> + base service US$59.99</span></div>
           </div>
-          <a href="uk-eta.html" class="dest-card-cta js-carry-nationality">
-            <span>View requirements</span>
+          <a href="uk-eta.html" class="dest-card-cta js-carry-nationality" tabindex="-1">
+            <span>View requirements</span><span class="arrow-icon" aria-hidden="true">→</span>
           </a>
         </div>
       </div>
@@ -368,7 +398,7 @@
   
 
     <article class="dest-card reveal-on-scroll">
-      <a href="us-esta.html" class="dest-card-media js-carry-nationality" aria-label="United States — ESTA (Visa Waiver Program)">
+      <a href="us-esta.html" class="dest-card-media js-carry-nationality" aria-label="United States — ESTA (Visa Waiver Program)" tabindex="-1">
         <img
           src="https://images.unsplash.com/photo-1485871981521-5b1fd3805eee?auto=format&fit=crop&w=800&q=80&fm=webp"
           srcset="https://images.unsplash.com/photo-1485871981521-5b1fd3805eee?auto=format&fit=crop&w=480&q=75&fm=webp 480w, https://images.unsplash.com/photo-1485871981521-5b1fd3805eee?auto=format&fit=crop&w=800&q=80&fm=webp 800w"
@@ -382,17 +412,20 @@
         <span class="dest-flag-badge" aria-hidden="true"><img src="assets/images/flags/us.svg" alt="" width="20" height="15" class="flag-svg" /></span>
       </a>
       <div class="dest-card-body">
-        <div>
-          <h3 class="dest-card-title"><a href="us-esta.html" class="js-carry-nationality">United States</a></h3>
+        <div class="dest-card-top">
+          <div class="dest-card-title-row">
+            <h3 class="dest-card-title"><a href="us-esta.html" class="dest-card-stretch js-carry-nationality">United States</a></h3>
+            <span class="dest-card-category">Travel authorization</span>
+          </div>
           <div class="dest-card-doc">ESTA</div>
         </div>
         <div class="dest-card-footer">
-          <div>
+          <div class="dest-card-pricing">
             <div class="dest-total-price tabular-nums"><span data-usd="100.61">US$100.61</span> <span class="dest-price-unit">/ traveler</span></div>
             <div class="dest-fee-summary tabular-nums"><span data-usd="40.62" data-prefix="Government ">Government US$40.62</span><span data-usd="59.99" data-prefix=" + base service "> + base service US$59.99</span></div>
           </div>
-          <a href="us-esta.html" class="dest-card-cta js-carry-nationality">
-            <span>View requirements</span>
+          <a href="us-esta.html" class="dest-card-cta js-carry-nationality" tabindex="-1">
+            <span>View requirements</span><span class="arrow-icon" aria-hidden="true">→</span>
           </a>
         </div>
       </div>
@@ -400,7 +433,7 @@
   
 
     <article class="dest-card reveal-on-scroll">
-      <a href="india-evisa.html" class="dest-card-media js-carry-nationality" aria-label="India — Tourist eVisa (30-Day)">
+      <a href="india-evisa.html" class="dest-card-media js-carry-nationality" aria-label="India — Tourist eVisa (30-Day)" tabindex="-1">
         <img
           src="https://images.unsplash.com/photo-1524492412937-b28074a5d7da?auto=format&fit=crop&w=800&q=80&fm=webp"
           srcset="https://images.unsplash.com/photo-1524492412937-b28074a5d7da?auto=format&fit=crop&w=480&q=75&fm=webp 480w, https://images.unsplash.com/photo-1524492412937-b28074a5d7da?auto=format&fit=crop&w=800&q=80&fm=webp 800w"
@@ -414,17 +447,20 @@
         <span class="dest-flag-badge" aria-hidden="true"><img src="assets/images/flags/in.svg" alt="" width="20" height="15" class="flag-svg" /></span>
       </a>
       <div class="dest-card-body">
-        <div>
-          <h3 class="dest-card-title"><a href="india-evisa.html" class="js-carry-nationality">India</a></h3>
+        <div class="dest-card-top">
+          <div class="dest-card-title-row">
+            <h3 class="dest-card-title"><a href="india-evisa.html" class="dest-card-stretch js-carry-nationality">India</a></h3>
+            <span class="dest-card-category">eVisa</span>
+          </div>
           <div class="dest-card-doc">Tourist eVisa (30-day)</div>
         </div>
         <div class="dest-card-footer">
-          <div>
+          <div class="dest-card-pricing">
             <div class="dest-total-price tabular-nums"><span data-usd="84.99">US$84.99</span> <span class="dest-price-unit">/ traveler</span></div>
             <div class="dest-fee-summary tabular-nums"><span data-usd="25" data-prefix="Government ">Government US$25</span><span data-usd="59.99" data-prefix=" + base service "> + base service US$59.99</span></div>
           </div>
-          <a href="india-evisa.html" class="dest-card-cta js-carry-nationality">
-            <span>View requirements</span>
+          <a href="india-evisa.html" class="dest-card-cta js-carry-nationality" tabindex="-1">
+            <span>View requirements</span><span class="arrow-icon" aria-hidden="true">→</span>
           </a>
         </div>
       </div>
@@ -449,29 +485,62 @@
           <h2 class="section-title">How it works</h2>
           <p class="section-subtitle">A clear next step, from your first question to your travel document.</p>
         </div>
-        <ol class="process-grid">
-          <li class="process-step">
-            <span class="process-number" aria-hidden="true">01</span>
-            <div class="process-copy">
-              <h3>Tell us about your trip</h3>
-              <p>Choose your destination and enter the required traveler details.</p>
-            </div>
-          </li>
-          <li class="process-step">
-            <span class="process-number" aria-hidden="true">02</span>
-            <div class="process-copy">
-              <h3>We help prepare your application</h3>
-              <p>Our team reviews your information and required documents, then submits to the official portal.</p>
-            </div>
-          </li>
-          <li class="process-step">
-            <span class="process-number" aria-hidden="true">03</span>
-            <div class="process-copy">
-              <h3>Receive your document by email</h3>
-              <p>We email your confirmation when your document is issued. Final approval rests with the issuing authority.</p>
-            </div>
-          </li>
-        </ol>
+        <div class="process-track-wrap">
+          <svg class="process-connector" viewBox="0 0 800 12" preserveAspectRatio="none" aria-hidden="true">
+            <line x1="0" y1="6" x2="800" y2="6" class="process-connector-bg" />
+            <line x1="0" y1="6" x2="800" y2="6" class="process-connector-fill" />
+          </svg>
+          <ol class="process-grid">
+            <li class="process-step reveal-on-scroll">
+              <div class="process-step-head">
+                <span class="process-icon-wrap" aria-hidden="true">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="4" y="3" width="16" height="18" rx="2.5" />
+                    <circle cx="12" cy="10" r="3" />
+                    <path d="M8.5 16.5h7" />
+                  </svg>
+                </span>
+                <span class="process-number" aria-hidden="true">01</span>
+              </div>
+              <div class="process-copy">
+                <h3>Tell us about your trip</h3>
+                <p>Choose your destination and enter the required traveler details.</p>
+              </div>
+            </li>
+            <li class="process-step reveal-on-scroll">
+              <div class="process-step-head">
+                <span class="process-icon-wrap" aria-hidden="true">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M9 11.5l2 2 4.5-4.5" />
+                    <path d="M20 13V6.5A2.5 2.5 0 0 0 17.5 4h-11A2.5 2.5 0 0 0 4 6.5v11A2.5 2.5 0 0 0 6.5 20H13" />
+                    <circle cx="17.5" cy="17.5" r="3" />
+                    <path d="M19.7 19.7L21.5 21.5" />
+                  </svg>
+                </span>
+                <span class="process-number" aria-hidden="true">02</span>
+              </div>
+              <div class="process-copy">
+                <h3>We help prepare your application</h3>
+                <p>Our team reviews your information and required documents, then submits to the official portal.</p>
+              </div>
+            </li>
+            <li class="process-step reveal-on-scroll">
+              <div class="process-step-head">
+                <span class="process-icon-wrap" aria-hidden="true">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="3" y="5" width="18" height="14" rx="2.5" />
+                    <path d="m3.5 7 8.5 6 8.5-6" />
+                  </svg>
+                </span>
+                <span class="process-number" aria-hidden="true">03</span>
+              </div>
+              <div class="process-copy">
+                <h3>Receive your document by email</h3>
+                <p>We email your confirmation when your document is issued. Final approval rests with the issuing authority.</p>
+              </div>
+            </li>
+          </ol>
+        </div>
       </div>
     </section>
 
@@ -497,21 +566,43 @@
             <a href="faq.html#official-portals">Official government links <span aria-hidden="true">↗</span></a>
           </div>
         </div>
-        <div class="fee-anatomy">
-          <h3>What makes up your total?</h3>
+        <div class="fee-anatomy fee-receipt">
+          <div class="fee-receipt-head">
+            <h3>What makes up your total?</h3>
+            <span class="fee-receipt-tag">Per traveler</span>
+          </div>
           <div class="fee-anatomy-row">
+            <span class="fee-operator fee-operator-base" aria-hidden="true">01</span>
             <div><strong>Government fee</strong><p>Paid for the official document. From US$0 for free arrival cards to statutory visa fees.</p></div>
+            <span class="fee-receipt-amount tabular-nums">From US$0</span>
           </div>
           <div class="fee-anatomy-row">
             <span class="fee-operator" aria-hidden="true">+</span>
             <div><strong>OnePassVisa service fee</strong><p>US$59.99 per traveler for application assistance across all visas and travel documents.</p></div>
+            <span class="fee-receipt-amount tabular-nums">US$59.99</span>
           </div>
           <div class="fee-anatomy-row">
             <span class="fee-operator" aria-hidden="true">+</span>
             <div><strong>Optional priority review</strong><p>Only if you choose it. Faster service review, not faster government processing.</p></div>
+            <span class="fee-receipt-amount fee-receipt-amount-muted">Optional</span>
           </div>
-          <div class="fee-anatomy-total"><span aria-hidden="true">=</span><strong>Total per traveler</strong></div>
-          <p class="field-hint">Base service fee excludes government fees, applicable taxes, and other third-party charges. Optional priority review is additional.</p>
+          <div class="fee-receipt-divider" aria-hidden="true"></div>
+          <div class="fee-anatomy-total">
+            <span class="fee-anatomy-total-left"><span aria-hidden="true">=</span><strong>Total per traveler</strong></span>
+            <span class="fee-receipt-formula-pill tabular-nums">Gov + US$59.99</span>
+          </div>
+          <div class="fee-receipt-examples">
+            <span class="fee-receipt-example-label">Sample totals on this page</span>
+            <div class="fee-receipt-example-row tabular-nums">
+              <span>Thailand arrival card (TDAC)</span>
+              <strong>US$0 + US$59.99 = US$59.99</strong>
+            </div>
+            <div class="fee-receipt-example-row tabular-nums">
+              <span>Vietnam Tourist eVisa</span>
+              <strong>US$25 + US$59.99 = US$84.99</strong>
+            </div>
+          </div>
+          <p class="field-hint mt-3">Base service fee excludes government fees, applicable taxes, and other third-party charges. Optional priority review is additional.</p>
           <div class="fee-notes">
             <p>Cancel before government submission for a 100% full refund of all fees. If immigration declines your application, we refund 100% of our service fee.</p>
             <a href="policies.html#refund">Read the refund policy</a>
@@ -585,6 +676,13 @@
   
     <!-- 7. Return to the existing requirements checker -->
     <section class="closing-cta">
+      <svg class="closing-route-motif" viewBox="0 0 520 260" fill="none" aria-hidden="true">
+        <path d="M24 236C142 142 288 78 504 42" stroke="currentColor" stroke-width="1.35" stroke-dasharray="5 6" />
+        <path d="M88 258C210 174 342 118 518 96" stroke="currentColor" stroke-width="1" opacity="0.55" />
+        <circle cx="196" cy="144" r="4" fill="currentColor" opacity="0.7" />
+        <circle cx="382" cy="76" r="4.5" fill="currentColor" />
+        <circle cx="382" cy="76" r="12" stroke="currentColor" stroke-width="1" opacity="0.45" />
+      </svg>
       <div class="container closing-cta-inner">
         <div>
           <h2>Ready for your next journey?</h2>
