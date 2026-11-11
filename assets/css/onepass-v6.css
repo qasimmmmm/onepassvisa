@@ -175,7 +175,7 @@ body {
 
 @media (max-width: 1023px) {
   body.has-mobile-sticky-cta {
-    padding-bottom: 4.5rem;
+    padding-bottom: 5.5rem;
   }
 }
 
@@ -3918,9 +3918,26 @@ h1 { font-size: var(--text-4xl); overflow-wrap: anywhere; }
 
 @media (max-width: 639px) {
   .fee-options-table thead { display: none; }
-  .fee-options-table tr { display: grid; padding: 0.6rem; border-bottom: 1px solid var(--border); }
-  .fee-options-table td { display: grid; grid-template-columns: 1fr 1.2fr; gap: 0.75rem; border: 0; padding: 0.45rem 0.5rem; }
-  .fee-options-table td::before { content: attr(data-label); color: var(--text-muted); font-weight: var(--weight-medium); font-size: 0.8125rem; }
+  .fee-options-table tr { display: block; padding: 0.65rem 0.5rem; border-bottom: 1px solid var(--border); }
+  .fee-options-table tr:last-child { border-bottom: 0; }
+  .fee-options-table td {
+    display: block;
+    position: relative;
+    padding: 0.45rem 0.5rem 0.45rem 45%;
+    min-height: 2.15rem;
+    border: 0;
+  }
+  .fee-options-table td::before {
+    content: attr(data-label);
+    position: absolute;
+    left: 0.5rem;
+    top: 0.48rem;
+    width: calc(45% - 0.85rem);
+    color: var(--text-muted);
+    font-weight: var(--weight-medium);
+    font-size: 0.8125rem;
+    line-height: 1.35;
+  }
 }
 
 .home-service-comparison {
