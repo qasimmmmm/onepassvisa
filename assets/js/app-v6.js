@@ -230,14 +230,14 @@
       if (!n) {
         natSelect.value = '';
         if (natLabel) {
-          natLabel.innerHTML = `<span style="color:var(--text-muted);font-weight:600;">Select passport country</span><span style="color:var(--text-muted);font-size:0.75rem;">▾</span>`;
+          natLabel.innerHTML = `<span class="combo-placeholder-label">Select passport country</span><span class="ui-chevron">▾</span>`;
         }
       } else {
         natSelect.value = n.code;
         saveNationality(n.code);
         const flag = n.flag || '';
         if (natLabel) {
-          natLabel.innerHTML = `<span class="combo-value-text"><span class="combo-flag">${flag}</span><span>${n.name}</span></span><span style="color:var(--text-muted);font-size:0.75rem;">▾</span>`;
+          natLabel.innerHTML = `<span class="combo-value-text"><span class="combo-flag">${flag}</span><span>${n.name}</span></span><span class="ui-chevron">▾</span>`;
         }
         document.querySelectorAll('.js-carry-nationality').forEach((link) => {
           try {
@@ -258,8 +258,8 @@
       destSelect.value = d ? d.id : '';
       if (destLabel) {
         destLabel.innerHTML = d
-          ? `<span class="combo-value-text"><span class="combo-flag">${d.flag || ''}</span><span>${d.name} (${d.shortDocName || d.categoryBadge})</span></span><span style="color:var(--text-muted);font-size:0.75rem;">▾</span>`
-          : `<span class="combo-value-text">Choose destination</span><span style="color:var(--text-muted);font-size:0.75rem;">▾</span>`;
+          ? `<span class="combo-value-text"><span class="combo-flag">${d.flag || ''}</span><span>${d.name} (${d.shortDocName || d.categoryBadge})</span></span><span class="ui-chevron">▾</span>`
+          : `<span class="combo-value-text combo-placeholder">Choose destination</span><span class="ui-chevron">▾</span>`;
       }
       destWrap.classList.remove('open');
       if (destTrigger) destTrigger.setAttribute('aria-expanded', 'false');
@@ -273,15 +273,15 @@
         (n) => !query || n.name.toLowerCase().includes(query) || n.code.toLowerCase().includes(query)
       );
       if (!filtered.length) {
-        natList.innerHTML = `<div style="padding:0.65rem;font-size:0.82rem;color:var(--text-muted);">No matching passport country</div>`;
+        natList.innerHTML = `<div class="combo-empty">No matching passport country</div>`;
         return;
       }
       natList.innerHTML = filtered
         .map(
           (n) => `
           <button type="button" class="combo-item ${n.code === natSelect.value ? 'selected' : ''}" data-code="${n.code}" role="option" aria-selected="${n.code === natSelect.value}" tabindex="-1">
-            <span style="display:inline-flex;align-items:center;gap:0.5rem;"><span>${n.flag}</span><span>${n.name}</span></span>
-            <span style="font-size:0.72rem;color:var(--text-muted);">${n.code}</span>
+            <span class="combo-item-label"><span class="combo-flag">${n.flag}</span><span>${n.name}</span></span>
+            <span class="combo-item-code">${n.code}</span>
           </button>
         `
         )
@@ -302,7 +302,7 @@
           d.categoryBadge.toLowerCase().includes(query)
       );
       if (!filtered.length) {
-        destList.innerHTML = `<div style="padding:0.65rem;font-size:0.82rem;color:var(--text-muted);">No matching destination</div>`;
+        destList.innerHTML = `<div class="combo-empty">No matching destination</div>`;
         return;
       }
       destList.innerHTML = filtered
@@ -310,8 +310,8 @@
           const p = DATA.calculatePrice(d.id, 1, 'standard');
           return `
             <button type="button" class="combo-item ${d.id === destSelect.value ? 'selected' : ''}" data-id="${d.id}" role="option" aria-selected="${d.id === destSelect.value}" tabindex="-1">
-              <span style="display:inline-flex;align-items:center;gap:0.5rem;"><span>${d.flag}</span><span>${d.name} — ${d.shortDocName || d.categoryBadge}</span></span>
-              <span class="badge badge-emerald" style="font-size:0.68rem;padding:0.15rem 0.45rem;">${formatMoney(p.totalPerPersonUSD)}</span>
+              <span class="combo-item-label"><span class="combo-flag">${d.flag}</span><span>${d.name} — ${d.shortDocName || d.categoryBadge}</span></span>
+              <span class="badge badge-emerald combo-price-badge">${formatMoney(p.totalPerPersonUSD)}</span>
             </button>
           `;
         })
@@ -466,10 +466,10 @@
         }
         if (drawer) {
           drawer.innerHTML = `
-            <div style="padding:0.75rem 0.5rem;text-align:center;">
-              <span class="badge badge-emerald" style="margin-bottom:0.5rem;">Passport Selection Required</span>
-              <h3 style="font-size:1.1rem;color:var(--navy);margin-bottom:0.35rem;">Please select your passport country</h3>
-              <p style="font-size:0.88rem;color:var(--text-muted);margin:0;">Visa, ETA, and arrival card rules depend on the passport you travel with. Select your nationality from the dropdown above to view eligibility and pricing.</p>
+            <div class="checker-prompt-box">
+              <span class="badge badge-emerald checker-drawer-badge">Passport Selection Required</span>
+              <h3 class="checker-drawer-title">Please select your passport country</h3>
+              <p class="checker-drawer-desc">Visa, ETA, and arrival card rules depend on the passport you travel with. Select your nationality from the dropdown above to view eligibility and pricing.</p>
             </div>
           `;
           drawer.classList.add('active');
@@ -512,16 +512,16 @@
         let actionHtml = '';
         if (res.canApplyOnline) {
           actionHtml = `
-            <div style="display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:1rem;margin-top:1rem;padding-top:1rem;border-top:1px solid var(--border);">
+            <div class="checker-action-bar">
               <div>
-                <div class="tabular-nums" style="font-size:0.9rem;color:var(--text-body);">
-                  Government ${govLabel} + base service ${formatMoney(pricing.servicePerPersonUSD)} = <strong style="color:var(--navy);font-size:1.05rem;">${formatMoney(pricing.totalPerPersonUSD)} / traveler</strong>
+                <div class="tabular-nums checker-price-line">
+                  Government ${govLabel} + base service ${formatMoney(pricing.servicePerPersonUSD)} = <strong class="checker-price-total">${formatMoney(pricing.totalPerPersonUSD)} / traveler</strong>
                 </div>
-                <div style="font-size:0.8rem;color:var(--text-muted);margin-top:0.25rem;">
+                <div class="checker-timing-line">
                   Our review time: ${d.standardReviewTime} • Expected processing: ${d.govProcessingTime}
                 </div>
               </div>
-              <div style="display:flex;gap:0.6rem;flex-wrap:wrap;">
+              <div class="checker-btn-group">
                 <a href="${d.slug}.html?nationality=${encodeURIComponent(natCode)}" class="btn btn-outline btn-sm">View requirements</a>
                 <a href="apply.html?country=${encodeURIComponent(d.id)}&nationality=${encodeURIComponent(natCode)}" class="btn btn-primary btn-sm">
                   <span>Start application</span>
@@ -529,14 +529,14 @@
                 </a>
               </div>
             </div>
-            <p style="font-size:0.78rem;color:var(--text-muted);margin-top:0.75rem;">
-              OnePassVisa is a private assistance service not affiliated with any government; you can apply directly at <a href="${d.govPortal}" target="_blank" rel="noopener noreferrer" style="color:var(--emerald);font-weight:600;text-decoration:underline;">${d.govPortalName}</a> ${d.id === 'turkey' ? governmentFeeExplanation(pricing) : `for the ${formatMoney(pricing.govPerPersonUSD)} government fee only.`}
+            <p class="checker-gov-note">
+              OnePassVisa is a private assistance service not affiliated with any government; you can apply directly at <a href="${d.govPortal}" target="_blank" rel="noopener noreferrer" class="link-inline">${d.govPortalName}</a> ${d.id === 'turkey' ? governmentFeeExplanation(pricing) : `for the ${formatMoney(pricing.govPerPersonUSD)} government fee only.`}
             </p>
           `;
         } else {
           actionHtml = `
-            <div style="display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:1rem;margin-top:1rem;padding-top:1rem;border-top:1px solid var(--border);">
-              <div style="font-size:0.88rem;color:var(--text-body);">
+            <div class="checker-action-bar">
+              <div class="checker-fallback-note">
                 ${res.status === 'embassy'
                   ? `Online processing is not available for this passport. Please apply directly through the official government portal:`
                   : `No visa application is required before your trip. Verify entry conditions on the official government portal:`}
@@ -550,9 +550,9 @@
 
         drawer.innerHTML = `
           <div>
-            <span class="badge ${res.badgeClass}" style="margin-bottom:0.5rem;">✓ ${res.badgeText}</span>
-            <h3 style="font-size:1.15rem;color:var(--navy);margin-bottom:0.35rem;">${res.headline}</h3>
-            <p style="font-size:0.92rem;color:var(--text-body);">${res.explanation}</p>
+            <span class="badge ${res.badgeClass} checker-drawer-badge">✓ ${res.badgeText}</span>
+            <h3 class="checker-drawer-title">${res.headline}</h3>
+            <p class="checker-drawer-desc">${res.explanation}</p>
             ${actionHtml}
           </div>
         `;
@@ -642,7 +642,7 @@
       if (countLabel) countLabel.textContent = `${list.length} ${list.length === 1 ? 'document' : 'documents'}`;
       if (resetButton) resetButton.disabled = activeRegion === 'all' && activeType === 'all' && !searchQuery;
       grid.innerHTML = list.length ? list.map(renderCard).join('')
-        : `<div class="card directory-empty" style="grid-column:1/-1;"><h2>No matching documents</h2><p>Try another country name or reset the filters to see all destinations.</p></div>`;
+        : `<div class="card directory-empty"><h2>No matching documents</h2><p>Try another country name or reset the filters to see all destinations.</p></div>`;
     }
     window.opvRefreshDestinations = refresh;
     document.querySelectorAll('.js-region-pill').forEach((btn) => {
@@ -758,7 +758,7 @@
         linkEl.href = `apply.html?country=${encodeURIComponent(p.dest.id)}&travelers=${p.travelers}&speed=${speedTier}${natParam}`;
       }
       if (govLinkEl) {
-        govLinkEl.innerHTML = `OnePassVisa is a private service not affiliated with any government; you can apply directly at <a href="${p.dest.govPortal}" target="_blank" rel="noopener noreferrer" style="color:var(--emerald);font-weight:600;text-decoration:underline;">${p.dest.govPortalName}</a> ${governmentFeeExplanation(p)}`;
+        govLinkEl.innerHTML = `OnePassVisa is a private service not affiliated with any government; you can apply directly at <a href="${p.dest.govPortal}" target="_blank" rel="noopener noreferrer" class="link-inline">${p.dest.govPortalName}</a> ${governmentFeeExplanation(p)}`;
       }
     }
 
@@ -858,8 +858,8 @@
           <div class="applicant-block" data-applicant-index="${i + 1}" data-collapsed="${showCollapsed ? 'true' : 'false'}">
             <div class="js-traveler-summary-bar traveler-summary" style="display:${showCollapsed ? 'flex' : 'none'};">
               <div>
-                <strong style="color:var(--navy);">Traveler ${i + 1}: ${prev.givenName} ${prev.surname}</strong>
-                <div style="font-size:0.82rem;color:var(--text-muted);">Passport ${prev.passportNumber} • Nationality: ${prev.nationality}</div>
+                <strong class="text-navy">Traveler ${i + 1}: ${prev.givenName} ${prev.surname}</strong>
+                <div class="traveler-summary-meta">Passport ${prev.passportNumber} • Nationality: ${prev.nationality}</div>
               </div>
               <button type="button" class="btn btn-outline btn-sm js-expand-traveler">Edit</button>
             </div>
@@ -897,7 +897,7 @@
                 </div>
               </div>
               ${count > 1 ? `
-                <div style="margin-top:0.85rem;text-align:right;">
+                <div class="traveler-collapse-actions">
                   <button type="button" class="btn btn-outline btn-sm js-collapse-traveler">Save traveler ${i + 1}</button>
                 </div>
               ` : ''}
@@ -949,10 +949,10 @@
 
       if (!dest.requiresUploads) {
         documentsContainer.innerHTML = `
-          <div class="card" style="background:var(--emerald-tint);border-color:var(--emerald-border);">
-            <span class="badge badge-emerald" style="margin-bottom:0.5rem;">✓ No File Uploads Needed</span>
-            <h3 style="font-size:1.15rem;margin-bottom:0.4rem;">${dest.cleanTitle || dest.visaType} does not require passport scan or photo uploads</h3>
-            <p style="font-size:0.92rem;color:var(--text-body);">
+          <div class="card card-tinted">
+            <span class="badge badge-emerald checker-drawer-badge">✓ No File Uploads Needed</span>
+            <h3 class="checker-drawer-title">${dest.cleanTitle || dest.visaType} does not require passport scan or photo uploads</h3>
+            <p class="checker-drawer-desc">
               This ${(dest.categoryBadge || 'document').toLowerCase()} is filed electronically using the passport numbers and trip details you entered in Steps 1 and 2. Our specialists will review your entry dates, passport validity, and ${dest.requiresFlightAndHotel ? 'flight and accommodation details' : 'eligibility answers'} before submission.
             </p>
           </div>
@@ -970,29 +970,29 @@
         blocks.push(`
           <div class="applicant-block" data-doc-traveler="${i + 1}">
             <h3 class="traveler-title">Traveler ${i + 1} documents</h3>
-            <p style="font-size:0.84rem;color:var(--text-muted);margin-bottom:1rem;">
+            <p class="doc-stage-note">
               Accepted formats: JPG, PNG, WEBP, or PDF (up to 10 MB per file). Our specialists check and format your photo and passport scan to meet official requirements.
             </p>
             <div class="form-grid-2">
               <div class="field-group">
                 <label class="field-label" for="appPassFile_${i}">Passport bio-page scan *</label>
                 <div class="accessible-upload-box">
-                  <input type="file" id="appPassFile_${i}" class="js-app-passfile" data-key="${passKey}" accept=".jpg,.jpeg,.png,.webp,.pdf" style="width:100%;font-size:0.88rem;" ${savedPass ? '' : 'required'} />
-                  <div class="field-hint" style="margin-top:0.35rem;">Clear image of the full passport information page, including the bottom machine-readable zone.</div>
+                  <input type="file" id="appPassFile_${i}" class="js-app-passfile upload-input" data-key="${passKey}" accept=".jpg,.jpeg,.png,.webp,.pdf" ${savedPass ? '' : 'required'} />
+                  <div class="field-hint upload-hint">Clear image of the full passport information page, including the bottom machine-readable zone.</div>
                   <div class="upload-file-meta ${savedPass ? 'visible' : ''}" id="meta_${passKey}">
                     <span>${savedPass ? `✓ ${savedPass.name} (${savedPass.sizeLabel})` : ''}</span>
-                    <label for="appPassFile_${i}" style="color:var(--emerald);font-weight:700;cursor:pointer;text-decoration:underline;">Replace file</label>
+                    <label for="appPassFile_${i}" class="upload-replace-link">Replace file</label>
                   </div>
                 </div>
               </div>
               <div class="field-group">
                 <label class="field-label" for="appPhotoFile_${i}">Traveler portrait photo *</label>
                 <div class="accessible-upload-box">
-                  <input type="file" id="appPhotoFile_${i}" class="js-app-photofile" data-key="${photoKey}" accept=".jpg,.jpeg,.png,.webp" style="width:100%;font-size:0.88rem;" ${savedPhoto ? '' : 'required'} />
-                  <div class="field-hint" style="margin-top:0.35rem;">Front-facing photo against a plain light background (a clear phone photo works well).</div>
+                  <input type="file" id="appPhotoFile_${i}" class="js-app-photofile upload-input" data-key="${photoKey}" accept=".jpg,.jpeg,.png,.webp" ${savedPhoto ? '' : 'required'} />
+                  <div class="field-hint upload-hint">Front-facing photo against a plain light background (a clear phone photo works well).</div>
                   <div class="upload-file-meta ${savedPhoto ? 'visible' : ''}" id="meta_${photoKey}">
                     <span>${savedPhoto ? `✓ ${savedPhoto.name} (${savedPhoto.sizeLabel})` : ''}</span>
-                    <label for="appPhotoFile_${i}" style="color:var(--emerald);font-weight:700;cursor:pointer;text-decoration:underline;">Replace file</label>
+                    <label for="appPhotoFile_${i}" class="upload-replace-link">Replace file</label>
                   </div>
                 </div>
               </div>
@@ -1046,7 +1046,7 @@
       stage4ReviewSummary.innerHTML = `
         <div class="review-summary">
           <div class="review-heading">
-            <strong style="color:var(--navy);">${dest.flag} ${dest.cleanTitle || dest.visaType}</strong>
+            <strong class="review-doc-title"><span class="combo-flag">${dest.flag}</span> <span>${dest.cleanTitle || dest.visaType}</span></strong>
             <button type="button" class="btn btn-outline btn-sm" data-goto-stage="1">Edit trip</button>
           </div>
           <dl class="review-trip"><div><dt>Planned arrival</dt><dd>${arrival}</dd></div><div><dt>Delivery email</dt><dd>${email}</dd></div></dl>
@@ -1258,7 +1258,7 @@
       if (totEl) totEl.textContent = formatMoney(p.grandTotalUSD);
       if (stickyTotEl) stickyTotEl.textContent = formatMoney(p.grandTotalUSD);
       if (disclosureEl) {
-        disclosureEl.innerHTML = `OnePassVisa is a private assistance service, not a government website. You can apply directly at <a href="${p.dest.govPortal}" target="_blank" rel="noopener noreferrer" style="color:var(--emerald);font-weight:600;text-decoration:underline;">${p.dest.govPortalName}</a> ${governmentFeeExplanation(p)}`;
+        disclosureEl.innerHTML = `OnePassVisa is a private assistance service, not a government website. You can apply directly at <a href="${p.dest.govPortal}" target="_blank" rel="noopener noreferrer" class="link-inline">${p.dest.govPortalName}</a> ${governmentFeeExplanation(p)}`;
       }
 
       updateDocumentSpecificVisibility();
@@ -1514,7 +1514,7 @@
       checkoutBox.innerHTML = `
         <div class="card empty-state">
           <h1 class="page-title">No active checkout session found</h1>
-          <p style="margin:0.75rem 0 1.25rem;color:var(--text-muted);">Please start your travel document application first.</p>
+          <p class="empty-state-lead">Please start your travel document application first.</p>
           <a href="apply.html" class="btn btn-primary">Start application</a>
         </div>
       `;
@@ -1545,7 +1545,7 @@
     if (priorityRowEl) priorityRowEl.style.display = orderFees.priorityTotalUSD > 0 ? 'flex' : 'none';
     if (totEl) totEl.textContent = `${DATA.formatMoney(order.grandTotalUSD, 'USD')} USD`;
     if (discEl) {
-      discEl.innerHTML = `OnePassVisa is a private assistance service, not a government site. You can apply directly at <a href="${order.govPortal}" target="_blank" rel="noopener noreferrer" style="color:var(--emerald);font-weight:600;text-decoration:underline;">${order.govPortalName}</a> for the ${order.govTotalUSD === 0 ? formatMoney(0) + ' government fee' : formatMoney(order.govTotalUSD) + ' government fee'} only.`;
+      discEl.innerHTML = `OnePassVisa is a private assistance service, not a government site. You can apply directly at <a href="${order.govPortal}" target="_blank" rel="noopener noreferrer" class="link-inline">${order.govPortalName}</a> for the ${order.govTotalUSD === 0 ? formatMoney(0) + ' government fee' : formatMoney(order.govTotalUSD) + ' government fee'} only.`;
     }
 
     async function completePayment(methodLabel) {
@@ -1588,22 +1588,22 @@
         const confirmedFees = getOrderFeeBreakdown(confirmedOrder);
         receiptWrap.innerHTML = `
           <div class="card receipt-card">
-            <span class="badge badge-emerald" style="margin-bottom:0.75rem;">✓ Payment Confirmed • In Review</span>
+            <span class="badge badge-emerald receipt-badge">✓ Payment Confirmed • In Review</span>
             <h1 class="page-title">Thank you. Your application is now in specialist review.</h1>
-            <p style="color:var(--text-body);margin-bottom:1.25rem;">
+            <p class="receipt-lead">
               A confirmation email and itemized receipt have been sent to <strong>${confirmedOrder.email}</strong>. Save your reference number below to track your status at any time.
             </p>
             <div class="receipt-summary">
-              <div class="summary-row"><span>Application Reference</span><strong style="font-family:var(--font-mono);color:var(--emerald);">${confirmedOrder.reference}</strong></div>
-              <div class="summary-row"><span>Receipt Number</span><strong style="font-family:var(--font-mono);">${confirmedOrder.receiptNumber || 'RCP-' + confirmedOrder.reference}</strong></div>
+              <div class="summary-row"><span>Application Reference</span><strong class="text-mono-emerald">${confirmedOrder.reference}</strong></div>
+              <div class="summary-row"><span>Receipt Number</span><strong class="text-mono">${confirmedOrder.receiptNumber || 'RCP-' + confirmedOrder.reference}</strong></div>
               <div class="summary-row"><span>Document</span><strong>${confirmedOrder.cleanTitle || confirmedOrder.visaType}</strong></div>
-              <div class="summary-row"><span>Current Status</span><strong style="color:var(--emerald);">${confirmedOrder.status}</strong></div>
+              <div class="summary-row"><span>Current Status</span><strong class="text-emerald">${confirmedOrder.status}</strong></div>
               <div class="summary-row"><span>Government Fee</span><strong>${confirmedOrder.govTotalUSD === 0 ? DATA.formatMoney(0, 'USD') + ' (Free)' : DATA.formatMoney(confirmedOrder.govTotalUSD, 'USD')}</strong></div>
               <div class="summary-row"><span>${confirmedFees.serviceLabel}</span><strong>${DATA.formatMoney(confirmedFees.baseServiceTotalUSD, 'USD')}</strong></div>
               ${confirmedFees.priorityTotalUSD > 0 ? `<div class="summary-row"><span>Optional priority review</span><strong>${DATA.formatMoney(confirmedFees.priorityTotalUSD, 'USD')}</strong></div>` : ''}
               <div class="summary-total"><span>Total Charged (${methodLabel})</span><span>${DATA.formatMoney(confirmedOrder.grandTotalUSD, 'USD')} USD</span></div>
             </div>
-            <div style="display:flex;gap:0.75rem;flex-wrap:wrap;">
+            <div class="receipt-actions">
               <a href="track.html?ref=${encodeURIComponent(confirmedOrder.reference)}&email=${encodeURIComponent(confirmedOrder.email)}" class="btn btn-primary">Track application →</a>
               <button type="button" class="btn btn-outline" onclick="window.print()">Print receipt</button>
             </div>
@@ -1680,15 +1680,15 @@
       if (!matchedOrder) {
         out.innerHTML = `
           <div class="card tracking-result empty-state">
-            <span class="badge badge-amber" style="margin-bottom:0.5rem;">Application Not Found</span>
-            <h3 style="font-size:1.15rem;margin-bottom:0.35rem;">No application matches reference "${reference}" and email "${email}".</h3>
-            <p style="font-size:0.92rem;color:var(--text-body);margin-bottom:0.75rem;">
+            <span class="badge badge-amber checker-drawer-badge">Application Not Found</span>
+            <h3 class="tracking-not-found-title">No application matches reference "${reference}" and email "${email}".</h3>
+            <p class="tracking-not-found-lead">
               <strong>What to do next:</strong>
             </p>
-            <ul style="list-style:disc;padding-left:1.25rem;font-size:0.88rem;color:var(--text-body);display:flex;flex-direction:column;gap:0.35rem;">
-              <li>Check your email inbox (and spam folder) for a message from <strong>support@onepassvisa.com</strong> containing your reference code (format: <code style="font-family:var(--font-mono);">OPV-YYYYMMDD-XXXXXX</code>).</li>
+            <ul class="tracking-not-found-list">
+              <li>Check your email inbox (and spam folder) for a message from <strong>support@onepassvisa.com</strong> containing your reference code (format: <code class="text-mono">OPV-YYYYMMDD-XXXXXX</code>).</li>
               <li>Make sure you entered the exact email address used when submitting your application.</li>
-              <li>Need help recovering your reference? Email <a href="mailto:support@onepassvisa.com?subject=Reference%20Lookup" style="color:var(--emerald);font-weight:600;text-decoration:underline;">support@onepassvisa.com</a> with your full name and planned arrival date.</li>
+              <li>Need help recovering your reference? Email <a href="mailto:support@onepassvisa.com?subject=Reference%20Lookup" class="link-inline">support@onepassvisa.com</a> with your full name and planned arrival date.</li>
             </ul>
           </div>
         `;
@@ -1712,7 +1712,7 @@
           <div class="tracking-result-heading">
             <div>
               <span class="badge badge-emerald">✓ In review</span>
-              <h3 style="font-size:1.3rem;margin-top:0.4rem;">${matchedOrder.cleanTitle || matchedOrder.visaType}</h3>
+              <h3 class="tracking-doc-title">${matchedOrder.cleanTitle || matchedOrder.visaType}</h3>
             </div>
             <div class="application-reference">${matchedOrder.reference}</div>
           </div>
@@ -1721,36 +1721,36 @@
             <li class="status-step done">
               <span class="status-dot">✓</span>
               <div>
-                <strong style="color:var(--navy);font-size:0.92rem;">1. Awaiting documents</strong>
-                <div style="font-size:0.82rem;color:var(--text-muted);">Application and traveler details received.</div>
+                <strong class="timeline-step-title">1. Awaiting documents</strong>
+                <div class="timeline-step-desc">Application and traveler details received.</div>
               </div>
             </li>
             <li class="status-step current">
               <span class="status-dot">2</span>
               <div>
-                <strong style="color:var(--navy);font-size:0.92rem;">2. In review (${matchedOrder.ourHandlingTime})</strong>
-                <div style="font-size:0.82rem;color:var(--text-body);">Our specialists are verifying your passport details and formatting requirements.</div>
+                <strong class="timeline-step-title">2. In review (${matchedOrder.ourHandlingTime})</strong>
+                <div class="timeline-step-desc-active">Our specialists are verifying your passport details and formatting requirements.</div>
               </div>
             </li>
             <li class="status-step">
               <span class="status-dot">3</span>
               <div>
-                <strong style="color:var(--navy);font-size:0.92rem;">3. Scheduled for submission</strong>
-                <div style="font-size:0.82rem;color:var(--text-muted);">${scheduledNote}</div>
+                <strong class="timeline-step-title">3. Scheduled for submission</strong>
+                <div class="timeline-step-desc">${scheduledNote}</div>
               </div>
             </li>
             <li class="status-step">
               <span class="status-dot">4</span>
               <div>
-                <strong style="color:var(--navy);font-size:0.92rem;">4. Submitted (${matchedOrder.govProcessingTime})</strong>
-                <div style="font-size:0.82rem;color:var(--text-muted);">Filed with ${matchedOrder.govPortalName}.</div>
+                <strong class="timeline-step-title">4. Submitted (${matchedOrder.govProcessingTime})</strong>
+                <div class="timeline-step-desc">Filed with ${matchedOrder.govPortalName}.</div>
               </div>
             </li>
             <li class="status-step">
               <span class="status-dot">5</span>
               <div>
-                <strong style="color:var(--navy);font-size:0.92rem;">5. Outcome received</strong>
-                <div style="font-size:0.82rem;color:var(--text-muted);">Confirmation delivered by email to ${matchedOrder.email}.</div>
+                <strong class="timeline-step-title">5. Outcome received</strong>
+                <div class="timeline-step-desc">Confirmation delivered by email to ${matchedOrder.email}.</div>
               </div>
             </li>
           </ol>
@@ -1792,11 +1792,11 @@
         });
         const data = await res.json();
         if (!res.ok || !data.ok) throw new Error(data.error || 'Could not send message.');
-        out.innerHTML = `<div class="card" style="background:var(--emerald-tint);border-color:var(--emerald-border);color:var(--navy);"><strong>Ticket ${data.ticketId} Created:</strong> ${data.message}</div>`;
+        out.innerHTML = `<div class="card card-tinted"><strong>Ticket ${data.ticketId} Created:</strong> ${data.message}</div>`;
         out.style.display = 'block';
         form.reset();
       } catch (err) {
-        out.innerHTML = `<div class="card" style="background:var(--emerald-tint);border-color:var(--emerald-border);">Thank you, ${name}. Your inquiry has been logged for <strong>support@onepassvisa.com</strong>. We will reply to <strong>${email}</strong> within 4 business hours.</div>`;
+        out.innerHTML = `<div class="card card-tinted">Thank you, ${name}. Your inquiry has been logged for <strong>support@onepassvisa.com</strong>. We will reply to <strong>${email}</strong> within 4 business hours.</div>`;
         out.style.display = 'block';
       }
     });

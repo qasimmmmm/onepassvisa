@@ -12,13 +12,17 @@
   <meta property="og:title" content="Travel Document Types | eVisas, ETAs &amp; Arrival Cards — OnePassVisa" />
   <meta property="og:description" content="Compare Tourist eVisas, Electronic Travel Authorizations (UK ETA, US ESTA, Canada eTA), and Digital Arrival Cards (TDAC, SGAC, MDAC)." />
   <meta property="og:url" content="https://onepassvisa.com/services" />
-  <meta property="og:image" content="https://onepassvisa.com/assets/images/onepassvisa-logo-master.png" />
+  <meta property="og:image" content="https://onepassvisa.com/assets/images/og-share-1200x630.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image" content="https://onepassvisa.com/assets/images/og-share-1200x630.jpg" />
   <link rel="icon" type="image/x-icon" href="assets/images/favicon.ico" />
   <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon-32x32.png" />
   <link rel="icon" type="image/png" sizes="192x192" href="assets/images/favicon-192x192.png" />
   <link rel="apple-touch-icon" href="assets/images/apple-touch-icon.png" />
-  <link rel="preload" href="assets/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin />
-  <link rel="preload" href="assets/fonts/plus-jakarta-700.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="assets/fonts/inter-variable-latin.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="assets/fonts/plus-jakarta-variable-latin.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="stylesheet" href="assets/css/onepass-v6.css?v=12" />
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"OnePassVisa","url":"https://onepassvisa.com/","logo":"https://onepassvisa.com/assets/images/onepassvisa-logo-master.png","description":"Independent private visa and travel document assistance service helping travelers apply for eVisas, ETAs, and digital arrival cards.","contactPoint":{"@type":"ContactPoint","email":"support@onepassvisa.com","contactType":"customer support","availableLanguage":["English"]}}</script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://onepassvisa.com/"},{"@type":"ListItem","position":2,"name":"Document Types","item":"https://onepassvisa.com/services"}]}</script>
@@ -36,11 +40,11 @@
   <header class="site-header">
     <div class="container header-inner">
       <a href="index.html" class="brand-logo" aria-label="onepassvisa Home">
-        <img src="assets/images/onepassvisa-logo-master.png?v=9" alt="onepassvisa" width="188" height="33" class="brand-logo-img" />
+        <img src="assets/images/onepassvisa-logo.svg" alt="onepassvisa" width="188" height="33" class="brand-logo-img" />
       </a>
 
       <nav class="nav-links" id="mainNavLinks" aria-label="Primary Navigation">
-        <a href="destinations.html" class="nav-link active">Destinations</a>
+        <a href="destinations.html" class="nav-link">Destinations</a>
         <a href="index.html#how-it-works" class="nav-link">How it works</a>
         <a href="faq.html" class="nav-link ">Help</a>
         <a href="track.html" class="nav-link hide-desktop-nav ">Track application</a>
@@ -52,48 +56,48 @@
         <div class="currency-dropdown-wrap" id="currencyDropdownWrap">
           <button type="button" class="currency-trigger" id="currencyTriggerBtn" aria-haspopup="true" aria-expanded="false" aria-label="Select display currency">
             <span id="currencyTriggerLabel">USD</span>
-            <span style="font-size:0.7rem;color:var(--text-muted);">▾</span>
+            <span class="ui-chevron">▾</span>
           </button>
           <div class="currency-menu" id="currencyMenu" role="menu">
             
       <button type="button" class="currency-option js-currency-option active" data-currency="USD">
         <span>USD</span>
-        <span style="color:var(--text-muted);">US$</span>
+        <span class="currency-symbol">US$</span>
       </button>
     
       <button type="button" class="currency-option js-currency-option " data-currency="EUR">
         <span>EUR</span>
-        <span style="color:var(--text-muted);">€</span>
+        <span class="currency-symbol">€</span>
       </button>
     
       <button type="button" class="currency-option js-currency-option " data-currency="GBP">
         <span>GBP</span>
-        <span style="color:var(--text-muted);">£</span>
+        <span class="currency-symbol">£</span>
       </button>
     
       <button type="button" class="currency-option js-currency-option " data-currency="CAD">
         <span>CAD</span>
-        <span style="color:var(--text-muted);">CA$</span>
+        <span class="currency-symbol">CA$</span>
       </button>
     
       <button type="button" class="currency-option js-currency-option " data-currency="AUD">
         <span>AUD</span>
-        <span style="color:var(--text-muted);">A$</span>
+        <span class="currency-symbol">A$</span>
       </button>
     
       <button type="button" class="currency-option js-currency-option " data-currency="AED">
         <span>AED</span>
-        <span style="color:var(--text-muted);">AED</span>
+        <span class="currency-symbol">AED</span>
       </button>
     
       <button type="button" class="currency-option js-currency-option " data-currency="SGD">
         <span>SGD</span>
-        <span style="color:var(--text-muted);">S$</span>
+        <span class="currency-symbol">S$</span>
       </button>
     
       <button type="button" class="currency-option js-currency-option " data-currency="INR">
         <span>INR</span>
-        <span style="color:var(--text-muted);">₹</span>
+        <span class="currency-symbol">₹</span>
       </button>
     
           </div>
@@ -138,13 +142,13 @@
 </div>
 <p class="service-fee-note">Our base assistance fee is <strong>US$59.99 per traveler</strong> for every document type. Government fees, applicable taxes, third-party charges, and optional priority review are separate.</p><div class="document-comparison">
 <article class="document-comparison-row"><div class="document-type-identity"><span class="service-icon"><svg aria-hidden="true" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7" viewBox="0 0 24 24" width="24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><path d="M14 2v6h6M8 13h8M8 17h5"></path></svg></span><h2 class="card-title">eVisas</h2></div><div class="document-purpose"><h3>What it is for</h3><p>A visa issued electronically before travel. Requirements depend on your passport and destination.</p><p class="document-note">Prepare a passport bio-page scan and portrait photo.</p></div><div class="document-outcome"><h3>What you receive</h3><p>An electronic visa or confirmation when the issuing authority approves your application.</p></div><div class="document-type-links"><div class="document-examples">
-<strong>Examples:</strong> <a href="vietnam-evisa.html" style="color:var(--emerald);font-weight:600;text-decoration:underline;">Vietnam (US$84.99)</a> · <a href="india-evisa.html" style="color:var(--emerald);font-weight:600;text-decoration:underline;">India (US$84.99)</a> · <a href="thailand-evisa.html" style="color:var(--emerald);font-weight:600;text-decoration:underline;">Thailand (US$99.99)</a>
+<strong>Examples:</strong> <a class="link-inline" href="vietnam-evisa.html">Vietnam (US$84.99)</a> · <a class="link-inline" href="india-evisa.html">India (US$84.99)</a> · <a class="link-inline" href="thailand-evisa.html">Thailand (US$99.99)</a>
 </div><a class="btn btn-outline btn-sm" href="destinations.html">Explore destinations →</a></div></article>
 <article class="document-comparison-row"><div class="document-type-identity"><span class="service-icon"><svg aria-hidden="true" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7" viewBox="0 0 24 24" width="24"><rect height="18" rx="2" width="16" x="4" y="3"></rect><path d="m9 12 2 2 4-4M8 6h8M9 18h6"></path></svg></span><h2 class="card-title">Travel authorizations</h2></div><div class="document-purpose"><h3>What it is for</h3><p>Pre-travel clearance for eligible visa-exempt travelers, including ETAs and ESTA.</p></div><div class="document-outcome"><h3>What you receive</h3><p>An authorization linked to your passport. Admission is decided by the destination’s border authority.</p></div><div class="document-type-links"><div class="document-examples">
-<strong>Examples:</strong> <a href="uk-eta.html" style="color:var(--emerald);font-weight:600;text-decoration:underline;">UK ETA (US$85.99)</a> · <a href="us-esta.html" style="color:var(--emerald);font-weight:600;text-decoration:underline;">US ESTA (US$100.61)</a> · <a href="canada-eta.html" style="color:var(--emerald);font-weight:600;text-decoration:underline;">Canada eTA (US$64.99)</a>
+<strong>Examples:</strong> <a class="link-inline" href="uk-eta.html">UK ETA (US$85.99)</a> · <a class="link-inline" href="us-esta.html">US ESTA (US$100.61)</a> · <a class="link-inline" href="canada-eta.html">Canada eTA (US$64.99)</a>
 </div><a class="btn btn-outline btn-sm" href="destinations.html">Explore destinations →</a></div></article>
 <article class="document-comparison-row"><div class="document-type-identity"><span class="service-icon"><svg aria-hidden="true" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7" viewBox="0 0 24 24" width="24"><rect height="15" rx="2" width="18" x="3" y="5"></rect><path d="M7 3v4M17 3v4M3 10h18m-14 5 2 2 4-4"></path></svg></span><h2 class="card-title">Arrival cards</h2></div><div class="document-purpose"><h3>What it is for</h3><p>A declaration of your arrival and trip details for Thailand, Singapore, or Malaysia.</p><p class="document-note">Official filing is free (US$0) within 3 days before arrival. Optional assistance lets you provide your trip details after booking.</p></div><div class="document-outcome"><h3>What you receive</h3><p>A confirmation of your arrival declaration. An arrival card is not a visa or permission to enter.</p></div><div class="document-type-links"><div class="document-examples">
-<strong>Routes:</strong> <a href="thailand-arrival-card.html" style="color:var(--emerald);font-weight:600;text-decoration:underline;">Thailand TDAC (US$59.99)</a> · <a href="singapore-arrival-card.html" style="color:var(--emerald);font-weight:600;text-decoration:underline;">Singapore SGAC (US$59.99)</a> · <a href="malaysia-arrival-card.html" style="color:var(--emerald);font-weight:600;text-decoration:underline;">Malaysia MDAC (US$59.99)</a>
+<strong>Routes:</strong> <a class="link-inline" href="thailand-arrival-card.html">Thailand TDAC (US$59.99)</a> · <a class="link-inline" href="singapore-arrival-card.html">Singapore SGAC (US$59.99)</a> · <a class="link-inline" href="malaysia-arrival-card.html">Malaysia MDAC (US$59.99)</a>
 </div><a class="btn btn-outline btn-sm" href="thailand-arrival-card.html">View arrival card details →</a></div></article>
 </div><article class="consular-note">
 <span class="section-kicker">Embassy &amp; consular guidance</span>
@@ -162,7 +166,7 @@
     <div class="container">
       <div class="footer-grid">
         <div class="footer-brand">
-          <a href="index.html" class="footer-logo" aria-label="onepassvisa Home"><img src="assets/images/onepassvisa-logo-white-master.png?v=9" alt="onepassvisa" width="194" height="34" class="brand-logo-img-footer" loading="lazy" /></a>
+          <a href="index.html" class="footer-logo" aria-label="onepassvisa Home"><img src="assets/images/onepassvisa-logo-white.svg" alt="onepassvisa" width="194" height="34" class="brand-logo-img-footer" loading="lazy" /></a>
           <p>Private travel document and eVisa filing assistance. Passport and photo review, clear fees, and access to official government portals.</p>
           <p class="footer-contact">Email: <a href="mailto:support@onepassvisa.com">support@onepassvisa.com</a><br/>Support Hours: Mon–Sun, 00:00–23:59 UTC</p>
         </div>
@@ -207,19 +211,19 @@
 
       <div class="footer-bottom">
         <div>&copy; 2026 OnePassVisa. All rights reserved.</div>
-        <div style="display:flex;gap:1.25rem;flex-wrap:wrap;">
-          <a href="policies.html#privacy" style="color:#CBD5E1;">Privacy</a>
-          <a href="policies.html#terms" style="color:#CBD5E1;">Terms</a>
-          <a href="policies.html#refund" style="color:#CBD5E1;">Refunds</a>
-          <a href="policies.html#cookies" style="color:#CBD5E1;">Cookies</a>
-          <a href="sitemap.xml" style="color:#CBD5E1;">Sitemap</a>
+        <div class="footer-legal-links">
+          <a href="policies.html#privacy">Privacy</a>
+          <a href="policies.html#terms">Terms</a>
+          <a href="policies.html#refund">Refunds</a>
+          <a href="policies.html#cookies">Cookies</a>
+          <a href="sitemap.xml">Sitemap</a>
         </div>
       </div>
     </div>
   </footer>
 
   <div class="cookie-banner" id="cookieConsentBanner" role="region" aria-label="Cookie Consent">
-    <div style="max-width:40rem;">
+    <div class="cookie-banner-copy">
       <strong>Your privacy choices</strong> We use essential storage to save your application progress. With your permission, optional analytics help us improve the website. See our <a href="policies.html#cookies" class="cookie-policy-link">Cookie Policy</a>.
     </div>
     <div class="cookie-banner-actions">
